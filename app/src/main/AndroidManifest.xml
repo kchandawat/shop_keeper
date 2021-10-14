@@ -10,6 +10,28 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Marquedo">
         <activity
+            android:name=".add_product"
+            android:exported="true" />
+        <activity
+            android:name=".progress"
+            android:exported="true"
+            android:label="@string/title_activity_progress" />
+        <activity
+            android:name=".congrats"
+            android:exported="true" />
+        <activity
+            android:name=".Business_Category"
+            android:exported="true" />
+        <activity
+            android:name=".Business_Detail"
+            android:exported="true" />
+        <activity
+            android:name=".otp"
+            android:exported="true" />
+        <activity
+            android:name=".Mobile_Login"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

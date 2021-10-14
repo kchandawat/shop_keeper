@@ -7,22 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-
-public class MainActivity extends AppCompatActivity {
-
-
+public class otp extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button getStarted= (Button) findViewById(R.id.button);
-        Intent login=new Intent(this,Mobile_Login.class);
-        getStarted.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_otp);
+        Intent Business_Detail= new Intent(this,Business_Detail.class);
+        Button sendOtp = findViewById(R.id.button);
+        sendOtp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(login);
+                startActivity(Business_Detail);
             }
         });
     }

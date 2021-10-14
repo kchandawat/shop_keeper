@@ -3,9 +3,26 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable-v24/ic_baseline_check_24_transparent.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable/checkimageselector.xml" value="0.3828125" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable/close_button_white.xml" value="0.3101851851851852" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable/custom_sheet.xml" value="0.3648148148148148" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable/group_74_light_fold_no_text.xml" value="0.22135416666666666" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.3828125" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable/ic_congrats.xml" value="0.3648148148148148" />
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3828125" />
-        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/activity_main.xml" value="0.3605072463768116" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/activity_business_category.xml" value="0.3351449275362319" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/activity_business_detail.xml" value="0.34556159420289856" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/activity_congrats.xml" value="0.18" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/activity_mobile_login.xml" value="0.33" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/activity_otp.xml" value="0.35054347826086957" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/activity_progress.xml" value="0.3351449275362319" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/fragment_category_sheet.xml" value="0.19114583333333332" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/fragment_dashboard.xml" value="0.3351449275362319" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/fragment_home.xml" value="0.3351449275362319" />
+        <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/fragment_notifications.xml" value="0.3351449275362319" />
       </map>
     </option>
   </component>
@@ -14,5 +31,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.33" />
+      </ProjectState>
+    </option>
   </component>
 </project>

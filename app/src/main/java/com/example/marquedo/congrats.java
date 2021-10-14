@@ -7,22 +7,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-
-public class MainActivity extends AppCompatActivity {
-
-
+public class congrats extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button getStarted= (Button) findViewById(R.id.button);
-        Intent login=new Intent(this,Mobile_Login.class);
-        getStarted.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_congrats);
+        Intent progress=new Intent(this, progress.class);
+        Button lets_continue=(Button)findViewById(R.id.button);
+        lets_continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(login);
+                startActivity(progress);
+                finish();
             }
         });
     }
