@@ -26,7 +26,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello there!"
+        android:text="Add new Product"
         android:textColor="@color/sienna_brown"
         android:textSize="36dp"
         android:textStyle="bold"
@@ -42,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="Enter below details for\nsuccessful on-boarding"
+        android:text="Add 3 more products to\nto get started "
         android:textColor="@color/black"
         android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,9 +52,9 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.463" />
 
-    <com.google.android.material.textfield.TextInputLayout
+    <RelativeLayout
         android:id="@+id/textInputLayout"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
         android:layout_width="337dp"
         android:layout_height="55dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
@@ -63,19 +63,32 @@
         app:layout_constraintTop_toBottomOf="@+id/textView5"
         app:layout_constraintVertical_bias="0.314">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
+            android:id="@+id/label1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Name"
+            android:textSize="10dp"
+            />
+
+        <EditText
+            android:id="@+id/edittext1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Business Name"
-            android:inputType="textAutoComplete"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="359dp" />
+            android:layout_below="@+id/label1"
+
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_layout"
+            android:hint="Product 1"
+
+            android:padding="10dp"
+            android:textSize="16dp" />
 
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <RelativeLayout
+
         android:layout_width="337dp"
         android:layout_height="55dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
@@ -83,19 +96,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/business_input"
+        <TextView
+            android:id="@+id/label2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Category"
+            android:textSize="10dp"
+
+            />
+
+        <EditText
+            android:id="@+id/edittext2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Business Categories"
-            android:inputType="textAutoComplete"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="359dp"
+            android:layout_below="@+id/label2"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_layout"
             android:drawableRight="@drawable/ic_baseline_arrow_down_24"
-             />
+            android:hint="Select Product Category"
+
+            android:padding="10dp"
+            android:textSize="16dp" />
 
 
-    </com.google.android.material.textfield.TextInputLayout>
+    </RelativeLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button"
@@ -103,7 +127,7 @@
         android:layout_height="57dp"
         android:layout_marginBottom="76dp"
         android:shadowColor="#ffffff"
-        android:text="Sign Up"
+        android:text="Continue"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="20dp"

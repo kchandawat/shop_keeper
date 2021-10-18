@@ -31,6 +31,8 @@
         <entry key="app/src/main/res/drawable/custom_sheet.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/edit_text_layout.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/group_74_light_fold_no_text.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/drawable/ic_ar_camera.xml" value="0.321025641025641" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_down_24.xml" value="0.2671875" />
         <entry key="app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/ic_congrats.xml" value="0.18385416666666668" />
@@ -38,8 +40,24 @@
         <entry key="app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.18385416666666668" />
-        <entry key="app/src/main/res/layout/activity_new_product.xml" value="0.4086294416243655" />
+        <entry key="app/src/main/res/drawable/temp_ADD.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/drawable/temp_add.xml" value="0.321025641025641" />
+        <entry key="app/src/main/res/layout/activity_add_product.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_business_category.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/activity_business_detail.xml" value="0.30380955863333103" />
+        <entry key="app/src/main/res/layout/activity_congrats.xml" value="0.12208713272543059" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.12208713272543059" />
+        <entry key="app/src/main/res/layout/activity_mobile_login.xml" value="0.12208713272543059" />
+        <entry key="app/src/main/res/layout/activity_new_product.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_only_product_name.xml" value="0.34523216001750384" />
         <entry key="app/src/main/res/layout/activity_otp.xml" value="0.1503623188405797" />
+        <entry key="app/src/main/res/layout/activity_progress.xml" value="0.12208713272543059" />
+        <entry key="app/src/main/res/layout/fragment_category_sheet.xml" value="0.2559504548477131" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.12208713272543059" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2888118141999955" />
+        <entry key="app/src/main/res/layout/fragment_new_product_category.xml" value="0.12208713272543059" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/add_product_images.xml" value="0.14479166666666668" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/iphone_sample.xml" value="0.14479166666666668" />
       </map>
     </option>
   </component>
@@ -52,7 +70,7 @@
   <component name="VisualizationToolProject">
     <option name="state">
       <ProjectState>
-        <option name="scale" value="0.33" />
+        <option name="scale" value="0.2888118141999955" />
       </ProjectState>
     </option>
   </component>
