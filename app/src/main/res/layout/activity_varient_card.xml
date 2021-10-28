@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+
+    tools:context=".Business_Category">
+
+<RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/custom_sheet"
-    style="?attr/bottomSheetStyle"
     android:orientation="vertical"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    style="?attr/bottomSheetStyle"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+
+
+    >
+
 
 
         <LinearLayout
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -43,10 +58,18 @@
 
         </LinearLayout>
         <View
+            android:layout_below="@id/title"
+            android:id="@+id/divider"
             style="@style/Divider"/>
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:translationZ="-10dp"
+            app:behavior_hideable="true"
+            android:layout_below="@id/divider"
+android:id="@+id/nested_view"
+            android:layout_height="470dp"
+
+            android:layout_marginTop="5dp"
             >
             <LinearLayout
                 android:layout_width="match_parent"
@@ -181,27 +204,20 @@
                             android:layout_height="wrap_content"
                             android:text="Discounted Price"
                             android:textSize="15dp" />
+
                         <EditText
-                            android:layout_marginTop="5dp"
-                            android:layout_below="@+id/label6"
                             android:id="@+id/edittext6"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="16dp"
+                            android:layout_below="@+id/label6"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/edit_text_layout"
 
                             android:padding="10dp"
-                            android:background="@drawable/edit_text_layout"/>
+                            android:textSize="16dp" />
                     </RelativeLayout>
                 </LinearLayout>
-                <com.google.android.material.button.MaterialButton
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Add Now"
-                    android:padding="15dp"
-                    app:cornerRadius="12dp"
-                    android:textColor="@color/black"
-                    android:textAllCaps="false"
-                    />
+
                 <com.google.android.material.button.MaterialButton
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -239,7 +255,7 @@
                     android:layout_marginLeft="20dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginRight="20dp"
-                    android:text="Add Size Variant"
+                    android:text="Add Colour Variant"
                     android:textColor="@color/black"
                     android:drawableTint="@color/black"
                     android:drawableRight="@drawable/ic_baseline_arrow_down_24"
@@ -259,9 +275,7 @@
                     app:el_expanded="true"
                     app:el_parallax="0.5">
 
-                    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        xmlns:tools="http://schemas.android.com/tools"
-                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                    <LinearLayout
                         android:id="@+id/layout_cover1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -274,110 +288,100 @@
                         android:layout_marginRight="20dp"
                         android:padding="16dp"
                         tools:ignore="UnusedAttribute">
-
-                        <RelativeLayout
-                            android:layout_height="wrap_content"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_marginTop="15dp"
-                            android:layout_gravity="center_horizontal"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
                             android:padding="10dp"
                             >
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="30dp"
+                                app:cardCornerRadius="8dp"
+                                android:layout_height="30dp"
+                                app:cardBackgroundColor="@color/black"
+                                />
 
                             <TextView
-                                android:id="@+id/label2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Size Name"
-                                android:textSize="15dp" />
-                            <EditText
-                                android:layout_marginTop="5dp"
-                                android:layout_below="@+id/label2"
-                                android:id="@+id/edittext2"
+                                android:layout_marginLeft="20dp"
+                                android:text="#ffffff"
+                                android:textColor="@color/black"
+                                android:textSize="26dp"/>
+
+                            <TextView
                                 android:layout_width="match_parent"
-
                                 android:layout_height="wrap_content"
-                                android:textSize="16dp"
-
-
-                                android:padding="10dp"
-                                android:background="@drawable/edit_text_layout"/>
-                        </RelativeLayout>
+                                android:gravity="end"
+                                android:text="DELETE"
+                                android:textColor="@color/red"
+                                android:textSize="22dp" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
-                            android:weightSum="10"
                             android:padding="10dp"
-                            android:layout_marginTop="10dp"
                             >
-                            <RelativeLayout
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="30dp"
+                                app:cardCornerRadius="8dp"
+                                android:layout_height="30dp"
+                                app:cardBackgroundColor="#d353e3"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:text="#d353e3"
+                                android:textColor="@color/black"
+                                android:textSize="26dp"/>
+
+                            <TextView
                                 android:layout_width="match_parent"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="20dp"
-                                android:layout_weight="5"
-                                android:layout_marginRight="5dp"
-                                >
-
-                                <TextView
-                                    android:id="@+id/label7"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Price"
-                                    android:textSize="15dp" />
-
-                                <EditText
-                                    android:id="@+id/edittext7"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_below="@+id/label7"
-
-                                    android:layout_marginTop="5dp"
-                                    android:background="@drawable/edit_text_layout"
-
-
-                                    android:padding="10dp"
-                                    android:textSize="16dp" />
-                            </RelativeLayout>
-
-                            <RelativeLayout
                                 android:layout_height="wrap_content"
-                                android:layout_width="match_parent"
-                                android:layout_gravity="center_horizontal"
-                                android:layout_marginTop="20dp"
-                                android:layout_weight="5"
-                                android:layout_marginLeft="5dp"
-                                >
-
-                                <TextView
-                                    android:id="@+id/label8"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Discounted Price"
-                                    android:textSize="15dp" />
-                                <EditText
-                                    android:layout_marginTop="5dp"
-                                    android:layout_below="@+id/label8"
-                                    android:id="@+id/edittext8"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:textSize="16dp"
-
-                                    android:padding="10dp"
-                                    android:background="@drawable/edit_text_layout"/>
-                            </RelativeLayout>
+                                android:gravity="end"
+                                android:text="DELETE"
+                                android:textColor="@color/red"
+                                android:textSize="22dp" />
                         </LinearLayout>
-                        <com.google.android.material.button.MaterialButton
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Add Now"
-                            android:padding="15dp"
-                            app:cornerRadius="12dp"
-                            android:textColor="@color/black"
-                            android:textAllCaps="false"
-                            />
+                            android:orientation="horizontal"
+                            android:padding="10dp"
+                            >
+                            <androidx.cardview.widget.CardView
+                                android:layout_width="30dp"
+                                app:cardCornerRadius="8dp"
+                                android:layout_height="30dp"
+                                app:cardBackgroundColor="#45a26e"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:text="#45a26e"
+                                android:textColor="@color/black"
+                                android:textSize="26dp"/>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="end"
+                                android:text="DELETE"
+                                android:textColor="@color/red"
+                                android:textSize="22dp" />
+                        </LinearLayout>
+
+
+
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/add_new_color_variant_button"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
@@ -392,7 +396,7 @@
                             app:iconGravity="textStart"
                             android:textAlignment="center"
                             android:backgroundTint="@color/light_grey"
-                            android:text="Add Another Size Variant"
+                            android:text="Add Colour"
                             android:textColor="@color/red"
                             android:textSize="14dp"
 
@@ -406,10 +410,27 @@
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/submit_button"
+        android:layout_width="350dp"
+        android:layout_height="65dp"
+        android:layout_below="@id/nested_view"
+        android:layout_centerHorizontal="true"
+
+        android:shadowColor="#ffffff"
+        android:text="Save &amp; Continue"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="20dp"
+        app:cornerRadius="10dp"
+        android:layout_margin="12dp"
+        android:layout_gravity="center_horizontal"
+
+        />
+
+
+</RelativeLayout>
+</FrameLayout>
 
 
 
-
-
-
-</LinearLayout>

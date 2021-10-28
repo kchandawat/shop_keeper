@@ -30,6 +30,8 @@
         <entry key="app/src/main/res/drawable/close_button_white.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/custom_sheet.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/edit_text_layout.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/drawable/expandable_child.xml" value="0.18385416666666668" />
+        <entry key="app/src/main/res/drawable/expandable_parent.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/group_74_light_fold_no_text.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/ic_ar_camera.xml" value="0.321025641025641" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_down_24.xml" value="0.2671875" />
@@ -52,10 +54,15 @@
         <entry key="app/src/main/res/layout/activity_only_product_name.xml" value="0.34523216001750384" />
         <entry key="app/src/main/res/layout/activity_otp.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_progress.xml" value="0.12208713272543059" />
+        <entry key="app/src/main/res/layout/activity_varient_card.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_category_sheet.xml" value="0.2559504548477131" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.12208713272543059" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.2888118141999955" />
         <entry key="app/src/main/res/layout/fragment_new_product_category.xml" value="0.12208713272543059" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/product_added_success.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/varient_card.xml" value="0.19382022471910113" />
+        <entry key="app/src/main/res/layout/varient_card_size.xml" value="0.24258377520373028" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/add_product_images.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/iphone_sample.xml" value="0.14479166666666668" />
       </map>
