@@ -5,78 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/iphone_12_pro_max__10"
+
     android:backgroundTint="#91000000"
     android:backgroundTintMode="src_over"
-    tools:context="com.marquedo.marquedo.ui.home.HomeFragment">
+    tools:context=".ui.home.HomeFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
 
             <TextView
-                android:id="@+id/shop_completion_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/store_progressbar"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="32dp"
-                android:layout_marginTop="32dp"
-                android:text="@string/your_shop_completion"
-                android:gravity="center"
+                android:layout_weight="2"
+                android:paddingRight="80dp"
+                android:text="Your Shop Completion"
+                android:textAlignment="textEnd"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/percentage_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/store_progressbar"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="32dp"
-                android:layout_marginEnd="32dp"
-                android:text="@string/_40"
+                android:layout_weight="1"
+                android:text="40%"
                 android:textColor="@color/yellow"
                 android:textSize="30sp"
                 android:textStyle="bold" />
+        </LinearLayout>
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
-            android:id="@+id/store_progressbar"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/shop_completion_textView"
-            app:layout_constraintTop_toBottomOf="@id/shop_completion_textView"
-            app:layout_constraintEnd_toEndOf="@id/percentage_textView"
-            app:layout_constraintBottom_toTopOf="@id/complete_steps_textView"
+            android:paddingLeft="30dp"
             android:paddingTop="10dp"
+            android:paddingRight="30dp"
             android:paddingBottom="10dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
             android:progress="40"
             app:indicatorColor="@color/yellow"
-            app:trackColor="@color/grey3c"
+            app:trackColor="#3c3c3c"
             app:trackCornerRadius="11dp"
+
             app:trackThickness="15dp" />
 
-            <TextView
-                android:id="@+id/complete_steps_textView"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/store_progressbar"
-                app:layout_constraintStart_toStartOf="@id/store_progressbar"
-                app:layout_constraintEnd_toEndOf="@id/store_progressbar"
-                android:text="@string/complete_all_the_steps_to_start_selling_products"
-                android:gravity="center"
-                android:textColor="@color/white"
-                android:textSize="16sp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Complete all the steps to start selling products"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/materialCardView"
         android:layout_width="match_parent"
         android:layout_height="600dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="200dp"
         android:paddingBottom="25dp"
-        app:cardBackgroundColor="@color/whitefa"
+        app:cardBackgroundColor="#fafafa"
         app:cardCornerRadius="25dp"
+
+
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/complete_steps_textView">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -93,6 +98,7 @@
                 app:step_index="1"
                 app:step_line_color="@color/yellow"
                 app:step_state="selected"
+
                 >
 
                 <com.google.android.material.card.MaterialCardView
@@ -112,8 +118,9 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/store_creation"
+                            android:text="Store Creation"
                             android:textColor="@color/black"
+
                             android:textSize="16sp" />
 
                         <TextView
@@ -121,7 +128,7 @@
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="5dp"
                             android:padding="3dp"
-                            android:text="@string/your_store_super_shopping_centre_is_nsuccessfully_created"
+                            android:text="Your Store 'Super Shopping Centre' is \nsuccessfully created."
                             android:textColor="@color/black"
                             android:textSize="12sp" />
 
@@ -130,7 +137,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="end"
                             android:backgroundTint="@color/white"
-                            android:text="@string/preview_store"
+                            android:text="Preview Store >"
                             android:textColor="#fe9300"
                             android:textSize="12sp" />
                     </LinearLayout>
@@ -163,46 +170,42 @@
                         android:orientation="vertical"
                         android:padding="14dp">
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:weightSum="2">
 
                             <TextView
-                                android:id="@+id/add_textView"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                android:text="@string/add_products"
-                                android:textColor="@color/black"
-                                android:textSize="14sp" />
-
-                            <com.google.android.material.button.MaterialButton
-                                android:id="@+id/add_button"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:text="@string/add_products"
+                                android:text="Add Products"
+                                android:textColor="@color/black"
+                                android:textSize="16sp" />
+
+                            <com.google.android.material.button.MaterialButton
+                                android:id="@+id/button"
+                                android:layout_width="43dp"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity=""
+                                android:layout_weight="1"
+
+                                android:text="Add Products"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black"
-                                android:textSize="14sp"
-                                app:cornerRadius="6dp"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintHorizontal_bias="1.0"
-                                app:layout_constraintStart_toEndOf="@id/add_textView"
-                                app:layout_constraintTop_toTopOf="parent" />
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+                                android:textSize="12sp"
+                                app:cornerRadius="6dp" />
+                        </LinearLayout>
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="3dp"
                             android:padding="5dp"
-                            android:text="@string/please_add_at_least_3_products_in_your_nstore_to_start_with"
+                            android:text="Please add at least 3 products in your \nstore to start with."
                             android:textColor="@color/black"
-                            android:textSize="12sp" />
+                            android:textSize="12dp" />
 
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
@@ -226,6 +229,7 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="0dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="12dp"
 
@@ -241,18 +245,19 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/share_on_whatsapp"
+                            android:text="Share On Whatsapp"
                             android:textColor="@color/grey"
-                            android:textSize="16sp" />
+
+                            android:textSize="16dp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="3dp"
                             android:padding="5dp"
-                            android:text="@string/lets_start_with_people_noticing_your_store_nby_sharing_the_link"
+                            android:text="Lets start with people noticing your store \nby sharing the link"
                             android:textColor="@color/grey"
-                            android:textSize="12sp" />
+                            android:textSize="12dp" />
 
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>

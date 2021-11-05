@@ -4,130 +4,139 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.marquedo.marquedo.Mobile_Login">
+    tools:context=".Mobile_Login">
 
     <ImageButton
-        android:id="@+id/only_product_back_button"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:background="@color/white32"
+        android:id="@+id/imageButton"
+        android:layout_width="69dp"
+        android:layout_height="52dp"
+        android:background="#32FFFFFF"
+        android:contentDescription="Return"
         android:scaleX="2"
         android:scaleY="2"
         android:tint="@color/sienna_brown"
-        android:layout_margin="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="?attr/actionModeCloseDrawable"
-        android:contentDescription="@string/only_product_back_button" />
+        app:layout_constraintVertical_bias="0.473"
+        app:srcCompat="?attr/actionModeCloseDrawable" />
 
     <TextView
-        android:id="@+id/add_new_product"
-        android:layout_width="0dp"
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add_new_product"
+        android:text="Add new Product"
         android:textColor="@color/sienna_brown"
-        android:textSize="30sp"
+        android:textSize="36sp"
         android:textStyle="bold"
-        android:layout_margin="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/add_3_products"
+        app:layout_constraintBottom_toTopOf="@+id/textView5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.28"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.767" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Add 3 more products to\nto get started "
+        android:textColor="@color/black"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.313"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.463" />
+
+    <RelativeLayout
+        android:id="@+id/textInputLayout"
+
+        android:layout_width="337dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/only_product_back_button" />
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.2">
 
-    <TextView
-        android:id="@+id/add_3_products"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/add_3_more_products_to_get_started"
-        android:textColor="@color/black"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@id/business_name_til"
-        app:layout_constraintEnd_toEndOf="@id/add_new_product"
-        app:layout_constraintStart_toStartOf="@id/add_new_product"
-        app:layout_constraintTop_toBottomOf="@id/add_new_product" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/business_name_til"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="64dp"
-        app:layout_constraintBottom_toTopOf="@+id/op_continue_button"
-        app:layout_constraintEnd_toEndOf="@id/add_3_products"
-        app:layout_constraintStart_toStartOf="@id/add_3_products"
-        app:layout_constraintTop_toBottomOf="@+id/add_3_products">
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/product_name_til"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+        <TextView
+            android:id="@+id/label1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            app:boxCornerRadiusTopStart="@dimen/til_corner_radius"
-            app:boxCornerRadiusTopEnd="@dimen/til_corner_radius"
-            app:boxCornerRadiusBottomStart="@dimen/til_corner_radius"
-            app:boxCornerRadiusBottomEnd="@dimen/til_corner_radius"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/product_category_til"
-            app:layout_constraintEnd_toEndOf="parent">
+            android:text="Product Name"
+            android:layout_marginStart="10dp"
+            android:textSize="11sp" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/business_name_et"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/product_name"
-                android:imeOptions="actionNext"
-                android:inputType="text" />
-
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/product_category_til"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
+        <EditText
+            android:id="@+id/edittext1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:focusable="true"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="32dp"
-            app:boxCornerRadiusTopStart="@dimen/til_corner_radius"
-            app:boxCornerRadiusTopEnd="@dimen/til_corner_radius"
-            app:boxCornerRadiusBottomStart="@dimen/til_corner_radius"
-            app:boxCornerRadiusBottomEnd="@dimen/til_corner_radius"
-            app:layout_constraintTop_toBottomOf="@id/product_name_til"
-            app:layout_constraintStart_toStartOf="@id/product_name_til"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/product_name_til">
+            android:layout_below="@+id/label1"
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/business_category_et"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
-                android:focusableInTouchMode="false"
-                android:hint="@string/select_product_category"
-                android:inputType="none" />
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_layout"
+            android:hint="Product 1"
 
-        </com.google.android.material.textfield.TextInputLayout>
+            android:padding="10dp"
+            android:textSize="16sp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+
+        android:layout_width="337dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
+        app:layout_constraintVertical_bias="0.24">
+
+        <TextView
+            android:id="@+id/label2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Product Category"
+            android:layout_marginStart="10dp"
+            android:textSize="11sp"
+
+            />
+
+        <EditText
+            android:id="@+id/edittext2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/label2"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/edit_text_layout"
+            android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
+            android:hint="Select Product Category"
+
+            android:padding="10dp"
+            android:textSize="16sp" />
+
+
+    </RelativeLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/op_continue_button"
+        android:id="@+id/button"
         android:layout_width="338dp"
         android:layout_height="57dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="76dp"
         android:shadowColor="#ffffff"
-        android:text="@string/continue_b"
+        android:text="Continue"
         android:textAllCaps="false"
         android:textColor="#000000"
         android:textSize="20sp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/business_name_til"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent" />
 
 

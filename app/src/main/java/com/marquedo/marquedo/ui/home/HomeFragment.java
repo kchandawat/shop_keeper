@@ -1,4 +1,4 @@
-package com.marquedo.marquedo.ui.home;
+package com.example.marquedo.ui.home;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,9 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.marquedo.marquedo.Only_Product_Name;
-import com.marquedo.marquedo.R;
-import com.marquedo.marquedo.databinding.FragmentHomeBinding;
+import com.example.marquedo.Only_Product_Name;
+import com.example.marquedo.R;
+import com.example.marquedo.databinding.FragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
@@ -27,9 +27,17 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        Button add=(Button) root.findViewById(R.id.add_button);
-        Intent add_product=new Intent(getContext(), Only_Product_Name.class);
-        add.setOnClickListener(v -> startActivity(add_product));
+        Button add = root.findViewById(R.id.button);
+        Intent add_product = new Intent(getContext(), Only_Product_Name.class);
+
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(add_product);
+            }
+        });
+
+
         return root;
     }
 
