@@ -33,7 +33,7 @@
                 android:text="Your Shop Completion"
                 android:textAlignment="textEnd"
                 android:textColor="@color/white"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
                 android:layout_weight="1"
                 android:text="40%"
                 android:textColor="@color/yellow"
-                android:textSize="30dp"
+                android:textSize="30sp"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -65,7 +65,7 @@
             android:text="Complete all the steps to start selling products"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
     </LinearLayout>
 
 
@@ -104,7 +104,6 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="12dp"
 
@@ -122,7 +121,7 @@
                             android:text="Store Creation"
                             android:textColor="@color/black"
 
-                            android:textSize="16dp" />
+                            android:textSize="16sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -131,16 +130,16 @@
                             android:padding="3dp"
                             android:text="Your Store 'Super Shopping Centre' is \nsuccessfully created."
                             android:textColor="@color/black"
-                            android:textSize="12dp" />
+                            android:textSize="12sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="right"
+                            android:layout_gravity="end"
                             android:backgroundTint="@color/white"
                             android:text="Preview Store >"
                             android:textColor="#fe9300"
-                            android:textSize="12dp" />
+                            android:textSize="12sp" />
                     </LinearLayout>
                 </com.google.android.material.card.MaterialCardView>
 
@@ -160,7 +159,6 @@
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="0dp"
                     app:cardBackgroundColor="@color/white"
                     app:cardCornerRadius="12dp"
 
@@ -184,7 +182,7 @@
                                 android:layout_weight="1"
                                 android:text="Add Products"
                                 android:textColor="@color/black"
-                                android:textSize="16dp" />
+                                android:textSize="16sp" />
 
                             <com.google.android.material.button.MaterialButton
                                 android:id="@+id/button"
@@ -196,7 +194,7 @@
                                 android:text="Add Products"
                                 android:textAllCaps="false"
                                 android:textColor="@color/black"
-                                android:textSize="12dp"
+                                android:textSize="12sp"
                                 app:cornerRadius="6dp" />
                         </LinearLayout>
 

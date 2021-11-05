@@ -6,15 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.marquedo.Business_Category;
 import com.example.marquedo.Only_Product_Name;
 import com.example.marquedo.R;
 import com.example.marquedo.databinding.FragmentHomeBinding;
@@ -31,15 +27,15 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        Button add=(Button) root.findViewById(R.id.button);
-        Intent add_product=new Intent(getContext(), Only_Product_Name.class);
+        Button add = root.findViewById(R.id.button);
+        Intent add_product = new Intent(getContext(), Only_Product_Name.class);
 
-add.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        startActivity(add_product);
-    }
-});
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(add_product);
+            }
+        });
 
 
         return root;

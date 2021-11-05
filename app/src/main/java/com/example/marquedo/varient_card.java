@@ -1,16 +1,13 @@
 package com.example.marquedo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
-import net.cachapa.expandablelayout.ExpandableLayout;
+import androidx.appcompat.app.AppCompatActivity;
 
-import org.w3c.dom.Text;
+import net.cachapa.expandablelayout.ExpandableLayout;
 
 public class varient_card extends AppCompatActivity {
 
@@ -20,8 +17,8 @@ public class varient_card extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_varient_card);
 
-        ExpandableLayout expandableLayout=(ExpandableLayout) findViewById(R.id.expandable_layout);
-        Button dropdown1=(Button)  findViewById(R.id.add_size_variant);
+        ExpandableLayout expandableLayout = findViewById(R.id.expandable_layout);
+        TextView dropdown1 = findViewById(R.id.add_size_variant);
         dropdown1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

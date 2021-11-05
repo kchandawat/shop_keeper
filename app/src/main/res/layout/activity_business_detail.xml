@@ -11,6 +11,7 @@
         android:layout_width="69dp"
         android:layout_height="52dp"
         android:background="#32FFFFFF"
+        android:contentDescription="Return "
         android:scaleX="2"
         android:scaleY="2"
         android:tint="@color/sienna_brown"
@@ -28,7 +29,7 @@
         android:layout_height="wrap_content"
         android:text="Hello there!"
         android:textColor="@color/sienna_brown"
-        android:textSize="36dp"
+        android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -44,7 +45,7 @@
 
         android:text="Enter below details for\nsuccessful on-boarding"
         android:textColor="@color/black"
-        android:textSize="28dp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.313"
@@ -67,9 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Business Name"
-            android:inputType="textAutoComplete"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="359dp" />
+            android:inputType="textAutoComplete" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -89,9 +88,7 @@
             android:layout_height="wrap_content"
             android:hint="Business Categories"
             android:inputType="textAutoComplete"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="359dp"
-            android:drawableRight="@drawable/ic_baseline_arrow_down_24"
+            android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
              />
 
 
@@ -106,7 +103,7 @@
         android:text="Sign Up"
         android:textAllCaps="false"
         android:textColor="#000000"
-        android:textSize="20dp"
+        android:textSize="20sp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

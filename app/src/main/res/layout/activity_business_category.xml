@@ -11,12 +11,10 @@
         android:id="@+id/standard_bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-
+        app:layout_constraintTop_toTopOf="parent"
 
         style="?attr/bottomSheetStyle"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-
         >
 
 
@@ -28,14 +26,14 @@
             android:padding="10dp"
 
              >
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Business Categories"
-                android:textSize="24dp"
-                android:layout_marginLeft="20dp"
-                android:textColor="@color/black"
-                />
+                android:layout_marginStart="20dp"
+                android:textSize="24sp"
+                android:textColor="@color/black" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/close_sheet"
@@ -63,23 +61,27 @@
             android:orientation="vertical"
 
             >
-        <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:translationZ="-10dp"
-            app:behavior_hideable="true"
-            app:behavior_peekHeight="100dp"
-            android:layout_height="300dp"
-            android:layout_marginTop="80dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:translationZ="-10dp"
+                app:behavior_hideable="true"
+                app:behavior_peekHeight="100dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="80dp"
+                android:scrollbarStyle="insideInset"
+                android:scrollbarTrackVertical="@color/design_default_color_primary">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
 
 
-            >
+                    >
 
 
-            <CheckBox
+                    <CheckBox
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Kirana"
@@ -90,7 +92,6 @@
                 android:layout_marginBottom="5dp"
                 android:textSize="18dp"
                 android:drawableLeft="@drawable/checkimageselector"
-
                 />
             <CheckBox
                 android:layout_width="match_parent"

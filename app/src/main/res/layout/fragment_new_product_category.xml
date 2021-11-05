@@ -3,203 +3,240 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_height="wrap_content"
     android:layout_gravity="bottom"
 
-    tools:context=".Business_Category">
+    tools:context=".category_sheet">
+
     <FrameLayout
         android:id="@+id/standard_bottom_sheet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
-
+        app:layout_constraintTop_toTopOf="parent"
 
         style="?attr/bottomSheetStyle"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-        >
-
-
-        <!-- Bottom sheet contents. -->
-        <LinearLayout
+        <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp"
-
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Product Category"
-                android:textSize="24dp"
-                android:layout_marginLeft="20dp"
-                android:textColor="@color/black"
-                />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/close_sheet"
-
-                android:layout_marginLeft="80dp"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:insetLeft="5dp"
-                android:insetTop="5dp"
-                android:insetRight="5dp"
-                android:insetBottom="5dp"
-                app:cornerRadius="50dp"
-                app:icon="@drawable/ic_baseline_close_24"
-                app:iconTint="@color/black"
-                app:iconGravity="textStart"
-                app:iconPadding="0dp"
-                app:iconSize="30dp"
-                app:backgroundTint="@color/white"
-
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-
-            >
-            <androidx.core.widget.NestedScrollView
+            android:layout_height="match_parent"
+            app:cardCornerRadius="10dp">
+            <!-- Bottom sheet contents. -->
+            <LinearLayout
+                android:id="@+id/title"
                 android:layout_width="match_parent"
-                android:translationZ="-10dp"
-                app:behavior_hideable="true"
-                app:behavior_peekHeight="100dp"
-                android:layout_height="300dp"
-                android:layout_marginTop="80dp">
-                <LinearLayout
-                    android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:layout_marginStart="20dp"
+                    android:text="Product Categories"
+                    android:textColor="@color/black"
+                    android:textSize="24sp" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/close_sheet"
 
-                    >
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="100dp"
+                    android:insetLeft="5dp"
+                    android:insetTop="5dp"
+                    android:insetRight="5dp"
+                    android:insetBottom="5dp"
+                    app:backgroundTint="@color/white"
+                    app:cornerRadius="50dp"
+                    app:icon="@drawable/ic_baseline_close_24"
+                    app:iconGravity="textStart"
+                    app:iconPadding="0dp"
+                    app:iconSize="30dp"
+                    app:iconTint="@color/black"
 
+                    tools:ignore="SpeakableTextPresentCheck" />
+            </LinearLayout>
 
-                    <CheckBox
-                        android:layout_width="match_parent"
+            <View
+                android:id="@+id/divider"
+                style="@style/Divider"
+                android:layout_below="@id/title" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:layout_marginTop="80dp"
+                    android:scrollbarStyle="insideInset"
+                    android:scrollbarTrackVertical="@color/design_default_color_primary"
+                    android:translationZ="-10dp"
+                    app:behavior_hideable="true"
+                    app:behavior_peekHeight="100dp">
+
+                    <LinearLayout
+                        android:layout_width="350dp"
                         android:layout_height="wrap_content"
-                        android:text="Kirana"
-                        android:paddingLeft="30dp"
-                        android:drawablePadding="20dp"
-                        android:button="@null"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:textSize="18dp"
-                        android:drawableLeft="@drawable/checkimageselector"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="vertical">
+                        <!-- listview for product categories -->
+                        <ListView
+                            android:id="@+id/category_list"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="30dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="30dp"
+                            android:clickable="false"
+                            android:divider="@null"
+                            android:focusable="false"
+                            android:listSelector="@android:color/transparent"
+                            android:visibility="gone"></ListView>
 
-                        />
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Dairy"
-                        android:button="@null"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:textSize="18dp"
-                        android:drawableLeft="@drawable/checkimageselector"
-                        android:paddingLeft="30dp"
-                        android:drawablePadding="20dp"
-                        />
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Footwear"
-                        android:button="@null"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:textSize="18dp"
-                        android:drawableLeft="@drawable/checkimageselector"
-                        android:paddingLeft="30dp"
-                        android:drawablePadding="20dp"
-                        />
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Food"
-                        android:button="@null"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:textSize="18dp"
-                        android:drawableLeft="@drawable/checkimageselector"
-                        android:paddingLeft="30dp"
-                        android:drawablePadding="20dp"
-                        />
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Cosmetics"
-                        android:button="@null"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:textSize="18dp"
-                        android:drawableLeft="@drawable/checkimageselector"
-                        android:paddingLeft="30dp"
-                        android:drawablePadding="20dp"
-                        />
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Cake"
-                        android:button="@null"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:textSize="18dp"
-                        android:drawableLeft="@drawable/checkimageselector"
-                        android:paddingLeft="30dp"
-                        android:drawablePadding="20dp"
-                        />
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Stationary"
-                        android:button="@null"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:textSize="18dp"
-                        android:drawableLeft="@drawable/checkimageselector"
-                        android:paddingLeft="30dp"
-                        android:drawablePadding="20dp"
-                        />
-                    <CheckBox
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Books"
-                        android:button="@null"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp"
-                        android:textSize="18dp"
-                        android:drawableLeft="@drawable/checkimageselector"
-                        android:paddingLeft="30dp"
-                        android:drawablePadding="20dp"
-                        />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="clip_horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
 
-                </LinearLayout>
+                            <com.google.android.material.checkbox.MaterialCheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/_checkbox"
+                                android:button="@null"
+                                android:checked="true"
+                                android:drawableEnd="@drawable/checkimageselector"
+                                android:drawablePadding="20dp"
+                                android:paddingStart="30dp"
+                                android:paddingEnd="25dp"
+                                android:text="Category 1"
+                                android:textSize="18sp"
 
+                                android:theme="@style/checkBox" />
+                        </LinearLayout>
 
-            </androidx.core.widget.NestedScrollView>
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/submit_button"
-                android:layout_width="350dp"
-                android:layout_height="65dp"
-                android:shadowColor="#ffffff"
-                android:text="Add New Category"
-                android:textAllCaps="false"
-                android:textColor="#000000"
-                android:textSize="20dp"
-                app:cornerRadius="10dp"
-                android:layout_marginTop="-10dp"
-                android:layout_gravity="center_horizontal"
-                android:paddingBottom="10dp"
-                />
-            <view class="android.widget.LinearLayout"
-                android:layout_height="40dp"
-                android:layout_width="match_parent"/>
-        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="clip_horizontal"
+                            android:orientation="horizontal"
+                            android:paddingBottom="10dp">
 
+                            <com.google.android.material.checkbox.MaterialCheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/_checkbox"
+                                android:button="@null"
+                                android:drawableEnd="@drawable/checkimageselector"
+                                android:drawablePadding="20dp"
+                                android:paddingStart="30dp"
+                                android:paddingEnd="25dp"
+                                android:text="Category 2"
+                                android:textSize="18sp"
+
+                                android:theme="@style/checkBox" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="clip_horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.checkbox.MaterialCheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/_checkbox"
+                                android:button="@null"
+                                android:drawableEnd="@drawable/checkimageselector"
+                                android:drawablePadding="20dp"
+                                android:paddingStart="30dp"
+                                android:paddingEnd="25dp"
+                                android:text="Category 3"
+                                android:textSize="18sp"
+
+                                android:theme="@style/checkBox" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="clip_horizontal"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="horizontal">
+
+                            <com.google.android.material.checkbox.MaterialCheckBox
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:background="@drawable/_checkbox"
+                                android:button="@null"
+                                android:drawableEnd="@drawable/checkimageselector"
+                                android:drawablePadding="20dp"
+                                android:paddingStart="30dp"
+                                android:paddingEnd="25dp"
+                                android:text="Category 4"
+                                android:textSize="18sp"
+                                android:theme="@style/checkBox" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.core.widget.NestedScrollView>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/add_new_product_category_button"
+                    android:layout_width="350dp"
+                    android:layout_height="55dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:backgroundTint="@color/white"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="10dp"
+                    android:stateListAnimator="@null"
+                    android:text="Add New Product Category"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textColor="#c95400"
+                    android:textSize="18sp"
+                    app:cornerRadius="10dp"
+                    app:icon="@drawable/ic_baseline_add_24"
+                    app:iconGravity="textStart"
+                    app:iconTint="#C95400"
+                    app:strokeColor="@color/grey"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/submit_button"
+                    android:layout_width="350dp"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="-10dp"
+                    android:paddingBottom="10dp"
+                    android:shadowColor="#ffffff"
+                    android:text="Submit"
+                    android:textAllCaps="false"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    app:cornerRadius="10dp" />
+
+                <view
+                    class="android.widget.LinearLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </FrameLayout>
 
 
