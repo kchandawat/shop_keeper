@@ -144,7 +144,7 @@
                                 android:textSize="15dp"
                                 android:padding="10dp"
                                 android:gravity="right"
-                                android:textColor="#FD5E53"
+                                android:textColor="@color/red"
                                 />
 
                         </LinearLayout>
@@ -219,7 +219,7 @@
                                 android:textSize="15dp"
                                 android:padding="10dp"
                                 android:gravity="right"
-                                android:textColor="#FD5E53"
+                                android:textColor="@color/red"
                                 />
                         </LinearLayout>
                     </LinearLayout>
@@ -280,7 +280,7 @@
                                 android:textSize="15dp"
                                 android:padding="10dp"
                                 android:gravity="right"
-                                android:textColor="#FD5E53"
+                                android:textColor="@color/red"
                                 />
                         </LinearLayout>
                     </LinearLayout>
