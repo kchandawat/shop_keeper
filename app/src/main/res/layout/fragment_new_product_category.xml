@@ -61,7 +61,8 @@
             <View
                 android:id="@+id/divider"
                 style="@style/Divider"
-                android:layout_below="@id/title" />
+                android:layout_below="@id/title"
+                android:layout_marginTop="65dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

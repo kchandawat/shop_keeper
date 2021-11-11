@@ -43,7 +43,7 @@
                     android:id="@+id/close_sheet"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:layout_marginStart="80dp"
+                    android:layout_marginHorizontal="70dp"
                     android:contentDescription="Close Sheet"
                     android:elevation="15dp"
                     android:insetLeft="5dp"
