@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".OrdersPage_OrdersFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/rvOrders_Orderpage"/>
+    <!-- TODO: Update blank fragment layout -->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            app:cardBackgroundColor="@color/white"-->
+<!--            app:cardCornerRadius="10dp"-->
+<!--            app:cardPreventCornerOverlap="true"-->
+<!--            app:cardUseCompatPadding="true"-->
+<!--            android:clipToPadding="false"-->
+<!--            android:clipChildren="false"-->
+<!--            >-->
+
+
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                >-->
+
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="10dp">-->
+
+
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+<!--                            android:text="ID: 34623153"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="23sp" />-->
+
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+<!--                            android:text="11/11/21   5:40 pm"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="18sp" />-->
+<!--                    </LinearLayout>-->
+<!--                </RelativeLayout>-->
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="10dp">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentLeft="true"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+<!--                            android:text="Products: 06"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="19sp" />-->
+<!--                    </LinearLayout>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:layout_gravity=""-->
+<!--                        android:text="Bill total: 1600"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="19sp" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentLeft="true"-->
+<!--                        android:orientation="horizontal">-->
+
+
+<!--                    </LinearLayout>-->
+<!--                </RelativeLayout>-->
+
+
+<!--                <View-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:background="#808080" />-->
+
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
+
+
+<!--                    <Button-->
+<!--                        android:id="@+id/ConfirmorderButton1"-->
+<!--                        style="@style/Widget.MaterialComponents.Button.Icon"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="35dp"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginBottom="15dp"-->
+<!--                        android:background="@drawable/round_corner_buttons"-->
+<!--                        android:backgroundTint="@color/yellow"-->
+<!--                        android:clickable="true"-->
+<!--                        android:fontFamily="sans-serif"-->
+<!--                        android:text="Confirm Order"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:textIsSelectable="false"-->
+<!--                        android:textStyle="bold"-->
+<!--                        app:elevation="0dp" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+
+<!--                            android:text="View Details"-->
+<!--                            android:textColor="#c95400"-->
+<!--                            android:textSize="21sp" />-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/rightarrow1"-->
+<!--                            android:layout_width="22dp"-->
+<!--                            android:layout_height="22dp"/>-->
+
+
+<!--                    </LinearLayout>-->
+
+
+<!--                </RelativeLayout>-->
+
+
+<!--            </LinearLayout>-->
+
+
+<!--        </androidx.cardview.widget.CardView>-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            app:cardBackgroundColor="@color/white"-->
+<!--            app:cardCornerRadius="10dp"-->
+<!--            app:cardPreventCornerOverlap="true"-->
+<!--            app:cardUseCompatPadding="true"-->
+<!--            android:clipToPadding="false"-->
+<!--            android:clipChildren="false"-->
+<!--            >-->
+
+
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                >-->
+
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="10dp">-->
+
+
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+<!--                            android:text="ID: 34623153"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="23sp" />-->
+
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+<!--                            android:text="11/11/21   5:40 pm"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="18sp" />-->
+<!--                    </LinearLayout>-->
+<!--                </RelativeLayout>-->
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="10dp">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentLeft="true"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+<!--                            android:text="Products: 06"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="19sp" />-->
+<!--                    </LinearLayout>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:layout_gravity=""-->
+<!--                        android:text="Bill total: 1600"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="19sp" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentLeft="true"-->
+<!--                        android:orientation="horizontal">-->
+
+
+<!--                    </LinearLayout>-->
+<!--                </RelativeLayout>-->
+
+
+<!--                <View-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:background="#808080" />-->
+
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
+
+
+<!--                    <Button-->
+<!--                        android:id="@+id/ConfirmorderButton2"-->
+<!--                        style="@style/Widget.MaterialComponents.Button.Icon"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="35dp"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginBottom="15dp"-->
+<!--                        android:background="@drawable/round_corner_buttons"-->
+<!--                        android:backgroundTint="@color/yellow"-->
+<!--                        android:clickable="true"-->
+<!--                        android:fontFamily="sans-serif"-->
+<!--                        android:text="Confirm Order"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:textIsSelectable="false"-->
+<!--                        android:textStyle="bold"-->
+<!--                        app:elevation="0dp" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+
+<!--                            android:text="View Details"-->
+<!--                            android:textColor="#c95400"-->
+<!--                            android:textSize="21sp" />-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/rightarrow2"-->
+<!--                            android:layout_width="22dp"-->
+<!--                            android:layout_height="22dp"/>-->
+
+
+<!--                    </LinearLayout>-->
+
+
+<!--                </RelativeLayout>-->
+
+
+<!--            </LinearLayout>-->
+
+
+<!--        </androidx.cardview.widget.CardView>-->
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            app:cardBackgroundColor="@color/white"-->
+<!--            app:cardCornerRadius="10dp"-->
+<!--            app:cardPreventCornerOverlap="true"-->
+<!--            app:cardUseCompatPadding="true"-->
+<!--            android:clipToPadding="false"-->
+<!--            android:clipChildren="false"-->
+<!--            >-->
+
+
+
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:orientation="vertical"-->
+<!--                >-->
+
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="10dp">-->
+
+
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+<!--                            android:text="ID: 34623153"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="23sp" />-->
+
+<!--                    </LinearLayout>-->
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+<!--                            android:text="11/11/21   5:40 pm"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="18sp" />-->
+<!--                    </LinearLayout>-->
+<!--                </RelativeLayout>-->
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:padding="10dp">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentLeft="true"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+<!--                            android:text="Products: 06"-->
+<!--                            android:textColor="@color/black"-->
+<!--                            android:textSize="19sp" />-->
+<!--                    </LinearLayout>-->
+<!--                    <TextView-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:layout_gravity=""-->
+<!--                        android:text="Bill total: 1600"-->
+<!--                        android:textColor="@color/black"-->
+<!--                        android:textSize="19sp" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentLeft="true"-->
+<!--                        android:orientation="horizontal">-->
+
+
+<!--                    </LinearLayout>-->
+<!--                </RelativeLayout>-->
+
+
+<!--                <View-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:background="#808080" />-->
+
+
+<!--                <RelativeLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content">-->
+
+
+<!--                    <Button-->
+<!--                        android:id="@+id/ConfirmorderButton"-->
+<!--                        style="@style/Widget.MaterialComponents.Button.Icon"-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="35dp"-->
+<!--                        android:layout_marginLeft="10dp"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginBottom="15dp"-->
+<!--                        android:background="@drawable/round_corner_buttons"-->
+<!--                        android:backgroundTint="@color/yellow"-->
+<!--                        android:clickable="true"-->
+<!--                        android:fontFamily="sans-serif"-->
+<!--                        android:text="Confirm Order"-->
+<!--                        android:textAllCaps="false"-->
+<!--                        android:textColor="#000"-->
+<!--                        android:textIsSelectable="false"-->
+<!--                        android:textStyle="bold"-->
+<!--                        app:elevation="0dp" />-->
+
+<!--                    <LinearLayout-->
+<!--                        android:layout_width="wrap_content"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_alignParentRight="true"-->
+<!--                        android:layout_marginTop="10dp"-->
+<!--                        android:layout_marginRight="10dp"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <TextView-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity=""-->
+
+<!--                            android:text="View Details"-->
+<!--                            android:textColor="#c95400"-->
+<!--                            android:textSize="21sp" />-->
+
+<!--                        <ImageView-->
+<!--                            android:id="@+id/rightarrow"-->
+<!--                            android:layout_width="22dp"-->
+<!--                            android:layout_height="22dp"/>-->
+
+
+<!--                    </LinearLayout>-->
+
+
+<!--                </RelativeLayout>-->
+
+
+<!--            </LinearLayout>-->
+
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+<!--    </LinearLayout>-->
+
+
+</FrameLayout>
