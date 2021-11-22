@@ -138,9 +138,10 @@
                             android:layout_height="40dp"
                             android:layout_margin="5dp"
                             android:button="@null"
-                            android:checked="true"
+                            android:checked="false"
                             android:paddingHorizontal="15dp"
                             android:text="All Products"
+                            android:background="@drawable/prod_check"
                             android:textColor="@color/black"
                             android:textSize="14sp" />
 
@@ -150,6 +151,8 @@
                             android:layout_margin="5dp"
                             android:button="@null"
                             android:checked="true"
+                            android:background="@drawable/prod_check"
+
                             android:paddingHorizontal="15dp"
                             android:text="Pending"
                             android:textColor="@color/black"
@@ -158,8 +161,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
                             android:layout_margin="5dp"
+                            android:background="@drawable/prod_check"
                             android:button="@null"
-                            android:checked="true"
+                            android:checked="false"
                             android:paddingHorizontal="15dp"
                             android:text="Accepted"
                             android:textColor="@color/black"
@@ -169,7 +173,8 @@
                             android:layout_height="40dp"
                             android:layout_margin="5dp"
                             android:button="@null"
-                            android:checked="true"
+                            android:checked="false"
+                            android:background="@drawable/prod_check"
                             android:paddingHorizontal="15dp"
                             android:text="Shipped"
                             android:textColor="@color/black"
@@ -179,7 +184,8 @@
                             android:layout_height="40dp"
                             android:layout_margin="5dp"
                             android:button="@null"
-                            android:checked="true"
+                            android:checked="false"
+                            android:background="@drawable/prod_check"
                             android:paddingHorizontal="15dp"
                             android:text="New"
                             android:textColor="@color/black"
@@ -195,7 +201,7 @@
                     android:layout_marginBottom="10dp"
                     android:iconifiedByDefault="false"
                     app:queryHint="Search here..."
-                    android:backgroundTint="#EDEDED"
+                    android:backgroundTint="#B3FFFFFF"
                     app:actionViewClass="androidx.appcompat.widget.SearchView"
                     android:background="@drawable/tab_shape"
                     />
@@ -204,6 +210,7 @@
                     android:id="@+id/view_pager_order_page"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
+                    android:layout_marginBottom="20dp"
                     android:layout_weight="1" />
 
 
