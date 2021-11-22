@@ -1,4 +1,4 @@
-package com.example.marquedo;
+package com.example.marquedo.ui.Prod_n_Cat.Product;
 
 public class ProductsDataModel {
 
