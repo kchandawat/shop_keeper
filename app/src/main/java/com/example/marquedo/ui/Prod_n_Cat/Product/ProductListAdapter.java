@@ -1,4 +1,4 @@
-package com.example.marquedo;
+package com.example.marquedo.ui.Prod_n_Cat.Product;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.marquedo.R;
 
 import java.util.ArrayList;
 
