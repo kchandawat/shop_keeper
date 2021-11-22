@@ -5,14 +5,23 @@
       <map>
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable-v24/ic_baseline_check_24_transparent.xml" value="0.290625" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/_checkbox.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/availability_negative.xml" value="0.290625" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/categories_item.xml" value="0.290625" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/checkimageselector.xml" value="0.290625" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/custom_scrollbar.xml" value="0.290625" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/custom_sheet.xml" value="0.290625" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/ic_baseline_arrow_down_24.xml" value="0.290625" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.290625" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.290625" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/ic_baseline_share_24.xml" value="0.290625" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.290625" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/outline_check_prod.xml" value="0.290625" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/outline_check_prod_sel.xml" value="0.290625" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/outline_checkbox.xml" value="0.15989583333333332" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/outline_checkbox_selected.xml" value="0.15989583333333332" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/prod_check.xml" value="0.290625" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/searchbar_style.xml" value="0.290625" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/tab_indicator.xml" value="0.290625" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_add_product.xml" value="0.264" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_business_category.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_business_detail.xml" value="0.4" />
@@ -22,20 +31,26 @@
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_new_product.xml" value="0.2822085889570552" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_only_product_name.xml" value="0.4" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_otp.xml" value="0.2558876811594203" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_products_n_category.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_progress.xml" value="0.2558876811594203" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_update_product.xml" value="0.27380952380952384" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_varient_card.xml" value="0.2558876811594203" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/categories_item.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/custom_product_category.xml" value="0.14375" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_add_new_product_category.xml" value="0.264" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_categories.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_category_sheet.xml" value="0.264" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_dashboard.xml" value="0.2558876811594203" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_home.xml" value="0.4" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_new_product_category.xml" value="0.264" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_notifications.xml" value="0.25181159420289856" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_orders.xml" value="0.14375" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_preview_product.xml" value="0.23278985507246377" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_product_preview.xml" value="0.264" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_products.xml" value="0.14375" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/product_added_success.xml" value="0.25181159420289856" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/product_category_list_item.xml" value="0.2318840579710145" />
+        <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/products_item.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/temp.xml" value="0.6" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/varient_card.xml" value="0.25181159420289856" />
         <entry key="..\:/Users/Gokul/AndroidStudioProjects/shop_keeper/app/src/main/res/menu/bottom_nav_menu.xml" value="0.27447916666666666" />

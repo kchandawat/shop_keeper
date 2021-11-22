@@ -13,10 +13,7 @@
     <color name="sienna_brown">#230C0F</color>
     <color name="transparent">#00ffffff</color>
     <color name="grey">#d0d0d0</color>
-    <color name="black_overlay">#66000000</color>
-    <color name="grey96">#969696</color>
-    <color name="grey3c">#3c3c3c</color>
-    <color name="whitefa">#fafafa</color>
-    <color name="white32">#32FFFFFF</color>
+    <color name="grey_50">#FAFAFA</color>
+
 
 </resources>
