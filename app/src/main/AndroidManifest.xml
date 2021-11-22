@@ -50,6 +50,11 @@
         <activity
             android:name=".Mobile_Login"
             android:exported="true" />
+        <activity android:name=".Orders_Page"
+            android:exported="true"/>
+        <activity android:name=".Order_details_overview"
+            android:exported="true"/>
+
         <activity
             android:name=".MainActivity"
             android:exported="true"
