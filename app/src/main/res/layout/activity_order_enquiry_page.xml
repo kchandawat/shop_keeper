@@ -201,9 +201,8 @@
                     android:layout_marginBottom="10dp"
                     android:iconifiedByDefault="false"
                     app:queryHint="Search here..."
-                    android:backgroundTint="#B3FFFFFF"
                     app:actionViewClass="androidx.appcompat.widget.SearchView"
-                    android:background="@drawable/tab_shape"
+                    android:background="@drawable/searchbar_style"
                     />
 
                 <androidx.viewpager2.widget.ViewPager2

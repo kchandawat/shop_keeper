@@ -18,6 +18,13 @@
         tools:layout="@layout/activity_order_enquiry_page"/>
 
     <fragment
+        android:id="@+id/navigation_products_categories"
+        android:name="com.example.marquedo.ui.Prod_n_Cat.product_n_category"
+        android:label="Orders"
+        tools:layout="@layout/activity_order_enquiry_page"/>
+
+
+    <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.marquedo.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"

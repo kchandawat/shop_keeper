@@ -73,12 +73,13 @@
                         android:background="@drawable/tab_shape"
                         android:elevation="10dp"
                         app:tabGravity="fill"
+                        app:tabTextAppearance="@style/MineCustomTabText"
                         app:tabIndicator="@drawable/tab_indicator"
                         app:tabIndicatorAnimationMode="elastic"
                         app:tabIndicatorColor="@color/black"
                         app:tabIndicatorGravity="stretch"
                         app:tabMode="fixed"
-                        app:tabSelectedTextColor="@color/red"
+                        app:tabSelectedTextColor="@color/white"
                         app:tabTextColor="@color/grey" />
 
                     <HorizontalScrollView

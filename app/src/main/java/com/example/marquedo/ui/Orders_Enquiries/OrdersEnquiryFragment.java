@@ -34,7 +34,6 @@ public class OrdersEnquiryFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.activity_order_enquiry_page, container, false);
-
         TextView viewdetails = v.findViewById(R.id.tvViewDetails);
 
         tabLayout = v.findViewById(R.id.order_enquiry_tab);
