@@ -12,14 +12,24 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.marquedo.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_orders_enquiries"
+        android:name="com.example.marquedo.ui.Orders_Enquiries.OrdersEnquiryFragment"
+        android:label="Orders"
+        tools:layout="@layout/activity_order_enquiry_page"/>
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.example.marquedo.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.marquedo.ui.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+
+
+
+
 </navigation>
