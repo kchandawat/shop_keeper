@@ -27,8 +27,8 @@
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:layout_gravity="center_vertical"
-                android:tint="@color/white"
-                app:srcCompat="?attr/actionModeCloseDrawable" />
+                app:srcCompat="?attr/actionModeCloseDrawable"
+                app:tint="@color/white" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="-25dp"
             android:layout_weight="2"
-            android:backgroundTint="@color/light_grey"
+            android:backgroundTint="@color/grey_50"
             app:cardCornerRadius="28dp" >
 
             <LinearLayout
@@ -203,7 +203,8 @@
                     app:queryHint="Search here..."
                     app:actionViewClass="androidx.appcompat.widget.SearchView"
                     android:background="@drawable/searchbar_style"
-                    />
+                    android:alpha="0.8"
+                    android:backgroundTint="#4DBFBFBF" />
 
                 <androidx.viewpager2.widget.ViewPager2
                     android:id="@+id/view_pager_order_page"
