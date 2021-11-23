@@ -19,8 +19,8 @@ public class PnCFragmentAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
         if (position == 1)
-            return new ProductsFragment();
-        return new CategoriesFragment();
+            return new CategoriesFragment();
+        return new ProductsFragment();
     }
 
     @Override
