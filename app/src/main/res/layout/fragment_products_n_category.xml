@@ -38,7 +38,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:layout_marginStart="190dp"
-                android:layout_marginTop="18dp"
+                android:layout_gravity="center_vertical"
                 android:text="Add New Product"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
@@ -73,13 +73,13 @@
                         android:background="@drawable/tab_shape"
                         android:elevation="10dp"
                         app:tabGravity="fill"
-                        app:tabTextAppearance="@style/MineCustomTabText"
                         app:tabIndicator="@drawable/tab_indicator"
                         app:tabIndicatorAnimationMode="elastic"
                         app:tabIndicatorColor="@color/black"
                         app:tabIndicatorGravity="stretch"
                         app:tabMode="fixed"
                         app:tabSelectedTextColor="@color/white"
+                        app:tabTextAppearance="@style/MineCustomTabText"
                         app:tabTextColor="@color/grey" />
 
                     <HorizontalScrollView
@@ -197,7 +197,9 @@
                     <androidx.viewpager2.widget.ViewPager2
                         android:id="@+id/viewPager"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="80dp"
+                        android:layout_weight="1" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
