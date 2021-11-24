@@ -47,7 +47,7 @@ public class product_n_category extends Fragment {
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager2.setCurrentItem(tab.getPosition());
                 if ((tab.getPosition() == 1))
-                    filters.setVisibility(View.GONE);
+                    filters.setVisibility(View.INVISIBLE);
                 else
                     filters.setVisibility(View.VISIBLE);
 
