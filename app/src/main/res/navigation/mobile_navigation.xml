@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_orders_enquiries"
-        android:name="com.example.marquedo.ui.Orders_Enquiries.OrdersEnquiryFragment"
+        android:name="com.example.marquedo.ui.Orders_Enquiries.Orders_n_Enquiry"
         android:label="Orders"
         tools:layout="@layout/activity_order_enquiry_page" />
 
