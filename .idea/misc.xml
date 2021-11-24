@@ -38,6 +38,7 @@
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/navbar_orders_enquiries.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/navbar_products.xml" value="0.26205128205128203" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/order_backgorund.xml" value="0.16145833333333334" />
+        <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/orderspage_erderstile_bellstatus.xml" value="0.1859375" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/outline_checkbox.xml" value="0.16145833333333334" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/product_added_thumbs_up.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/reject_warning_sign.xml" value="0.26614583333333336" />
@@ -78,6 +79,7 @@
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_notifications.xml" value="0.23278985507246377" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_orders_page__enquiries.xml" value="0.264" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_orders_page__orders.xml" value="0.19427083333333334" />
+        <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_products.xml" value="0.22735507246376813" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_products_n_category.xml" value="0.171875" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragments_orders.xml" value="0.13854166666666667" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/notifcard.xml" value="0.2888118141999955" />
@@ -88,6 +90,7 @@
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/orders_tile.xml" value="0.25" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/orderspage_order_tile.xml" value="0.2259963768115942" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/product_added_success.xml" value="0.23278985507246377" />
+        <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/products_item.xml" value="0.22735507246376813" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/reject_warning_sign.xml" value="0.21105072463768115" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/tab_selector.xml" value="0.13854166666666667" />
         <entry key="..\:/Users/Darshan/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/temp.xml" value="0.20833333333333334" />
