@@ -5,22 +5,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/iphone_12_pro_max__10"
-
     android:backgroundTint="#91000000"
     android:backgroundTintMode="src_over"
-    tools:context=".ui.home.HomeFragment">
+    tools:context="com.marquedo.marquedo.ui.home.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/materialCardView"
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:gravity="center"
             android:orientation="horizontal"
             android:weightSum="3">
@@ -29,11 +29,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
-                android:paddingRight="80dp"
-                android:text="Your Shop Completion"
+                android:paddingStart="16dp"
+                android:paddingEnd="80dp"
+                android:text="@string/your_shop_completion"
                 android:textAlignment="textEnd"
                 android:textColor="@color/white"
-                android:textSize="18dp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -187,7 +188,7 @@
                                 android:textSize="16dp" />
 
                             <com.google.android.material.button.MaterialButton
-                                android:id="@+id/button"
+                                android:id="@+id/continue_button"
                                 android:layout_width="43dp"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity=""

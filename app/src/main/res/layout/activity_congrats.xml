@@ -4,82 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".congrats">
+    tools:context="com.marquedo.marquedo.congrats">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/congratulations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Congratulations!"
-        android:textSize="36dp"
+        android:text="@string/congratulations"
+        android:textSize="36sp"
         android:textColor="@color/sienna_brown"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/online_store"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textView10"
+        android:id="@+id/online_store"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
-        android:text="Your online store is \nsuccessfully created"
-
+        android:text="@string/your_online_store_is_nsuccessfully_created"
 android:textColor="@color/black"
         android:textAlignment="center"
-        android:textSize="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/store_imageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9"
-        app:layout_constraintVertical_bias="0.011"
+        app:layout_constraintTop_toBottomOf="@+id/congratulations"
         />
 
     <ImageView
-
-
-        android:id="@+id/imageView2"
+        android:id="@+id/store_imageView"
         android:layout_width="253dp"
         android:layout_height="275dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/add_product_textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_congrats" />
+        app:layout_constraintTop_toBottomOf="@id/online_store"
+        app:srcCompat="@drawable/ic_congrats"
+        android:contentDescription="@string/store_imageview" />
 
     <TextView
-        android:id="@+id/textView11"
+        android:id="@+id/add_product_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:text="Let's add some product to your \ninventory to start selling"
+        android:text="@string/let_s_add_some_product_to_your_ninventory_to_start_selling"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="22dp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toTopOf="@+id/continue_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.605" />
+        app:layout_constraintTop_toBottomOf="@+id/store_imageView" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
+        android:id="@+id/continue_button"
         android:layout_width="312dp"
         android:layout_height="71dp"
-        android:shadowColor="#ffffff"
-        android:text="Let's Get Started"
+        android:shadowColor="@color/white"
+        android:text="@string/let_s_get_started"
         android:textAllCaps="false"
-        android:textColor="#000000"
-        android:textSize="20dp"
+        android:textColor="@color/black"
+        android:textSize="20sp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.685" />
+        app:layout_constraintTop_toBottomOf="@+id/add_product_textView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
