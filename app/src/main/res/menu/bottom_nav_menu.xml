@@ -6,16 +6,14 @@
         android:icon="@drawable/navbar_home"
         android:title="@string/title_home" />
 
-    <item
-        android:id="@+id/navigation_products_categories"
-        android:icon="@drawable/navbar_products"
-        android:title="@string/title_Products" />
-
-    <item
-        android:id="@+id/navigation_orders_enquiries"
+    <item android:id="@+id/navigation_orders_enquiries"
         android:icon="@drawable/navbar_orders_enquiries"
-        android:title="@string/title_OrdersEnquiries" />
+        android:title="@string/title_OrdersEnquiries"/>
 
+
+    <item android:id="@+id/navigation_products_categories"
+        android:icon="@drawable/navbar_products"
+        android:title="@string/title_Products"/>
     <item
         android:id="@+id/navigation_notifications"
         android:icon="@drawable/navbar_notification"

@@ -21,7 +21,7 @@
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            style="@style/MyCardView"
+
             android:layout_height="wrap_content">
 
             <LinearLayout
@@ -259,7 +259,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="15dp"
                             android:padding="10dp"
-                            android:text="@string/mock_prod_desc"
+
                             android:textColor="@color/material_grey_800"
                             android:textSize="14sp" />
 

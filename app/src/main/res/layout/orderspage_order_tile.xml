@@ -2,6 +2,7 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:layout_marginBottom="10dp"
@@ -214,7 +215,8 @@
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:textAlignment="gravity"
-            android:textSize="12dp" />
+            android:textSize="12dp"
+            tools:ignore="TouchTargetSizeCheck" />
 
 
 <!--        <TextView-->

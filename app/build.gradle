@@ -47,6 +47,7 @@ dependencies {
     implementation 'moe.feng:MaterialStepperView:0.2.4.2'
     implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
     implementation 'io.github.eltos:simpledialogfragments:3.4'
+    implementation 'com.jjoe64:graphview:4.2.2'
 
 
 
