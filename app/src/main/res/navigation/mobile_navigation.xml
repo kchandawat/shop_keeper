@@ -7,31 +7,31 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.marquedo.ui.home.HomeFragment"
+        android:name="com.marquedo.marquedo.ui.home.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_products_categories"
-        android:name="com.example.marquedo.ui.Prod_n_Cat.product_n_category"
+        android:name="com.marquedo.marquedo.ui.Prod_n_Cat.product_n_category"
         android:label="Products"
         tools:layout="@layout/fragment_products_n_category" />
 
     <fragment
         android:id="@+id/navigation_orders_enquiries"
-        android:name="com.example.marquedo.ui.Orders_Enquiries.Orders_n_Enquiry"
+        android:name="com.marquedo.marquedo.ui.Orders_Enquiries.Orders_n_Enquiry"
         android:label="Orders"
         tools:layout="@layout/activity_order_enquiry_page" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.marquedo.ui.notifications.NotificationsFragment"
+        android:name="com.marquedo.marquedo.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.marquedo.ui.dashboard.DashboardFragment"
+        android:name="com.marquedo.marquedo.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
 

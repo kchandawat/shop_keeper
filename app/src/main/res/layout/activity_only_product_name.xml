@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Mobile_Login"
-    android:background="@color/white">
+
+    android:background="@color/white"
+    tools:context="com.marquedo.marquedo.Mobile_Login">
+
 
     <ImageButton
         android:id="@+id/imageButton"
         android:layout_width="69dp"
         android:layout_height="52dp"
         android:background="#32FFFFFF"
-        android:contentDescription="Return"
         android:scaleX="2"
         android:scaleY="2"
         app:tint="@color/sienna_brown"
@@ -30,7 +31,7 @@
         android:layout_height="wrap_content"
         android:text="Add new Product"
         android:textColor="@color/sienna_brown"
-        android:textSize="36sp"
+        android:textSize="36dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,7 +47,7 @@
 
         android:text="Add 3 more products to\nto get started "
         android:textColor="@color/black"
-        android:textSize="28sp"
+        android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.313"
@@ -58,20 +59,20 @@
         android:id="@+id/textInputLayout"
 
         android:layout_width="337dp"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5"
-        app:layout_constraintVertical_bias="0.2">
+        app:layout_constraintVertical_bias="0.314">
 
         <TextView
             android:id="@+id/label1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product Name"
-            android:layout_marginStart="10dp"
-            android:textSize="11sp" />
+            android:textSize="10dp"
+            />
 
         <EditText
             android:id="@+id/edittext1"
@@ -84,28 +85,26 @@
             android:hint="Product 1"
 
             android:padding="10dp"
-            android:textSize="16sp"
-            tools:ignore="TouchTargetSizeCheck" />
+            android:textSize="16dp" />
+
 
     </RelativeLayout>
 
     <RelativeLayout
 
         android:layout_width="337dp"
-        android:layout_height="60dp"
+        android:layout_height="55dp"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout"
-        app:layout_constraintVertical_bias="0.24">
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
 
         <TextView
             android:id="@+id/label2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Product Category"
-            android:layout_marginStart="10dp"
-            android:textSize="11sp"
+            android:textSize="10dp"
 
             />
 
@@ -116,11 +115,11 @@
             android:layout_below="@+id/label2"
             android:layout_marginTop="5dp"
             android:background="@drawable/edit_text_layout"
-            android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
+            android:drawableRight="@drawable/ic_baseline_arrow_down_24"
             android:hint="Select Product Category"
 
             android:padding="10dp"
-            android:textSize="16sp" />
+            android:textSize="16dp" />
 
 
     </RelativeLayout>
@@ -134,7 +133,7 @@
         android:text="Continue"
         android:textAllCaps="false"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="20dp"
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

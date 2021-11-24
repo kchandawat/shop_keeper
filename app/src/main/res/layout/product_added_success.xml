@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
 
-    tools:context=".Business_Category">
+    tools:context="com.marquedo.marquedo.Business_Category">
     <FrameLayout
         android:id="@+id/standard_bottom_sheet"
         android:layout_width="match_parent"

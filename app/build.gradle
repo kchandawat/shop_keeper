@@ -1,12 +1,16 @@
 plugins {
     id 'com.android.application'
+
+    // changes by Maaz start
+    id 'com.google.gms.google-services'
+    // changes by Maaz end
 }
 
 android {
     compileSdk 31
 
     defaultConfig {
-        applicationId "com.example.marquedo"
+        applicationId "com.marquedo.marquedo"
         minSdk 22
         targetSdk 31
         versionCode 1
@@ -48,6 +52,20 @@ dependencies {
     implementation 'com.github.cachapa:ExpandableLayout:2.9.2'
     implementation 'io.github.eltos:simpledialogfragments:3.4'
     implementation 'com.jjoe64:graphview:4.2.2'
+
+    // changes by Maaz start
+        // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+
+        // Declare the dependency for the Firebase Authentication library
+        // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-auth'
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.android.gms:play-services-safetynet:17.0.1'
+    // Declare the dependency for the Cloud Firestore library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-firestore'
+    // changes by Maaz end
 
 
 
