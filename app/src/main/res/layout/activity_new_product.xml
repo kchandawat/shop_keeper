@@ -61,7 +61,7 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="30dp"
-                    android:paddingBottom="50dp"
+
                     >
 
                     <com.google.android.material.button.MaterialButton
@@ -412,9 +412,9 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/button"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_marginBottom="100dp"
+                        android:layout_width="338dp"
+                        android:layout_height="57dp"
+                        android:layout_marginBottom="76dp"
                         android:shadowColor="#ffffff"
                         android:text="Add Product"
                         android:textAllCaps="false"
@@ -424,6 +424,7 @@
                         app:cornerRadius="10dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.493"
                         app:layout_constraintStart_toStartOf="parent" />
 
 

@@ -15,7 +15,7 @@
 
         style="?attr/bottomSheetStyle"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        >
+        tools:ignore="MissingConstraints">
 
 
         <!-- Bottom sheet contents. -->
@@ -38,22 +38,22 @@
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/close_sheet"
 
-                android:layout_marginLeft="80dp"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_marginLeft="80dp"
                 android:insetLeft="5dp"
                 android:insetTop="5dp"
                 android:insetRight="5dp"
                 android:insetBottom="5dp"
+                app:backgroundTint="@color/white"
                 app:cornerRadius="50dp"
                 app:icon="@drawable/ic_baseline_close_24"
-                app:iconTint="@color/black"
                 app:iconGravity="textStart"
                 app:iconPadding="0dp"
                 app:iconSize="30dp"
-                app:backgroundTint="@color/white"
+                app:iconTint="@color/black"
 
-                />
+                tools:ignore="SpeakableTextPresentCheck" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"

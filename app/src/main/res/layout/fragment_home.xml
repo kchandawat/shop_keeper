@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/iphone_12_pro_max__10"
-
     android:backgroundTint="#91000000"
     android:backgroundTintMode="src_over"
     tools:context=".ui.home.HomeFragment">

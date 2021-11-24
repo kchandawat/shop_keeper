@@ -20,6 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="500dp"
             android:orientation="vertical"
+            android:background="@color/light_grey"
             >
 
             <com.google.android.material.button.MaterialButton
@@ -45,7 +46,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/product_added_thumbs_up" />
+                android:src="@drawable/logout__6_" />
 
             <TextView
                 android:layout_width="wrap_content"

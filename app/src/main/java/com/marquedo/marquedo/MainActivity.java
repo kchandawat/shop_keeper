@@ -1,4 +1,4 @@
-package com.marquedo.marquedo;
+package com.example.marquedo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,8 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-
-import com.google.android.material.button.MaterialButton;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -17,12 +15,13 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        MaterialButton getStarted= findViewById(R.id.continue_button);
-        getStarted.setOnClickListener(view -> StartLogin());
-    }
-
-    private void StartLogin() {
+        Button getStarted= (Button) findViewById(R.id.button);
         Intent login=new Intent(this,Mobile_Login.class);
-        startActivity(login);
+        getStarted.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(login);
+            }
+        });
     }
 }

@@ -1,9 +1,5 @@
 plugins {
     id 'com.android.application'
-
-    // changes by Maaz start
-    id 'com.google.gms.google-services'
-    // changes by Maaz end
 }
 
 android {

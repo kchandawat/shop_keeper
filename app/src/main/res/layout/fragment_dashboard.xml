@@ -30,8 +30,8 @@
                 android:contentDescription="Return"
                 android:scaleX="1.5"
                 android:scaleY="1.5"
-                android:tint="@color/white"
-                app:srcCompat="?attr/actionModeCloseDrawable" />
+                app:srcCompat="?attr/actionModeCloseDrawable"
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -57,7 +57,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginBottom="-28dp"
                 android:layout_weight="2"
-                app:cardCornerRadius="28dp">
+                app:cardCornerRadius="28dp"
+                android:backgroundTint="@color/light_grey">
 
 
                 <LinearLayout
@@ -72,6 +73,7 @@
                         android:orientation="horizontal">
 
                         <com.google.android.material.button.MaterialButton
+                            android:id="@+id/editButton"
                             android:layout_width="wrap_content"
                             android:layout_height="5dp"
                             android:layout_alignParentLeft="true"
@@ -95,27 +97,29 @@
                             android:id="@+id/shopDescription"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentStart="true"
                             android:layout_alignParentBottom="true"
                             android:layout_gravity="left"
-                            android:layout_marginEnd="83dp"
-                            android:layout_marginBottom="19dp"
+                            android:layout_marginStart="96dp"
+                            android:layout_marginBottom="20dp"
                             android:paddingTop="10dp"
+                            android:textColor="@color/black"
                             android:text="Electronic Gadgets"
-                            android:textSize="20dp" />
+                            android:textSize="15dp" />
 
                         <TextView
                             android:id="@+id/shopName"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentStart="true"
                             android:layout_alignParentBottom="true"
-                            android:layout_marginEnd="83dp"
-                            android:layout_marginBottom="58dp"
-                            android:text="Digital World"
+                            android:layout_marginStart="96dp"
+                            android:layout_marginBottom="55dp"
+                            android:text="My Digital World"
                             android:textAlignment="textEnd"
                             android:textColor="@color/black"
-                            android:textSize="30dp" />
+                            android:textStyle="bold"
+                            android:textSize="25dp" />
 
                         <ImageView
                             android:id="@+id/shopImage"
@@ -123,7 +127,8 @@
                             android:layout_height="85dp"
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="12dp"
-                            android:src="@drawable/group_74_light_fold_no_text" />
+                            android:src="@drawable/shop"
+                             />
 
 
                     </RelativeLayout>
@@ -149,12 +154,17 @@
                                 android:src="@drawable/ic_ar_camera"
 
                                 />
+
                             <TextView
+                                android:id="@+id/myWallet"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:layout_marginLeft="20dp"
+                                android:clickable="true"
                                 android:text="My Wallet"
-                                android:layout_marginLeft="20dp"
-                                android:textSize="22dp"/>
+                                android:textSize="22dp"
+                                android:textColor="@color/black"
+                                tools:ignore="TouchTargetSizeCheck" />
 
 
 
@@ -171,14 +181,18 @@
                                 android:src="@drawable/ic_ar_camera"
 
                                 />
+
                             <TextView
+                                android:id="@+id/subscriptionPlans"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
+                                android:clickable="true"
                                 android:text="Subscription Plans"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:textSize="22dp"
-                                />
+                                android:textColor="@color/black"
+                                tools:ignore="TouchTargetSizeCheck" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -192,14 +206,18 @@
                                 android:src="@drawable/ic_ar_camera"
 
                                 />
+
                             <TextView
+                                android:id="@+id/shareMarquedoApp"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
+                                android:clickable="true"
                                 android:text="Share Marquedo App"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:textSize="22dp"
-                                />
+                                android:textColor="@color/black"
+                                tools:ignore="TouchTargetSizeCheck" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -213,14 +231,18 @@
                                 android:src="@drawable/ic_ar_camera"
 
                                 />
+
                             <TextView
+                                android:id="@+id/howToUseApp"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
+                                android:clickable="true"
                                 android:text="How to Use App"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:textSize="22dp"
-                                />
+                                android:textColor="@color/black"
+                                tools:ignore="TouchTargetSizeCheck" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -234,35 +256,43 @@
                                 android:src="@drawable/ic_ar_camera"
 
                                 />
+
                             <TextView
+                                android:id="@+id/privacyPolicy"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
+                                android:clickable="true"
                                 android:text="Privacy Policy"
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:textSize="22dp"
-                                />
+                                android:textColor="@color/black"
+                                tools:ignore="TouchTargetSizeCheck" />
                         </LinearLayout>
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:layout_marginLeft="25dp"
                                 android:layout_marginTop="20dp"
-                                android:src="@drawable/ic_ar_camera"
-
+                                android:src="@drawable/logout__6_"
                                 />
+
                             <TextView
+                                android:id="@+id/logout"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:text="Logout"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginTop="20dp"
+                                android:clickable="true"
+                                android:text="Logout"
                                 android:textSize="22dp"
-                                />
+                                android:textColor="@color/black"
+                                tools:ignore="TouchTargetSizeCheck" />
                         </LinearLayout>
 
                     </LinearLayout>
@@ -279,17 +309,5 @@
         </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
-    <!--<TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
