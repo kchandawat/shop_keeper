@@ -69,8 +69,8 @@
             android:layout_height="wrap_content"
             android:hint="Business Name"
             android:inputType="textAutoComplete"
-            android:textColor="@color/black"
-            android:textSize="15dp"/>
+            tools:layout_editor_absoluteX="45dp"
+            tools:layout_editor_absoluteY="359dp" />
 
 
     </com.google.android.material.textfield.TextInputLayout>

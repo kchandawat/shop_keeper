@@ -1,4 +1,4 @@
-package com.example.marquedo;
+package com.marquedo.marquedo;
 
 import android.os.Bundle;
 import android.util.Log;

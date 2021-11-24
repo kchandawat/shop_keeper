@@ -1,4 +1,4 @@
-package com.example.marquedo.ui.dashboard;
+package com.marquedo.marquedo.ui.dashboard;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +12,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.marquedo.R;
-import com.example.marquedo.databinding.FragmentDashboardBinding;
-//import com.example.marquedo.logoutAction;
+import com.marquedo.marquedo.R;
+import com.marquedo.marquedo.databinding.FragmentDashboardBinding;
+//import com.marquedo.marquedo.logoutAction;
 
 public class DashboardFragment extends Fragment {
 
