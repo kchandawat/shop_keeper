@@ -7,54 +7,50 @@
     android:layout_gravity="bottom"
 
     tools:context=".Business_Category">
+
     <FrameLayout
         android:id="@+id/standard_bottom_sheet"
+        style="?attr/bottomSheetStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
 
-        style="?attr/bottomSheetStyle"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
-
-        <!-- Bottom sheet contents. -->
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="10dp"
-
-             >
+            android:padding="10dp">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Business Categories"
                 android:layout_marginStart="20dp"
-                android:textSize="24sp"
-                android:textColor="@color/black" />
+                android:layout_marginTop="15dp"
+                android:text="Business Categories"
+                android:textColor="@color/black"
+                android:textSize="24sp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/close_sheet"
-
-                android:layout_marginLeft="80dp"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_horizontal"
                 android:insetLeft="5dp"
                 android:insetTop="5dp"
                 android:insetRight="5dp"
                 android:insetBottom="5dp"
+                app:backgroundTint="@color/white"
                 app:cornerRadius="50dp"
                 app:icon="@drawable/ic_baseline_close_24"
-                app:iconTint="@color/black"
-                app:iconGravity="textStart"
+                app:iconGravity="textEnd"
                 app:iconPadding="0dp"
                 app:iconSize="30dp"
-                app:backgroundTint="@color/white"
+                app:iconTint="@color/black" />
 
-                />
-        </LinearLayout>
+        </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,13 +60,13 @@
 
             <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:translationZ="-10dp"
-                app:behavior_hideable="true"
-                app:behavior_peekHeight="100dp"
                 android:layout_height="300dp"
                 android:layout_marginTop="80dp"
                 android:scrollbarStyle="insideInset"
-                android:scrollbarTrackVertical="@color/design_default_color_primary">
+                android:scrollbarTrackVertical="@color/design_default_color_primary"
+                android:translationZ="-10dp"
+                app:behavior_hideable="true"
+                app:behavior_peekHeight="100dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -82,123 +78,124 @@
 
 
                     <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Kirana"
-                android:paddingLeft="30dp"
-                android:drawablePadding="20dp"
-                android:button="@null"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="18dp"
-                android:drawableLeft="@drawable/checkimageselector"
-                />
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Dairy"
-                android:button="@null"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="18dp"
-                android:drawableLeft="@drawable/checkimageselector"
-                android:paddingLeft="30dp"
-                android:drawablePadding="20dp"
-                />
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Footwear"
-                android:button="@null"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="18dp"
-                android:drawableLeft="@drawable/checkimageselector"
-                android:paddingLeft="30dp"
-                android:drawablePadding="20dp"
-                />
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Food"
-                android:button="@null"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="18dp"
-                android:drawableLeft="@drawable/checkimageselector"
-                android:paddingLeft="30dp"
-                android:drawablePadding="20dp"
-                />
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cosmetics"
-                android:button="@null"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="18dp"
-                android:drawableLeft="@drawable/checkimageselector"
-                android:paddingLeft="30dp"
-                android:drawablePadding="20dp"
-                />
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Cake"
-                android:button="@null"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="18dp"
-                android:drawableLeft="@drawable/checkimageselector"
-                android:paddingLeft="30dp"
-                android:drawablePadding="20dp"
-                />
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Stationary"
-                android:button="@null"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="18dp"
-                android:drawableLeft="@drawable/checkimageselector"
-                android:paddingLeft="30dp"
-                android:drawablePadding="20dp"
-                />
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Books"
-                android:button="@null"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:textSize="18dp"
-                android:drawableLeft="@drawable/checkimageselector"
-                android:paddingLeft="30dp"
-                android:drawablePadding="20dp"
-                />
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/checkimageselector"
+                        android:drawablePadding="20dp"
+                        android:paddingLeft="30dp"
+                        android:text="Kirana"
+                        android:textSize="18dp" />
 
-        </LinearLayout>
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/checkimageselector"
+                        android:drawablePadding="20dp"
+                        android:paddingLeft="30dp"
+                        android:text="Dairy"
+                        android:textSize="18dp" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/checkimageselector"
+                        android:drawablePadding="20dp"
+                        android:paddingLeft="30dp"
+                        android:text="Footwear"
+                        android:textSize="18dp" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/checkimageselector"
+                        android:drawablePadding="20dp"
+                        android:paddingLeft="30dp"
+                        android:text="Food"
+                        android:textSize="18dp" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/checkimageselector"
+                        android:drawablePadding="20dp"
+                        android:paddingLeft="30dp"
+                        android:text="Cosmetics"
+                        android:textSize="18dp" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/checkimageselector"
+                        android:drawablePadding="20dp"
+                        android:paddingLeft="30dp"
+                        android:text="Cake"
+                        android:textSize="18dp" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/checkimageselector"
+                        android:drawablePadding="20dp"
+                        android:paddingLeft="30dp"
+                        android:text="Stationary"
+                        android:textSize="18dp" />
+
+                    <CheckBox
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:button="@null"
+                        android:drawableLeft="@drawable/checkimageselector"
+                        android:drawablePadding="20dp"
+                        android:paddingLeft="30dp"
+                        android:text="Books"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
 
 
-</androidx.core.widget.NestedScrollView>
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/submit_button"
-            android:layout_width="350dp"
-            android:layout_height="65dp"
-            android:shadowColor="#ffffff"
-            android:text="Submit"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="20dp"
-            app:cornerRadius="10dp"
-            android:layout_marginTop="-10dp"
-            android:layout_gravity="center_horizontal"
-            android:paddingBottom="10dp"
-            />
-            <view class="android.widget.LinearLayout"
-                android:layout_height="40dp"
-                android:layout_width="match_parent"/>
+            </androidx.core.widget.NestedScrollView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submit_button"
+                android:layout_width="350dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="-10dp"
+                android:paddingBottom="10dp"
+                android:shadowColor="#ffffff"
+                android:text="Submit"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="20dp"
+                app:cornerRadius="10dp" />
+
+            <view
+                class="android.widget.LinearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
         </LinearLayout>
 
     </FrameLayout>
