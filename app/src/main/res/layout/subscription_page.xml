@@ -42,7 +42,7 @@
                 android:contentDescription="Return"
                 android:scaleX="1.5"
                 android:scaleY="1.5"
-                android:tint="@color/white"
+                app:tint="@color/white"
                 app:srcCompat="?attr/actionModeCloseDrawable" />
 
             <TextView
