@@ -14,30 +14,30 @@
         android:weightSum="20"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="18"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <ImageButton
                 android:id="@+id/imageButton"
                 android:layout_width="48dp"
                 android:layout_height="41dp"
                 android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
                 android:background="@null"
                 android:contentDescription="Return"
                 android:scaleX="1.5"
                 android:scaleY="1.5"
-                android:tint="@color/white"
-                app:srcCompat="?attr/actionModeCloseDrawable" />
+                app:srcCompat="?attr/actionModeCloseDrawable"
+                app:tint="@color/white" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/show_preview"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:layout_marginStart="200dp"
-                android:layout_marginTop="18dp"
+                android:layout_alignParentRight="true"
                 android:drawableLeft="@drawable/preview"
                 android:elevation="5dp"
                 android:text="Show Preview"
@@ -45,7 +45,7 @@
                 android:textColor="@color/black"
                 android:textSize="11sp"
                 app:cornerRadius="10dp" />
-        </LinearLayout>
+        </RelativeLayout>
 
 
         <androidx.core.widget.NestedScrollView
@@ -496,7 +496,7 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/button"
-                        android:layout_width="338dp"
+                        android:layout_width="match_parent"
                         android:layout_height="57dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="76dp"

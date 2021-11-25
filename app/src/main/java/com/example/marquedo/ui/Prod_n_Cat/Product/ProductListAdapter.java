@@ -14,17 +14,17 @@ import java.util.ArrayList;
 
 public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ViewHolder> {
 
+    private OnItemClickListener listener = null;
 
     ArrayList<ProductsDataModel> data = new ArrayList<>();
 
-    public ProductListAdapter(ArrayList<ProductsDataModel> data) {
+    public ProductListAdapter(ArrayList<ProductsDataModel> data, OnItemClickListener listener) {
         this.data = data;
+        this.listener = listener;
     }
 
-    @NonNull
-    @Override
-    public ProductListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.products_item, null));
+    public ProductListAdapter(ArrayList<ProductsDataModel> data) {
+        this.data = data;
     }
 
     @Override
@@ -34,7 +34,19 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         holder.productSub.setText(data.get(position).sub);
         holder.productMRP.setText(String.valueOf(data.get(position).mrp));
         holder.productPrice.setText(String.valueOf(data.get(position).price));
+        //binding onClickListener
+        holder.bind(data.get(position), listener);
+    }
 
+
+    @NonNull
+    @Override
+    public ProductListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        return new ViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.products_item, null));
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(ProductsDataModel item);
     }
 
     @Override
@@ -52,6 +64,10 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
             productSub = itemView.findViewById(R.id.product_sub);
             productMRP = itemView.findViewById(R.id.product_price);
             productPrice = itemView.findViewById(R.id.product_offer_price);
+        }
+
+        public void bind(ProductsDataModel productsDataModel, OnItemClickListener listener) {
+            itemView.setOnClickListener(view -> listener.onItemClick(productsDataModel));
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.marquedo.ui.Prod_n_Cat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.marquedo.R;
+import com.example.marquedo.new_product;
 import com.google.android.material.tabs.TabLayout;
 
 public class product_n_category extends Fragment {
@@ -34,6 +36,14 @@ public class product_n_category extends Fragment {
         tabLayout = view.findViewById(R.id.tabLayout);
         viewPager2 = view.findViewById(R.id.viewPager);
         filters = view.findViewById(R.id.filter_view);
+
+        view.findViewById(R.id.add_pnc).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), new_product.class));
+            }
+        });
+
 
         tabLayout.addTab(tabLayout.newTab().setText("Products"));
         tabLayout.addTab(tabLayout.newTab().setText("Categories"));

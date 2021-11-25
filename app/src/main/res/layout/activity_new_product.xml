@@ -20,7 +20,7 @@
             android:layout_weight="18">
 
             <ImageButton
-                android:id="@+id/imageButton"
+                android:id="@+id/btnBackArrow"
                 android:layout_width="31dp"
                 android:layout_marginStart="20dp"
                 android:layout_height="41dp"
@@ -28,9 +28,9 @@
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:layout_gravity="center_vertical"
-                app:tint="@color/white"
                 android:contentDescription="Return"
-                app:srcCompat="?attr/actionModeCloseDrawable" />
+                app:srcCompat="?attr/actionModeCloseDrawable"
+                app:tint="@color/white" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -412,7 +412,7 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/button"
-                        android:layout_width="338dp"
+                        android:layout_width="match_parent"
                         android:layout_height="57dp"
                         android:layout_marginBottom="76dp"
                         android:shadowColor="#ffffff"
