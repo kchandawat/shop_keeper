@@ -8,5 +8,10 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_OrdersEnquiries">Orders</string>
     <string name="title_Products">Products</string>
-    <string name="mock_prod_desc">Rear Triple Camera Co-Developed by Hasselblad, 48 MP Main camera, 50 MP Ultra Wide Angle Camera with Free Form Lens, 2 MP Monochrome Lens. Also comes with a 16 MP Front Camera Qualcomm Snapdragon 888 Processor with Adreno 660</string>
+    <string name="mock_prod_desc">Rear Triple Camera Co-Developed by Hasselblad, 48 MP Main camera, 50 MP Ultra Wide Angle Camera with Free Form Lens, 2 MP Monochorme Lens. Also comes with a 16 MP Front Camera Qualcomm Snapdragon 888 Processor with Adreno 660</string>
+    <string name="title_privacypolicy"> This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
+
+        We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the Privacy Policy Generator. <br> </br>
+
+    </string>
 </resources>

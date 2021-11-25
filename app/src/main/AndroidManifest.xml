@@ -16,6 +16,12 @@
             android:name=".ui.dashboard.SubscriptionPlans"
             android:exported="true" />
         <activity
+            android:name=".ui.dashboard.Mywallet"
+            android:exported="true" />
+        <activity
+            android:name=".ui.dashboard.privacypolicy"
+            android:exported="true" />
+        <activity
             android:name=".varient_card"
             android:exported="true" />
         <activity
