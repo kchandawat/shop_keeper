@@ -162,7 +162,7 @@
                                 android:layout_marginLeft="20dp"
                                 android:clickable="true"
                                 android:text="My Wallet"
-                                android:textSize="22dp"
+                                android:textSize="22sp"
                                 android:textColor="@color/black"
                                 tools:ignore="TouchTargetSizeCheck" />
 
