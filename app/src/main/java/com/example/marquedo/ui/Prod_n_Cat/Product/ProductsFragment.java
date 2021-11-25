@@ -1,5 +1,6 @@
 package com.example.marquedo.ui.Prod_n_Cat.Product;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.marquedo.R;
+import com.example.marquedo.update_product;
 
 import java.util.ArrayList;
 
@@ -107,8 +109,9 @@ public class ProductsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        recyclerView = (RecyclerView) view.findViewById(R.id.products_list);
-        recyclerView.setAdapter(new ProductListAdapter(data));
+        recyclerView = view.findViewById(R.id.products_list);
+        recyclerView.setAdapter(new ProductListAdapter(data,
+                item -> startActivity(new Intent(getContext(), update_product.class))));
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false));
     }
 

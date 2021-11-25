@@ -53,6 +53,12 @@
             android:name=".Order_details_overview"
             android:exported="true" />
         <activity
+            android:name=".update_product"
+            android:exported="true" />
+        <activity
+            android:name=".preview_product"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

@@ -64,7 +64,7 @@ public class new_product extends AppCompatActivity {
                     }
                 });
 
-
+                bottomSheetDialog.findViewById(R.id.close_sheet).setOnClickListener(view22 -> bottomSheetDialog.dismiss());
 
             }
 
@@ -74,11 +74,20 @@ public class new_product extends AppCompatActivity {
         add_product_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                View view2=getLayoutInflater().inflate(R.layout.product_added_success,null);
-                BottomSheetDialog bottomSheetDialog1= new BottomSheetDialog(v.getContext());
+                View view2 = getLayoutInflater().inflate(R.layout.product_added_success, null);
+                BottomSheetDialog bottomSheetDialog1 = new BottomSheetDialog(v.getContext());
                 bottomSheetDialog1.setContentView(view2);
                 bottomSheetDialog1.show();
+
+                bottomSheetDialog1.findViewById(R.id.close_sheet).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        bottomSheetDialog1.dismiss();
+                    }
+                });
             }
         });
+
+        findViewById(R.id.btnBackArrow).setOnClickListener(view -> new_product.super.onBackPressed());
     }
 }
