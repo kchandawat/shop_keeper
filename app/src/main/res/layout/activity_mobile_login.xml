@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Mobile_Login">
+    tools:context=".Mobile_Login"
+    android:background="@color/light_grey">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -104,7 +105,8 @@
             android:maxLength="10"
             android:minHeight="48dp"
             android:singleLine="true"
-            android:textSize="32sp" />
+            android:textSize="32sp"
+            android:textColor="@color/black"/>
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton

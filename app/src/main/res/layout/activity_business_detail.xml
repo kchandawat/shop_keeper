@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Mobile_Login">
+    tools:context=".Mobile_Login"
+    android:background="@color/light_grey">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -67,7 +68,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Business Name"
-            android:inputType="textAutoComplete" />
+            android:inputType="textAutoComplete"
+            android:textColor="@color/black"
+            android:textSize="15dp"/>
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -87,6 +90,7 @@
             android:layout_height="wrap_content"
             android:hint="Business Categories"
             android:inputType="textAutoComplete"
+            android:textColor="@color/black"
             android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
              />
 
