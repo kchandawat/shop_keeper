@@ -28,7 +28,7 @@
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:layout_gravity="center_vertical"
-                android:tint="@color/white"
+                app:tint="@color/white"
                 android:contentDescription="Return"
                 app:srcCompat="?attr/actionModeCloseDrawable" />
 

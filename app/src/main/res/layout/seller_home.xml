@@ -64,7 +64,7 @@
                 android:contentDescription="Return"
                 android:scaleX="1.5"
                 android:scaleY="1.5"
-                android:tint="@color/red"
+                app:tint="@color/red"
                 app:srcCompat="@drawable/ic_baseline_search_24"
                 tools:ignore="TouchTargetSizeCheck" />
             <!--<Switch

@@ -5,23 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="400dp"
     android:layout_gravity="bottom"
+    android:background="@color/light_grey"
+    tools:context=".ui.dashboard.SubscriptionPlans">
 
-    tools:context=".Business_Category">
     <FrameLayout
         android:id="@+id/standard_bottom_sheet"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-
         style="?attr/bottomSheetStyle"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="@color/light_grey"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        >
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:orientation="vertical"
+            android:layout_height="wrap_content"
             android:background="@color/light_grey"
-            >
+            android:orientation="vertical">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/close_sheet"
@@ -51,29 +53,29 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Are you sure you want to Logout?"
                 android:layout_gravity="center"
-                android:textSize="20dp"
                 android:padding="20dp"
-                android:textStyle="normal"
+                android:text="Are you sure you want to Logout?"
                 android:textColor="@color/black"
-                />
+                android:textSize="20dp"
+                android:textStyle="normal" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="25dp"
                 android:layout_gravity="center"
+                android:layout_marginTop="25dp"
                 android:gravity="center_vertical"
+                android:orientation="horizontal"
 
                 >
+
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/Yeslogout_button"
                     android:layout_width="160dp"
                     android:layout_height="65dp"
                     android:layout_gravity="center_horizontal"
-                    android:layout_marginLeft="30dp"
+                    android:layout_marginLeft="17dp"
                     android:paddingBottom="10dp"
                     android:shadowColor="#ffffff"
                     android:text="Yes, Logout"
@@ -92,11 +94,11 @@
                     android:layout_marginLeft="15dp"
                     android:paddingBottom="10dp"
                     android:shadowColor="#ffffff"
-                    app:backgroundTint="@color/red"
                     android:text="No, Don't"
                     android:textAllCaps="false"
                     android:textColor="#000000"
                     android:textSize="20dp"
+                    app:backgroundTint="@color/red"
                     app:cornerRadius="10dp"
                     tools:layout_editor_absoluteX="36dp"
                     tools:layout_editor_absoluteY="143dp" />

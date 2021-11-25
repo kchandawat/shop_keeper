@@ -10,9 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Marquedo">
         <activity
-            android:name=".logoutAction"
-            android:exported="true" />
-        <activity
             android:name=".sellerSalesStats"
             android:exported="true" />
         <activity

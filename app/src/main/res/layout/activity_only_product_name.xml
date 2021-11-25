@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Mobile_Login">
+    tools:context=".Mobile_Login"
+    android:background="@color/light_grey">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -14,7 +15,7 @@
         android:contentDescription="Return"
         android:scaleX="2"
         android:scaleY="2"
-        android:tint="@color/sienna_brown"
+        app:tint="@color/sienna_brown"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.087"
