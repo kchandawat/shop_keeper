@@ -1,5 +1,6 @@
 package com.example.marquedo;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -83,6 +84,13 @@ public class new_product extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         bottomSheetDialog1.dismiss();
+                    }
+                });
+                bottomSheetDialog1.findViewById(R.id.submit_button).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(new Intent(getApplicationContext(), progress.class));
+                        finish();
                     }
                 });
             }
