@@ -6,25 +6,37 @@
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable-v24/ic_baseline_check_24_transparent.xml" value="0.2703125" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/checkimageselector.xml" value="0.2703125" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/custom_checkbox.xml" value="0.2703125" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/edit_text_layout.xml" value="0.2703125" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/ic_baseline_arrow_down_24.xml" value="0.2703125" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.2703125" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.2703125" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/popup_background.xml" value="0.2703125" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/popup_background_efab.xml" value="0.2703125" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_add_product.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_business_category.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_business_detail.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_congrats.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_image_item.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_main_mar.xml" value="0.1431159420289855" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_mobile_login.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_new_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_only_product_name.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_otp.xml" value="0.264" />
-        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_progress.xml" value="0.1" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_progress.xml" value="0.128" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_splash.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_varient_card.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/add_new_product_images.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/checkbox_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/colour_variant_recyclerview.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/dropdown.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_home.xml" value="0.264" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/fragment_notifications.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/product_added_success.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/product_category_selection.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/product_variant_recyclerview.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/revamp_activity_new_product.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/menu/bottom_nav_menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2703125" />
         <entry key="..\:/Users/hello world/AndroidStudioProjects/shop_keeper/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.14635416666666667" />

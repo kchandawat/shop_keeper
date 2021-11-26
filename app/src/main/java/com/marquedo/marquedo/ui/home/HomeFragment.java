@@ -27,17 +27,9 @@ public class HomeFragment extends Fragment {
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
-        Button add=(Button) root.findViewById(R.id.continue_button);
+        Button add=(Button) root.findViewById(R.id.add_button);
         Intent add_product=new Intent(getContext(), Only_Product_Name.class);
-
-add.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        startActivity(add_product);
-    }
-});
-
-
+        add.setOnClickListener(v -> startActivity(add_product));
         return root;
     }
 

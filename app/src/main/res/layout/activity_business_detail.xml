@@ -10,7 +10,7 @@
         android:id="@+id/business_back_button"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:background="#32FFFFFF"
+        android:background="@color/white32"
         android:scaleX="2"
         android:scaleY="2"
         android:tint="@color/sienna_brown"
@@ -62,16 +62,31 @@
         app:layout_constraintStart_toStartOf="@id/hello_there"
         app:layout_constraintTop_toBottomOf="@id/hello_there" />
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/business_cl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toTopOf="@id/signup_button"
+        app:layout_constraintEnd_toEndOf="@id/on_boarding_textView"
+        app:layout_constraintStart_toStartOf="@id/on_boarding_textView"
+        app:layout_constraintTop_toBottomOf="@+id/on_boarding_textView">
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/business_name_til"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
+        app:boxCornerRadiusTopStart="@dimen/til_corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/til_corner_radius"
+        app:boxCornerRadiusBottomStart="@dimen/til_corner_radius"
+        app:boxCornerRadiusBottomEnd="@dimen/til_corner_radius"
         app:layout_constraintBottom_toTopOf="@id/business_category_til"
-        app:layout_constraintEnd_toEndOf="@id/hello_there"
-        app:layout_constraintStart_toStartOf="@id/hello_there"
-        app:layout_constraintTop_toBottomOf="@+id/on_boarding_textView">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/business_name_et"
@@ -79,7 +94,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/business_name"
             android:imeOptions="actionDone"
-            android:inputType="textAutoComplete" />
+            android:inputType="text" />
 
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -93,10 +108,14 @@
         android:focusable="true"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="32dp"
-        app:layout_constraintEnd_toEndOf="@id/hello_there"
-        app:layout_constraintStart_toStartOf="@id/hello_there"
+        app:boxCornerRadiusTopStart="@dimen/til_corner_radius"
+        app:boxCornerRadiusTopEnd="@dimen/til_corner_radius"
+        app:boxCornerRadiusBottomStart="@dimen/til_corner_radius"
+        app:boxCornerRadiusBottomEnd="@dimen/til_corner_radius"
+        app:layout_constraintEnd_toEndOf="@id/business_name_til"
+        app:layout_constraintStart_toStartOf="@id/business_name_til"
         app:layout_constraintTop_toBottomOf="@+id/business_name_til"
-        app:layout_constraintBottom_toTopOf="@id/signup_button">
+        app:layout_constraintBottom_toBottomOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/business_category_et"
@@ -108,6 +127,7 @@
             android:inputType="none" />
 
     </com.google.android.material.textfield.TextInputLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signup_button"

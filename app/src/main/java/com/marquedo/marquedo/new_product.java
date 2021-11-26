@@ -1,19 +1,22 @@
 package com.marquedo.marquedo;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 
-import eltos.simpledialogfragment.color.SimpleColorDialog;
+import java.util.Objects;
 
 public class new_product extends AppCompatActivity {
 
@@ -21,64 +24,56 @@ public class new_product extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_product);
-        MaterialButton button=(MaterialButton) findViewById(R.id.add_new_product_variant_button);
-        Button add_product_button=(Button)findViewById(R.id.continue_button);
+        MaterialButton button = findViewById(R.id.add_new_product_variant_button);
+        Button add_product_button = findViewById(R.id.add_product_button);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                View view1=getLayoutInflater().inflate(R.layout.activity_varient_card,null);
-                BottomSheetDialog bottomSheetDialog= new BottomSheetDialog(view.getContext());
-                bottomSheetDialog.setContentView(view1);
-                bottomSheetDialog.show();
-                ExpandableLayout expandableLayout=(ExpandableLayout) view1.findViewById(R.id.expandable_layout);
-                ExpandableLayout expandableLayout1=(ExpandableLayout) view1.findViewById(R.id.expandable_layout_1) ;
-                TextView dropdown1=(TextView)  view1.findViewById(R.id.add_size_variant);
-                TextView dropdown2=(TextView)view1.findViewById(R.id.add_color_variant) ;
-                Button new_color=(Button)view1.findViewById(R.id.add_new_color_variant_button);
+        button.setOnClickListener(view -> {
+            View view1=getLayoutInflater().inflate(R.layout.activity_varient_card,null);
+            BottomSheetDialog bottomSheetDialog= new BottomSheetDialog(view.getContext());
+            bottomSheetDialog.setContentView(view1);
 
-                dropdown1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        expandableLayout.toggle();
+            RecyclerView recyclerView = bottomSheetDialog.findViewById(R.id.variant_recyclerview);
 
-                    }
-                });
+            //Create adapter
+            VariantRecyclerViewAdapter categoriesRecyclerViewAdapter = new VariantRecyclerViewAdapter(this, this);
 
-                dropdown2.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        expandableLayout1.toggle();
+            Objects.requireNonNull(recyclerView).setAdapter(categoriesRecyclerViewAdapter);
+            Window window = bottomSheetDialog.getWindow();
+            window.setLayout(ConstraintLayout.LayoutParams.MATCH_PARENT, ConstraintLayout.LayoutParams.WRAP_CONTENT);
+            ExpandableLayout expandableLayout = view1.findViewById(R.id.expandable_layout);
 
-                    }
-                });
+            TextView dropdown1 =  view1.findViewById(R.id.add_size_variant);
 
-                new_color.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        SimpleColorDialog.build()
-                                .title("pick_a_color")
-                                .colorPreset(Color.RED)
-                                .allowCustom(true)
-                                .show(new_product.this, "dialogTagColor");
-                    }
-                });
+            EditText sizeVariantName = view1.findViewById(R.id.size_variant_name);
+            EditText variantPrice = view1.findViewById(R.id.variant_price);
+            EditText variantDiscountedPrice = view1.findViewById(R.id.variant_discounted_price);
+            MaterialButton new_color = view1.findViewById(R.id.add_new_color_variant_button);
+            ExpandableLayout expandableLayout1 = view1.findViewById(R.id.expandable_layout_1);
+            TextView dropdown2 = view1.findViewById(R.id.add_color_variant);
 
+            MaterialButton addVariantButton = view1.findViewById(R.id.add_variant_button);
+            dropdown1.setOnClickListener(v -> expandableLayout.toggle());
+            addVariantButton.setOnClickListener(view2 -> {
+                /*if (sizeVariantName.getText().length()==0){
+                    return;
+                }
+                if (variantPrice.getText().length()==0){
+                    return;
+                }
+                if (color==0){
+                    return;
+                }*/
 
+            });
 
-            }
-
-
+            bottomSheetDialog.show();
         });
 
-        add_product_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                View view2=getLayoutInflater().inflate(R.layout.product_added_success,null);
-                BottomSheetDialog bottomSheetDialog1= new BottomSheetDialog(v.getContext());
-                bottomSheetDialog1.setContentView(view2);
-                bottomSheetDialog1.show();
-            }
+        add_product_button.setOnClickListener(v -> {
+            View view2 = getLayoutInflater().inflate(R.layout.product_added_success,null);
+            BottomSheetDialog bottomSheetDialog1 = new BottomSheetDialog(v.getContext());
+            bottomSheetDialog1.setContentView(view2);
+            bottomSheetDialog1.show();
         });
     }
 }
