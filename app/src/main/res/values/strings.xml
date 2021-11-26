@@ -46,4 +46,24 @@
     <string name="store_imageview">Store ImageView</string>
     <string name="let_s_add_some_product_to_your_ninventory_to_start_selling">Let\'s add some product to your \ninventory to start selling</string>
     <string name="your_shop_completion">Your Shop Completion</string>
+    <string name="_40">40%</string>
+    <string name="complete_all_the_steps_to_start_selling_products">Complete all the steps to start selling products</string>
+    <string name="store_creation">Store Creation</string>
+    <string name="your_store_super_shopping_centre_is_nsuccessfully_created">Your Store \'Super Shopping Centre\' is \nsuccessfully created.</string>
+    <string name="preview_store"><![CDATA[Preview Store >]]></string>
+    <string name="add_products">Add Products</string>
+    <string name="please_add_at_least_3_products_in_your_nstore_to_start_with">Please add at least 3 products in your \nstore to start with.</string>
+    <string name="share_on_whatsapp">Share On Whatsapp</string>
+    <string name="lets_start_with_people_noticing_your_store_nby_sharing_the_link">Lets start with people noticing your store \nby sharing the link</string>
+    <string name="only_product_back_button">OnlyProductBackButton</string>
+    <string name="add_new_product">Add new Product</string>
+    <string name="add_3_more_products_to_get_started">Add 3 more products to get started</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_category">Product Category</string>
+    <string name="select_product_category">Select Product Category</string>
+    <string name="upto_6">(upto 6)</string>
+    <string name="add_new_product_back_button">Add New Product Back Button</string>
+    <string name="price">Price</string>
+    <string name="discounted_price">Discounted Price</string>
+    <string name="delete">DELETE</string>
 </resources>

@@ -9,7 +9,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.textfield.TextInputEditText;
 
 public class Only_Product_Name extends AppCompatActivity {
 
@@ -19,7 +18,7 @@ public class Only_Product_Name extends AppCompatActivity {
         setContentView(R.layout.activity_only_product_name);
 
         EditText business=(EditText) findViewById(R.id.edittext2);
-        Button signup= (Button)findViewById(R.id.button) ;
+        Button signup= (Button)findViewById(R.id.continue_button) ;
         Intent congrats=new Intent(this,new_product.class);
         business.setOnClickListener(new View.OnClickListener() {
             @Override
