@@ -79,6 +79,7 @@ public class otp extends AppCompatActivity {
     private ProgressBar progressBar;
     private ObjectAnimator animation;
     private InternetCheck internetCheck;
+    private Snack snack;
 
     private final View.OnClickListener allClickListenerHandlingCL = this::allClickListenerHandling;
 
@@ -86,15 +87,15 @@ public class otp extends AppCompatActivity {
         if (view.getId() == R.id.continue_button){
             int conn = getConnectionType(this);
             if (conn == TYPE_NOT_CONNECTED) {
-                internetCheck.snackBar(sendOtp, "Please connect to internet to continue!");
+                snack.snackBar(sendOtp, "Please connect to internet to continue!");
                 return;
             }
             if (Objects.requireNonNull(otpView.getText()).length()==0) {
                 otpView.setError("Please enter otp");
-                internetCheck.snackBar(sendOtp, "Please enter otp");
+                snack.snackBar(sendOtp, "Please enter otp");
             } else if (otpView.getText().length()<6) {
                 otpView.setError("Please enter the 6-digit code");
-                internetCheck.snackBar(sendOtp, "Please enter the 6-digit code");
+                snack.snackBar(sendOtp, "Please enter the 6-digit code");
             } else if (otpView.getText().length()==6)
                 submitConfirmationCode();
         }
@@ -136,6 +137,7 @@ public class otp extends AppCompatActivity {
             }
         };
         internetCheck = new InternetCheck(true, broadcastReceiver, this);
+        snack = new Snack(this);
     }
 
     private void test(){
@@ -168,9 +170,9 @@ public class otp extends AppCompatActivity {
                                     Log.d(TAG, "operations" + flagOP);
                                     operations();
                                     flagOP++;
-                                    internetCheck.snackBar(sendOtp, "Something Went Wrong! Please Wait While We Try Again...");
+                                    snack.snackBar(sendOtp, "Something Went Wrong! Please Wait While We Try Again...");
                                 } else {
-                                    internetCheck.snackBar(sendOtp, "Something Went Wrong! Please Try Again With Phone Number Verification");
+                                    snack.snackBar(sendOtp, "Something Went Wrong! Please Try Again With Phone Number Verification");
                                     if (firebaseAuth.getCurrentUser() != null)
                                         firebaseAuth.signOut();
                                     Log.d(TAG, "userSignedOut");
@@ -191,9 +193,9 @@ public class otp extends AppCompatActivity {
                 progressBar.clearAnimation();
                 progressBar.setVisibility(View.INVISIBLE);
                         if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                            internetCheck.snackBar(sendOtp, "Invalid phone number.");
+                            snack.snackBar(sendOtp, "Invalid phone number.");
                         } else if (e instanceof FirebaseTooManyRequestsException) {
-                            internetCheck.snackBar(sendOtp, "Quota exceeded.");
+                            snack.snackBar(sendOtp, "Quota exceeded.");
                         }
                         Log.d(TAG, "verificationFailed");
                     }
@@ -235,9 +237,9 @@ public class otp extends AppCompatActivity {
                             Log.d(TAG, "operations" + flagOP);
                             operations();
                             flagOP++;
-                            internetCheck.snackBar(sendOtp, "Something Went Wrong! Please Wait While We Try Again...");
+                            snack.snackBar(sendOtp, "Something Went Wrong! Please Wait While We Try Again...");
                         } else {
-                            internetCheck.snackBar(sendOtp, "Something Went Wrong! Please Try Again With Phone Number Verification");
+                            snack.snackBar(sendOtp, "Something Went Wrong! Please Try Again With Phone Number Verification");
                             if (firebaseAuth.getCurrentUser() != null)
                                 firebaseAuth.signOut();
                             Log.d(TAG, "userSignedOut");
@@ -258,9 +260,9 @@ public class otp extends AppCompatActivity {
                 progressBar.clearAnimation();
                 progressBar.setVisibility(View.INVISIBLE);
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
-                    internetCheck.snackBar(sendOtp, "Invalid phone number.");
+                    snack.snackBar(sendOtp, "Invalid phone number.");
                 } else if (e instanceof FirebaseTooManyRequestsException) {
-                    internetCheck.snackBar(sendOtp, "Quota exceeded.");
+                    snack.snackBar(sendOtp, "Quota exceeded.");
                 }
                 Log.d(TAG, "verificationFailed");
             }
@@ -310,7 +312,7 @@ public class otp extends AppCompatActivity {
         try {
             signInWithPhoneAuthCredential(credential);
         } catch (Exception e) {
-            internetCheck.snackBar(sendOtp, Objects.requireNonNull(e.getMessage()));
+            snack.snackBar(sendOtp, Objects.requireNonNull(e.getMessage()));
             Log.d(TAG, e.getMessage());
         }
     }
@@ -333,7 +335,7 @@ public class otp extends AppCompatActivity {
                         Log.w(TAG, "signInWithCredential:failure", task.getException());
                         if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
                             // The verification code entered was invalid
-                            internetCheck.snackBar(sendOtp, Objects.requireNonNull(Objects.requireNonNull(task.getException()).getMessage()));
+                            snack.snackBar(sendOtp, Objects.requireNonNull(Objects.requireNonNull(task.getException()).getMessage()));
                         }
                         sendOtp.setEnabled(true);
                     });
@@ -380,7 +382,7 @@ public class otp extends AppCompatActivity {
                                         progressBar.clearAnimation();
                                         progressBar.setVisibility(View.INVISIBLE);
                                         sendOtp.setEnabled(true);
-                                        internetCheck.snackBar(sendOtp, "ERROR" + e.getMessage());
+                                        snack.snackBar(sendOtp, "ERROR" + e.getMessage());
                                     });
                             } else {
                                 check.set(shopOwner)
@@ -412,9 +414,9 @@ public class otp extends AppCompatActivity {
                                                         Log.d(TAG, "fullSignIn" + flag);
                                                         fullSignIn();
                                                         flag++;
-                                                        internetCheck.snackBar(sendOtp, "Something Went Wrong! Please Wait While We Try Again...");
+                                                        snack.snackBar(sendOtp, "Something Went Wrong! Please Wait While We Try Again...");
                                                     } else {
-                                                        internetCheck.snackBar(sendOtp, "Something Went Wrong! Please Try Again With Phone Number Verification");
+                                                        snack.snackBar(sendOtp, "Something Went Wrong! Please Try Again With Phone Number Verification");
                                                         if (firebaseAuth.getCurrentUser() != null)
                                                             firebaseAuth.signOut();
                                                         Log.d(TAG, "userSignedOutFullSignIn");
@@ -429,7 +431,7 @@ public class otp extends AppCompatActivity {
                                                     .addOnFailureListener(e -> {
                                                         progressBar.clearAnimation();
                                                         progressBar.setVisibility(View.INVISIBLE);
-                                                        internetCheck.snackBar(sendOtp, "ERROR" + e.getMessage());
+                                                        snack.snackBar(sendOtp, "ERROR" + e.getMessage());
                                                     });
                                         }
                                     })
@@ -437,7 +439,7 @@ public class otp extends AppCompatActivity {
                                         progressBar.clearAnimation();
                                         progressBar.setVisibility(View.INVISIBLE);
                                         sendOtp.setEnabled(true);
-                                        internetCheck.snackBar(sendOtp, "ERROR" + e.getMessage());
+                                        snack.snackBar(sendOtp, "ERROR" + e.getMessage());
                                     });
                             }
                         } else {
@@ -458,7 +460,7 @@ public class otp extends AppCompatActivity {
                                         progressBar.clearAnimation();
                                         progressBar.setVisibility(View.INVISIBLE);
                                         sendOtp.setEnabled(true);
-                                        internetCheck.snackBar(sendOtp, "ERROR" + e.getMessage());
+                                        snack.snackBar(sendOtp, "ERROR" + e.getMessage());
                                     });
                         }
                     });
@@ -466,10 +468,10 @@ public class otp extends AppCompatActivity {
                     progressBar.clearAnimation();
                     progressBar.setVisibility(View.INVISIBLE);
                     Log.d(TAG, "Could not confirm authenticity");
-                    internetCheck.snackBar(sendOtp, "Could not confirm authenticity. Please try again!");
+                    snack.snackBar(sendOtp, "Could not confirm authenticity. Please try again!");
                 }
             } else {
-                internetCheck.snackBar(sendOtp, "Something Went Wrong! Please Try Again With Phone Number Verification");
+                snack.snackBar(sendOtp, "Something Went Wrong! Please Try Again With Phone Number Verification");
                 if (firebaseAuth.getCurrentUser() != null)
                     firebaseAuth.signOut();
                 Log.d(TAG, "taskUnsuccessfulUserSignedOut");
@@ -548,7 +550,7 @@ public class otp extends AppCompatActivity {
                                         PhoneAuthProvider.ForceResendingToken token) {
         int conn = getConnectionType(this);
         if (conn == TYPE_NOT_CONNECTED) {
-            internetCheck.snackBar(sendOtp, "Please connect to internet to continue!");
+            snack.snackBar(sendOtp, "Please connect to internet to continue!");
             return;
         }
         mCountDownTextView.setEnabled(false);

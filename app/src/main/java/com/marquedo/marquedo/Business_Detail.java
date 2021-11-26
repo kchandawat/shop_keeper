@@ -3,7 +3,7 @@ package com.marquedo.marquedo;
 import static com.marquedo.marquedo.InternetCheck.getConnectionType;
 import static com.marquedo.marquedo.InternetCheck.getConnectivityStatusString;
 import static com.marquedo.marquedo.OurConstants.BUSINESS_CATEGORY_KEY;
-import static com.marquedo.marquedo.OurConstants.OTP_FCMID_KEY;
+import static com.marquedo.marquedo.OurConstants.BUSINESS_CATEGORY_SIZE_KEY;
 import static com.marquedo.marquedo.OurConstants.OTP_PREFERENCES;
 import static com.marquedo.marquedo.OurConstants.SHOP_NAME_KEY;
 import static com.marquedo.marquedo.OurConstants.TYPE_NOT_CONNECTED;
@@ -63,6 +63,7 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
 
     private final View.OnClickListener allClickListenerHandlingCL = this::allClickListenerHandling;
     private BottomSheetDialog bottomSheetDialog;
+    private Snack snack;
 
     private void allClickListenerHandling(View view) {
         if (view.getId() == R.id.signup_button){
@@ -99,6 +100,7 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
         sharedPreferences = getSharedPreferences(OTP_PREFERENCES, Context.MODE_PRIVATE);
         businessBackButton = findViewById(R.id.business_back_button);
         signup= findViewById(R.id.signup_button);
+        snack = new Snack(this);
     }
 
     private void operations() {
@@ -149,12 +151,12 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
 
     private void signup() {
         if (Objects.requireNonNull(businessNameET.getText()).length() == 0) {
-            Toast.makeText(this, "Please enter shop name", Toast.LENGTH_LONG).show();
+            internetCheck.snackBar(signup, "Please enter shop name");
             return;
         }
         String businessCategoriesString1 = Objects.requireNonNull(businessCategoryTIL.getEditText()).getText().toString();
         if (businessCategoriesString1.isEmpty()){
-            Toast.makeText(this, "Please select categories", Toast.LENGTH_SHORT).show();
+            internetCheck.snackBar(signup, "Please select categories");
             return;
         }
 
@@ -163,19 +165,27 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
         store.put(SHOP_NAME_KEY, businessNameET.getText().toString());
         store.put(BUSINESS_CATEGORY_KEY, currentSelectedItems);
         if (!uid.isEmpty()) {
-            db.collection("Store").document(uid).update(store)
-                    .addOnCompleteListener(task -> {
-                        SharedPreferences.Editor editor = sharedPreferences.edit();
-                        editor.putString(SHOP_NAME_KEY, businessNameET.getText().toString());
-                        for (int i = 0; i < currentSelectedItems.size(); i++) {
-                            editor.putString(OTP_FCMID_KEY + i, currentSelectedItems.get(i));
-                        }
-                        editor.apply();
-                        Intent congrats=new Intent(this, congrats.class);
-                        congrats.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                        startActivity(congrats);
-                    })
-                    .addOnFailureListener(e -> Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show());
+            db.collection("Store").document(uid).get().addOnCompleteListener(task -> {
+                if (task.getResult().get(SHOP_NAME_KEY) == businessNameET.getText().toString()){
+                    snack.snackBar(signup, "Name exists! Please enter a different shop name");
+                } else {
+                    db.collection("Store").document(uid).update(store)
+                            .addOnCompleteListener(task1 -> {
+                                SharedPreferences.Editor editor = sharedPreferences.edit();
+                                editor.putString(SHOP_NAME_KEY, businessNameET.getText().toString());
+                                editor.putInt(BUSINESS_CATEGORY_SIZE_KEY, currentSelectedItems.size());
+                                for (int i = 0; i < currentSelectedItems.size(); i++) {
+                                    editor.putString(BUSINESS_CATEGORY_KEY + i, currentSelectedItems.get(i));
+                                }
+                                editor.apply();
+                                Intent congrats=new Intent(this, congrats.class);
+                                congrats.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(congrats);
+                            })
+                            .addOnFailureListener(e -> Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show());
+                }
+            })
+                    .addOnFailureListener(e -> snack.snackBar(signup, e.getMessage()));
         }
     }
 
