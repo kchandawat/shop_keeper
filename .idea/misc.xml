@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.1828125" />
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable-v24/ic_baseline_check_24_transparent.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable/checkimageselector.xml" value="0.3828125" />
@@ -48,10 +49,11 @@
         <entry key="app/src/main/res/layout/activity_business_category.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_business_detail.xml" value="0.30380955863333103" />
         <entry key="app/src/main/res/layout/activity_congrats.xml" value="0.12208713272543059" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.12208713272543059" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.6530968196194719" />
         <entry key="app/src/main/res/layout/activity_mobile_login.xml" value="0.12208713272543059" />
         <entry key="app/src/main/res/layout/activity_new_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_only_product_name.xml" value="0.34523216001750384" />
+        <entry key="app/src/main/res/layout/activity_order_detail_overview1.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_order_enquiry_page.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_otp.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_progress.xml" value="0.12208713272543059" />
