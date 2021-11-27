@@ -17,8 +17,8 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="18"
             android:orientation="horizontal"
+            android:layout_weight="18"
             android:padding="10dp">
 
             <ImageButton
@@ -56,8 +56,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="-28dp"
-                android:layout_weight="2"
-
                 app:cardCornerRadius="28dp">
 
                 <LinearLayout
@@ -65,7 +63,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="30dp"
-
                     >
 
                     <com.google.android.material.button.MaterialButton

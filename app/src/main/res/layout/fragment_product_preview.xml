@@ -187,6 +187,7 @@
                                 <TextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
                                     android:layout_marginStart="20dp"
                                     android:padding="5dp"
                                     android:text="Price: "
@@ -198,6 +199,7 @@
                                     android:id="@+id/product_price"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
                                     android:layout_marginStart="80dp"
                                     android:paddingVertical="5dp"
                                     android:text="30,000"
@@ -236,12 +238,14 @@
                                 android:paddingVertical="10dp">
 
                                 <com.google.android.material.button.MaterialButton
-                                    android:layout_width="170dp"
-                                    android:layout_height="55dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:paddingHorizontal="20dp"
                                     android:layout_marginStart="15dp"
                                     android:backgroundTint="@color/material_grey_300"
                                     android:letterSpacing="0.05"
-                                    android:padding="5dp"
+                                    android:paddingVertical="5dp"
                                     android:text="Save for Later"
                                     android:textAllCaps="false"
                                     android:textColor="@color/black"
@@ -249,14 +253,15 @@
                                     app:cornerRadius="8dp" />
 
                                 <com.google.android.material.button.MaterialButton
-                                    android:layout_width="175dp"
-                                    android:layout_height="55dp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
                                     android:layout_alignParentEnd="true"
                                     android:layout_marginEnd="15dp"
-                                    android:padding="5dp"
+                                    android:letterSpacing="0.05"
+                                    android:paddingHorizontal="25dp"
+                                    android:paddingVertical="8dp"
                                     android:text="Add To Cart"
                                     android:textAllCaps="false"
-                                    android:letterSpacing="0.05"
                                     android:textColor="@color/black"
                                     android:textSize="16sp"
                                     app:cornerRadius="8dp" />
