@@ -1,45 +1,43 @@
-package com.marquedo.marquedo.ui.notifications;
+package com.marquedo.marquedo.ui.dashboard;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import com.marquedo.marquedo.R;
+import android.widget.ImageButton;
+
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.marquedo.marquedo.databinding.FragmentNotificationsBinding;
+import com.marquedo.marquedo.R;
 
-public class NotificationsFragment extends Fragment {
-
-    private NotificationsViewModel notificationsViewModel;
-    private FragmentNotificationsBinding binding;
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.notification_page, container, false);
-        RecyclerView rvOrders = (RecyclerView) view.findViewById(R.id.taskRecycler);
-        RecyclerAdapter adapter = new RecyclerAdapter();
-        rvOrders.setAdapter(adapter);
-        rvOrders.setLayoutManager(new LinearLayoutManager(this.getContext()));
-        return view;
-    }
+public class Mywallet extends AppCompatActivity {
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.walletpage);
+        ImageButton back = (ImageButton) this.findViewById(R.id.imageButton);
+        Intent dashboard = new Intent(this, DashboardViewModel.class);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        RecyclerView rvContacts = (RecyclerView) findViewById(R.id.RecyclerWallet);
+        RecyclerAdapter adapter=new RecyclerAdapter();
+        rvContacts.setAdapter(adapter);
+        rvContacts.setLayoutManager(new LinearLayoutManager(this));
+
     }
 
     public class RecyclerAdapter extends
-            RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+            RecyclerView.Adapter <RecyclerAdapter.ViewHolder> {
 
         // Provide a direct reference to each of the views within a data item
         // Used to cache the views within the item layout for fast access
@@ -64,21 +62,20 @@ public class NotificationsFragment extends Fragment {
             LayoutInflater inflater = LayoutInflater.from(context);
 
             // Inflate the custom layout
-            View ordersView = inflater.inflate(R.layout.notification_tile, parent, false);
+            View ordersView = inflater.inflate(R.layout.wallet_tile, parent, false);
 
             // Return a new holder instance
-            RecyclerAdapter.ViewHolder viewHolder = new RecyclerAdapter.ViewHolder(ordersView);
+           ViewHolder viewHolder = new ViewHolder(ordersView);
             return viewHolder;
         }
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
         }
 
         @Override
         public int getItemCount() {
-            return 3;
+            return 4;
         }
 
 
