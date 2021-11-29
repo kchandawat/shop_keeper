@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.marquedo.R;
 import com.example.marquedo.databinding.FragmentDashboardBinding;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 //import com.example.marquedo.logoutAction;
 
 public class DashboardFragment extends Fragment {
@@ -66,7 +67,38 @@ public class DashboardFragment extends Fragment {
                 startActivity(privacyPolicy);
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View view2 = getLayoutInflater().inflate(R.layout.logout_action,null);
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(view.getContext());
+                bottomSheetDialog.setContentView(view2);
+                bottomSheetDialog.show();
+                Button yes = (Button) view2.findViewById(R.id.Yeslogout_button);
+                Button no = (Button) view2.findViewById(R.id.Nologout_button);
+                Button close = (Button) view2.findViewById(R.id.close_sheet);
+                /*Intent noLogout = new Intent(getContext(), DashboardViewModel.class);
 
+                no.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(noLogout);
+                    }
+                });
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(noLogout);
+                    }
+                });*/
+                yes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+            }
+        });
 //        logout.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
