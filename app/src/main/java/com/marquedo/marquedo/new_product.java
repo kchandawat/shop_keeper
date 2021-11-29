@@ -49,7 +49,7 @@ public class new_product extends AppCompatActivity
         setContentView(R.layout.activity_new_product);
         MaterialButton button=(MaterialButton) findViewById(R.id.add_new_product_variant_button);
         Button add_product_button=(Button)findViewById(R.id.add_product_button);
-        recyclerView = findViewById((R.id.rv));
+        recyclerView = findViewById((R.id.product_images_recyclerView));
         add_images_button = findViewById(R.id.add_product_images);
 
 
