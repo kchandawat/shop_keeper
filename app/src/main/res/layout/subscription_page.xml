@@ -77,65 +77,66 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical"
-                    android:padding="30dp"
-                    >
+                    android:padding="30dp">
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        android:background="@drawable/subscriptionbox">
+                        android:background="@drawable/subscriptionbox"
+                        android:orientation="vertical">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            app:cornerRadius = "14dp"
                             android:background="@drawable/yellow_background_subscription"
-                            >
+                            android:orientation="horizontal"
+                            app:cornerRadius="14dp">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:layout_gravity="left"
+                                android:padding="10dp"
                                 android:text="Weekly Subscription"
                                 android:textColor="@color/black"
-                                app:cornerRadius = "14dp"
                                 android:textSize="20dp"
-                                android:padding="10dp"
-                                android:layout_gravity="left"
-                                />
+                                app:cornerRadius="14dp" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:gravity="right"
+                                android:padding="10dp"
                                 android:text="₹ 1000"
                                 android:textColor="@color/black"
                                 android:textSize="20dp"
-                                app:cornerRadius = "14dp"
-                                android:padding="10dp"
-                                android:gravity="right"
-                                />
+                                app:cornerRadius="14dp" />
                         </LinearLayout>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:padding="10dp"
                             android:text="10 Delivery"
                             android:textColor="@color/black"
-                            android:background="@color/white"
-                            app:cornerRadius = "14dp"
                             android:textSize="15dp"
-                            android:padding="10dp"
-                            />
+                            app:cornerRadius="14dp" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:background="@drawable/white_background_subscription">
+                            android:background="@drawable/white_background_subscription"
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:padding="10dp"
                                 android:text="Within 30 kilometres"
                                 android:textColor="@color/black"
-                                app:cornerRadius = "14dp"
                                 android:textSize="15dp"
-                                android:padding="10dp"
-                                />
+                                app:cornerRadius="14dp" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -153,62 +154,63 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
                         android:layout_marginTop="30dp"
-                        android:background="@drawable/subscriptionbox">
+                        android:background="@drawable/subscriptionbox"
+                        android:orientation="vertical">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            app:cornerRadius = "14dp"
                             android:background="@drawable/yellow_background_subscription"
-                            >
+                            android:orientation="horizontal"
+                            app:cornerRadius="14dp">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:layout_gravity="left"
+                                android:padding="10dp"
                                 android:text="Monthly Subscription"
                                 android:textColor="@color/black"
-                                app:cornerRadius = "14dp"
                                 android:textSize="20dp"
-                                android:padding="10dp"
-                                android:layout_gravity="left"
-                                />
+                                app:cornerRadius="14dp" />
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:gravity="right"
+                                android:padding="10dp"
                                 android:text="₹ 2000"
+                                android:textAlignment="gravity"
                                 android:textColor="@color/black"
                                 android:textSize="20dp"
-                                app:cornerRadius = "14dp"
-                                android:padding="10dp"
-                                android:textAlignment="gravity"
-                                android:gravity="right"
-                                />
+                                app:cornerRadius="14dp" />
                         </LinearLayout>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:padding="10dp"
                             android:text="30 Delivery"
                             android:textColor="@color/black"
-                            android:background="@color/white"
-                            app:cornerRadius = "14dp"
                             android:textSize="15dp"
-                            android:padding="10dp"
-                            />
+                            app:cornerRadius="14dp" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:background="@drawable/white_background_subscription">
+                            android:background="@drawable/white_background_subscription"
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
+                                android:padding="10dp"
                                 android:text="Within 100 kilometres"
                                 android:textColor="@color/black"
-                                app:cornerRadius = "14dp"
                                 android:textSize="15dp"
-                                android:padding="10dp"
-                                />
+                                app:cornerRadius="14dp" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -225,50 +227,51 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical"
                         android:layout_marginTop="30dp"
-                        android:background="@drawable/subscriptionbox">
+                        android:background="@drawable/subscriptionbox"
+                        android:orientation="vertical">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            app:cornerRadius = "14dp"
                             android:background="@drawable/yellow_background_subscription"
-                            >
+                            android:orientation="horizontal"
+                            app:cornerRadius="14dp">
+
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:gravity="left"
+                                android:padding="10dp"
                                 android:text="Pay As You Go"
                                 android:textColor="@color/black"
-                                android:textSize="20dp"
-                                android:padding="10dp"
-                                android:gravity="left"
-                                />
+                                android:textSize="20dp" />
                         </LinearLayout>
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
+                            android:background="@color/white"
+                            android:padding="10dp"
                             android:text="₹ 100 Per Delivery"
                             android:textColor="@color/black"
-                            android:background="@color/white"
-                            app:cornerRadius = "14dp"
                             android:textSize="15dp"
-                            android:padding="10dp"
-                            />
+                            app:cornerRadius="14dp" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:background="@drawable/white_background_subscription">
+                            android:background="@drawable/white_background_subscription"
+                            android:orientation="horizontal">
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="Within 10 kilometres"
-                                android:textColor="@color/black"
-
-                                android:textSize="15dp"
                                 android:padding="10dp"
-                                />
+                                android:text="Within 10 kilometres"
+
+                                android:textColor="@color/black"
+                                android:textSize="15dp" />
 
                             <TextView
                                 android:layout_width="match_parent"
@@ -283,7 +286,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="215dp"/>
+                        android:layout_height="300dp" />
 
                 </LinearLayout>
 

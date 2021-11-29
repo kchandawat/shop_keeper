@@ -73,7 +73,7 @@
                             android:layout_gravity=""
                             android:text="Available Wallet Balance"
                             android:textColor="#000"
-                            android:textSize="23sp" />
+                            android:textSize="23dp" />
 
                     </LinearLayout>
                 </RelativeLayout>
@@ -97,7 +97,7 @@
                             android:text="340"
                             android:textStyle="bold"
                             android:textColor="#000"
-                            android:textSize="29sp" />
+                            android:textSize="29dp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -115,7 +115,7 @@
                             android:layout_marginBottom="0dp"
                             android:text="Rupees"
                             android:textColor="#808080"
-                            android:textSize="23sp" />
+                            android:textSize="23dp" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -142,7 +142,7 @@
                             android:textAllCaps="false"
                             android:textColor="#000"
                             android:textIsSelectable="false"
-                            android:textSize="18sp"
+                            android:textSize="18dp"
                             android:textStyle="bold"
                             />
 
@@ -196,7 +196,7 @@
                             android:layout_marginBottom="0dp"
                             android:text="Transaction History"
                             android:textColor="#000"
-                            android:textSize="28sp"
+                            android:textSize="28dp"
                             android:textStyle="bold"/>
 
                     </LinearLayout>
