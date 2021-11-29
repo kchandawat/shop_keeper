@@ -52,13 +52,13 @@
                         android:layout_gravity=""
                         android:text="Money added to wallet"
                         android:textColor="@color/black"
-                        android:textSize="23sp" />
+                        android:textSize="23dp" />
 
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="5dp"
                     android:layout_alignParentRight="true"
                     android:orientation="horizontal">
 
@@ -68,7 +68,7 @@
                         android:layout_gravity="right"
                         android:text="+1000"
                         android:textColor="@color/black"
-                        android:textSize="23sp" />
+                        android:textSize="23dp" />
                 </LinearLayout>
             </RelativeLayout>
             <RelativeLayout
@@ -88,7 +88,7 @@
                         android:layout_gravity=""
                         android:text="11 oct,  09:34 am"
                         android:textColor="#808080"
-                        android:textSize="20sp" />
+                        android:textSize="20dp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -103,7 +103,7 @@
 
                         android:text="Successful"
                         android:textColor="#FFA500"
-                        android:textSize="20sp" />
+                        android:textSize="20dp" />
                 </LinearLayout>
 
                 <LinearLayout
