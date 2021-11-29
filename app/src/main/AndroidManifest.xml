@@ -16,24 +16,8 @@
             android:name=".Splash"
             android:exported="true"
             android:theme="@style/Theme.Splash">
-<!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
--->
         </activity>
-        <activity
-            android:name=".stuti_new_product"
-            android:exported="true"
-            android:theme="@style/Theme.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".varient_card"
             android:exported="true" />
@@ -42,10 +26,11 @@
             android:exported="true" />
         <activity
             android:name=".new_product"
-            android:exported="true" />
+            android:exported="true"/>
         <activity
             android:name=".add_product"
-            android:exported="true" />
+            android:exported="true"/>
+
         <activity
             android:name=".progress"
             android:exported="true"
@@ -67,13 +52,25 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
+            android:exported="true"
             android:theme="@style/Theme.MainActivity">
-            <!--<intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
         </activity>
+
+
+        <activity
+            android:name="com.darsh.multipleimageselect.activities.AlbumSelectActivity"
+            android:exported="true"
+            android:theme="@style/MultipleImageSelectTheme">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+
     </application>
 
 </manifest>

@@ -11,44 +11,44 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
+import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 
 public class imageAdapter extends RecyclerView.Adapter<imageAdapter.holder>
 {
+    ArrayList<String> imagePath;
 
-    Context c;
-    //ArrayList<model_image> Model_images;
-    ArrayList<Uri> uri;
-
-    public imageAdapter(Context c, ArrayList<Uri> uri)//ArrayList<model_image> model_images)
+    public imageAdapter(ArrayList<String> string)
     {
-        this.c = c;
-       // this.Model_images = model_images;
-        this.uri = uri;
+        this.imagePath = string;
     }
 
     @NonNull
     @Override
     public holder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
-        View v = LayoutInflater.from(c).inflate(R.layout.activity_image_item,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_image_item,parent,false);
         return new holder(v) ;
     }
 
     @Override
     public void onBindViewHolder(@NonNull holder holder, int position)
     {
-        Uri uri1 = uri.get(position);
-        //model_image mi = Model_images.get(position);
-        //Glide.with(c).load(uri1).into(holder.imageView);
-        //Picasso.with(c).load(mi.getUri()).placeholder()
+        String path = imagePath.get(position);
+        Glide.with(holder.imageView.getContext()).load(new File(path)).into(holder.imageView);
     }
 
 
     @Override
     public int getItemCount()
     {
-        return 6;
+        return imagePath.size();
+        /*int limit = 6;
+        return Math.min(uri.size(), limit);*/
+
     }
 
     class holder extends RecyclerView.ViewHolder
