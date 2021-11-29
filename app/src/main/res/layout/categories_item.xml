@@ -20,7 +20,7 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="120dp"
                 android:layout_height="120dp"
-                android:layout_marginVertical="20dp"
+                android:layout_marginVertical="22dp"
                 android:layout_marginStart="10dp"
                 android:elevation="2dp"
                 app:cardCornerRadius="10dp">
@@ -64,7 +64,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="32dp"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
