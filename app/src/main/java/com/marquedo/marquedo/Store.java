@@ -15,7 +15,8 @@ public class Store {
     String shopName;
     Map<String, WeekDays> timings;
 
-    public List<String> getBusinessCategory() {
+    public List<String> getBusinessCategory()
+    {
         return businessCategory;
     }
 

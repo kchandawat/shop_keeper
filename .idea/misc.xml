@@ -24,6 +24,17 @@
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/fragment_dashboard.xml" value="0.3351449275362319" />
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/fragment_home.xml" value="0.3351449275362319" />
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/fragment_notifications.xml" value="0.3351449275362319" />
+        <entry key="..\:/shop_keeper/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.25833333333333336" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_add_product.xml" value="0.264" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_image_item.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_new_product.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_update_product.xml" value="0.20885416666666667" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/categories_item.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_categories.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_new_product_category.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_products.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_products_n_category.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/products_item.xml" value="0.264" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_check_24_transparent.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/checkimageselector.xml" value="0.18385416666666668" />
@@ -61,7 +72,6 @@
         <entry key="app/src/main/res/layout/fragment_new_product_category.xml" value="0.12208713272543059" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/product_added_success.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/seller_home.xml" value="0.11818852694879099" />
         <entry key="app/src/main/res/layout/varient_card.xml" value="0.19382022471910113" />
         <entry key="app/src/main/res/layout/varient_card_size.xml" value="0.24258377520373028" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/add_product_images.xml" value="0.14479166666666668" />

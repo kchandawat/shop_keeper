@@ -39,7 +39,8 @@ public class product_n_category extends Fragment {
 
         view.findViewById(R.id.add_pnc).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view)
+            {
                 startActivity(new Intent(getContext(), new_product.class));
             }
         });
