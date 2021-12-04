@@ -27,6 +27,7 @@ import com.marquedo.marquedo.StoreTry;
 import com.marquedo.marquedo.update_product;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -120,8 +121,13 @@ public class ProductsFragment extends Fragment {
                 //Integer prodcount = Integer.parseInt(documentSnapshot.getData().get("NumberofProducts").toString());
                 //Integer price = Integer.parseInt(documentSnapshot.getData().get("Price").toString());
                 //Integer discount = Integer.parseInt(documentSnapshot.getData().get("DiscountPrice").toString());
-                ProductModelClass list = documentSnapshot.toObject(ProductModelClass.class);
-                Log.i("hello", list.toString());
+              Map<String,Object> data = documentSnapshot.getData();
+
+              Map<String,Object> Grocery=(Map<String, Object>) ((Map<String, Object>) data.get("products")).get("Grocery");
+
+                Log.i("hello", Grocery.get("Details").toString());
+                ProductModelClass list = new ProductModelClass(Grocery.get("Category").toString(),Grocery.get("Details").toString(),Grocery.get("Measure").toString(),Grocery.get("Name").toString(),Grocery.get("imageurl1").toString(),Integer.parseInt(Grocery.get("DiscountPrice").toString()),Integer.parseInt( Grocery.get("Price").toString()),Integer.parseInt(Grocery.get("NumberofProducts").toString()));
+
                 //Log.d("hello", documentSnapshot.getString("Name"));
                 prodlist.add(list);
                 //prodlist.add(new ProductModelClass(name,category,details,measure,url,null,null,null));
