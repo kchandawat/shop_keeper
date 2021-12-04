@@ -26,8 +26,8 @@
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:layout_gravity="center_vertical"
-                android:tint="@color/white"
-                app:srcCompat="?attr/actionModeCloseDrawable" />
+                app:srcCompat="?attr/actionModeCloseDrawable"
+                app:tint="@color/white" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -404,7 +404,7 @@
                     />
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/add_product_button"
-                    android:layout_width="338dp"
+                    android:layout_width="match_parent"
                     android:layout_height="57dp"
                     android:layout_marginBottom="76dp"
                     android:shadowColor="#ffffff"

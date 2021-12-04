@@ -32,8 +32,8 @@
     <string name="phone_number">Phone Number</string>
     <string name="enter_code_sent_to_your_nmobile_number">Enter code sent to your\nMobile Number</string>
     <string name="resend_code_in">Resend code in</string>
-<string name="submit">Submit</string>
-   <string name="otp_back_button">OtpBackButton</string>
+    <string name="submit">Submit</string>
+    <string name="otp_back_button">OtpBackButton</string>
 
     <string name="logout">Logout</string>
 
@@ -69,4 +69,6 @@
     <string name="price">Price</string>
     <string name="discounted_price">Discounted Price</string>
     <string name="delete">DELETE</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
