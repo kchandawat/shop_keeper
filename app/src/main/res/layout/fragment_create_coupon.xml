@@ -43,13 +43,11 @@
         </LinearLayout>
 
 
-        <androidx.cardview.widget.CardView
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginBottom="-28dp"
-            android:layout_weight="2"
-
-            app:cardCornerRadius="28dp">
+            android:layout_height="wrap_content"
+            style="@style/FragmentCardView"
+            android:layout_weight="2">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -290,7 +288,6 @@
                     android:id="@+id/add_product_button"
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
-                    android:layout_marginTop="20dp"
                     android:layout_marginBottom="76dp"
                     android:shadowColor="#ffffff"
                     android:text="Add Now"
@@ -302,7 +299,7 @@
 
 
             </LinearLayout>
-        </androidx.cardview.widget.CardView>
+        </com.google.android.material.card.MaterialCardView>
 
 
     </LinearLayout>
