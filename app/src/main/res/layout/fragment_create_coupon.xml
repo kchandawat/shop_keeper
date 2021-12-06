@@ -135,24 +135,24 @@
                         >
 
                         <androidx.appcompat.widget.AppCompatRadioButton
+                            style="@style/RadioStyle"
                             android:id="@+id/percent"
                             android:layout_width="wrap_content"
                             android:layout_height="32dp"
                             android:layout_marginEnd="20dp"
                             android:checked="false"
                             android:paddingVertical="2dp"
-                            android:button="@drawable/custom_radio"
                             android:paddingHorizontal="5dp"
                             android:text="Percent" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
+                            style="@style/RadioStyle"
                             android:id="@+id/flatDis"
                             android:layout_width="wrap_content"
                             android:layout_height="32dp"
                             android:layout_marginStart="75dp"
                             android:checked="true"
                             android:paddingVertical="2dp"
-                            android:button="@drawable/custom_radio"
                             android:paddingHorizontal="5dp"
                             android:text="Flat Discount"
                             />
@@ -275,14 +275,13 @@
                         android:textSize="14sp"/>
 
                     <androidx.appcompat.widget.SwitchCompat
+                        style="@style/SwitchStyle"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
                         android:layout_gravity="center_vertical"
                         android:checked="true"
-                        android:gravity="center"
-                        android:thumb="@drawable/thumb_switch"
-                        app:track="@drawable/track_switch" />
+                        android:gravity="center" />
                 </RelativeLayout>
 
                 <com.google.android.material.button.MaterialButton
