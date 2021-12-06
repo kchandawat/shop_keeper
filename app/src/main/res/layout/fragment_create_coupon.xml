@@ -193,8 +193,8 @@
                             android:layout_marginTop="5dp"
                             android:background="@drawable/edit_text_layout"
                             android:hint="%"
-                            android:paddingVertical="10dp"
                             android:paddingHorizontal="20dp"
+                            android:paddingVertical="10dp"
                             android:textColorHint="@color/almost_black"
                             android:textSize="16sp" />
                     </RelativeLayout>
@@ -273,6 +273,7 @@
                         android:gravity="center_vertical"
                         android:text="Active Coupon for Customers"
                         android:textSize="14sp"/>
+
                     <androidx.appcompat.widget.SwitchCompat
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -281,7 +282,7 @@
                         android:checked="true"
                         android:gravity="center"
                         android:thumb="@drawable/thumb_switch"
-                        app:track="@drawable/track_switch"/>
+                        app:track="@drawable/track_switch" />
                 </RelativeLayout>
 
                 <com.google.android.material.button.MaterialButton
