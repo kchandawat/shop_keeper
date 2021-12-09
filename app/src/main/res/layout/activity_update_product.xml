@@ -87,7 +87,12 @@
 
                         />
 
-                    <HorizontalScrollView
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/update_prod_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                  <!--  <HorizontalScrollView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingTop="10dp"
@@ -238,7 +243,7 @@
                                     android:src="@mipmap/iphone_sample_foreground" />
                             </androidx.cardview.widget.CardView>
                         </LinearLayout>
-                    </HorizontalScrollView>
+                    </HorizontalScrollView> -->
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -261,9 +266,8 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/label9"
                             android:layout_marginTop="5dp"
+                            android:hint="OnePlus(Artic Blue,12 GB RAM, 256 GB)"
                             android:background="@drawable/edit_text_layout"
-
-
                             android:minHeight="48dp"
                             android:padding="10dp"
                             android:textSize="16sp"

@@ -2,9 +2,11 @@ package com.marquedo.marquedo.ui.Prod_n_Cat.Product;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,60 +14,49 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.update_product;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProductsFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class ProductsFragment extends Fragment {
+public class ProductsFragment extends Fragment
+{
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    ArrayList<ProductsDataModel> data = new ArrayList<>();
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+
     private RecyclerView recyclerView;
+    private ArrayList<ProductModelClass> prodlist;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private ProductListAdapter adapter;
 
-    public ProductsFragment() {
-        // Required empty public constructor
+    public ProductsFragment()
+    {
+
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProductsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static ProductsFragment newInstance(String param1, String param2) {
         ProductsFragment fragment = new ProductsFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
 
-
-        //Mock Data
+        /*Mock Data
         data.add(new ProductsDataModel("Mock Product Title (Filler, Filler, Filler)",
                 "1 Quantity",
                 24000,
@@ -94,25 +85,110 @@ public class ProductsFragment extends Fragment {
                 "2 Quantity",
                 4000,
                 2500,
-                false));
+                false));*/
 
-    }
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_products, container, false);
     }
 
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        recyclerView = view.findViewById(R.id.products_list);
-        recyclerView.setAdapter(new ProductListAdapter(data,
-                item -> startActivity(new Intent(getContext(), update_product.class))));
-        recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false));
-    }
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState)
+    {
 
+        View v = inflater.inflate(R.layout.fragment_products, container, false);
+        recyclerView = v.findViewById(R.id.products_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        prodlist = new ArrayList<>();
+        adapter = new ProductListAdapter(prodlist); //, item -> startActivity(new Intent(getContext(), update_product.class)));
+        recyclerView.setAdapter(adapter);
+
+
+        CollectionReference collectionReference = db.collection("Store");
+        db.collectionGroup("products").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>()
+        {
+            @Override
+            public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots)
+            {
+                List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                for(DocumentSnapshot d : list)
+                {
+                    ProductModelClass productModelClass = d.toObject(ProductModelClass.class);
+                    prodlist.add(productModelClass);
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
+        //DocumentReference documentReference = db.collection("Store").document("StoreIDGenerated");
+        /*documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>()
+        {
+            @Override
+            public void onSuccess(@NonNull DocumentSnapshot documentSnapshot)
+            {
+                ProductModelClass list = documentSnapshot.toObject(ProductModelClass.class);
+
+                prodlist.add(new ProductModelClass());
+                adapter.notifyDataSetChanged();
+            }
+
+        }).addOnFailureListener(new OnFailureListener() 
+        {
+            @Override
+            public void onFailure(@NonNull Exception e) 
+            {
+                Toast.makeText(getActivity(), e.toString(), Toast.LENGTH_SHORT).show();
+            }
+        }); */
+
+
+
+
+        /*db.collection("Product").get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>()
+        {
+            @Override
+            public void onSuccess(@NonNull QuerySnapshot queryDocumentSnapshots)
+            {
+                List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
+                for(DocumentSnapshot d : list)
+                {
+                    ProductModelClass dataList = d.toObject(ProductModelClass.class);
+                    prodlist.add(dataList);
+                }
+                adapter.notifyDataSetChanged();
+
+            }
+        });
+
+
+
+         */
+        /*documentReference.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>()
+        {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task)
+            {
+                if(task.isSuccessful())
+                {
+                    DocumentSnapshot documentSnapshot = task.getResult();
+                    String name = documentSnapshot.getString("Name");
+                    String Qty = documentSnapshot.getString("NumberofProducts");
+                    ArrayList<String> list = new ArrayList<>();
+                    list.add(name);
+                    list.add(Qty);
+                    if(documentSnapshot.exists())
+                    {
+                    }
+                }
+
+
+
+
+            }
+        });*/
+
+
+
+
+        return v;
+
+    }
 }
