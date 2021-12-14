@@ -266,8 +266,8 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/label9"
                             android:layout_marginTop="5dp"
-                            android:hint="OnePlus(Artic Blue,12 GB RAM, 256 GB)"
                             android:background="@drawable/edit_text_layout"
+                            android:hint="OnePlus(Artic Blue,12 GB RAM, 256 GB)"
                             android:minHeight="48dp"
                             android:padding="10dp"
                             android:textSize="16sp"
@@ -297,14 +297,21 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/label10">
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/business_input"
+                            <EditText
+                                android:id="@+id/prod_category_up"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/edit_text_layout"/>
+
+
+                          <!--  <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/prod_category_up"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/edit_text_layout"
                                 android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
                                 android:inputType="textAutoComplete"
-                                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+                                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" /> -->
 
 
                         </com.google.android.material.textfield.TextInputLayout>
