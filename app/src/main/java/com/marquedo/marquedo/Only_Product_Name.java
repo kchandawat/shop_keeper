@@ -20,6 +20,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
+import com.marquedo.marquedo.secondary.PnS.AddProductNServiceActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,7 +43,7 @@ public class Only_Product_Name extends AppCompatActivity implements CheckboxData
         productNameTIL = findViewById(R.id.product_name_til);
         productCategoryTIL = findViewById(R.id.product_category_til);
         MaterialButton signup= findViewById(R.id.op_continue_button);
-        Intent congrats=new Intent(this,new_product.class);
+        Intent congrats=new Intent(this, AddProductNServiceActivity.class);
 
         bottomSheetDialog = new BottomSheetDialog(this, R.style.CustomAlertDialog);
         bottomSheetDialog.setContentView(R.layout.activity_business_category);

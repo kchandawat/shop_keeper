@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
-    tools:context=".new_product">
+    tools:context=".secondary.PnS.AddProductFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,51 +13,12 @@
         android:weightSum="20"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="18"
-            android:orientation="horizontal">
-
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="31dp"
-                android:layout_height="41dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:background="@null"
-                android:contentDescription="Return"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
-                android:tint="@color/white"
-                app:srcCompat="?attr/actionModeCloseDrawable" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="20dp"
-                android:padding="10dp"
-                android:text="Add New Product"
-                android:textColor="@color/white"
-                android:textSize="18sp" />
-        </LinearLayout>
-
-
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="-28dp"
-                android:layout_weight="2"
-                android:backgroundTint="@color/white"
-                app:cardCornerRadius="28dp">
-
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="30dp"
@@ -66,6 +26,7 @@
                     >
 
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/add_product_images"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
@@ -85,9 +46,11 @@
                         />
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/add_prod_recyclerView"
+                        android:id="@+id/product_images_recyclerView"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        tools:itemCount="6"/>
 
                    <!-- <HorizontalScrollView
                         android:layout_width="match_parent"
@@ -248,7 +211,7 @@
                         >
 
                         <TextView
-                            android:id="@+id/label9"
+                            android:id="@+id/prod_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Product Name"
@@ -258,7 +221,7 @@
                             android:id="@+id/productName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@+id/label9"
+                            android:layout_below="@+id/prod_name"
                             android:layout_marginTop="5dp"
                             android:background="@drawable/edit_text_layout"
 
@@ -291,7 +254,7 @@
                             app:layout_constraintTop_toBottomOf="@+id/label10">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/business_input"
+                                android:id="@+id/prod_category"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/edit_text_layout"
@@ -481,8 +444,8 @@
                         app:strokeWidth="1dp" />
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/button"
-                        android:layout_width="338dp"
+                        android:id="@+id/add_product_button"
+                        android:layout_width="match_parent"
                         android:layout_height="57dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="76dp"
@@ -492,10 +455,7 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         app:cornerRadius="10dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.493"
-                        app:layout_constraintStart_toStartOf="parent" />
+                        android:enabled="false"/>
 
                     <view
                         class="android.widget.LinearLayout"
@@ -503,7 +463,6 @@
                         android:layout_height="30dp" />
 
                 </LinearLayout>
-            </androidx.cardview.widget.CardView>
 
 
         </androidx.core.widget.NestedScrollView>

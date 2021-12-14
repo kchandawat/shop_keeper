@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ui.dashboard.discounts.CreateCouponFragment">
+    tools:context=".ui.dashboard.discounts.UpdateCouponFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,16 +37,16 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginStart="10dp"
                 android:padding="10dp"
-                android:text="Create Discount Coupons"
+                android:text="Update Discount Coupon"
                 android:textColor="@color/white"
                 android:textSize="18sp" />
         </LinearLayout>
 
 
         <com.google.android.material.card.MaterialCardView
+            style="@style/FragmentCardView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/FragmentCardView"
             android:layout_weight="2">
 
             <LinearLayout
@@ -104,8 +104,8 @@
                         android:layout_marginTop="5dp"
                         android:background="@drawable/edit_text_layout"
                         android:importantForAutofill="no"
-                        android:paddingVertical="10dp"
                         android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
                         android:textSize="16sp" />
 
                 </RelativeLayout>
@@ -131,31 +131,29 @@
                         android:layout_marginTop="5dp"
                         android:orientation="horizontal"
                         android:padding="10dp"
-                        android:textSize="16sp"
-                        >
+                        android:textSize="16sp">
 
                         <androidx.appcompat.widget.AppCompatRadioButton
-                            style="@style/RadioStyle"
                             android:id="@+id/percent"
+                            style="@style/RadioStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="32dp"
                             android:layout_marginEnd="20dp"
                             android:checked="false"
-                            android:paddingVertical="2dp"
                             android:paddingHorizontal="5dp"
+                            android:paddingVertical="2dp"
                             android:text="Percent" />
 
                         <androidx.appcompat.widget.AppCompatRadioButton
-                            style="@style/RadioStyle"
                             android:id="@+id/flatDis"
+                            style="@style/RadioStyle"
                             android:layout_width="wrap_content"
                             android:layout_height="32dp"
                             android:layout_marginStart="75dp"
                             android:checked="true"
-                            android:paddingVertical="2dp"
                             android:paddingHorizontal="5dp"
-                            android:text="Flat Discount"
-                            />
+                            android:paddingVertical="2dp"
+                            android:text="Flat Discount" />
 
 
                     </RadioGroup>
@@ -184,7 +182,7 @@
                             android:layout_height="wrap_content"
                             android:text="Percent"
                             android:textSize="11sp" />
-
+                        <!--                        TODO: Add EditText Style for Disabled and Enabled -->
                         <EditText
                             android:id="@+id/edittext3"
                             android:layout_width="match_parent"
@@ -224,9 +222,9 @@
                             android:layout_marginTop="5dp"
                             android:background="@drawable/edit_text_layout"
                             android:hint="$"
-                            android:textColorHint="@color/almost_black"
-                            android:paddingVertical="10dp"
                             android:paddingHorizontal="20dp"
+                            android:paddingVertical="10dp"
+                            android:textColorHint="@color/almost_black"
                             android:textSize="16sp" />
                     </RelativeLayout>
                 </LinearLayout>
@@ -252,8 +250,8 @@
                         android:layout_marginTop="5dp"
                         android:background="@drawable/edit_text_layout"
                         android:hint="$"
-                        android:paddingVertical="10dp"
                         android:paddingHorizontal="20dp"
+                        android:paddingVertical="10dp"
                         android:textColorHint="@color/almost_black"
                         android:textSize="16sp" />
                 </RelativeLayout>
@@ -274,7 +272,7 @@
                         android:layout_marginBottom="5dp"
                         android:gravity="center_vertical"
                         android:text="Active Coupon for Customers"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp" />
 
                     <androidx.appcompat.widget.SwitchCompat
                         style="@style/SwitchStyle"
@@ -291,13 +289,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="57dp"
                     android:layout_marginBottom="76dp"
+                    android:enabled="false"
                     android:shadowColor="#ffffff"
-                    android:text="Add Now"
+                    android:text="Update Coupon"
                     android:textAllCaps="false"
                     android:textColor="#000000"
                     android:textSize="20sp"
-                    app:cornerRadius="10dp"
-                    android:enabled="false"/>
+                    app:cornerRadius="10dp" />
 
 
             </LinearLayout>
