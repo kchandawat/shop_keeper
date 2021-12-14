@@ -1,6 +1,8 @@
 package com.marquedo.marquedo.secondary.PnS;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
@@ -21,6 +23,13 @@ public class AddProductNServiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_product_n_service);
         tabLayout = findViewById(R.id.tabLayout);
         viewPager2 = findViewById(R.id.viewPager);
+
+        findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddProductNServiceActivity.super.onBackPressed();
+            }
+        });
 
         tabLayout.addTab(tabLayout.newTab().setText("Product"));
         tabLayout.addTab(tabLayout.newTab().setText("Service"));

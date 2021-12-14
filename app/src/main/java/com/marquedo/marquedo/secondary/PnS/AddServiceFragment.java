@@ -1,5 +1,6 @@
 package com.marquedo.marquedo.secondary.PnS;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,7 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.marquedo.marquedo.R;
+import com.marquedo.marquedo.progress;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +64,29 @@ public class AddServiceFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_service, container, false);
+        View view = inflater.inflate(R.layout.fragment_add_service, container, false);
+
+        view.findViewById(R.id.add_service_btn).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                View view2=getLayoutInflater().inflate(R.layout.fragment_serviced_added_success,null);
+                BottomSheetDialog bottomSheetDialog1= new BottomSheetDialog(v.getContext());
+                bottomSheetDialog1.setContentView(view2);
+                bottomSheetDialog1.show();
+
+                bottomSheetDialog1.findViewById(R.id.submit_button).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        bottomSheetDialog1.dismiss();
+                        startActivity(new Intent(v.getContext(), progress.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                    }
+                });
+            }
+        });
+
+        return view;
     }
 }

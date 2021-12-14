@@ -22,7 +22,7 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/login_back_button"
+                android:id="@+id/back_button"
                 android:layout_width="31dp"
                 android:layout_height="41dp"
                 android:layout_gravity="center_vertical"

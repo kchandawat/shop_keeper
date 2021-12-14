@@ -455,7 +455,7 @@
                         android:textColor="#000000"
                         android:textSize="20sp"
                         app:cornerRadius="10dp"
-                        android:enabled="false"/>
+                        android:enabled="true"/>
 
                     <view
                         class="android.widget.LinearLayout"

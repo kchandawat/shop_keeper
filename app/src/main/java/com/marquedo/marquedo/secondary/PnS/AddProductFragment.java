@@ -24,6 +24,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.imageAdapter;
+import com.marquedo.marquedo.progress;
 import com.marquedo.marquedo.ui.Prod_n_Cat.Product.ProductsFragment;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
@@ -160,6 +161,15 @@ public class AddProductFragment extends Fragment
                 BottomSheetDialog bottomSheetDialog1= new BottomSheetDialog(v.getContext());
                 bottomSheetDialog1.setContentView(view2);
                 bottomSheetDialog1.show();
+
+                bottomSheetDialog1.findViewById(R.id.submit_button).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        bottomSheetDialog1.dismiss();
+                        startActivity(new Intent(v.getContext(), progress.class)
+                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
+                    }
+                });
             }
         });
 
