@@ -39,7 +39,8 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
 
     @NonNull
     @Override
-    public ProductListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewTyp) {
+    public ProductListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewTyp)
+    {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.products_item, null);
         return new ViewHolder(view);
     }
@@ -53,7 +54,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         holder.productPrice.setText(String.valueOf(data.get(position).getPrice()));
         holder.productOffer.setText(String.valueOf(data.get(position).getDiscount_Price()));
         Glide.with(holder.prodImage.getContext()).load(data.get(position).getImage_Primary()).into(holder.prodImage);
-       /*holder.cardView.setOnClickListener(new View.OnClickListener()
+        /*holder.cardView.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
@@ -89,8 +90,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
         ImageView prodImage;
         CardView cardView;
 
-        public ViewHolder(@NonNull View itemView)
-        {
+        public ViewHolder(@NonNull View itemView) {
             super(itemView);
             productTitle = itemView.findViewById(R.id.product_title);
             productUnits = itemView.findViewById(R.id.product_units);

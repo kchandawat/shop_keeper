@@ -32,6 +32,7 @@ import java.util.ArrayList;
 
 import eltos.simpledialogfragment.color.SimpleColorDialog;
 
+
 public class new_product extends AppCompatActivity
 {
     RecyclerView recyclerView;
@@ -41,6 +42,8 @@ public class new_product extends AppCompatActivity
     ActivityResultLauncher<Intent> getResult;
 
     private static final int PICK_IMAGES_CODE = 0;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
