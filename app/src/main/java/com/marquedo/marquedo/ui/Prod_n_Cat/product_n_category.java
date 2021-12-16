@@ -14,9 +14,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.marquedo.marquedo.R;
-import com.marquedo.marquedo.secondary.PnS.AddProductFragment;
+import com.marquedo.marquedo.new_product;
 import com.google.android.material.tabs.TabLayout;
-import com.marquedo.marquedo.secondary.PnS.AddProductNServiceActivity;
 
 public class product_n_category extends Fragment {
 
@@ -41,7 +40,7 @@ public class product_n_category extends Fragment {
         view.findViewById(R.id.add_pnc).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getContext(), AddProductNServiceActivity.class));
+                startActivity(new Intent(getContext(), new_product.class));
             }
         });
 
