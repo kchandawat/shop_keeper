@@ -313,6 +313,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="15dp"
+                            android:layout_marginHorizontal="50dp"
+                            android:gravity="center"
                             android:backgroundTint="@color/light_grey"
                             android:padding="15dp"
                             android:stateListAnimator="@null"
@@ -326,8 +328,6 @@
                             app:strokeColor="@color/red"
                             app:strokeWidth="2dp"
                             app:layout_constraintTop_toBottomOf="@id/variant_recyclerview"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintBottom_toBottomOf="parent" />
                     </androidx.constraintlayout.widget.ConstraintLayout>
 

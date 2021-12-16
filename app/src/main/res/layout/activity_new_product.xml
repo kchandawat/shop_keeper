@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.marquedo.marquedo.new_product"
+    tools:context="com.marquedo.marquedo.secondary.PnS.AddProductFragment"
     android:background="@color/black">
 
     <LinearLayout
@@ -373,18 +373,19 @@
                         android:layout_height="wrap_content"
                         android:text="Product Details"
                         android:textSize="10dp" />
+
                     <EditText
-                        android:layout_marginTop="5dp"
-                        android:layout_below="@+id/label7"
                         android:id="@+id/edittext7"
                         android:layout_width="match_parent"
-
                         android:layout_height="wrap_content"
-                        android:textSize="16dp"
+                        android:layout_below="@+id/label7"
+
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/edit_text_layout"
 
 
                         android:padding="10dp"
-                        android:background="@drawable/edit_text_layout"/>
+                        android:textSize="16dp" />
                 </RelativeLayout>
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/add_new_product_variant_button"
