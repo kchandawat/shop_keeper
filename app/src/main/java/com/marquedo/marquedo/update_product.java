@@ -11,7 +11,6 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class update_product extends AppCompatActivity
 {
-
     private String pos;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
 
