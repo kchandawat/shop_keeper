@@ -1,31 +1,30 @@
-package com.marquedo.marquedo.secondary.PnS;
+package com.marquedo.marquedo;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
-import android.view.LayoutInflater;
+import android.provider.SyncStateContract;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
 import com.darsh.multipleimageselect.helpers.Constants;
 import com.darsh.multipleimageselect.models.Image;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
-import com.marquedo.marquedo.R;
-import com.marquedo.marquedo.imageAdapter;
-import com.marquedo.marquedo.progress;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.ProductsFragment;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 
@@ -33,43 +32,32 @@ import java.util.ArrayList;
 
 import eltos.simpledialogfragment.color.SimpleColorDialog;
 
-public class AddProductFragment extends Fragment
+
+public class new_product extends AppCompatActivity
 {
     RecyclerView recyclerView;
     MaterialButton add_images_button;
-    com.marquedo.marquedo.imageAdapter imageAdapter;
+    imageAdapter imageAdapter;
     ArrayList<String> Images = new ArrayList<>();
     ActivityResultLauncher<Intent> getResult;
 
     private static final int PICK_IMAGES_CODE = 0;
 
-    public AddProductFragment()
-    {
 
-    }
-
-
-    public static AddProductFragment newInstance(String param1, String param2) {
-        AddProductFragment fragment = new AddProductFragment();
-        Bundle args = new Bundle();
-        return fragment;
-    }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_add_product, container, false);
-
-
-        MaterialButton button = (MaterialButton) view.findViewById(R.id.add_new_product_variant_button);
-        Button add_product_button = (Button)view.findViewById(R.id.add_product_button);
-        recyclerView = view.findViewById((R.id.product_images_recyclerView));
-        add_images_button = view.findViewById(R.id.add_product_images);
+    protected void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_new_product);
+        MaterialButton button=(MaterialButton) findViewById(R.id.add_new_product_variant_button);
+        Button add_product_button=(Button)findViewById(R.id.add_product_button);
+        recyclerView = findViewById((R.id.product_images_recyclerView));
+        add_images_button = findViewById(R.id.add_product_images);
 
 
         imageAdapter = new imageAdapter(Images);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(imageAdapter);
 
@@ -79,7 +67,7 @@ public class AddProductFragment extends Fragment
             @Override
             public void onClick(View v)
             {
-                Intent intent = new Intent(getActivity().getApplicationContext(), AlbumSelectActivity.class);
+                Intent intent = new Intent(new_product.this, AlbumSelectActivity.class);
                 intent.putExtra(Constants.INTENT_EXTRA_LIMIT, 6);
                 getResult.launch(intent);
             }
@@ -87,16 +75,16 @@ public class AddProductFragment extends Fragment
 
 
         getResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-            @Override
-            public void onActivityResult(ActivityResult result) {
-                ArrayList<Image> images = result.getData().getParcelableArrayListExtra(Constants.INTENT_EXTRA_IMAGES);
-                Images.clear();
-                for (int i = 0; i < images.size(); i++)
-                {
-                    Images.add(images.get(i).path);
-                }
-                imageAdapter.notifyDataSetChanged();
-            }
+                    @Override
+                    public void onActivityResult(ActivityResult result) {
+                        ArrayList<Image> images = result.getData().getParcelableArrayListExtra(Constants.INTENT_EXTRA_IMAGES);
+                        Images.clear();
+                        for (int i = 0; i < images.size(); i++)
+                        {
+                            Images.add(images.get(i).path);
+                        }
+                        imageAdapter.notifyDataSetChanged();
+                    }
 
         });
 
@@ -141,7 +129,7 @@ public class AddProductFragment extends Fragment
                                 .title("pick_a_color")
                                 .colorPreset(Color.RED)
                                 .allowCustom(true)
-                                .show(AddProductFragment.this, "dialogTagColor");
+                                .show(new_product.this, "dialogTagColor");
                     }
                 });
 
@@ -161,19 +149,10 @@ public class AddProductFragment extends Fragment
                 BottomSheetDialog bottomSheetDialog1= new BottomSheetDialog(v.getContext());
                 bottomSheetDialog1.setContentView(view2);
                 bottomSheetDialog1.show();
-
-                bottomSheetDialog1.findViewById(R.id.submit_button).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        bottomSheetDialog1.dismiss();
-                        startActivity(new Intent(v.getContext(), progress.class)
-                                .addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK));
-                    }
-                });
             }
         });
 
-        return view;
     }
+
 
 }
