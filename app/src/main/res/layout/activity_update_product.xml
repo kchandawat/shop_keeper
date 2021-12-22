@@ -69,7 +69,6 @@
                     >
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/addImage_updateProd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
@@ -267,8 +266,8 @@
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/label9"
                             android:layout_marginTop="5dp"
-                            android:background="@drawable/edit_text_layout"
                             android:hint="OnePlus(Artic Blue,12 GB RAM, 256 GB)"
+                            android:background="@drawable/edit_text_layout"
                             android:minHeight="48dp"
                             android:padding="10dp"
                             android:textSize="16sp"
@@ -298,21 +297,14 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/label10">
 
-                            <EditText
-                                android:id="@+id/prodCategory"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/edit_text_layout"/>
-
-
-                          <!--  <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/prod_category_up"
+                            <com.google.android.material.textfield.TextInputEditText
+                                android:id="@+id/business_input"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/edit_text_layout"
                                 android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
                                 android:inputType="textAutoComplete"
-                                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" /> -->
+                                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
 
                         </com.google.android.material.textfield.TextInputLayout>
@@ -342,7 +334,7 @@
                                 android:textSize="11sp" />
 
                             <EditText
-                                android:id="@+id/prodPrice"
+                                android:id="@+id/edittext3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/label3"
@@ -373,7 +365,7 @@
                                 android:textSize="11sp" />
 
                             <EditText
-                                android:id="@+id/prodDiscount"
+                                android:id="@+id/edittext4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/label4"
@@ -411,7 +403,7 @@
                                 android:textSize="11sp" />
 
                             <EditText
-                                android:id="@+id/Num_of_prod"
+                                android:id="@+id/edittext5"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/label5"
@@ -442,7 +434,7 @@
                                 android:textSize="11sp" />
 
                             <EditText
-                                android:id="@+id/prodMeasure"
+                                android:id="@+id/edittext6"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/label6"
@@ -471,7 +463,7 @@
                             android:textSize="11sp" />
 
                         <EditText
-                            android:id="@+id/prodDetails"
+                            android:id="@+id/edittext7"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/label7"

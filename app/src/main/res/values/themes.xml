@@ -69,6 +69,12 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="android:statusBarColor">@color/black</item>
     </style>
+    <style name="Theme.Marquedo.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.Marquedo.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.Marquedo.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <!--<style name="progressBar" parent="Widget.AppCompat.SeekBar">
         <item name="android:progressBackgroundTint">@color/royalblue</item>
