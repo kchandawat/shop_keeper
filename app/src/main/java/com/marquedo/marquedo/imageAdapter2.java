@@ -11,17 +11,24 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
-import java.io.File;
-import java.util.ArrayList;
+import java.util.List;
 
-public class imageAdapter extends RecyclerView.Adapter<imageAdapter.holder>
+public class imageAdapter2 extends RecyclerView.Adapter<imageAdapter2.holder>
 {
-    ArrayList<String> imagePath;
+    List<String> imageUrl;
+    //ArrayList<String> imagePath;
 
-    public imageAdapter(ArrayList<String> string)
+    public imageAdapter2(List<String> imageUrl)//, ArrayList<String> string)
+    {
+        this.imageUrl = imageUrl;
+        //this.imagePath = string;
+    }
+
+
+    /*public imageAdapter2(ArrayList<String> string)
     {
         this.imagePath = string;
-    }
+    }*/
 
     @NonNull
     @Override
@@ -34,18 +41,18 @@ public class imageAdapter extends RecyclerView.Adapter<imageAdapter.holder>
     @Override
     public void onBindViewHolder(@NonNull holder holder, int position)
     {
-
-        String path = imagePath.get(position);
-        Glide.with(holder.imageView.getContext()).load(new File(path)).into(holder.imageView);
+        //String path = imagePath.get(position);
+        //Glide.with(holder.imageView.getContext()).load(new File(path)).into(holder.imageView);
+        Glide.with(holder.imageView.getContext()).load(imageUrl.get(position)).into(holder.imageView);
     }
 
 
     @Override
     public int getItemCount()
     {
-        return imagePath.size();
-        /*int limit = 6;
-        return Math.min(uri.size(), limit);*/
+        return imageUrl.size();
+       /* int limit = 6;
+        return Math.min(0, limit);*/
 
     }
 
@@ -53,7 +60,7 @@ public class imageAdapter extends RecyclerView.Adapter<imageAdapter.holder>
     {
         ImageButton imageButton;
         ImageView imageView;
-        private imageAdapter imageAdapter;
+        private imageAdapter2 imageAdapter;
 
         public holder(@NonNull View itemView)
         {
@@ -65,19 +72,18 @@ public class imageAdapter extends RecyclerView.Adapter<imageAdapter.holder>
                 @Override
                 public void onClick(View v)
                 {
-                    imageAdapter.imagePath.remove(getAdapterPosition());
+                    imageAdapter.imageUrl.remove(getAdapterPosition());
+                    //imageAdapter.imagePath.remove(getAdapterPosition());
                     imageAdapter.notifyItemRemoved(getAdapterPosition());
                 }
             });
         }
 
-        public holder linkAdapter(imageAdapter imageAdapter)
+        public holder linkAdapter(imageAdapter2 imageAdapter)
         {
             this.imageAdapter = imageAdapter;
             return this;
         }
-
-
     }
 
 }

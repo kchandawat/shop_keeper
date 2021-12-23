@@ -1,33 +1,43 @@
 package com.marquedo.marquedo.ui.Prod_n_Cat.Product;
 
+import java.util.List;
 
-public class ProductModelClass
+public class AboutModelClass
 {
-
-    String Image_Primary, Name, Unit_Measure;
+    String Category, Details, Name, Unit_Measure;
     Integer Discount_Price, Number_of_Units,Price;
+    List<String> urls;
 
-    public ProductModelClass()
+    public AboutModelClass()
     {
 
     }
 
-    public ProductModelClass(String image_Primary, String name, String unit_Measure, Integer discount_Price, Integer number_of_Units, Integer price) {
-        Image_Primary = image_Primary;
+    public AboutModelClass(String category, String details, String name, String unit_Measure, Integer discount_Price, Integer number_of_Units, Integer price, List<String> urls) {
+        Category = category;
+        Details = details;
         Name = name;
         Unit_Measure = unit_Measure;
         Discount_Price = discount_Price;
         Number_of_Units = number_of_Units;
         Price = price;
+        this.urls = urls;
     }
 
-
-    public String getImage_Primary() {
-        return Image_Primary;
+    public String getCategory() {
+        return Category;
     }
 
-    public void setImage_Primary(String image_Primary) {
-        Image_Primary = image_Primary;
+    public void setCategory(String category) {
+        Category = category;
+    }
+
+    public String getDetails() {
+        return Details;
+    }
+
+    public void setDetails(String details) {
+        Details = details;
     }
 
     public String getName() {
@@ -68,5 +78,13 @@ public class ProductModelClass
 
     public void setPrice(Integer price) {
         Price = price;
+    }
+
+    public List<String> getUrls() {
+        return urls;
+    }
+
+    public void setUrls(List<String> urls) {
+        this.urls = urls;
     }
 }

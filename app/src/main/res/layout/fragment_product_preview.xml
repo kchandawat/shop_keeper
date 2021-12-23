@@ -132,12 +132,21 @@
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent">
 
-                                    <ImageView
+                                    <com.denzcoskun.imageslider.ImageSlider
+                                        android:id="@+id/image_slider"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        app:iss_auto_cycle="true"
+                                        app:iss_delay="0"
+                                        app:iss_period="1000" />
+
+                                    <!-- android:scaleType="centerCrop" -->
+
+                                   <!-- <ImageView
                                         android:id="@+id/product_image1"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
-                                        android:scaleType="centerCrop"
-                                        android:src="@mipmap/iphone_sample_foreground" />
+                                        android:src="@mipmap/iphone_sample_foreground" /> -->
 
                                     <com.google.android.material.button.MaterialButton
                                         android:layout_width="90dp"
@@ -167,16 +176,40 @@
                                 android:textColor="@color/material_grey_900"
                                 android:textSize="20sp" />
 
-                            <TextView
-                                android:id="@+id/product_sub"
+                            <LinearLayout
                                 android:layout_width="match_parent"
-                                android:layout_height="30dp"
-                                android:layout_marginStart="25dp"
-                                android:layout_marginEnd="25dp"
-                                android:padding="5dp"
-                                android:text="1x Quantity"
-                                android:textColor="@color/material_grey_600"
-                                android:textSize="11sp" />
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:layout_marginStart="15dp">
+
+                                <TextView
+                                    android:id="@+id/product_units"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingLeft="10dp"
+                                    android:text="Number"
+                                    android:textColor="@color/material_grey_600"
+                                    android:textSize="15sp" />
+
+
+                                <TextView
+                                    android:id="@+id/product_measure"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="5dp"
+                                    android:layout_marginEnd="25dp"
+                                    android:paddingLeft="5dp"
+                                    android:paddingRight="10dp"
+                                    android:text="Quantity"
+                                    android:textColor="@color/material_grey_600"
+                                    android:textSize="15sp" />
+
+
+
+
+                            </LinearLayout>
+
+
 
                             <RelativeLayout
                                 android:layout_width="match_parent"
@@ -267,7 +300,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="10dp"
-                                android:padding="9dp"
+                                android:padding="10dp"
                                 android:text="Product Details:"
                                 android:textColor="@color/material_grey_800"
                                 android:textSize="16sp" />
@@ -276,7 +309,7 @@
                                 android:id="@+id/product_description"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="15dp"
+                                android:layout_marginStart="10dp"
                                 android:padding="10dp"
                                 android:text="@string/mock_prod_desc"
                                 android:textColor="@color/material_grey_800"
