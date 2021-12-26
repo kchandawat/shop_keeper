@@ -23,11 +23,17 @@
         android:label="Orders"
         tools:layout="@layout/activity_order_enquiry_page" />
 
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_notifications"-->
+<!--        android:name="com.marquedo.marquedo.ui.notifications.NotificationsFragment"-->
+<!--        android:label="@string/title_notifications"-->
+<!--        tools:layout="@layout/fragment_notifications" />-->
+
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.marquedo.marquedo.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_services"
+        android:name="com.marquedo.marquedo.ui.Services.ServiceFragment"
+        android:label="Services"
+        tools:layout="@layout/fragment_services" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
