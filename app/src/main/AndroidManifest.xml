@@ -13,18 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Marquedo">
         <activity
-            android:name=".Splash"
-            android:exported="true"
-            android:theme="@style/Theme.Splash">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
-        <activity
-            android:name=".stuti_new_product"
+            android:name=".splash_1.Splash"
             android:exported="true"
             android:theme="@style/Theme.Splash">
             <intent-filter>
@@ -34,62 +23,59 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".sellerSalesStats"
+            android:name=".ui_1_home.SellerSalesStats"
             android:exported="true" />
         <activity
-            android:name=".ui.dashboard.SubscriptionPlans"
+            android:name=".ui.ui_5_dashboard.SubscriptionPlans"
             android:exported="true" />
         <activity
-            android:name=".ui.dashboard.Mywallet"
+            android:name=".ui.ui_5_dashboard.Mywallet"
             android:exported="true" />
         <activity
-            android:name=".ui.dashboard.privacypolicy"
+            android:name=".ui.ui_5_dashboard.PrivacyPolicy"
             android:exported="true" />
         <activity
-            android:name=".varient_card"
+            android:name=".VarientCard"
             android:exported="true" />
         <activity
-            android:name=".Only_Product_Name"
+            android:name=".progress_6.AddNewProductNC"
             android:exported="true" />
         <activity
-            android:name=".new_product"
+            android:name=".progress_6.NewProductDetails"
             android:exported="true" />
         <activity
-            android:name=".add_product"
-            android:exported="true" />
-        <activity
-            android:name=".progress"
+            android:name=".progress_6.Progress"
             android:exported="true"
             android:label="@string/title_activity_progress" />
         <activity
-            android:name=".congrats"
+            android:name=".congrats_5.Congrats"
             android:exported="true" />
         <activity
-            android:name=".Business_Category"
+            android:name=".BusinessCategory"
             android:exported="true" />
         <activity
-            android:name=".Business_Detail"
+            android:name=".business_details_4.BusinessDetail"
             android:exported="true" />
         <activity
-            android:name=".otp"
+            android:name=".auth_3.Verification"
             android:exported="true" />
         <activity
-            android:name=".Mobile_Login"
+            android:name=".auth_3.MobileNumber"
             android:exported="true" />
         <activity
-            android:name=".Orders_Page"
+            android:name=".ui_3_orders_enquiries.OrdersPage"
             android:exported="true" />
         <activity
-            android:name=".Order_details_overview"
+            android:name=".ui_3_orders_enquiries.OrderDetailsOverview"
             android:exported="true" />
         <activity
-            android:name=".update_product"
+            android:name=".ui_2_Prod_n_Cat.UpdateProduct"
             android:exported="true" />
         <activity
-            android:name=".preview_product"
+            android:name=".ui_2_Prod_n_Cat.PreviewProduct"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".main_2.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.marquedo.marquedo.auth_3.MobileNumber">
+
+    <ImageButton
+        android:id="@+id/login_back_button"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:background="@null"
+        android:scaleX="2"
+        android:scaleY="2"
+        app:tint="@color/sienna_brown"
+        android:layout_margin="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="?attr/actionModeCloseDrawable"
+        android:contentDescription="@string/login_back_button" />
+
+    <TextView
+        android:id="@+id/hello_there"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="32dp"
+        android:text="@string/hello_there"
+        android:textColor="@color/sienna_brown"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/manage_sell_products"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/login_back_button" />
+
+    <TextView
+        android:id="@+id/manage_sell_products"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/enter_your_phone_number"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@id/hello_there"
+        app:layout_constraintStart_toStartOf="@+id/hello_there"
+        app:layout_constraintTop_toBottomOf="@+id/hello_there" />
+
+    <TextView
+        android:id="@+id/sent_to_number_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/we_will_send_you_a_confirmation_code"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@id/textInputEditText"
+        app:layout_constraintEnd_toEndOf="@id/manage_sell_products"
+        app:layout_constraintStart_toStartOf="@id/manage_sell_products"
+        app:layout_constraintTop_toBottomOf="@+id/manage_sell_products" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        app:layout_constraintEnd_toEndOf="@id/sent_to_number_textView"
+        app:layout_constraintStart_toStartOf="@id/sent_to_number_textView"
+        app:layout_constraintTop_toBottomOf="@+id/sent_to_number_textView"
+        app:layout_constraintBottom_toTopOf="@id/continue_button"
+        app:prefixText="+91">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/phone_number"
+            android:inputType="phone"
+            android:maxLength="10" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/continue_button"
+        android:layout_width="0dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="40dp"
+        android:shadowColor="@color/white"
+        android:text="@string/continue_b"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="@id/textInputEditText"
+        app:layout_constraintStart_toStartOf="@id/textInputEditText"
+        app:layout_constraintTop_toBottomOf="@+id/textInputEditText" />
+</androidx.constraintlayout.widget.ConstraintLayout>

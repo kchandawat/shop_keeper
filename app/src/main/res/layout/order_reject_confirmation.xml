@@ -6,7 +6,7 @@
     android:layout_height="400dp"
     android:layout_gravity="bottom"
 
-    tools:context=".Business_Category">
+    tools:context=".BusinessCategory">
     <FrameLayout
         android:id="@+id/standard_bottom_sheet"
         android:layout_width="match_parent"

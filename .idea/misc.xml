@@ -3,7 +3,72 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../layout/custom_preview.xml" value="0.1828125" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/drawable/close_button_white.xml" value="0.2703125" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/drawable/custom_sheet.xml" value="0.2703125" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/drawable/expandable_parent.xml" value="0.2703125" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/drawable/ic_baseline_add_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/drawable/ic_baseline_arrow_down_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/drawable/ic_baseline_close_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/drawable/ic_baseline_color_lens_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/drawable/ic_baseline_keyboard_arrow_up_24.xml" value="0.2703125" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/drawable/ic_divider_12.xml" value="0.14635416666666667" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_add_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_business_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_business_detail.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_mobile_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_new_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_only_product_name.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_order_detail_overview1.xml" value="0.264" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_order_enquiry_page.xml" value="0.264" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_otp.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_progress.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_update_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/activity_varient_card.xml" value="0.1" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/business_details_4_business_details.xml" value="0.14673913043478262" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/business_details_4_checkbox_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/categories_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/checkbox_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/congrats_5_congrats.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/fragment_categories.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/fragment_new_product_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/fragment_notifications.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/fragment_orders_page__enquiries.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/fragment_orders_page__orders.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/fragment_product_preview.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/fragment_products.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/fragment_products_n_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/main_2_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/main_fragment.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/notification_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/notification_tile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/orders_tile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/orderspage_order_tile.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/privacypolicypage.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/product_variant_recyclerview.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/products_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/progress_6_activity_progress.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/progress_6_add_new_product_nc.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/progress_6_colour_variant_recyclerview.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/progress_6_new_product_details.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/progress_6_product_variant_recyclerview (2).xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/progress_6_product_variant_recyclerview.xml" value="0.264" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/progress_6_variant_card.xml" value="0.2" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/seller_home.xml" value="0.264" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/subscription_page.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/test.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/ui_1_home_seller_home.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/ui_2_prod_n_cat_activity_update_product.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/ui_2_prod_n_cat_fragment_product_preview.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/ui_ui_2_categories_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/ui_ui_2_fragment_categories.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/ui_ui_2_fragment_products.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/ui_ui_2_fragment_products_n_category.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/ui_ui_3_fragment_orders_page_enquiries.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/wallet_tile.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/hello world/AndroidStudioProjects/MarquedoLatest/app/src/main/res/layout/walletpage.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable-v24/ic_baseline_check_24_transparent.xml" value="0.23333333333333334" />
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3828125" />
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/drawable/checkimageselector.xml" value="0.3828125" />
@@ -49,12 +114,10 @@
         <entry key="app/src/main/res/layout/activity_business_category.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/activity_business_detail.xml" value="0.30380955863333103" />
         <entry key="app/src/main/res/layout/activity_congrats.xml" value="0.12208713272543059" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.6530968196194719" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.12208713272543059" />
         <entry key="app/src/main/res/layout/activity_mobile_login.xml" value="0.12208713272543059" />
         <entry key="app/src/main/res/layout/activity_new_product.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_only_product_name.xml" value="0.34523216001750384" />
-        <entry key="app/src/main/res/layout/activity_order_detail_overview1.xml" value="0.1503623188405797" />
-        <entry key="app/src/main/res/layout/activity_order_enquiry_page.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_otp.xml" value="0.1503623188405797" />
         <entry key="app/src/main/res/layout/activity_progress.xml" value="0.12208713272543059" />
         <entry key="app/src/main/res/layout/activity_varient_card.xml" value="0.25" />
@@ -64,7 +127,6 @@
         <entry key="app/src/main/res/layout/fragment_new_product_category.xml" value="0.12208713272543059" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.15070921985815602" />
         <entry key="app/src/main/res/layout/product_added_success.xml" value="0.165" />
-        <entry key="app/src/main/res/layout/product_variant_recyclerview.xml" value="0.25" />
         <entry key="app/src/main/res/layout/varient_card.xml" value="0.19382022471910113" />
         <entry key="app/src/main/res/layout/varient_card_size.xml" value="0.24258377520373028" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/add_product_images.xml" value="0.14479166666666668" />
@@ -72,7 +134,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

@@ -7,7 +7,7 @@
     android:background="@drawable/iphone_12_pro_max__10"
     android:backgroundTint="#91000000"
     android:backgroundTintMode="src_over"
-    tools:context="com.marquedo.marquedo.ui.home.HomeFragment">
+    tools:context="com.marquedo.marquedo.ui.ui_1_home.HomeFragment">
 
     <LinearLayout
         android:layout_width="match_parent"

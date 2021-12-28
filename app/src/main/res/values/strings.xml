@@ -32,8 +32,8 @@
     <string name="phone_number">Phone Number</string>
     <string name="enter_code_sent_to_your_nmobile_number">Enter code sent to your\nMobile Number</string>
     <string name="resend_code_in">Resend code in</string>
-<string name="submit">Submit</string>
-   <string name="otp_back_button">OtpBackButton</string>
+    <string name="submit">Submit</string>
+    <string name="otp_back_button">OtpBackButton</string>
 
     <string name="logout">Logout</string>
 
@@ -69,4 +69,13 @@
     <string name="price">Price</string>
     <string name="discounted_price">Discounted Price</string>
     <string name="delete">DELETE</string>
+    <string name="save_amp_continue"><![CDATA[Save & Continue]]></string>
+    <string name="add_product_variants">Add Product Variants</string>
+    <string name="add_another_size_variant">Add Another Size Variant</string>
+    <string name="add_size_variant">Add Size Variant</string>
+    <string name="size_name">Size Name</string>
+    <string name="add_colour_to_variant">Add Colour To Variant</string>
+    <string name="add_more_colours">Add More Colours to This Variant</string>
+    <string name="add_product">Add Product</string>
+    <string name="add_variant_of_this_product">Add Variant of this Product</string>
 </resources>
