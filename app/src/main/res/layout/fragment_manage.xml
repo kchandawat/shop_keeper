@@ -22,7 +22,7 @@
                 android:padding="10dp">
 
                 <ImageButton
-                    android:id="@+id/btnBackArrow"
+                    android:id="@+id/btnBackArrowManage"
                     android:layout_width="31dp"
                     android:layout_marginStart="20dp"
                     android:layout_height="41dp"
@@ -402,20 +402,7 @@
                                 </LinearLayout>
 
                             </androidx.cardview.widget.CardView>
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="match_parent"
-                                android:layout_height="70dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginRight="10dp"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginBottom="48dp"
-                                app:cardCornerRadius="10dp"
-                                app:cardBackgroundColor="@color/white"
-                                app:cardElevation="3dp"
-                                android:translationZ="3dp"
-                                >
 
-                            </androidx.cardview.widget.CardView>
 
                         </LinearLayout>
 

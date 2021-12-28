@@ -89,6 +89,9 @@ public class MyCustomerFragment extends Fragment {
 //                getFragmentManager().popBackStackImmediate();
 //                getFragmentManager().popBackStack("ManageFragment", );
 
+                Fragment fragment = getActivity().getSupportFragmentManager().findFragmentByTag("MyCustomerFragment");
+                getActivity().getSupportFragmentManager().beginTransaction().remove(fragment).commit();
+
 
             }
         });
