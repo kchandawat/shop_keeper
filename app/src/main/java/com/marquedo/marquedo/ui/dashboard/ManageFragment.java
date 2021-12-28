@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 
 import com.marquedo.marquedo.R;
+import com.marquedo.marquedo.ui.dashboard.discounts.DisLandingFragment;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -64,15 +66,39 @@ public class ManageFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_manage, container, false);
         CardView myCustomers = view.findViewById(R.id.manageMyCustomers);
+        CardView discountCoupons = view.findViewById(R.id.discountCoupon);
+        ImageButton backBtn = view.findViewById(R.id.btnBackArrow);
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                getActivity().onBackPressed();
+//                getFragmentManager().popBackStackImmediate();
+//                getFragmentManager().popBackStack();
+//                getActivity().getSupportFragmentManager().popBackStack();
+                System.out.println(getActivity().getClass().getSimpleName());
+
+            }
+        });
 
         myCustomers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MyCustomerFragment nextFrag= new MyCustomerFragment();
                 getActivity().getSupportFragmentManager().beginTransaction()
-                        .replace(((ViewGroup)getView().getParent()).getId(), nextFrag, "findThisFragment")
-                        .addToBackStack(null)
-                        .commit();
+                        .add(((ViewGroup)getView().getParent()).getId(), nextFrag, "MyCustomerFragment")
+                        .addToBackStack("MyCustomerFragment").commit();
+
+            }
+        });
+
+        discountCoupons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DisLandingFragment discountfragment  = new DisLandingFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .add(((ViewGroup)getView().getParent()).getId(), discountfragment, "DiscountFragment")
+                        .addToBackStack("DiscountFragment").commit();
             }
         });
 

@@ -212,7 +212,7 @@ public class EditOrderBottomSheet extends BottomSheetDialogFragment {
             editQuantity.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    editQuantityBottomSheet EditQuantityBottomSheet = new editQuantityBottomSheet(order.getQuantity(), order);
+                    editQuantityBottomSheet EditQuantityBottomSheet = new editQuantityBottomSheet(order.getQuantity(), orders.get(0));
                     EditQuantityBottomSheet.show( getChildFragmentManager(), "TAG");
                 }
             });

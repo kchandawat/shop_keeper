@@ -4,12 +4,14 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.marquedo.marquedo.Order_details_overview;
@@ -65,20 +67,38 @@ public class MyCustomerFragment extends Fragment {
         }
     }
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_my_customer, container, false);
         RecyclerView customers = v.findViewById(R.id.rvMyCustomers);
+        ImageButton backBtn = v.findViewById(R.id.btnBackArrow);
         RecyclerAdapter adapter = new RecyclerAdapter();
         customers.setAdapter(adapter);
         customers.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        backBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                System.out.println(getFragmentManager().getBackStackEntryCount());
+                System.out.println(getFragmentManager().getFragments());
+                System.out.println(getActivity().getClass().getSimpleName());
+//                getFragmentManager().popBackStackImmediate();
+//                getFragmentManager().popBackStack("ManageFragment", );
+
+
+            }
+        });
 
 
 
         return v;
     }
+
+
 
 
     public class RecyclerAdapter extends
@@ -151,4 +171,6 @@ public class MyCustomerFragment extends Fragment {
             return 3;
         }
     }
+
+
 }

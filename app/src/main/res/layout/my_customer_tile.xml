@@ -24,7 +24,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:text="Priyanka Bhonsale"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
             <TextView
                 android:id="@+id/tvCustomerCity"
@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentRight="true"
                 android:text="Pune"
-                android:textSize="16sp"/>
+                android:textSize="16sp" />
 
 
 

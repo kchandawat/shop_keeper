@@ -81,8 +81,10 @@ public class editQuantityBottomSheet extends BottomSheetDialogFragment {
         submitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                System.out.println(model.getQuantity());
                 model.setQuantity(String.valueOf(existingQuantity + " X"));
                 bottomSheetDialog.dismiss();
+                dialog.dismiss();
             }
         });
 
@@ -96,6 +98,7 @@ public class editQuantityBottomSheet extends BottomSheetDialogFragment {
             @Override
             public void onClick(View view) {
                 bottomSheetDialog.dismiss();
+                dialog.dismiss();
             }
         });
 
@@ -150,8 +153,6 @@ public class editQuantityBottomSheet extends BottomSheetDialogFragment {
 
     private void display(int number) {
         quantityET.setText(String.valueOf(existingQuantity));
-
-
     }
 
 }

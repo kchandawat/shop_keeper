@@ -1,6 +1,8 @@
 package com.marquedo.marquedo;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -37,5 +39,17 @@ public class progress extends AppCompatActivity {
         NavigationUI.setupWithNavController(binding.navView, navController);
 //        NavigationUI.setupWithNavController(binding.navView, Navigation.findNavController(this,R.id.));
     }
+
+//    @Override
+//    public void onBackPressed(){
+//        FragmentManager fm = getFragmentManager();
+//        if (fm.getBackStackEntryCount() > 0) {
+//            Log.i("MainActivity", "popping backstack");
+//            fm.popBackStack();
+//        } else {
+//            Log.i("MainActivity", "nothing on backstack, calling super");
+//            super.onBackPressed();
+//        }
+//    }
 
 }

@@ -32,6 +32,7 @@ public class DashboardFragment extends Fragment {
         TextView wallet = (TextView) root.findViewById(R.id.myWallet);
         TextView subscription = (TextView) root.findViewById(R.id.subscriptionPlans);
         TextView shareApp = (TextView) root.findViewById(R.id.shareMarquedoApp);
+        TextView manage = (TextView) root.findViewById(R.id.manage);
         TextView howToUseApp = (TextView) root.findViewById(R.id.howToUseApp);
         TextView privacy = (TextView) root.findViewById(R.id.privacyPolicy);
         TextView logout = (TextView) root.findViewById(R.id.logout);
@@ -46,6 +47,16 @@ public class DashboardFragment extends Fragment {
                 startActivity();
             }
         });*/
+
+        manage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ManageFragment nextFrag= new ManageFragment();
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .add(((ViewGroup)getView().getParent()).getId(), nextFrag, "ManageFragment")
+                        .addToBackStack(null).commit();
+            }
+        });
         wallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
