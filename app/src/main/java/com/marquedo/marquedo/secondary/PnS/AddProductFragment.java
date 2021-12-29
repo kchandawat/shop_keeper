@@ -37,7 +37,7 @@ public class AddProductFragment extends Fragment
 {
     RecyclerView recyclerView;
     MaterialButton add_images_button;
-    com.marquedo.marquedo.imageAdapter imageAdapter;
+    imageAdapter imageAdapter;
     ArrayList<String> Images = new ArrayList<>();
     ActivityResultLauncher<Intent> getResult;
 

@@ -413,7 +413,7 @@
                                 android:textSize="11sp" />
 
                             <EditText
-                                android:id="@+id/Num_of_prod"
+                                android:id="@+id/num_of_prod"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/label5"

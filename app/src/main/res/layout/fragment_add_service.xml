@@ -27,6 +27,7 @@
 <!--                    TODO: Replace different Image for Button-->
 
                     <com.google.android.material.button.MaterialButton
+                        android:id="@+id/add_service_images"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
@@ -44,13 +45,6 @@
                         app:strokeWidth="1dp"
 
                         />
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/add_prod_recyclerView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        tools:itemCount="6"/>
 
                     <!-- <HorizontalScrollView
                          android:layout_width="match_parent"
@@ -202,6 +196,13 @@
                          </LinearLayout>
                      </HorizontalScrollView> -->
 
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/add_service_recyclerView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        tools:itemCount="6" />
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -218,14 +219,12 @@
                             android:textSize="11sp" />
 
                         <EditText
-                            android:id="@+id/productName"
+                            android:id="@+id/serviceName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/label9"
                             android:layout_marginTop="5dp"
                             android:background="@drawable/edit_text_layout"
-
-
                             android:padding="10dp"
                             android:textSize="16sp" />
                     </RelativeLayout>
@@ -254,7 +253,7 @@
                             android:layout_marginTop="11dp">
 
                             <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/business_input"
+                                android:id="@+id/serviceCategory"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@drawable/edit_text_layout"
@@ -289,7 +288,7 @@
                                 android:textSize="11sp" />
 
                             <EditText
-                                android:id="@+id/edittext3"
+                                android:id="@+id/servicePrice"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/label3"
@@ -318,12 +317,12 @@
                                 android:textSize="11sp" />
 
                             <EditText
-                                android:id="@+id/edittext4"
+                                android:id="@+id/serviceDiscount"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/label4"
 
-                                android:layout_marginTop="5dp"
+                                android:layout_marginTop="4dp"
                                 android:background="@drawable/edit_text_layout"
 
                                 android:padding="10dp"
@@ -354,7 +353,7 @@
                                 android:textSize="11sp" />
 
                             <EditText
-                                android:id="@+id/edittext5"
+                                android:id="@+id/num_of_hours"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/label5"
@@ -383,7 +382,7 @@
                                 android:textSize="11sp" />
 
                             <EditText
-                                android:id="@+id/edittext6"
+                                android:id="@+id/serviceMeasure"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/label6"
@@ -410,7 +409,7 @@
                             android:textSize="11sp" />
 
                         <EditText
-                            android:id="@+id/edittext7"
+                            android:id="@+id/serviceDetails"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/label7"
@@ -423,7 +422,7 @@
                     </RelativeLayout>
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/add_service_btn"
+                        android:id="@+id/add_service_button"
                         app:cornerRadius="10dp"
                         android:layout_width="match_parent"
                         android:layout_height="57dp"

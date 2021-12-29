@@ -28,6 +28,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.marquedo.marquedo.ui.Prod_n_Cat.Product.AboutModelClass;
+import com.marquedo.marquedo.ui.Prod_n_Cat.Product.ProductModelClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -69,7 +70,7 @@ public class update_product extends AppCompatActivity
         category = findViewById(R.id.prodCategory);
         name = findViewById(R.id.prodName);
         price = findViewById(R.id.prodPrice);
-        number_of_prod = findViewById(R.id.Num_of_prod);
+        number_of_prod = findViewById(R.id.num_of_prod);
         measure = findViewById(R.id.prodMeasure);
         discount_price = findViewById(R.id.prodDiscount);
         details = findViewById(R.id.prodDetails);
@@ -210,15 +211,20 @@ public class update_product extends AppCompatActivity
                 String Price = price.getText().toString();
                 String Discount_Price = discount_price.getText().toString();
                 String Details = details.getText().toString();
+                String image = "https://firebasestorage.googleapis.com/v0/b/marquedo-a6afd.appspot.com/o/picture7.jpeg?alt=media&token=b1368711-5284-4a32-bd8a-83c86edda3ed";
 
-                AboutModelClass aboutModelClass = new AboutModelClass(Category, Name, Measure, Details,
-                        Integer.parseInt(Discount_Price) , Integer.parseInt(Price), Integer.parseInt(Number_of_Products), null);
+                AboutModelClass aboutModelClass = new AboutModelClass(Category,Details, Name, Measure, Integer.parseInt(Discount_Price),
+                        Integer.parseInt(Number_of_Products), Integer.parseInt(Price));
+
+                ProductModelClass productModelClass = new ProductModelClass(image,Name, Measure, Integer.parseInt(Discount_Price),
+                        Integer.parseInt(Number_of_Products), Integer.parseInt(Price));
 
 
-               /* db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("products").document(position).collection("about").document("product_id").set(aboutModelClass).addOnSuccessListener(new OnSuccessListener<Void>() {
+               /*db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("products").document(position).collection("about").document("product_id").set(aboutModelClass).addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(@NonNull Void unused) 
                     {
+                        db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("products").document(position).set(productModelClass);
                         Toast.makeText(update_product.this, "Updated Successfully", Toast.LENGTH_SHORT).show();
                     }
                 });*/
@@ -256,7 +262,7 @@ public class update_product extends AppCompatActivity
                                 List<String> images = new ArrayList<>(prevImages);
                                 images.addAll(imageUrlList);
 
-                                aboutModelClass.setUrls(images);
+                                //aboutModelClass.setUrls(images);
 
                                 db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("products").document(position).collection("about").document("product_id").set(aboutModelClass).addOnSuccessListener(new OnSuccessListener<Void>()
                                 {

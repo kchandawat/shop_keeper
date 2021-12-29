@@ -6,14 +6,15 @@ public class AboutModelClass
 {
     String Category, Details, Name, Unit_Measure;
     Integer Discount_Price, Number_of_Units,Price;
-    List<String> urls;
+    //List<String> Images;
 
     public AboutModelClass()
     {
 
     }
 
-    public AboutModelClass(String category, String details, String name, String unit_Measure, Integer discount_Price, Integer number_of_Units, Integer price, List<String> urls) {
+    public AboutModelClass(String category, String details, String name, String unit_Measure, Integer discount_Price, Integer number_of_Units, Integer price)
+    {//List<String> urls) {
         Category = category;
         Details = details;
         Name = name;
@@ -21,7 +22,7 @@ public class AboutModelClass
         Discount_Price = discount_Price;
         Number_of_Units = number_of_Units;
         Price = price;
-        this.urls = urls;
+        //this.urls = urls;
     }
 
     public String getCategory() {
@@ -80,11 +81,11 @@ public class AboutModelClass
         Price = price;
     }
 
-    public List<String> getUrls() {
+    /*public List<String> getUrls() {
         return urls;
     }
 
     public void setUrls(List<String> urls) {
         this.urls = urls;
-    }
+    }*/
 }

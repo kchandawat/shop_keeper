@@ -26,7 +26,7 @@ public class imageAdapter1 extends FirestoreRecyclerAdapter<AboutModelClass, ima
     @Override
     protected void onBindViewHolder(@NonNull holder holder, int position, @NonNull AboutModelClass model)
     {
-        Glide.with(holder.imageView.getContext()).load(model.getUrls()).into(holder.imageView);
+       // Glide.with(holder.imageView.getContext()).load(model.getUrls()).into(holder.imageView);
     }
 
     @NonNull

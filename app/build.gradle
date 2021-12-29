@@ -61,7 +61,7 @@ dependencies {
 
     implementation 'com.firebaseui:firebase-ui-firestore:8.0.0'
     implementation 'com.google.firebase:firebase-firestore:24.0.0'
-    implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.google.firebase:firebase-storage:20.0.0'
 
 
     // changes by Maaz start
