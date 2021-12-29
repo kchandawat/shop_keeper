@@ -55,6 +55,7 @@
     <string name="your_store_super_shopping_centre_is_nsuccessfully_created">Your Store \'Super Shopping Centre\' is \nsuccessfully created.</string>
     <string name="preview_store"><![CDATA[Preview Store >]]></string>
     <string name="add_products">Add Products</string>
+    <string name="add_services">Add Services</string>
     <string name="please_add_at_least_3_products_in_your_nstore_to_start_with">Please add at least 3 products in your \nstore to start with.</string>
     <string name="share_on_whatsapp">Share On Whatsapp</string>
     <string name="lets_start_with_people_noticing_your_store_nby_sharing_the_link">Lets start with people noticing your store \nby sharing the link</string>
@@ -64,6 +65,12 @@
     <string name="product_name">Product Name</string>
     <string name="product_category">Product Category</string>
     <string name="select_product_category">Select Product Category</string>
+    <string name="add_new_service">Add new Service</string>
+    <string name="add_3_more_services_to_get_started">Add 3 more services to get started</string>
+    <string name="service_name">Service Name</string>
+    <string name="service_category">Service Category</string>
+    <string name="select_service_category">Select Service Category</string>
+
     <string name="upto_6">(upto 6)</string>
     <string name="add_new_product_back_button">Add New Product Back Button</string>
     <string name="price">Price</string>
@@ -80,4 +87,5 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="services">Services</string>
 </resources>

@@ -38,6 +38,18 @@ public class AddProductNServiceActivity extends AppCompatActivity {
         adapter = new PnSFragmentAdapter(fragmentManager, getLifecycle());
         viewPager2.setAdapter(adapter);
 
+        String intentFragment = getIntent().getExtras().getString("frgToLoad");
+        if(intentFragment != null){
+            if(intentFragment.equalsIgnoreCase("service")){
+                viewPager2.setCurrentItem(1);
+                tabLayout.setScrollPosition(1,0f,true);
+            }
+            else {
+                viewPager2.setCurrentItem(0);
+                tabLayout.setScrollPosition(0,0f,true);
+            }
+        }
+
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {

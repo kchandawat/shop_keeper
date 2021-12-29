@@ -17,9 +17,14 @@
         android:title="@string/title_OrdersEnquiries" />
 
     <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/navbar_notification"
-        android:title="@string/title_notifications" />
+        android:id="@+id/navigation_services"
+        android:icon="@drawable/navbar_service"
+        android:title="@string/services" />
+
+<!--    <item-->
+<!--        android:id="@+id/navigation_notifications"-->
+<!--        android:icon="@drawable/navbar_notification"-->
+<!--        android:title="@string/title_notifications" />-->
 
     <item
         android:id="@+id/navigation_dashboard"

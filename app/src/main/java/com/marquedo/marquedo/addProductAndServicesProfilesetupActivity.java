@@ -1,40 +1,40 @@
 package com.marquedo.marquedo;
 
-import android.os.Bundle;
-import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.google.android.material.tabs.TabLayout;
+import android.os.Bundle;
+import android.widget.HorizontalScrollView;
 
-public class Orders_Page extends AppCompatActivity {
+import com.google.android.material.tabs.TabLayout;
+;
+
+public class addProductAndServicesProfilesetupActivity extends AppCompatActivity {
+
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
-    private MyFragmentAdapter adapter;
+    private addProductProfileSetupFragmentAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_order_enquiry_page);
+        setContentView(R.layout.activity_add_product_and_services_profilesetup);
+        tabLayout = findViewById(R.id.profileSetup_product_service_tab);
+        viewPager2 = findViewById(R.id.view_pager_add_product_service_page);
 
-        TextView viewdetails = findViewById(R.id.tvViewDetails);
-
-        tabLayout = findViewById(R.id.order_enquiry_tab);
-        viewPager2 = findViewById(R.id.view_pager_order_page);
-
-        tabLayout.addTab(tabLayout.newTab().setText("Orders"));
-        tabLayout.addTab(tabLayout.newTab().setText("Enquiries"));
+        tabLayout.addTab(tabLayout.newTab().setText("Products"));
+        tabLayout.addTab(tabLayout.newTab().setText("Services"));
 
         FragmentManager fragmentManager = getSupportFragmentManager();
-        adapter = new MyFragmentAdapter(fragmentManager, getLifecycle());
+        adapter = new addProductProfileSetupFragmentAdapter(fragmentManager, getLifecycle());
         viewPager2.setAdapter(adapter);
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager2.setCurrentItem(tab.getPosition());
+
             }
 
             @Override
@@ -56,6 +56,6 @@ public class Orders_Page extends AppCompatActivity {
         });
 
 
-
     }
+
 }
