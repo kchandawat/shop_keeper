@@ -60,10 +60,14 @@ public class AddServiceFragment extends Fragment
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
-    private Button addService, addServiceImages;
-    private RecyclerView recyclerView;
+
     private EditText name, category, price, discount_price, measure, number_of_hours,details;
+    private Button addService, addServiceImages;
+
+    private RecyclerView recyclerView;
     private imageAdapter imageAdapter;
+
+
     private ArrayList<String> Images = new ArrayList<>();
     private ActivityResultLauncher<Intent> getResult;
     private List<String> imageUrlList = new ArrayList<>();

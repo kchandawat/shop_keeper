@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="20dp">
+
         <TextView
             android:id="@+id/add_new_product"
             android:layout_width="wrap_content"
@@ -22,6 +23,8 @@
             android:textStyle="bold"
             android:layout_margin="32dp"
             android:layout_gravity="center" />
+
+
         <TextView
             android:textAlignment="center"
             android:id="@+id/add_3_products"
@@ -42,7 +45,7 @@
                 android:layout_marginTop="32dp">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/business_name_et"
+                    android:id="@+id/prod_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="@string/product_name"
@@ -64,7 +67,7 @@
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/business_category_et"
+                    android:id="@+id/prod_category"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
@@ -76,7 +79,7 @@
 
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/product_continue_button"
+            android:id="@+id/prod_continue_button"
             android:layout_width="match_parent"
             android:layout_height="57dp"
             android:layout_marginBottom="32dp"

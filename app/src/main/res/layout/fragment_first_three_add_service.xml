@@ -41,7 +41,7 @@
             android:layout_marginTop="32dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/business_name_et"
+                android:id="@+id/service_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/service_name"
@@ -63,7 +63,7 @@
             >
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/business_category_et"
+                android:id="@+id/service_category"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
