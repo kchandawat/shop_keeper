@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.secondary.PnS.AddProductNServiceActivity;
-import com.marquedo.marquedo.update_product;
 
 import java.util.ArrayList;
 
