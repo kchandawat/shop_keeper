@@ -9,8 +9,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,11 +27,20 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
+import com.marquedo.marquedo.ui.Prod_n_Cat.Product.AboutModelClass;
+import com.marquedo.marquedo.ui.Prod_n_Cat.Product.ProductModelClass;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 
 public class profileSetupAddProductPageActivity extends AppCompatActivity
 {
+
+    private String ProductName, ProductCategory;
 
     private RecyclerView recyclerView;
     private imageAdapter imageAdapter;
@@ -41,6 +53,9 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity
 
     private ArrayList<String> Images = new ArrayList<>();
     private ActivityResultLauncher<Intent> getResult;
+    private List<String> imageUrlList = new ArrayList<>();
+
+    int counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -64,6 +79,11 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(imageAdapter);
+
+
+        Bundle intent = getIntent().getExtras();
+        ProductName = intent.get("name").toString();
+        ProductCategory = intent.get("category").toString();
 
 
         AddImages.setOnClickListener(new View.OnClickListener()
@@ -100,10 +120,21 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity
             public void onClick(View v)
             {
                 String Measure = ProdMeasure.getText().toString();
-                String Number_of_Product = NumberofProd.getText().toString();
+                String Number_of_Units = NumberofProd.getText().toString();
                 String Price = ProdPrice.getText().toString();
                 String Discount_Price = ProdDiscount.getText().toString();
                 String Details = ProdDetails.getText().toString();
+
+                ProductModelClass productModelClass = new ProductModelClass(null, ProductName, Measure, Integer.parseInt(Discount_Price)
+                        , Integer.parseInt(Number_of_Units), Integer.parseInt(Price));
+
+
+                AboutModelClass aboutModelClass = new AboutModelClass(ProductCategory, Details, ProductName,Measure, Integer.parseInt(Discount_Price),
+                        Integer.parseInt(Number_of_Units), Integer.parseInt(Price), null);
+
+                uploadImage(Images, productModelClass, aboutModelClass);
+
+
 
             }
         });
@@ -112,6 +143,100 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity
 
     }
 
+    private void uploadImage(ArrayList<String> images, ProductModelClass productModelClass, AboutModelClass aboutModelClass)
+    {
+        if (images.size() != 0)
+        {
+            ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Uploading 0/" + images.size());
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+
+            StorageReference reference = firebaseStorage.getReference();
+            List<String> imageUrlList = new ArrayList<>();
+
+            for (int i = 0; i < images.size(); i++)
+            {
+                StorageReference storageReference = reference.child("Products").child(UUID.randomUUID().toString());
+                Uri image = Uri.parse(images.toString());
+                Log.i("check", images.get(i));
+                //storageReference.putFile(Uri.parse(Images.get(i))).
+                //storageReference.putFile(Uri.fromFile(new File(String.valueOf(Images)))).
+
+
+                storageReference.putFile(Uri.parse("file://" + images.get(i))).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
+                {
+                    @Override
+                    public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot)
+                    {
+                        storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>()
+                        {
+                            @Override
+                            public void onSuccess(@NonNull Uri uri)
+                            {
+                                counter++;
+                                progressDialog.setMessage("Uploading "+ counter + "/" + images.size());
+                               // Toast.makeText(getApplicationContext(), "Uploading....", Toast.LENGTH_SHORT).show();
+                                imageUrlList.add(uri.toString());
+
+                                productModelClass.setImage_Primary(imageUrlList.get(0));
+
+                                aboutModelClass.setImages(imageUrlList);
+
+                                if(counter == images.size())
+                                {
+                                    db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("products").add(productModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>()
+                                    {
+                                        @Override
+                                        public void onSuccess(@NonNull DocumentReference documentReference)
+                                        {
+                                            documentReference.collection("about").document("product_id").set(aboutModelClass).addOnSuccessListener(new OnSuccessListener<Void>()
+                                            {
+                                                @Override
+                                                public void onSuccess(@NonNull Void unused)
+                                                {
+                                                    progressDialog.dismiss();
+                                                    Toast.makeText(getApplicationContext(), "Product Added Successfully!", Toast.LENGTH_SHORT).show();
+                                                }
+                                            });
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener()
+                                    {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e)
+                                        {
+                                            progressDialog.dismiss();
+                                            Toast.makeText(getApplicationContext(), "Error Adding Product", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+
+                               // Log.i("showcount", imageUrlList.toString());
+                            }
+                        }).addOnFailureListener(new OnFailureListener()
+                        {
+                            @Override
+                            public void onFailure(@NonNull Exception e)
+                            {
+                                storageReference.delete();
+                                Toast.makeText(getApplicationContext(), "Couldn't save images", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                }).addOnFailureListener(new OnFailureListener()
+                {
+                    @Override
+                    public void onFailure(@NonNull Exception e)
+                    {
+                        progressDialog.setMessage("Uploading " + counter + "/" + images.size());
+                        counter++;
+                        Toast.makeText(getApplicationContext(), "Couldn't upload images", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        }
+    }
 
 
 }

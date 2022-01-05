@@ -5,7 +5,7 @@ import java.util.List;
 public class ServiceModelClass
 {
 
-    String name,category, measure, details;
+    String Image_Primary, name,category, measure, details;
     Integer discount_Price, number_of_Hours ,price;
     List<String> images;
 
@@ -15,7 +15,8 @@ public class ServiceModelClass
 
     }
 
-    public ServiceModelClass(String name, String category, String measure, String details, Integer discount_Price, Integer number_of_Hours, Integer price, List<String> images) {
+    public ServiceModelClass(String image_Primary, String name, String category, String measure, String details, Integer discount_Price, Integer number_of_Hours, Integer price, List<String> images) {
+        Image_Primary = image_Primary;
         this.name = name;
         this.category = category;
         this.measure = measure;
@@ -88,5 +89,13 @@ public class ServiceModelClass
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public String getImage_Primary() {
+        return Image_Primary;
+    }
+
+    public void setImage_Primary(String image_Primary) {
+        Image_Primary = image_Primary;
     }
 }

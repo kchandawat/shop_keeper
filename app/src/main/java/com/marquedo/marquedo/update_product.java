@@ -137,7 +137,6 @@ public class update_product extends AppCompatActivity
             @Override
             public void onSuccess(@NonNull DocumentSnapshot documentSnapshot)
             {
-
                 List<String> Urls = (List<String>) documentSnapshot.get("Images");
 
                 prevImages = Urls;
@@ -156,7 +155,7 @@ public class update_product extends AppCompatActivity
                 aboutModelClass = documentSnapshot.toObject(AboutModelClass.class);
                 //List<String> Images = aboutModelClass.getUrls();
                 //String Category = documentSnapshot.getString("Category");
-                // String Price = String.valueOf(documentSnapshot.get("Price"));
+                //String Price = String.valueOf(documentSnapshot.get("Price"));
                 String Category = aboutModelClass.getCategory();
                 String Name = aboutModelClass.getName();
                 String Details = aboutModelClass.getDetails();
@@ -164,7 +163,6 @@ public class update_product extends AppCompatActivity
                 String Measure = aboutModelClass.getUnit_Measure();
                 String Price = String.valueOf(aboutModelClass.getPrice());
                 String Discount_price = String.valueOf(aboutModelClass.getDiscount_Price());
-
 
 
                 //aboutModelClass = documentSnapshot.get("Category", AboutModelClass.class);
@@ -214,7 +212,7 @@ public class update_product extends AppCompatActivity
                 String image = "https://firebasestorage.googleapis.com/v0/b/marquedo-a6afd.appspot.com/o/picture7.jpeg?alt=media&token=b1368711-5284-4a32-bd8a-83c86edda3ed";
 
                 AboutModelClass aboutModelClass = new AboutModelClass(Category,Details, Name, Measure, Integer.parseInt(Discount_Price),
-                        Integer.parseInt(Number_of_Products), Integer.parseInt(Price));
+                        Integer.parseInt(Number_of_Products), Integer.parseInt(Price), null);
 
                 ProductModelClass productModelClass = new ProductModelClass(image,Name, Measure, Integer.parseInt(Discount_Price),
                         Integer.parseInt(Number_of_Products), Integer.parseInt(Price));

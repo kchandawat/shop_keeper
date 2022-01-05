@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
+import com.marquedo.marquedo.ui.Prod_n_Cat.Product.AboutModelClass;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -52,6 +54,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     private ArrayList<String> Images = new ArrayList<>();
     private ActivityResultLauncher<Intent> getResult;
     private List<String> imageUrlList = new ArrayList<>();
+
+    int counter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -114,17 +118,18 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                if (Images.size() != 0)
+               /* if (Images.size() != 0)
                 {
                     StorageReference reference = firebaseStorage.getReference();
                     for (int i = 0; i < Images.size(); i++)
                     {
                         StorageReference storageReference = reference.child(UUID.randomUUID().toString());
                         Uri image = Uri.parse(Images.toString());
-                        Log.i("check", image.toString());
+                        Log.i("check", Images.get(i));
                         //storageReference.putFile(Uri.parse(Images.get(i))).
+                        //storageReference.putFile(Uri.fromFile(new File(String.valueOf(Images)))).
 
-                        storageReference.putFile(Uri.fromFile(new File(String.valueOf(Images)))).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
+                        storageReference.putFile(Uri.parse("file://" + Images.get(i))).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
                         {
                             @Override
                             public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot)
@@ -152,7 +157,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                     }
 
 
-                }
+                }*/
 
                 String Measure = ServiceMeasure.getText().toString();
                 String Number_of_Hours = NumberofHours.getText().toString();
@@ -161,11 +166,12 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                 String Details = ServiceDetails.getText().toString();
 
 
-                ServiceModelClass serviceModelClass = new ServiceModelClass(ServiceName, ServiceCategory, Measure, Details, Integer.parseInt(Discount_Price)
-                        , Integer.parseInt(Number_of_Hours), Integer.parseInt(Price), null);
+                ServiceModelClass serviceModelClass = new ServiceModelClass(null,ServiceName, ServiceCategory, Measure, Details, Integer.parseInt(Discount_Price)
+                        , Integer.parseInt(Number_of_Hours), Integer.parseInt(Price),null);
 
+                uploadImageList(Images, serviceModelClass);
 
-                db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("services").add(serviceModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>()
+                /*db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("services").add(serviceModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>()
                 {
                     @Override
                     public void onSuccess(@NonNull DocumentReference documentReference)
@@ -179,8 +185,93 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                     {
                         Toast.makeText(getApplicationContext(), "Error Adding Service", Toast.LENGTH_SHORT).show();
                     }
-                });
+                });*/
             }
         });
+    }
+
+
+    private void uploadImageList(List<String> newImages, ServiceModelClass serviceModelClass)
+    {
+        if (newImages.size() != 0)
+        {
+            ProgressDialog progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Uploading 0/" + newImages.size());
+            progressDialog.setCanceledOnTouchOutside(false);
+            progressDialog.setCancelable(false);
+            progressDialog.show();
+
+            StorageReference reference = firebaseStorage.getReference();
+            List<String> imageUrlList = new ArrayList<>();
+
+            for (int i = 0; i < newImages.size(); i++)
+            {
+                StorageReference storageReference = reference.child("Services").child(UUID.randomUUID().toString());
+                Uri image = Uri.parse(newImages.toString());
+                Log.i("check", newImages.get(i));
+                //storageReference.putFile(Uri.parse(Images.get(i))).
+                //storageReference.putFile(Uri.fromFile(new File(String.valueOf(Images)))).
+
+                storageReference.putFile(Uri.parse("file://" + newImages.get(i))).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
+                {
+                    @Override
+                    public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot)
+                    {
+                        storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>()
+                        {
+                            @Override
+                            public void onSuccess(@NonNull Uri uri)
+                            {
+                                counter++;
+                                progressDialog.setMessage("Uploading "+ counter + "/" + newImages.size());
+                               // Toast.makeText(getApplicationContext(), "Uploading....", Toast.LENGTH_SHORT).show();
+                                imageUrlList.add(uri.toString());
+
+                                serviceModelClass.setImages(imageUrlList);
+                                serviceModelClass.setImage_Primary(imageUrlList.get(0));
+
+                                if(counter == newImages.size())
+                                {
+                                    db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("services").add(serviceModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        @Override
+                                        public void onSuccess(@NonNull DocumentReference documentReference)
+                                        {
+                                            progressDialog.dismiss();
+                                            Toast.makeText(getApplicationContext(), "Service Added Successfully!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }).addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e)
+                                        {
+                                            progressDialog.dismiss();
+                                            Toast.makeText(getApplicationContext(), "Error Adding Service", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                }
+
+                                Log.i("showcount", imageUrlList.toString());
+                            }
+                        }).addOnFailureListener(new OnFailureListener()
+                        {
+                            @Override
+                            public void onFailure(@NonNull Exception e)
+                            {
+                                storageReference.delete();
+                                Toast.makeText(getApplicationContext(), "Couldn't save images", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e)
+                    {
+                        progressDialog.setMessage("Uploading " + counter + "/" + newImages.size());
+                        counter++;
+                        Toast.makeText(getApplicationContext(), "Couldn't upload", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        }
     }
 }

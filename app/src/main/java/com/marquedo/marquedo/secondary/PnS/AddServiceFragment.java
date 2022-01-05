@@ -177,7 +177,7 @@ public class AddServiceFragment extends Fragment
                 String Details = details.getText().toString();
 
 
-                ServiceModelClass serviceModelClass = new ServiceModelClass(Name, Category, Measure, Details, Integer.parseInt(Discount_Price)
+                ServiceModelClass serviceModelClass = new ServiceModelClass(null,Name, Category, Measure, Details, Integer.parseInt(Discount_Price)
                         , Integer.parseInt(Number_of_Hours), Integer.parseInt(Price), imageUrlList);
 
                 //addImages(Images, serviceModelClass);
