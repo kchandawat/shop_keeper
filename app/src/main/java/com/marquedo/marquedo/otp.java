@@ -575,6 +575,7 @@ public class otp extends AppCompatActivity {
         super.onStart();
         if (mVerificationInProgress) {
             test();
+            //sendCode(phone);
         }
     }
 
