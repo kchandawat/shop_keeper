@@ -69,6 +69,20 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
         <item name="android:statusBarColor">@color/black</item>
     </style>
+
+    <style name="CardView.ColourVariant" parent="CardView.Light">
+        <item name="cardBackgroundColor">@color/light_grey</item>
+        <item name="cardCornerRadius">26dp</item>
+        <item name="elevation">32dp</item>
+    </style>
+
+    <style name="CardView.Variant" parent="CardView.Light">
+        <item name="cardBackgroundColor">@color/light_grey</item>
+        <item name="cardCornerRadius">26dp</item>
+        <item name="elevation">32dp</item>
+    </style>
+
+
     <style name="Theme.Marquedo.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
