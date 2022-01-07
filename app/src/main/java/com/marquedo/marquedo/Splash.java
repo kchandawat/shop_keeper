@@ -14,6 +14,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.marquedo.marquedo.SplashScreens.MainActivity;
 
 public class Splash extends AppCompatActivity {
 

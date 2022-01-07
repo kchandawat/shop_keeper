@@ -25,11 +25,17 @@
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/fragment_home.xml" value="0.3351449275362319" />
         <entry key="..\:/Users/khush/AndroidStudioProjects/marquedo/app/src/main/res/layout/fragment_notifications.xml" value="0.3351449275362319" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_add_product_and_services_profilesetup.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_main.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_profile_setup_product_page.xml" value="0.264" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_profile_setup_service_page.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_progress.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_varient_card.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_add_service.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_first_three_add_product.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_first_three_add_service.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/product_variant_recyclerview.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/progress_6_product_variant_recyclerview.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/progress_6_variant_card.xml" value="0.2421875" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_check_24_transparent.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable/checkimageselector.xml" value="0.18385416666666668" />

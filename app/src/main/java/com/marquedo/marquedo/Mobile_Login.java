@@ -19,7 +19,7 @@ public class Mobile_Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mobile_login);
+        setContentView(R.layout.authentication_activity_mobile_login);
         MaterialButton sendOtp = findViewById(R.id.continue_button);
         ImageButton backButton = findViewById(R.id.login_back_button);
         textInputEditText = findViewById(R.id.textInputEditText);
