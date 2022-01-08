@@ -74,6 +74,7 @@ public class ManageFragment extends Fragment {
                 getActivity().onBackPressed();
             }
         });
+
         return v;
     }
 

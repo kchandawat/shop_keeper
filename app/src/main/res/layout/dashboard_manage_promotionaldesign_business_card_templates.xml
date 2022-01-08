@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".DeliveryCharges">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="20"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="18"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="48dp"
+                android:layout_height="41dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:background="@null"
+                android:contentDescription="Return"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                app:srcCompat="?attr/actionModeCloseDrawable"
+                app:tint="@color/white" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Business Card"
+                android:id="@+id/AccountHeader"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:layout_marginStart="30dp"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="-28dp"
+                android:layout_weight="2"
+                app:cardCornerRadius="28dp">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp"
+                    android:background="@color/white">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="35dp">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:text="Choose Template"
+                            android:textSize="30sp"
+                            android:textColor="@color/black"/>
+                    </LinearLayout>
+                    <HorizontalScrollView
+                        android:layout_width="wrap_content"
+                        android:layout_height="200dp"
+                        android:layout_marginTop="25dp"
+                        >
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="200dp"
+                            android:orientation="horizontal">
+                            <LinearLayout
+                                android:id="@+id/biz_card1"
+                                android:layout_width="250dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/marquedo_biz_card_1"
+                                android:layout_margin="10dp"
+                                android:orientation="horizontal" />
+                            <LinearLayout
+                                android:id="@+id/biz_card2"
+                                android:layout_width="250dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/marquedo_biz_card_4"
+                                android:layout_margin="10dp"
+                                android:orientation="horizontal"/>
+                            <LinearLayout
+                                android:id="@+id/biz_card3"
+                                android:layout_width="250dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/marquedo_biz_card_3"
+                                android:layout_margin="10dp"
+                                android:orientation="horizontal"/>
+                            <LinearLayout
+                                android:id="@+id/biz_card4"
+                                android:layout_width="250dp"
+                                android:layout_height="match_parent"
+                                android:background="@drawable/marquedo_biz_card_2"
+                                android:layout_margin="10dp"
+                                android:orientation="horizontal"/>
+
+                        </LinearLayout>
+
+                    </HorizontalScrollView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <Button
+                            android:id="@+id/previewBusinessCard"
+                            android:layout_width="match_parent"
+                            android:layout_height="50dp"
+                            android:elevation="5dp"
+                            android:layout_marginTop="50dp"
+                            android:text="Preview"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="16sp"
+                            app:cornerRadius="14dp"
+                            android:backgroundTint="@color/light_grey"/>
+                    </LinearLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"/>
+
+
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

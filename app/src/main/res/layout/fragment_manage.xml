@@ -222,6 +222,7 @@
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
+                                android:id="@+id/deliveryCharges"
                                 android:layout_width="match_parent"
                                 android:layout_height="70dp"
                                 android:layout_marginTop="5dp"
@@ -258,6 +259,7 @@
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
+                                android:id="@+id/extraCharges"
                                 android:layout_width="match_parent"
                                 android:layout_height="70dp"
                                 android:layout_marginTop="5dp"
@@ -367,6 +369,7 @@
 
                             </androidx.cardview.widget.CardView>
                             <androidx.cardview.widget.CardView
+                                android:id="@+id/shopQRPage"
                                 android:layout_width="match_parent"
                                 android:layout_height="70dp"
                                 android:layout_marginTop="5dp"

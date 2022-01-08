@@ -14,7 +14,7 @@ public class SubscriptionPlans extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.subscription_page);
+        setContentView(R.layout.dashboard_subscription_page);
         ImageButton back = (ImageButton) this.findViewById(R.id.imageButton);
         Intent dashboard = new Intent(this, DashboardViewModel.class);
         back.setOnClickListener(new View.OnClickListener() {

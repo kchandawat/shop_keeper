@@ -1,15 +1,14 @@
 package com.marquedo.marquedo.ui.dashboard;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
 
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.ui.dashboard.discounts.DisLandingFragment;
@@ -68,6 +67,10 @@ public class ManageFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_manage, container, false);
         CardView myCustomers = view.findViewById(R.id.manageMyCustomers);
         CardView discountCoupons = view.findViewById(R.id.discountCoupon);
+        CardView deliveryCharges = view.findViewById(R.id.deliveryCharges);
+        CardView extraCharges = view.findViewById(R.id.extraCharges);
+        CardView shopQRPage = view.findViewById(R.id.shopQRPage);
+
         ImageButton backBtn = view.findViewById(R.id.btnBackArrowManage);
 
         backBtn.setOnClickListener(new View.OnClickListener() {
@@ -105,6 +108,33 @@ public class ManageFragment extends Fragment {
                         .addToBackStack("DiscountFragment").commit();
             }
         });
+
+        deliveryCharges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent deliveryCharges = new Intent(getContext(), com.marquedo.marquedo.DeliveryCharges.class );
+                startActivity(deliveryCharges);
+            }
+        });
+
+        extraCharges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent extraCharges = new Intent(getContext(), com.marquedo.marquedo.ExtraCharges.class);
+                startActivity(extraCharges);
+            }
+        });
+
+        shopQRPage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent shopQRPage = new Intent(getContext(), com.marquedo.marquedo.ShopQRPage.class);
+                startActivity(shopQRPage);
+            }
+        });
+
+
+
 
         return view;
     }

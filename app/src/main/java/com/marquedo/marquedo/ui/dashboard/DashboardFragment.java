@@ -12,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.databinding.FragmentDashboardBinding;
 //import com.marquedo.marquedo.logoutAction;
@@ -40,7 +41,7 @@ public class DashboardFragment extends Fragment {
         Intent subscriptionPlans = new Intent(getContext(), SubscriptionPlans.class);
         Intent privacyPolicy = new Intent(getContext(), privacypolicy.class);
         Intent myWallet = new Intent(getContext(), Mywallet.class);
-        //Intent logout_action = new Intent(getContext(), logoutAction.class);
+        //Intent dashboard_logout_action = new Intent(getContext(), logoutAction.class);
         /*wallet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,11 +78,42 @@ public class DashboardFragment extends Fragment {
                 startActivity(privacyPolicy);
             }
         });
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                View view2 = getLayoutInflater().inflate(R.layout.dashboard_logout_action,null);
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(view.getContext());
+                bottomSheetDialog.setContentView(view2);
+                bottomSheetDialog.show();
+                Button yes = (Button) view2.findViewById(R.id.Yeslogout_button);
+                Button no = (Button) view2.findViewById(R.id.Nologout_button);
+                Button close = (Button) view2.findViewById(R.id.close_sheet);
+                /*Intent noLogout = new Intent(getContext(), DashboardViewModel.class);
+                no.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(noLogout);
+                    }
+                });
+                close.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        startActivity(noLogout);
+                    }
+                });*/
+                yes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                    }
+                });
+            }
+        });
 
 //        logout.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
-//                startActivity(logout_action);
+//                startActivity(dashboard_logout_action);
 //            }
 //        });
 
