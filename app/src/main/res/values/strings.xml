@@ -97,4 +97,5 @@
     <string name="add_more_colours">Add More Colours to This Variant</string>
     <string name="add_product">Add Product</string>
     <string name="add_variant_of_this_product">Add Variant of this Product</string>
+    <string name="save_amp_continue"><![CDATA[Save & Continue]]></string>
 </resources>

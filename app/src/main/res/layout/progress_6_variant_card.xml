@@ -2,11 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
+  <!--  <data>
         <variable
             name="bsd"
             type="com.marquedo.marquedo.progress_6.NewProductDetails" />
-    </data>
+    </data> -->
 
     <com.google.android.material.card.MaterialCardView
         android:layout_width="match_parent"
@@ -59,26 +59,6 @@
                 android:layout_marginTop="16dp"
                 android:id="@+id/variant_recyclerview" />
 
-            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-                android:id="@+id/add_variant_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/standard8"
-                style="@style/ExtendedFAB"
-                app:icon="@drawable/ic_baseline_add_24"
-                app:collapsedSize="50dp"
-                app:strokeColor="@color/red"
-                app:strokeWidth="2dp"
-                android:backgroundTint="@color/light_grey"
-                android:text="@string/add_another_size_variant"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                android:textColor="@color/red"
-                android:textSize="12sp"
-                app:layout_constraintTop_toBottomOf="@id/variant_recyclerview"
-                app:layout_constraintEnd_toEndOf="@id/variant_recyclerview"
-                app:layout_constraintBottom_toTopOf="@id/save_and_continue" />
-
             <!--
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/add_variant_button"
@@ -102,6 +82,27 @@
                         app:layout_constraintEnd_toEndOf="@id/variant_recyclerview"
                         app:layout_constraintBottom_toTopOf="@id/save_and_continue" />
             -->
+
+            <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                android:id="@+id/add_variant_button"
+                style="@style/ExtendedFAB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="68dp"
+                android:layout_marginBottom="@dimen/standard8"
+                android:backgroundTint="@color/light_grey"
+                android:text="@string/add_another_size_variant"
+                android:textAlignment="center"
+                android:textAllCaps="false"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                app:collapsedSize="50dp"
+                app:icon="@drawable/ic_baseline_add_24"
+                app:layout_constraintBottom_toTopOf="@id/save_and_continue"
+                app:layout_constraintEnd_toEndOf="@id/variant_recyclerview"
+                app:layout_constraintTop_toBottomOf="@id/variant_recyclerview"
+                app:strokeColor="@color/red"
+                app:strokeWidth="2dp" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/save_and_continue"
