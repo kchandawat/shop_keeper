@@ -56,8 +56,9 @@
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/logout_action.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/products_item.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/seller_graph.xml" value="0.20854700854700856" />
-        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/seller_home.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/seller_home.xml" value="0.4" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/service_item.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/services_activity_update_service.xml" value="0.4" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/shop_qr_page.xml" value="0.4" />
         <entry key="app/src/main/res/drawable-v24/ic_baseline_check_24_transparent.xml" value="0.18385416666666668" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.18385416666666668" />

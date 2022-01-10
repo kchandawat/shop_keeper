@@ -12,7 +12,7 @@ public class sellerSalesStats extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.seller_home);
+        setContentView(R.layout.home_seller_home);
         /*graphView = findViewById(R.id.salesGraph);
         LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>(new DataPoint[]{
                 new DataPoint(0,1),
