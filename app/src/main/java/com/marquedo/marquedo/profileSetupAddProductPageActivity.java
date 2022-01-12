@@ -505,6 +505,113 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity {
     }
 
 
+    //MAAZ START
+    @Override
+    public void OnRemoveClick(int index)
+    {
+        myList.remove(index);
+//        productVariantRecyclerViewAdapter.notifyData(myList);
+    }
+
+    @Override
+    public void OnColourRemoveClick(int index)
+    {
+        Log.d("III", "I reached here");
+        //colourSize = index;
+    }
+
+    /*@Override
+    public void getC(List<ColourCodes> colourData) {
+
+    }*/
+
+    /*@Override
+    public void getCLSize(int size) {
+
+    }*/
+
+    @Override
+    public void getV(List<VariantData> variantDataList)
+    {
+        myList = variantDataList;
+    }
+
+    @Override
+    public void getVLSize(int size)
+    {
+        variantSize = size;
+    }
+
+    @Override
+    public void getVC(List<ColourCodes> colourData)
+    {
+        colourList = colourData;
+    }
+
+    @Override
+    public void getVCLSize(int size)
+    {
+        //colourSize = size;
+    }
+
+    /*@Override
+    public void getC(List<ColourData> colourListL) {
+        colourList = colourListL;
+    }*/
+
+    /*@Override
+    public void getC(List<ColourData> colourData) {
+        colourList = colourData;
+    }
+
+    @Override
+    public void getCLSize(int colourSizeL) {
+        colourSize = colourSizeL;
+    }
+
+    @Override
+    public void getV(List<VariantData> variantDataList) {
+        myList = variantDataList;
+    }
+
+    @Override
+    public void getVLSize(int variantSizeL) {
+        variantSize = variantSizeL;
+    }*/
+
+    /*@Override
+    public List<ColourData> getC() {
+        return null;
+    }
+
+    @Override
+    public int getCLSize() {
+        return 0;
+    }
+
+    @Override
+    public List<VariantData> getV() {
+        return null;
+    }
+
+    @Override
+    public int getVLSize() {
+        return 0;
+    }*/
+
+    //MAAZ END
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void uploadImage(ArrayList<String> images, ProductModelClass productModelClass, AboutModelClass aboutModelClass)
     {
