@@ -34,6 +34,7 @@
         <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_profile_setup_product_page.xml" value="0.264" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_profile_setup_service_page.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_progress.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_splash.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/activity_varient_card.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/categories_item.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/checkbox_item.xml" value="0.2421875" />
@@ -46,6 +47,7 @@
         <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_my_customer.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_new_product_category.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_product_preview.xml" value="0.2421875" />
+        <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_products.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_products_n_category.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/fragment_serviced_added_success.xml" value="0.2421875" />
         <entry key="..\:/shop_keeper/app/src/main/res/layout/product_variant_recyclerview.xml" value="0.2421875" />

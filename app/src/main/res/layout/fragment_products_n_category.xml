@@ -36,12 +36,12 @@
                 app:tint="@color/white" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/add_pnc"
+                android:id="@+id/add_new_prod_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="8dp"
                 android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp"
                 android:text="Add New Product"
                 android:textAllCaps="false"
                 android:textColor="@color/black"
