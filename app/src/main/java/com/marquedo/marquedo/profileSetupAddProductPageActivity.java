@@ -6,6 +6,8 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,10 +15,14 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
@@ -24,21 +30,35 @@ import com.darsh.multipleimageselect.helpers.Constants;
 import com.darsh.multipleimageselect.models.Image;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.marquedo.marquedo.AddProductVariant.ColourCodes;
+import com.marquedo.marquedo.AddProductVariant.DataExtraction;
+import com.marquedo.marquedo.AddProductVariant.GetColourVariants;
+import com.marquedo.marquedo.AddProductVariant.GetVariants;
+import com.marquedo.marquedo.AddProductVariant.ProductVariantRecyclerViewAdapter;
+import com.marquedo.marquedo.AddProductVariant.TheData;
+import com.marquedo.marquedo.AddProductVariant.VariantData;
+import com.marquedo.marquedo.datab.Variant;
+import com.marquedo.marquedo.databinding.Progress6ProductVariantRecyclerviewBinding;
 import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
 import com.marquedo.marquedo.ui.Prod_n_Cat.Product.AboutModelClass;
 import com.marquedo.marquedo.ui.Prod_n_Cat.Product.ProductModelClass;
 
+import net.cachapa.expandablelayout.ExpandableLayout;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
-public class profileSetupAddProductPageActivity extends AppCompatActivity
-{
+public class profileSetupAddProductPageActivity extends AppCompatActivity {
 
     private String ProductName, ProductCategory;
 
@@ -57,13 +77,44 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity
 
     int counter;
 
+    public profileSetupAddProductPageActivity() {
+    }
+
+
+
+    //MAAZ START
+    ProductVariantRecyclerViewAdapter productVariantRecyclerViewAdapter;
+    private List<VariantData> myList;
+    private DataExtraction variantData;
+    private List<ColourCodes> colourList;
+    private RecyclerView variantRecyclerView;
+    private int colourSize;
+    private GetVariants getVariants;
+    private GetColourVariants getColourVariants;
+    private int variantSize;
+    private ArrayList<Variant> prodList = new ArrayList<>();
+    private Variant variant;
+    private Progress6ProductVariantRecyclerviewBinding binding;
+    //MAAZ END
+
+
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_setup_product_page);
 
-        recyclerView = findViewById(R.id.prod_images_recyclerView);
+
+
+
+
+
+
+
+
+
+
+    recyclerView = findViewById(R.id.prod_images_recyclerView);
         AddImages = findViewById(R.id.add_product_images);
         AddVarient = findViewById(R.id.add_new_product_variant_button);
         AddProduct = findViewById(R.id.add_product_button);
@@ -142,6 +193,8 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity
 
 
     }
+
+
 
     private void uploadImage(ArrayList<String> images, ProductModelClass productModelClass, AboutModelClass aboutModelClass)
     {
