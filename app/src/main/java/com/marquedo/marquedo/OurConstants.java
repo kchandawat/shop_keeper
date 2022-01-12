@@ -17,4 +17,5 @@ public class OurConstants {
     public static int TYPE_WIFI = 2;
     public static int TYPE_MOBILE = 1;
     public static int TYPE_NOT_CONNECTED = 0;
+    public static final int SHOW_TIME = 7000;
 }
