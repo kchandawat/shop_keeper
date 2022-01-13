@@ -3,6 +3,7 @@
     package="com.marquedo.marquedo">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
@@ -13,8 +14,26 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Marquedo">
         <activity
-            android:name=".UpdateService"
-            android:exported="true" />
+            android:name=".DesignElements.Manage.discounts.CreateCouponActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DesignElements.Manage.discounts.DiscountNCouponsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DesignElements.Manage.MyCustomers.MyCustomerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DesignElements.Manage.ManageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profileSetupAddServicePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".profileSetupAddProductPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".addProductAndServicesProfilesetupActivity"
+            android:exported="false" />
         <activity
             android:name=".Splash"
             android:exported="true"
@@ -29,13 +48,13 @@
             android:name=".sellerSalesStats"
             android:exported="true" />
         <activity
-            android:name=".ui.dashboard.SubscriptionPlans"
+            android:name=".DesignElements.SubscriptionPlans"
             android:exported="true" />
         <activity
-            android:name=".ui.dashboard.Mywallet"
+            android:name=".DesignElements.Mywallet"
             android:exported="true" />
         <activity
-            android:name=".ui.dashboard.privacypolicy"
+            android:name=".DesignElements.Manage.privacypolicy"
             android:exported="true" />
         <activity
             android:name=".varient_card"
@@ -66,10 +85,10 @@
             android:name=".Mobile_Login"
             android:exported="true" />
         <activity
-            android:name=".Order_details_overview"
+            android:name=".OrdersNEnquiries.Orders.Order_details_overview"
             android:exported="true" />
         <activity
-            android:name=".Enquiry_details_overview"
+            android:name=".OrdersNEnquiries.Enquiries.Enquiry_details_overview"
             android:exported="true" />
         <activity
             android:name=".update_product"
@@ -100,6 +119,10 @@
             android:exported="true" />
         <activity
             android:name=".ShopQRPage"
+            android:exported="true" />
+
+        <activity
+            android:name=".UpdateService"
             android:exported="true" />
     </application>
 

@@ -6,9 +6,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.marquedo.marquedo.ui.Orders_Enquiries.Enquiries.EnquiriesFragment;
-import com.marquedo.marquedo.ui.Orders_Enquiries.Orders.OrdersFragment;
-
 public class addProductProfileSetupFragmentAdapter extends FragmentStateAdapter {
 
     public addProductProfileSetupFragmentAdapter(@NonNull FragmentManager fragmentManager, @NonNull Lifecycle lifecycle) {

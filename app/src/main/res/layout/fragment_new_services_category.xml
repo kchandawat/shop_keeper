@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_gravity="bottom"
 
-    tools:context="com.marquedo.marquedo.Business_Category">
+    tools:context="com.marquedo.marquedo.profileSetupAddProductPageActivity">
 
     <FrameLayout
         android:id="@+id/standard_bottom_sheet"
@@ -34,7 +34,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="8dp"
-                    android:text="Product Categories"
+                    android:text="Services Categories"
                     android:textColor="@color/black"
                     android:textSize="24sp" />
 
@@ -207,7 +207,7 @@
                     android:paddingTop="5dp"
                     android:paddingBottom="10dp"
                     android:stateListAnimator="@null"
-                    android:text="Add New Product Category"
+                    android:text="Add New Service Category"
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textColor="#c95400"

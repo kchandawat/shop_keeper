@@ -21,7 +21,9 @@ import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
 import com.darsh.multipleimageselect.helpers.Constants;
 import com.darsh.multipleimageselect.models.Image;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -32,6 +34,7 @@ import com.marquedo.marquedo.ui.Prod_n_Cat.Product.ProductModelClass;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -43,6 +46,9 @@ public class update_product extends AppCompatActivity
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();;
     private EditText category, name, details, price, discount_price, measure, number_of_prod;
     private Button preview, update;
+    private TextInputLayout productCategoryTIL;
+    private BottomSheetDialog bottomSheetDialog;
+    private BottomSheetDialog addCatBottomSheet;
 
 
     private RecyclerView recyclerView;
@@ -67,7 +73,8 @@ public class update_product extends AppCompatActivity
 
         preview = findViewById(R.id.show_preview);
         update = findViewById(R.id.update_product_button);
-        category = findViewById(R.id.prodCategory);
+//        category = findViewById(R.id.prodCategory);
+        productCategoryTIL = findViewById(R.id.product_category_til);
         name = findViewById(R.id.prodName);
         price = findViewById(R.id.prodPrice);
         number_of_prod = findViewById(R.id.num_of_prod);
@@ -81,6 +88,33 @@ public class update_product extends AppCompatActivity
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(null);
+
+        bottomSheetDialog = new BottomSheetDialog(this, R.style.CustomAlertDialog);
+        bottomSheetDialog.setContentView(R.layout.fragment_new_product_category);
+        MaterialButton close = bottomSheetDialog.findViewById(R.id.close_sheet);
+        MaterialButton addCategory = bottomSheetDialog.findViewById(R.id.add_new_product_category_button);
+//        RecyclerView recyclerView = bottomSheetDialog.findViewById(R.id.recyclerview);
+        addCatBottomSheet = new BottomSheetDialog(this, R.style.CustomAlertDialog);
+        addCatBottomSheet.setContentView(R.layout.fragment_add_category);
+        MaterialButton close2 = addCatBottomSheet.findViewById(R.id.close_sheet);
+
+        Objects.requireNonNull(productCategoryTIL.getEditText()).setOnClickListener(view -> bottomSheetDialog.show());
+
+
+        addCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCatBottomSheet.show();
+            }
+        });
+
+        close2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCatBottomSheet.dismiss();
+            }
+        });
+
 
 
         //String id = db.collection("Store").document().getId();
@@ -167,7 +201,8 @@ public class update_product extends AppCompatActivity
 
                 //aboutModelClass = documentSnapshot.get("Category", AboutModelClass.class);
                 //category.setText(aboutModelClass.getCategory());
-                category.setText(Category);
+//                category.setText(Category);
+
                 name.setText(Name);
                 details.setText(Details);
                 discount_price.setText(Discount_price);

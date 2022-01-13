@@ -82,8 +82,8 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity
 
 
         Bundle intent = getIntent().getExtras();
-        ProductName = intent.get("name").toString();
-        ProductCategory = intent.get("category").toString();
+//        ProductName = intent.get("name").toString();
+//        ProductCategory = intent.get("category").toString();
 
 
         AddImages.setOnClickListener(new View.OnClickListener()
