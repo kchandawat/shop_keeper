@@ -220,6 +220,7 @@
                     app:strokeWidth="1dp" />
 
                 <com.google.android.material.button.MaterialButton
+                    android:backgroundTint="@color/yellow"
                     android:id="@+id/submit_button"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"

@@ -5,6 +5,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.HorizontalScrollView;
 
 import com.google.android.material.tabs.TabLayout;
@@ -14,6 +15,7 @@ public class addProductAndServicesProfilesetupActivity extends AppCompatActivity
 
     private TabLayout tabLayout;
     private ViewPager2 viewPager2;
+
     private addProductProfileSetupFragmentAdapter adapter;
 
     @Override
@@ -52,6 +54,14 @@ public class addProductAndServicesProfilesetupActivity extends AppCompatActivity
             @Override
             public void onPageSelected(int position) {
                 tabLayout.selectTab(tabLayout.getTabAt(position));
+            }
+        });
+
+
+        findViewById(R.id.back_button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
 

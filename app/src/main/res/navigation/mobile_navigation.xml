@@ -19,9 +19,9 @@
 
     <fragment
         android:id="@+id/navigation_orders_enquiries"
-        android:name="com.marquedo.marquedo.ui.Orders_Enquiries.Orders_n_Enquiry"
+        android:name="com.marquedo.marquedo.OrdersNEnquiries.Orders_n_Enquiry"
         android:label="Orders"
-        tools:layout="@layout/activity_order_enquiry_page" />
+        tools:layout="@layout/ordersnenquiries_activity_order_enquiry_page" />
 
 <!--    <fragment-->
 <!--        android:id="@+id/navigation_notifications"-->
@@ -37,9 +37,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.marquedo.marquedo.ui.dashboard.DashboardFragment"
+        android:name="com.marquedo.marquedo.DesignElements.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/designelements_fragment_dashboard" />
 
 
 </navigation>

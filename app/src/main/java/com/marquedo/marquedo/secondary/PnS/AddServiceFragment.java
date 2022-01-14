@@ -27,6 +27,8 @@ import com.darsh.multipleimageselect.models.Image;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -40,6 +42,7 @@ import com.marquedo.marquedo.update_product;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 
@@ -67,6 +70,11 @@ public class AddServiceFragment extends Fragment
     private RecyclerView recyclerView;
     private imageAdapter imageAdapter;
 
+    private BottomSheetDialog bottomSheetDialog;
+    private BottomSheetDialog addCatBottomSheet;
+    private TextInputLayout serviceNameTIL;
+    private TextInputLayout serviceCategoryTIL;
+
 
     private ArrayList<String> Images = new ArrayList<>();
     private ActivityResultLauncher<Intent> getResult;
@@ -90,6 +98,44 @@ public class AddServiceFragment extends Fragment
         measure = v.findViewById(R.id.serviceMeasure);
         number_of_hours = v.findViewById(R.id.num_of_hours);
         details = v.findViewById(R.id.serviceDetails);
+
+        serviceCategoryTIL = v.findViewById(R.id.service_category_til);
+//        Intent congrats=new Intent(this, AddProductNServiceActivity.class);
+
+        bottomSheetDialog = new BottomSheetDialog(v.getContext(), R.style.CustomAlertDialog);
+        bottomSheetDialog.setContentView(R.layout.fragment_new_services_category);
+        MaterialButton close = bottomSheetDialog.findViewById(R.id.close_sheet);
+        MaterialButton addCategory = bottomSheetDialog.findViewById(R.id.add_new_product_category_button);
+
+        addCatBottomSheet = new BottomSheetDialog(v.getContext(), R.style.CustomAlertDialog);
+        addCatBottomSheet.setContentView(R.layout.fragment_add_category);
+        MaterialButton close2 = addCatBottomSheet.findViewById(R.id.close_sheet);
+
+
+
+        Objects.requireNonNull(close).setOnClickListener(view -> {
+            bottomSheetDialog.dismiss();
+            //currentSelectedItems.clear();
+        });
+
+        Objects.requireNonNull(serviceCategoryTIL.getEditText()).setOnClickListener(view -> bottomSheetDialog.show());
+
+        addCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCatBottomSheet.show();
+            }
+        });
+
+        close2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addCatBottomSheet.dismiss();
+            }
+        });
+
+
+
 
         imageAdapter = new imageAdapter(Images);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity().getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
