@@ -46,6 +46,8 @@ import com.marquedo.marquedo.AddProductVariant.DataExtraction;
 import com.marquedo.marquedo.AddProductVariant.GetColourVariants;
 import com.marquedo.marquedo.AddProductVariant.GetVariants;
 import com.marquedo.marquedo.AddProductVariant.ProductVariantRecyclerViewAdapter;
+import com.marquedo.marquedo.AddProductVariant.RemoveClickListner;
+import com.marquedo.marquedo.AddProductVariant.RemoveColourClickListner;
 import com.marquedo.marquedo.AddProductVariant.TheData;
 import com.marquedo.marquedo.AddProductVariant.VariantData;
 import com.marquedo.marquedo.datab.Variant;
@@ -61,7 +63,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
-public class profileSetupAddProductPageActivity extends AppCompatActivity {
+public class profileSetupAddProductPageActivity extends AppCompatActivity implements RemoveClickListner, RemoveColourClickListner, GetVariants {
 
     private String ProductName, ProductCategory;
 
@@ -108,7 +110,7 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile_setup_product_page);
 
         //MAAZ START
-        binding = DataBindingUtil.setContentView(this, R.layout.progress_6_new_product_details);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_profile_setup_product_page);
         MaterialButton addProductVariant = findViewById(R.id.add_new_product_variant_button);
         Button add_product_button = findViewById(R.id.add_product_button);
         myList = new ArrayList<>();
