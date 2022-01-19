@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.anstrontechnologies.corehelper.AnstronCoreHelper;
 import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
 import com.darsh.multipleimageselect.helpers.Constants;
 import com.darsh.multipleimageselect.models.Image;
@@ -29,6 +31,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.iceteck.silicompressorr.SiliCompressor;
 import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
 import com.marquedo.marquedo.ui.Prod_n_Cat.Product.AboutModelClass;
 
@@ -41,6 +44,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 {
     private String ServiceName, ServiceCategory;
 
+    private int count = 3;
 
     private RecyclerView recyclerView;
     private imageAdapter imageAdapter;
@@ -55,6 +59,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     private ActivityResultLauncher<Intent> getResult;
     private List<String> imageUrlList = new ArrayList<>();
 
+    AnstronCoreHelper coreHelper;
+
     int counter;
 
     @Override
@@ -62,6 +68,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_setup_service_page);
+
 
         recyclerView = findViewById(R.id.service_images_recyclerView);
         AddImages = findViewById(R.id.add_service_images);
@@ -201,7 +208,9 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
             progressDialog.setCancelable(false);
             progressDialog.show();
 
+
             StorageReference reference = firebaseStorage.getReference();
+            coreHelper = new AnstronCoreHelper(this);
             List<String> imageUrlList = new ArrayList<>();
 
             for (int i = 0; i < newImages.size(); i++)
@@ -237,7 +246,18 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                         public void onSuccess(@NonNull DocumentReference documentReference)
                                         {
                                             progressDialog.dismiss();
-                                            Toast.makeText(getApplicationContext(), "Service Added Successfully!", Toast.LENGTH_SHORT).show();
+
+                                            count--;
+
+                                            SharedPreferences sharedPreferences = getSharedPreferences("servicecount", MODE_PRIVATE);
+                                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                                            editor.putInt("countvalue", count);
+                                            editor.apply();
+
+                                            loadData();
+
+
+                                            //Toast.makeText(getApplicationContext(), "Service Added Successfully!", Toast.LENGTH_SHORT).show();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
@@ -273,5 +293,25 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                 });
             }
         }
+    }
+
+    private void loadData()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("servicecount", MODE_PRIVATE);
+        int check = sharedPreferences.getInt("countvalue", count);
+        if(check == 2)
+        {
+
+        }
+        else if(check == 1)
+        {
+
+        }
+        else if(check == 0)
+        {
+
+        }
+
+
     }
 }

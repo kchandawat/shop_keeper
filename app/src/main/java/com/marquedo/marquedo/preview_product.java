@@ -1,6 +1,7 @@
 package com.marquedo.marquedo;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -67,7 +68,10 @@ public class preview_product extends AppCompatActivity
 
                 List<String> Urls = (List<String>) documentSnapshot.get("Images");
 
-                displayImages.add(new SlideModel(Urls.toString(), ScaleTypes.FIT));
+                displayImages.add(new SlideModel(documentSnapshot.get("Images").toString(), ScaleTypes.FIT));
+
+                //displayImages.add(new SlideModel(Urls.toString(), ScaleTypes.FIT));
+                Log.i("check", documentSnapshot.get("Images").toString());
 
                 imageSlider.setImageList(displayImages,ScaleTypes.FIT);
                 imageSlider.startSliding(3000);

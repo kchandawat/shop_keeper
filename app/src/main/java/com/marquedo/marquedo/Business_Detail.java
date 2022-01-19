@@ -104,6 +104,7 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
         snack = new Snack(this);
     }
 
+
     private void operations() {
         setInitialData();
         bottomSheetDialog = new BottomSheetDialog(this, R.style.CustomAlertDialog);
@@ -189,6 +190,7 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
                     .addOnFailureListener(e -> snack.snackBar(signup, e.getMessage()));
         }
     }
+
 
     private void setInitialData() {
         dreamsList.addAll(Collections.singleton("Kirana"));

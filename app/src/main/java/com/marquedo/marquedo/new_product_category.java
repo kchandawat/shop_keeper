@@ -10,11 +10,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link category_sheet#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class new_product_category extends BottomSheetDialogFragment {
 
     // TODO: Rename parameter arguments, choose names that match

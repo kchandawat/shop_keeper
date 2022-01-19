@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+
 
 public class firstThreeAddProductFragment extends Fragment
 {
@@ -38,6 +40,18 @@ public class firstThreeAddProductFragment extends Fragment
         ProdName = v.findViewById(R.id.prod_name);
         ProdCategory = v.findViewById(R.id.prod_category);
         Continue = v.findViewById(R.id.prod_continue_button);
+
+        ProdCategory.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                View view1=getLayoutInflater().inflate(R.layout.fragment_new_product_category,null);
+                BottomSheetDialog bottomSheetDialog= new BottomSheetDialog(getContext());
+                bottomSheetDialog.setContentView(view1);
+                bottomSheetDialog.show();
+            }
+        });
 
         Continue.setOnClickListener(new View.OnClickListener()
         {
