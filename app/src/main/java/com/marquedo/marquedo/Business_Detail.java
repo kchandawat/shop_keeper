@@ -86,7 +86,7 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_business_detail);
+        setContentView(R.layout.businessdetails_businessdetailspage);
 
         initializations();
         operations();
@@ -108,7 +108,7 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
     private void operations() {
         setInitialData();
         bottomSheetDialog = new BottomSheetDialog(this, R.style.CustomAlertDialog);
-        bottomSheetDialog.setContentView(R.layout.activity_business_category);
+        bottomSheetDialog.setContentView(R.layout.businessdetails_businesscategory);
         ExtendedFloatingActionButton close = bottomSheetDialog.findViewById(R.id.close);
         RecyclerView recyclerView = bottomSheetDialog.findViewById(R.id.recyclerview);
 

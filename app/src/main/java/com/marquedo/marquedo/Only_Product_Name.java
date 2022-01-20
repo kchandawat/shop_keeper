@@ -46,7 +46,7 @@ public class Only_Product_Name extends AppCompatActivity implements CheckboxData
         Intent congrats=new Intent(this, AddProductNServiceActivity.class);
 
         bottomSheetDialog = new BottomSheetDialog(this, R.style.CustomAlertDialog);
-        bottomSheetDialog.setContentView(R.layout.activity_business_category);
+        bottomSheetDialog.setContentView(R.layout.businessdetails_businesscategory);
         ExtendedFloatingActionButton close = bottomSheetDialog.findViewById(R.id.close);
         RecyclerView recyclerView = bottomSheetDialog.findViewById(R.id.recyclerview);
 

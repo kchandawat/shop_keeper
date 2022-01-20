@@ -6,7 +6,6 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.HorizontalScrollView;
 
 import com.google.android.material.tabs.TabLayout;
 ;
@@ -21,7 +20,7 @@ public class addProductAndServicesProfilesetupActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_product_and_services_profilesetup);
+        setContentView(R.layout.home_addproductsandservices_profilesetup);
         tabLayout = findViewById(R.id.profileSetup_product_service_tab);
         viewPager2 = findViewById(R.id.view_pager_add_product_service_page);
 

@@ -15,7 +15,7 @@ public class privacypolicy extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.privacypolicypage);
+        setContentView(R.layout.dashboard_privacypolicypage);
         ImageButton back = (ImageButton) this.findViewById(R.id.imageButton);
         Intent dashboard = new Intent(this, DashboardViewModel.class);
         back.setOnClickListener(new View.OnClickListener() {

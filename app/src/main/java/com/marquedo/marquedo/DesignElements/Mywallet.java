@@ -20,7 +20,7 @@ public class Mywallet extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.walletpage);
+        setContentView(R.layout.dashboard_walletpage);
         ImageButton back = (ImageButton) this.findViewById(R.id.imageButton);
         Intent dashboard = new Intent(this, DashboardViewModel.class);
         back.setOnClickListener(new View.OnClickListener() {
@@ -62,7 +62,7 @@ public class Mywallet extends AppCompatActivity {
             LayoutInflater inflater = LayoutInflater.from(context);
 
             // Inflate the custom layout
-            View ordersView = inflater.inflate(R.layout.wallet_tile, parent, false);
+            View ordersView = inflater.inflate(R.layout.dashboard_walletpage_wallettile, parent, false);
 
             // Return a new holder instance
            ViewHolder viewHolder = new ViewHolder(ordersView);

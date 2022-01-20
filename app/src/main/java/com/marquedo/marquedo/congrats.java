@@ -11,7 +11,7 @@ public class congrats extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_congrats);
+        setContentView(R.layout.splashscreen_letsgetstartedpage);
         Intent progress=new Intent(this, progress.class);
         Button lets_continue=(Button)findViewById(R.id.continue_button);
         lets_continue.setOnClickListener(view -> {

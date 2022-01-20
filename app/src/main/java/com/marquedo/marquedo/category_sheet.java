@@ -10,11 +10,7 @@ import android.view.ViewGroup;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link category_sheet#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class category_sheet extends BottomSheetDialogFragment {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -41,7 +37,7 @@ public class category_sheet extends BottomSheetDialogFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view= inflater.inflate(R.layout.activity_business_category, container, false);
+        View view= inflater.inflate(R.layout.businessdetails_businesscategory, container, false);
         return view;
     }
 }

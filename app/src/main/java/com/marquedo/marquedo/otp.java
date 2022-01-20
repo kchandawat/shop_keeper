@@ -104,7 +104,7 @@ public class otp extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_otp);
+        setContentView(R.layout.authentication_otppage);
         initializations();
         operations();
         buttononclicksthis();

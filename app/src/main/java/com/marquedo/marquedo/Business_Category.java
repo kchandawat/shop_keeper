@@ -10,7 +10,7 @@ public class Business_Category extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_business_category);
+        setContentView(R.layout.businessdetails_businesscategory);
 
         findViewById(R.id.close_sheet).setOnClickListener(new View.OnClickListener() {
             @Override
