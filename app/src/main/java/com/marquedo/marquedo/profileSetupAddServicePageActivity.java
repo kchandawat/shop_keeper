@@ -18,24 +18,24 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.anstrontechnologies.corehelper.AnstronCoreHelper;
+//import com.anstrontechnologies.corehelper.AnstronCoreHelper;
 import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
 import com.darsh.multipleimageselect.helpers.Constants;
 import com.darsh.multipleimageselect.models.Image;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.iceteck.silicompressorr.SiliCompressor;
+//import com.iceteck.silicompressorr.SiliCompressor;
 import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.AboutModelClass;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -58,10 +58,14 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     private ArrayList<String> Images = new ArrayList<>();
     private ActivityResultLauncher<Intent> getResult;
     private List<String> imageUrlList = new ArrayList<>();
+    private BottomSheetDialog serviceAddedSuccessBM ;
 
-    AnstronCoreHelper coreHelper;
+//    AnstronCoreHelper coreHelper;
 
     int counter;
+//    SharedPreferences sharedPreferences = getSharedPreferences("noOfServices", MODE_PRIVATE);
+//    String tempCounter = sharedPreferences.getString("counter","");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -85,10 +89,16 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(imageAdapter);
 
+        serviceAddedSuccessBM = new BottomSheetDialog(this, R.style.CustomAlertDialog);
+        serviceAddedSuccessBM.setContentView(R.layout.fragment_serviced_added_success);
+
 
         Bundle intent = getIntent().getExtras();
         ServiceName = intent.get("name").toString();
         ServiceCategory = intent.get("category").toString();
+
+//        loadData(1);
+//        serviceAddedSuccessBM.dismiss();
 
 
 
@@ -210,7 +220,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
 
             StorageReference reference = firebaseStorage.getReference();
-            coreHelper = new AnstronCoreHelper(this);
+//            coreHelper = new AnstronCoreHelper(this);
             List<String> imageUrlList = new ArrayList<>();
 
             for (int i = 0; i < newImages.size(); i++)
@@ -232,6 +242,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                             public void onSuccess(@NonNull Uri uri)
                             {
                                 counter++;
+
+
                                 progressDialog.setMessage("Uploading "+ counter + "/" + newImages.size());
                                // Toast.makeText(getApplicationContext(), "Uploading....", Toast.LENGTH_SHORT).show();
                                 imageUrlList.add(uri.toString());
@@ -254,6 +266,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                             editor.putInt("countvalue", count);
                                             editor.apply();
 
+
                                             loadData();
 
 
@@ -270,6 +283,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                 }
 
                                 Log.i("showcount", imageUrlList.toString());
+
+
                             }
                         }).addOnFailureListener(new OnFailureListener()
                         {
@@ -297,19 +312,23 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
     private void loadData()
     {
+        serviceAddedSuccessBM.show();
         SharedPreferences sharedPreferences = getSharedPreferences("servicecount", MODE_PRIVATE);
+        TextView remainingService = serviceAddedSuccessBM.findViewById(R.id.remainingService);
+        String text;
         int check = sharedPreferences.getInt("countvalue", count);
+//        remainingService.setText("Let's add "+ count+ " more products or services to complete your profile");
         if(check == 2)
         {
-
+            remainingService.setText("Let's add 2 more products or services to complete your profile");
         }
         else if(check == 1)
         {
-
+            remainingService.setText("Let's add 1 more products or services to complete your profile");
         }
         else if(check == 0)
         {
-
+            remainingService.setText("Hurrahh.. You are all set to open your shop");
         }
 
 

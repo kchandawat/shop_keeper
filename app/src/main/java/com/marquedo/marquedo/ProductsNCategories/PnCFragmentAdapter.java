@@ -1,4 +1,4 @@
-package com.marquedo.marquedo.ui.Prod_n_Cat;
+package com.marquedo.marquedo.ProductsNCategories;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.marquedo.marquedo.ui.Prod_n_Cat.Category.CategoriesFragment;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.ProductsFragment;
+import com.marquedo.marquedo.ProductsNCategories.Category.CategoriesFragment;
+import com.marquedo.marquedo.ProductsNCategories.Product.ProductsFragment;
 
 public class PnCFragmentAdapter extends FragmentStateAdapter {
 

@@ -18,16 +18,17 @@
             android:layout_height="match_parent"
 
             android:layout_weight="18">
-            <ImageButton
+
+            <ImageView
                 android:id="@+id/imageButton"
-                android:layout_width="31dp"
-                android:layout_marginLeft="20dp"
-                android:layout_height="41dp"
-                android:background="@null"
+                android:layout_width="20dp"
+                android:layout_marginLeft="25dp"
+                android:backgroundTint="@color/white"
+                android:layout_height="20dp"
+                android:background="@drawable/navbar_orders_enquiries"
                 android:scaleX="1.5"
                 android:scaleY="1.5"
                 android:layout_gravity="center_vertical"
-                app:srcCompat="?attr/actionModeCloseDrawable"
                 app:tint="@color/white" />
             <TextView
                 android:layout_width="wrap_content"
@@ -36,7 +37,7 @@
                 android:textColor="@color/white"
                 android:layout_gravity="center_vertical"
                 android:padding="10dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="10dp"
                 android:textSize="25dp"
                 />
         </LinearLayout>
@@ -92,47 +93,47 @@
 
 
 
-<!--                        <Button-->
-<!--                            android:id="@+id/button1"-->
-<!--                            android:layout_marginLeft="0dp"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="All Orders"-->
-<!--                            android:background="@drawable/horizontal_scrolltabs_box"-->
-<!--                            android:backgroundTint="@color/light_grey"-->
-<!--                            android:textAllCaps="false"/>-->
+                        <!--                        <Button-->
+                        <!--                            android:id="@+id/button1"-->
+                        <!--                            android:layout_marginLeft="0dp"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="All Orders"-->
+                        <!--                            android:background="@drawable/horizontal_scrolltabs_box"-->
+                        <!--                            android:backgroundTint="@color/light_grey"-->
+                        <!--                            android:textAllCaps="false"/>-->
 
-<!--                        <Button-->
-<!--                            android:id="@+id/button2"-->
-<!--                            android:layout_marginLeft="10dp"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Pending"-->
-<!--                            android:textAllCaps="false"/>-->
+                        <!--                        <Button-->
+                        <!--                            android:id="@+id/button2"-->
+                        <!--                            android:layout_marginLeft="10dp"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="Pending"-->
+                        <!--                            android:textAllCaps="false"/>-->
 
-<!--                        <Button-->
-<!--                            android:id="@+id/button3"-->
-<!--                            android:layout_marginLeft="10dp"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
+                        <!--                        <Button-->
+                        <!--                            android:id="@+id/button3"-->
+                        <!--                            android:layout_marginLeft="10dp"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
 
-<!--                            android:text="Accepted"-->
-<!--                            android:textAllCaps="false"/>-->
+                        <!--                            android:text="Accepted"-->
+                        <!--                            android:textAllCaps="false"/>-->
 
-<!--                        <Button-->
-<!--                            android:id="@+id/button4"-->
-<!--                            android:layout_marginLeft="10dp"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="Shipped"-->
-<!--                            android:textAllCaps="false" />-->
+                        <!--                        <Button-->
+                        <!--                            android:id="@+id/button4"-->
+                        <!--                            android:layout_marginLeft="10dp"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="Shipped"-->
+                        <!--                            android:textAllCaps="false" />-->
 
-<!--                        <Button-->
-<!--                            android:id="@+id/button5"-->
-<!--                            android:layout_marginLeft="10dp"-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-<!--                            android:text="New Button5" />-->
+                        <!--                        <Button-->
+                        <!--                            android:id="@+id/button5"-->
+                        <!--                            android:layout_marginLeft="10dp"-->
+                        <!--                            android:layout_width="wrap_content"-->
+                        <!--                            android:layout_height="wrap_content"-->
+                        <!--                            android:text="New Button5" />-->
                         <CheckBox
                             android:layout_width="wrap_content"
                             android:layout_height="40dp"
@@ -216,13 +217,13 @@
 
 
 
-<!--                <SearchView-->
-<!--                    android:id="@+id/simpleSearchView"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="53dp"-->
-<!--                    android:iconifiedByDefault="false"-->
-<!--                    android:queryHint="Search here..."-->
-<!--                    android:background="@drawable/round_corner"/>-->
+                <!--                <SearchView-->
+                <!--                    android:id="@+id/simpleSearchView"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="53dp"-->
+                <!--                    android:iconifiedByDefault="false"-->
+                <!--                    android:queryHint="Search here..."-->
+                <!--                    android:background="@drawable/round_corner"/>-->
 
 
             </LinearLayout>

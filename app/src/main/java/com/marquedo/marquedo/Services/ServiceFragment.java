@@ -1,4 +1,4 @@
-package com.marquedo.marquedo.ui.Services;
+package com.marquedo.marquedo.Services;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -85,7 +85,7 @@ public class ServiceFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_services, container, false);
+        View view = inflater.inflate(R.layout.services_fragment_services, container, false);
 
         view.findViewById(R.id.add_service).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -25,7 +25,6 @@ import com.google.android.material.button.MaterialButton;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.imageAdapter;
 import com.marquedo.marquedo.progress;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.ProductsFragment;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 

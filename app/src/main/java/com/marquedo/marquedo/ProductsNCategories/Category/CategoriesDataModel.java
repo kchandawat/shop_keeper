@@ -1,4 +1,4 @@
-package com.marquedo.marquedo.ui.Prod_n_Cat.Category;
+package com.marquedo.marquedo.ProductsNCategories.Category;
 
 public class CategoriesDataModel {
 

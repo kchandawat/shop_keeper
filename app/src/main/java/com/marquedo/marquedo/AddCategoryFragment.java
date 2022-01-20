@@ -59,6 +59,6 @@ public class AddCategoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_category, container, false);
+        return inflater.inflate(R.layout.productsncategories_fragment_add_category, container, false);
     }
 }

@@ -1,4 +1,4 @@
-package com.marquedo.marquedo.ui.Prod_n_Cat.Product;
+package com.marquedo.marquedo.ProductsNCategories.Product;
 
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -12,52 +12,75 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.button.MaterialButton;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.update_product;
 
-public class ProductListAdapter1 extends FirestoreRecyclerAdapter<ProductModelClass, ProductListAdapter1.ViewHolder>
+import java.util.ArrayList;
+
+public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.ViewHolder>
 {
 
-    public ProductListAdapter1(@NonNull FirestoreRecyclerOptions<ProductModelClass> options)
+    //private OnItemClickListener listener = null;
+
+    ArrayList<ProductModelClass> data;
+
+    /*public ProductListAdapter(ArrayList<ProductModelClass> data, OnItemClickListener listener) {
+        this.data = data;
+        this.listener = listener;
+    }*/
+
+    public ProductListAdapter(ArrayList<ProductModelClass> data)
     {
-        super(options);
-    }
-
-    @Override
-    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull ProductModelClass model)
-    {
-        String docId = getSnapshots().getSnapshot(position).getId();
-        holder.productTitle.setText(model.getName());
-        holder.productMeasure.setText(model.getUnit_Measure());
-        holder.productUnits.setText(String.valueOf(model.getNumber_of_Units()));
-        holder.productPrice.setText(String.valueOf(model.getPrice()));
-        holder.productOffer.setText(String.valueOf(model.getDiscount_Price()));
-        Glide.with(holder.prodImage.getContext()).load(model.getImage_Primary()).into(holder.prodImage);
-        holder.cardView.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent = new Intent(holder.cardView.getContext(), update_product.class);
-                intent.putExtra("key", docId);
-                holder.cardView.getContext().startActivity(intent);
-
-            }
-        });
-
+        this.data = data;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewTyp)
     {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.products_item, null);
         return new ViewHolder(view);
     }
 
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position)
+    {
+        holder.productTitle.setText(data.get(position).getName());
+        holder.productMeasure.setText(data.get(position).getUnit_Measure());
+        holder.productUnits.setText(String.valueOf(data.get(position).getNumber_of_Units()));
+        holder.productPrice.setText(String.valueOf(data.get(position).getPrice()));
+        holder.productOffer.setText(String.valueOf(data.get(position).getDiscount_Price()));
+        Glide.with(holder.prodImage.getContext()).load(data.get(position).getImage_Primary()).into(holder.prodImage);
+        /*holder.cardView.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                String str_pos = String.valueOf(position) ;
+                Intent intent = new Intent(holder.cardView.getContext(), update_product.class);
+                intent.putExtra("key",str_pos);
+                holder.cardView.getContext().startActivity(intent);
+
+            }
+        });*/
+        //binding onClickListener
+        //holder.bind(data.get(position),listener);
+    }
+
+
+    /*public interface OnItemClickListener
+    {
+        void onItemClick(ProductModelClass item);
+    }*/
+
+    @Override
+    public int getItemCount()
+    {
+        return data.size();
+    }
+
+    //TODO: Implement Availability Factor
     public class ViewHolder extends RecyclerView.ViewHolder
     {
         TextView productTitle, productUnits, productMeasure, productPrice, productOffer;
@@ -87,7 +110,7 @@ public class ProductListAdapter1 extends FirestoreRecyclerAdapter<ProductModelCl
                 }
             });*/
 
-            /*cardView.setOnClickListener(new View.OnClickListener()
+           cardView.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View v)
@@ -97,10 +120,15 @@ public class ProductListAdapter1 extends FirestoreRecyclerAdapter<ProductModelCl
                     itemView.getContext().startActivity(intent);
 
                 }
-            });*/
+            });
 
 
         }
+
+       /* public void bind(ProductModelClass productmodelclass, OnItemClickListener listener)
+        {
+            itemView.setOnClickListener(view -> listener.onItemClick(productmodelclass));
+        }*/
 
     }
 }

@@ -9,10 +9,9 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.AboutModelClass;
+import com.marquedo.marquedo.ProductsNCategories.Product.AboutModelClass;
 
 public class imageAdapter1 extends FirestoreRecyclerAdapter<AboutModelClass, imageAdapter1.holder>
 {

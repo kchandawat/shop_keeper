@@ -14,7 +14,7 @@ import com.denzcoskun.imageslider.models.SlideModel;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.AboutModelClass;
+import com.marquedo.marquedo.ProductsNCategories.Product.AboutModelClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +33,7 @@ public class preview_product extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_product_preview);
+        setContentView(R.layout.productsncategories_fragment_product_preview);
 
         name = findViewById(R.id.product_title);
         units = findViewById(R.id.product_units);

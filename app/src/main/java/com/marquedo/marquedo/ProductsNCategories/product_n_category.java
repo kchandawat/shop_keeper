@@ -1,4 +1,4 @@
-package com.marquedo.marquedo.ui.Prod_n_Cat;
+package com.marquedo.marquedo.ProductsNCategories;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,9 +16,7 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.addProductAndServicesProfilesetupActivity;
-import com.marquedo.marquedo.secondary.PnS.AddProductFragment;
 import com.google.android.material.tabs.TabLayout;
-import com.marquedo.marquedo.secondary.PnS.AddProductNServiceActivity;
 
 public class product_n_category extends Fragment {
 
@@ -35,7 +33,7 @@ public class product_n_category extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_products_n_category, container, false);
+        View view = inflater.inflate(R.layout.productsncategories_fragment_products_n_category, container, false);
 
         tabLayout = view.findViewById(R.id.tabLayout);
         viewPager2 = view.findViewById(R.id.viewPager);

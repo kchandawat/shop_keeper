@@ -1,4 +1,4 @@
-package com.marquedo.marquedo.ui.Services;
+package com.marquedo.marquedo.Services;
 
 import android.view.LayoutInflater;
 import android.view.View;

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/black"
-    tools:context=".ui.Prod_n_Cat.product_n_category">
+    tools:context=".ProductsNCategories.product_n_category">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,18 +22,34 @@
             android:paddingHorizontal="10dp"
             android:paddingTop="10dp">
 
-            <ImageButton
-                android:id="@+id/back_button"
-                android:layout_width="48dp"
-                android:layout_height="41dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="10dp"
-                android:background="@null"
-                android:contentDescription="Return"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
-                app:srcCompat="?attr/actionModeCloseDrawable"
-                app:tint="@color/white" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_centerVertical="true">
+
+                <ImageButton
+                    android:id="@+id/back_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/navbar_products"
+                    android:backgroundTint="@color/white"
+                    android:contentDescription="Return"
+                    app:tint="@color/white" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="Products And\nCategories"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"/>
+
+
+            </LinearLayout>
+
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/add_new_prod_button"

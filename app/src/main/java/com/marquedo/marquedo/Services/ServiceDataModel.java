@@ -1,4 +1,4 @@
-package com.marquedo.marquedo.ui.Services;
+package com.marquedo.marquedo.Services;
 
 public class ServiceDataModel {
 

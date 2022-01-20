@@ -36,9 +36,6 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.imageAdapter;
-import com.marquedo.marquedo.progress;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.AboutModelClass;
-import com.marquedo.marquedo.update_product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -108,7 +105,7 @@ public class AddServiceFragment extends Fragment
         MaterialButton addCategory = bottomSheetDialog.findViewById(R.id.add_new_product_category_button);
 
         addCatBottomSheet = new BottomSheetDialog(v.getContext(), R.style.CustomAlertDialog);
-        addCatBottomSheet.setContentView(R.layout.fragment_add_category);
+        addCatBottomSheet.setContentView(R.layout.productsncategories_fragment_add_category);
         MaterialButton close2 = addCatBottomSheet.findViewById(R.id.close_sheet);
 
 

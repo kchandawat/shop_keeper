@@ -6,9 +6,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.Lifecycle;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.marquedo.marquedo.ui.Prod_n_Cat.Category.CategoriesFragment;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.ProductsFragment;
-
 public class PnSFragmentAdapter extends FragmentStateAdapter {
 
 

@@ -52,9 +52,8 @@ import com.marquedo.marquedo.AddProductVariant.TheData;
 import com.marquedo.marquedo.AddProductVariant.VariantData;
 import com.marquedo.marquedo.datab.Variant;
 import com.marquedo.marquedo.databinding.Progress6ProductVariantRecyclerviewBinding;
-import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.AboutModelClass;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.ProductModelClass;
+import com.marquedo.marquedo.ProductsNCategories.Product.AboutModelClass;
+import com.marquedo.marquedo.ProductsNCategories.Product.ProductModelClass;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 

@@ -29,8 +29,8 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.AboutModelClass;
-import com.marquedo.marquedo.ui.Prod_n_Cat.Product.ProductModelClass;
+import com.marquedo.marquedo.ProductsNCategories.Product.AboutModelClass;
+import com.marquedo.marquedo.ProductsNCategories.Product.ProductModelClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,7 +95,7 @@ public class update_product extends AppCompatActivity
         MaterialButton addCategory = bottomSheetDialog.findViewById(R.id.add_new_product_category_button);
 //        RecyclerView recyclerView = bottomSheetDialog.findViewById(R.id.recyclerview);
         addCatBottomSheet = new BottomSheetDialog(this, R.style.CustomAlertDialog);
-        addCatBottomSheet.setContentView(R.layout.fragment_add_category);
+        addCatBottomSheet.setContentView(R.layout.productsncategories_fragment_add_category);
         MaterialButton close2 = addCatBottomSheet.findViewById(R.id.close_sheet);
 
         Objects.requireNonNull(productCategoryTIL.getEditText()).setOnClickListener(view -> bottomSheetDialog.show());

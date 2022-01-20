@@ -1,4 +1,4 @@
-package com.marquedo.marquedo.ui.Prod_n_Cat.Product;
+package com.marquedo.marquedo.ProductsNCategories.Product;
 
 
 public class ProductModelClass

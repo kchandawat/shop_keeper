@@ -1,4 +1,4 @@
-package com.marquedo.marquedo.ui.Prod_n_Cat.Product;
+package com.marquedo.marquedo.ProductsNCategories.Product;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -79,7 +79,7 @@ public class ProductsFragment extends Fragment
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.fragment_products, container, false);
+        View v = inflater.inflate(R.layout.productsncategories_fragment_products, container, false);
         recyclerView = v.findViewById(R.id.products_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         recyclerView.setItemAnimator(null);
