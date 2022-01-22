@@ -13,9 +13,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.marquedo.marquedo.DesignElements.DashboardViewModel;
 import com.marquedo.marquedo.DesignElements.Manage.ManageActivity;
-import com.marquedo.marquedo.DesignElements.Manage.privacypolicy;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.databinding.DesignelementsFragmentDashboardBinding;
 
@@ -82,7 +80,7 @@ public class DashboardFragment extends Fragment {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                View view2 = getLayoutInflater().inflate(R.layout.dashboard_logout_action,null);
+                View view2 = getLayoutInflater().inflate(R.layout.designelements_logout_action,null);
                 BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(view.getContext());
                 bottomSheetDialog.setContentView(view2);
                 bottomSheetDialog.show();

@@ -27,16 +27,16 @@
             android:name=".DesignElements.Manage.ManageActivity"
             android:exported="false" />
         <activity
-            android:name=".profileSetupAddServicePageActivity"
+            android:name=".Home.profileSetupAddServicePageActivity"
             android:exported="false" />
         <activity
-            android:name=".profileSetupAddProductPageActivity"
+            android:name=".Home.profileSetupAddProductPageActivity"
             android:exported="false" />
         <activity
-            android:name=".addProductAndServicesProfilesetupActivity"
+            android:name=".Home.addProductAndServicesProfilesetupActivity"
             android:exported="false" />
         <activity
-            android:name=".Splash"
+            android:name=".SplashScreens.Splash"
             android:exported="true"
             android:theme="@style/Theme.Splash">
             <intent-filter>
@@ -46,7 +46,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".sellerSalesStats"
+            android:name=".Home.sellerSalesStats"
             android:exported="true" />
         <activity
             android:name=".DesignElements.SubscriptionPlans"
@@ -55,35 +55,27 @@
             android:name=".DesignElements.Mywallet"
             android:exported="true" />
         <activity
-            android:name=".DesignElements.Manage.privacypolicy"
+            android:name=".DesignElements.privacypolicy"
             android:exported="true" />
+
         <activity
-            android:name=".varient_card"
-            android:exported="true" />
-        <activity
-            android:name=".Only_Product_Name"
-            android:exported="true" />
-        <activity
-            android:name=".secondary.PnS.AddProductNServiceActivity"
-            android:exported="true" />
-        <activity
-            android:name=".progress"
+            android:name=".Home.progress"
             android:exported="true"
             android:label="@string/title_activity_progress" />
         <activity
-            android:name=".congrats"
+            android:name=".SplashScreens.congrats"
             android:exported="true" />
         <activity
-            android:name=".Business_Category"
+            android:name=".BusinessDetails.Business_Category"
             android:exported="true" />
         <activity
-            android:name=".Business_Detail"
+            android:name=".BusinessDetails.Business_Detail"
             android:exported="true" />
         <activity
             android:name=".otp"
             android:exported="true" />
         <activity
-            android:name=".Mobile_Login"
+            android:name=".Authentication.Mobile_Login"
             android:exported="true" />
         <activity
             android:name=".OrdersNEnquiries.Orders.Order_details_overview"
@@ -92,10 +84,10 @@
             android:name=".OrdersNEnquiries.Enquiries.Enquiry_details_overview"
             android:exported="true" />
         <activity
-            android:name=".update_product"
+            android:name=".ProductsNCategories.update_product"
             android:exported="true" />
         <activity
-            android:name=".preview_product"
+            android:name=".ProductsNCategories.preview_product"
             android:exported="true" />
         <activity
             android:name=".SplashScreens.MainActivity"
@@ -107,23 +99,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Business_card_templates"
+            android:name=".DesignElements.Manage.Business_card_templates"
             android:exported="true" />
         <activity
-            android:name=".Business_card_preview"
+            android:name=".DesignElements.Manage.Business_card_preview"
             android:exported="true" />
         <activity
-            android:name=".DeliveryCharges"
+            android:name=".DesignElements.Manage.DeliveryCharges"
             android:exported="true" />
         <activity
-            android:name=".ExtraCharges"
+            android:name=".DesignElements.Manage.ExtraCharges"
             android:exported="true" />
         <activity
-            android:name=".ShopQRPage"
+            android:name=".DesignElements.ShopQRPage"
             android:exported="true" />
 
         <activity
-            android:name=".UpdateService"
+            android:name=".Services.UpdateService"
             android:exported="true" />
     </application>
 

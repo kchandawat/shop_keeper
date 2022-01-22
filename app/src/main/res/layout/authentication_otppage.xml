@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.marquedo.marquedo.Mobile_Login">
+    tools:context="com.marquedo.marquedo.Authentication.Mobile_Login">
 
     <ImageButton
         android:id="@+id/otp_back_button"

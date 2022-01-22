@@ -28,7 +28,7 @@ public class CouponListAdapter extends RecyclerView.Adapter<CouponListAdapter.Vi
     @Override
     public CouponListAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new CouponListAdapter.ViewHolder(LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.coupons_item, null));
+                .inflate(R.layout.designelements_manage_discounts_coupons_item, null));
     }
 
     @Override

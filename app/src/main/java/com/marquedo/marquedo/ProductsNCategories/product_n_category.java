@@ -15,7 +15,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.marquedo.marquedo.R;
-import com.marquedo.marquedo.addProductAndServicesProfilesetupActivity;
+import com.marquedo.marquedo.Home.addProductAndServicesProfilesetupActivity;
 import com.google.android.material.tabs.TabLayout;
 
 public class product_n_category extends Fragment {

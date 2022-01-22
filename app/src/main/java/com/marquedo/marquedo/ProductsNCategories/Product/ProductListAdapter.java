@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.google.android.material.button.MaterialButton;
 import com.marquedo.marquedo.R;
-import com.marquedo.marquedo.update_product;
+import com.marquedo.marquedo.ProductsNCategories.update_product;
 
 import java.util.ArrayList;
 
@@ -39,7 +39,7 @@ public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewTyp)
     {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.products_item, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.productsncategories_products_item, null);
         return new ViewHolder(view);
     }
 

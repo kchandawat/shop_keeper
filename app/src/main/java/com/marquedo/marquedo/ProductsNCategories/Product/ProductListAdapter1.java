@@ -16,7 +16,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.button.MaterialButton;
 import com.marquedo.marquedo.R;
-import com.marquedo.marquedo.update_product;
+import com.marquedo.marquedo.ProductsNCategories.update_product;
 
 public class ProductListAdapter1 extends FirestoreRecyclerAdapter<ProductModelClass, ProductListAdapter1.ViewHolder>
 {
@@ -54,7 +54,7 @@ public class ProductListAdapter1 extends FirestoreRecyclerAdapter<ProductModelCl
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType)
     {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.products_item, null);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.productsncategories_products_item, null);
         return new ViewHolder(view);
     }
 

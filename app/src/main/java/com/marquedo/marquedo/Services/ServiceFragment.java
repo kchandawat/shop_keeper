@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.marquedo.marquedo.R;
-import com.marquedo.marquedo.secondary.PnS.AddProductNServiceActivity;
 
 import java.util.ArrayList;
 
