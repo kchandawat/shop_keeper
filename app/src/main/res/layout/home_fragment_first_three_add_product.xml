@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Home.firstThreeAddProductFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/add_new_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_new_product"
+            android:textColor="@color/sienna_brown"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_margin="32dp"
+            android:layout_gravity="center" />
+
+
+        <TextView
+            android:textAlignment="center"
+            android:id="@+id/add_3_products"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_3_more_products_to_get_started"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            android:layout_gravity="center"/>
+
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/product_name_til"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/prod_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/product_name"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/product_category_til"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="32dp"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/prod_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/select_product_category"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/prod_continue_button"
+            android:layout_width="match_parent"
+            android:layout_height="57dp"
+            android:layout_marginBottom="32dp"
+            android:shadowColor="#ffffff"
+            android:text="@string/continue_b"
+            android:textAllCaps="false"
+            android:textColor="#000000"
+            android:textSize="20sp"
+             />
+
+
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

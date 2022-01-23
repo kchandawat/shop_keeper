@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.marquedo">
+    package="com.marquedo.marquedo">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -10,38 +15,82 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Marquedo">
         <activity
-            android:name=".varient_card"
+            android:name=".DesignElements.Manage.discounts.CreateCouponActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DesignElements.Manage.discounts.DiscountNCouponsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DesignElements.Manage.MyCustomers.MyCustomerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DesignElements.Manage.ManageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.profileSetupAddServicePageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.profileSetupAddProductPageActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Home.addProductAndServicesProfilesetupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SplashScreens.Splash"
+            android:exported="true"
+            android:theme="@style/Theme.Splash">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Home.sellerSalesStats"
             android:exported="true" />
         <activity
-            android:name=".Only_Product_Name"
+            android:name=".DesignElements.SubscriptionPlans"
             android:exported="true" />
         <activity
-            android:name=".new_product"
+            android:name=".DesignElements.Mywallet"
             android:exported="true" />
         <activity
-            android:name=".add_product"
+            android:name=".DesignElements.privacypolicy"
             android:exported="true" />
+
         <activity
-            android:name=".progress"
+            android:name=".Home.progress"
             android:exported="true"
             android:label="@string/title_activity_progress" />
         <activity
-            android:name=".congrats"
+            android:name=".SplashScreens.congrats"
             android:exported="true" />
         <activity
-            android:name=".Business_Category"
+            android:name=".BusinessDetails.Business_Category"
             android:exported="true" />
         <activity
-            android:name=".Business_Detail"
+            android:name=".BusinessDetails.Business_Detail"
             android:exported="true" />
         <activity
             android:name=".otp"
             android:exported="true" />
         <activity
-            android:name=".Mobile_Login"
+            android:name=".Authentication.Mobile_Login"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name=".OrdersNEnquiries.Orders.Order_details_overview"
+            android:exported="true" />
+        <activity
+            android:name=".OrdersNEnquiries.Enquiries.Enquiry_details_overview"
+            android:exported="true" />
+        <activity
+            android:name=".ProductsNCategories.update_product"
+            android:exported="true" />
+        <activity
+            android:name=".ProductsNCategories.preview_product"
+            android:exported="true" />
+        <activity
+            android:name=".SplashScreens.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,6 +98,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".DesignElements.Manage.Business_card_templates"
+            android:exported="true" />
+        <activity
+            android:name=".DesignElements.Manage.Business_card_preview"
+            android:exported="true" />
+        <activity
+            android:name=".DesignElements.Manage.DeliveryCharges"
+            android:exported="true" />
+        <activity
+            android:name=".DesignElements.Manage.ExtraCharges"
+            android:exported="true" />
+        <activity
+            android:name=".DesignElements.ShopQRPage"
+            android:exported="true" />
+
+        <activity
+            android:name=".Services.UpdateService"
+            android:exported="true" />
     </application>
 
 </manifest>

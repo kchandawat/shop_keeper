@@ -7,19 +7,39 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.marquedo.ui.home.HomeFragment"
+        android:name="com.marquedo.marquedo.Home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/home_fragment_home" />
+
+    <fragment
+        android:id="@+id/navigation_products_categories"
+        android:name="com.marquedo.marquedo.ProductsNCategories.product_n_category"
+        android:label="Products"
+        tools:layout="@layout/productsncategories_fragment_products_n_category" />
+
+    <fragment
+        android:id="@+id/navigation_orders_enquiries"
+        android:name="com.marquedo.marquedo.OrdersNEnquiries.Orders_n_Enquiry"
+        android:label="Orders"
+        tools:layout="@layout/ordersnenquiries_activity_order_enquiry_page" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_notifications"-->
+<!--        android:name="com.marquedo.marquedo.ui.notifications.NotificationsFragment"-->
+<!--        android:label="@string/title_notifications"-->
+<!--        tools:layout="@layout/fragment_notifications" />-->
+
+    <fragment
+        android:id="@+id/navigation_services"
+        android:name="com.marquedo.marquedo.Services.ServiceFragment"
+        android:label="Services"
+        tools:layout="@layout/services_fragment_services" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.marquedo.ui.dashboard.DashboardFragment"
+        android:name="com.marquedo.marquedo.DesignElements.DashboardFragment"
         android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/designelements_fragment_dashboard" />
 
-    <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.marquedo.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+
 </navigation>

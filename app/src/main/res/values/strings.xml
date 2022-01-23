@@ -1,9 +1,106 @@
 <resources>
     <string name="app_name">marquedo</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_progress">progress</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_OrdersEnquiries">Orders</string>
+    <string name="title_Products">Products</string>
+    <string name="mock_prod_desc">Rear Triple Camera Co-Developed by Hasselblad, 48 MP Main camera, 50 MP Ultra Wide Angle Camera with Free Form Lens, 2 MP Monochorme Lens. Also comes with a 16 MP Front Camera Qualcomm Snapdragon 888 Processor with Adreno 660</string>
+    <string name="title_privacypolicy"> This Privacy Policy describes Our policies and procedures on the collection, use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.
+
+        We use Your Personal data to provide and improve the Service. By using the Service, You agree to the collection and use of information in accordance with this Privacy Policy. This Privacy Policy has been created with the help of the Privacy Policy Generator. <br> </br>
+
+    </string>
+    <string name="hello_there">Hello there!</string>
+    <string name="fui_resend_code_in" translation_description="Countdown timer text that the user needs to wait for before
+    attempting to resend verification sms">Resend code in 0:%02d</string>
+    <string name="make_selling_easy_with_marqued">Make Selling Easy with MARQUEDO</string>
+    <string name="business_categories">Business Categories</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="business_name">Business Name</string>
+    <string name="enter_below_details_for_successful_on_boarding">Enter below details for successful on-boarding</string>
+    <string name="business_back_button">BusinessBackButton</string>
+    <string name="logo">LOGO</string>
+    <string name="resend_otp">Resend OTP</string>
+    <string name="your_shop_completion">Your Shop Completion</string>
+    <string name="enter_your_phone_number">Enter your Phone Number</string>
+    <string name="we_will_send_you_a_confirmation_code">We will send you a confirmation code</string>
+    <string name="_000_000_00_00">000 000 00 00</string>
+    <string name="continue_b">Continue</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="enter_code_sent_to_your_nmobile_number">Enter code sent to your\nMobile Number</string>
+    <string name="resend_code_in">Resend code in</string>
+    <string name="submit">Submit</string>
+    <string name="otp_back_button">OtpBackButton</string>
+
+    <string name="logout">Logout</string>
+
+    <string name="make_selling_easy">Make Selling Easy</string>
+    <string name="with">with</string>
+    <string name="marquedo">MARQUEDO</string>
+    <string name="let_s_get_started">Let\'s Get Started</string>
+    <string name="manage_and_sell_the_products_in_n_your_store_at_your_convenience">Manage and sell the products in \n your store at your convenience</string>
+    <string name="login_back_button">LoginBackButton</string>
+
+    <string name="congratulations">Congratulations!</string>
+    <string name="your_online_store_is_nsuccessfully_created">Your online store is \nsuccessfully created</string>
+    <string name="store_imageview">Store ImageView</string>
+    <string name="let_s_add_some_product_to_your_ninventory_to_start_selling">Let\'s add some product to your \ninventory to start selling</string>
+
+    <string name="_40">40%</string>
+    <string name="complete_all_the_steps_to_start_selling_products">Complete all the steps to start selling products</string>
+    <string name="store_creation">Store Creation</string>
+    <string name="your_store_super_shopping_centre_is_nsuccessfully_created">Your Store \'Super Shopping Centre\' is \nsuccessfully created.</string>
+    <string name="preview_store"><![CDATA[Preview Store >]]></string>
+    <string name="add_products">Add Products</string>
+    <string name="add_services">Add Services</string>
+    <string name="please_add_at_least_3_products_in_your_nstore_to_start_with">Please add at least 3 products in your \nstore to start with.</string>
+    <string name="share_on_whatsapp">Share On Whatsapp</string>
+    <string name="lets_start_with_people_noticing_your_store_nby_sharing_the_link">Lets start with people noticing your store \nby sharing the link</string>
+    <string name="only_product_back_button">OnlyProductBackButton</string>
+    <string name="add_new_product">Add new Product</string>
+    <string name="add_3_more_products_to_get_started">Add 3 more products to get started</string>
+    <string name="product_name">Product Name</string>
+    <string name="product_category">Product Category</string>
+    <string name="select_product_category">Select Product Category</string>
+    <string name="add_new_service">Add new Service</string>
+    <string name="add_3_more_services_to_get_started">Add 3 more services to get started</string>
+    <string name="service_name">Service Name</string>
+    <string name="service_category">Service Category</string>
+    <string name="select_service_category">Select Service Category</string>
+
+    <string name="upto_6">(upto 6)</string>
+    <string name="add_new_product_back_button">Add New Product Back Button</string>
+    <string name="price">Price</string>
+    <string name="discounted_price">Discounted Price</string>
+    <string name="delete">DELETE</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_add_product_nservice">AddProductNServiceActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="services">Services</string>
+    <string name="add_product_variants">Add Product Variants</string>
+
+    <string name="add_another_size_variant">Add Another Size Variant</string>
+    <string name="add_size_variant">Add Size Variant</string>
+    <string name="size_name">Size Name</string>
+    <string name="add_colour_to_variant">Add Colour To Variant</string>
+    <string name="add_more_colours">Add More Colours to This Variant</string>
+    <string name="add_product">Add Product</string>
+    <string name="add_variant_of_this_product">Add Variant of this Product</string>
+    <string name="save_amp_continue"><![CDATA[Save & Continue]]></string>
+    <string name="title_reviews"> Lorem ipsum dolor sit amet, consectetur
+adipiscing elit, sed do eiusmod tempor incidi
+ut labore et dolore
+magna aliqua. Ut enim ad minim veniam.
+</string>
 </resources>
