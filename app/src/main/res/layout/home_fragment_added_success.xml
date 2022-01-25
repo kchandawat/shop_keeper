@@ -77,7 +77,7 @@
                 android:textSize="22sp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/submit_button"
+                android:id="@+id/addMore_button"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:layout_gravity="center_horizontal"

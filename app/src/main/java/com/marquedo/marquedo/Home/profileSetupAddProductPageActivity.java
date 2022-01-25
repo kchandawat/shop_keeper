@@ -182,8 +182,8 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
             EditText variantPrice = view1.findViewById(R.id.variant_price);
             EditText variantDiscountedPrice = view1.findViewById(R.id.variant_discounted_price);
             MaterialButton new_color = view1.findViewById(R.id.add_new_color_variant_button);
-            ExpandableLayout expandableLayout1 = view1.findViewById(R.id.expandable_layout_1);
-            TextView dropdown2 = view1.findViewById(R.id.add_color_variant);
+            //ExpandableLayout expandableLayout1 = view1.findViewById(R.id.expandable_layout_1);
+            //TextView dropdown2 = view1.findViewById(R.id.add_color_variant);
 
             ExtendedFloatingActionButton addVariantButton = view1.findViewById(R.id.add_variant_button);
             //dropdown1.setOnClickListener(v -> expandableLayout.toggle());

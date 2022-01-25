@@ -314,23 +314,53 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
     private void loadData()
     {
-        serviceAddedSuccessBM.show();
         SharedPreferences sharedPreferences = getSharedPreferences("servicecount", MODE_PRIVATE);
         TextView remainingService = serviceAddedSuccessBM.findViewById(R.id.remainingService);
+        Button addMore = serviceAddedSuccessBM.findViewById(R.id.addMore_button);
         String text;
         int check = sharedPreferences.getInt("countvalue", count);
 //        remainingService.setText("Let's add "+ count+ " more products or services to complete your profile");
         if(check == 2)
         {
             remainingService.setText("Let's add 2 more products or services to complete your profile");
+            serviceAddedSuccessBM.show();
+            addMore.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getApplicationContext(), addProductAndServicesProfilesetupActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
         else if(check == 1)
         {
             remainingService.setText("Let's add 1 more products or services to complete your profile");
+            serviceAddedSuccessBM.show();
+            addMore.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getApplicationContext(), addProductAndServicesProfilesetupActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
         else if(check == 0)
         {
-            remainingService.setText("Hurrahh.. You are all set to open your shop");
+            remainingService.setText("Hurrah! Add more products and services to your shop.");
+            serviceAddedSuccessBM.show();
+            addMore.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getApplicationContext(), addProductAndServicesProfilesetupActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
 
 
