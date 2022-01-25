@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.marquedo.marquedo.Home.addProductAndServicesProfilesetupActivity;
 import com.marquedo.marquedo.R;
 
 import java.util.ArrayList;
@@ -86,11 +87,12 @@ public class ServiceFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.services_fragment_services, container, false);
 
-        view.findViewById(R.id.add_service).setOnClickListener(new View.OnClickListener() {
+        view.findViewById(R.id.add_service).setOnClickListener(new View.OnClickListener()
+        {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getContext(), AddProductNServiceActivity.class);
-                intent.putExtra("frgToLoad", "Service");
+            public void onClick(View view)
+            {
+                Intent intent = new Intent(getContext(), addProductAndServicesProfilesetupActivity.class);
                 startActivity(intent);
             }
         });

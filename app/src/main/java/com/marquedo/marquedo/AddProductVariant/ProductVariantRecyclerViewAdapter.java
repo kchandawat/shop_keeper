@@ -110,8 +110,8 @@ public class ProductVariantRecyclerViewAdapter extends RecyclerView.Adapter<Prod
             private final EditText sizeVariantName;
             private final EditText variantPrice;
             private final EditText variantDiscountedPrice;
-            private final ExpandableLayout expandableLayout1;
-            private final TextView dropdown2;
+           // private final ExpandableLayout expandableLayout1;
+           // private final TextView dropdown2;
             private final TextView addSizeVariant;
             private final ConstraintLayout variantConstraintLayout;
             private final MaterialCardView expandableCardView;
@@ -128,8 +128,8 @@ public class ProductVariantRecyclerViewAdapter extends RecyclerView.Adapter<Prod
             variantPrice = itemView.findViewById(R.id.variant_price);
             variantDiscountedPrice = itemView.findViewById(R.id.variant_discounted_price);
             addColourToVariant = itemView.findViewById(R.id.add_new_color_variant_button);
-            expandableLayout1 = itemView.findViewById(R.id.expandable_layout_1);
-            dropdown2 = itemView.findViewById(R.id.add_color_variant);
+            //expandableLayout1 = itemView.findViewById(R.id.expandableCardView);
+            //dropdown2 = itemView.findViewById(R.id.add_color_variant);
             variantConstraintLayout = itemView.findViewById(R.id.variant_details);
             expandableCardView = itemView.findViewById(R.id.expandableCardView);
             addSizeVariant = itemView.findViewById(R.id.add_size_variant);

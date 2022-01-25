@@ -12,19 +12,19 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.marquedo.marquedo.R;
-import com.marquedo.marquedo.databinding.FragmentHomeBinding;
+import com.marquedo.marquedo.databinding.HomeFragmentHomeBinding;
 
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
-    private FragmentHomeBinding binding;
+    private HomeFragmentHomeBinding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 new ViewModelProvider(this).get(HomeViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = HomeFragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         Button add = (Button) root.findViewById(R.id.continue_button);
         Intent add_product = new Intent(getContext(), addProductAndServicesProfilesetupActivity.class);
