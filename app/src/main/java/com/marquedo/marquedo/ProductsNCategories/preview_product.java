@@ -69,7 +69,13 @@ public class preview_product extends AppCompatActivity
 
                 List<String> Urls = (List<String>) documentSnapshot.get("Images");
 
-                displayImages.add(new SlideModel(documentSnapshot.get("Images").toString(), ScaleTypes.FIT));
+                int images = 0;
+
+                for (images = 0; images < Urls.size(); images++)
+                {
+                    displayImages.add(new SlideModel(Urls.get(images), ScaleTypes.FIT));
+                }
+
 
                 //displayImages.add(new SlideModel(Urls.toString(), ScaleTypes.FIT));
                 Log.i("check", documentSnapshot.get("Images").toString());

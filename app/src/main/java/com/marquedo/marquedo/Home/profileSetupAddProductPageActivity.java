@@ -36,6 +36,11 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -66,13 +71,13 @@ import java.util.UUID;
 
 public class profileSetupAddProductPageActivity extends AppCompatActivity implements RemoveClickListner, RemoveColourClickListner, GetVariants {
 
-    private String ProductName, ProductCategory;
+    //private String ProductName, ProductCategory;
 
     private RecyclerView recyclerView;
     private com.marquedo.marquedo.ProductsNCategories.imageAdapter imageAdapter;
 
     private Button AddImages, AddVarient, AddProduct;
-    private EditText ProdPrice, ProdDiscount, ProdDetails, ProdMeasure, NumberofProd;
+    private EditText ProdName, ProdCategory, ProdPrice, ProdDiscount, ProdDetails, ProdMeasure, NumberofProd;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
@@ -81,7 +86,11 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
     private ActivityResultLauncher<Intent> getResult;
     private List<String> imageUrlList = new ArrayList<>();
 
+    private DatabaseReference databaseReference;
+
     int counter;
+
+    private ProductNameModelClass productNameModelClass;
 
     public profileSetupAddProductPageActivity() {
     }
@@ -432,6 +441,10 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
         AddVarient = findViewById(R.id.add_new_product_variant_button);
         AddProduct = findViewById(R.id.add_product_button);
         ProdPrice = findViewById(R.id.prod_price);
+        ProdName = findViewById(R.id.prod_name);
+        ProdCategory = findViewById(R.id.prod_category);
+        ProdPrice = findViewById(R.id.prod_price);
+        ProdPrice = findViewById(R.id.prod_price);
         ProdDiscount = findViewById(R.id.prod_discount);
         ProdDetails = findViewById(R.id.prod_details);
         ProdMeasure = findViewById(R.id.prod_measure);
@@ -444,10 +457,43 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(imageAdapter);
 
+        Intent intent = getIntent();
+        String Key = intent.getStringExtra("key");
 
-        Bundle intent = getIntent().getExtras();
-        ProductName = intent.get("name").toString();
-        ProductCategory = intent.get("category").toString();
+
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Products").child(Key);
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                if(snapshot.exists())
+                {
+
+                    //String Number_of_product = String.valueOf(aboutModelClass.getNumber_of_Units());
+                    productNameModelClass = snapshot.getValue(ProductNameModelClass.class);
+
+                    Log.i("checknamelist", productNameModelClass.getName());
+                    ProdName.setText(productNameModelClass.getName());
+                    ProdCategory.setText(productNameModelClass.getCategory());
+                    ProdPrice.setText(String.valueOf(productNameModelClass.getPrice()));
+                    ProdMeasure.setText(productNameModelClass.getUnit_measure());
+                    ProdDetails.setText(productNameModelClass.getDetails());
+                    ProdDiscount.setText(String.valueOf(productNameModelClass.getDiscount_price()));
+                    NumberofProd.setText(String.valueOf(productNameModelClass.getNumber_of_units()));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+//        Bundle intent = getIntent().getExtras();
+//        ProductName = intent.get("name").toString();
+//        ProductCategory = intent.get("category").toString();
 
 
         AddImages.setOnClickListener(new View.OnClickListener()
@@ -477,23 +523,36 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
 
         });
 
+        ProdCategory.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                View view1=getLayoutInflater().inflate(R.layout.home_fragment_new_product_category,null);
+                BottomSheetDialog bottomSheetDialog= new BottomSheetDialog(getApplicationContext());
+                bottomSheetDialog.setContentView(view1);
+                bottomSheetDialog.show();
+            }
+        });
 
         AddProduct.setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View v)
             {
+                String Name = ProdName.getText().toString();
+                String Category = ProdCategory.getText().toString();
                 String Measure = ProdMeasure.getText().toString();
                 String Number_of_Units = NumberofProd.getText().toString();
                 String Price = ProdPrice.getText().toString();
                 String Discount_Price = ProdDiscount.getText().toString();
                 String Details = ProdDetails.getText().toString();
 
-                ProductModelClass productModelClass = new ProductModelClass(null, ProductName, Measure, Integer.parseInt(Discount_Price)
+                ProductModelClass productModelClass = new ProductModelClass(null, Name, Measure, Integer.parseInt(Discount_Price)
                         , Integer.parseInt(Number_of_Units), Integer.parseInt(Price));
 
 
-                AboutModelClass aboutModelClass = new AboutModelClass(ProductCategory, Details, ProductName,Measure, Integer.parseInt(Discount_Price),
+                AboutModelClass aboutModelClass = new AboutModelClass(Category, Details, Name,Measure, Integer.parseInt(Discount_Price),
                         Integer.parseInt(Number_of_Units), Integer.parseInt(Price), null);
 
                 uploadImage(Images, productModelClass, aboutModelClass);

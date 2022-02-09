@@ -28,6 +28,12 @@ import com.darsh.multipleimageselect.models.Image;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
@@ -40,31 +46,39 @@ import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.UUID;
 
 public class profileSetupAddServicePageActivity extends AppCompatActivity
 {
-    private String ServiceName, ServiceCategory;
+    private String servicename;
 
-    private int count = 3;
+    private int count = 0;
 
     private RecyclerView recyclerView;
     private com.marquedo.marquedo.ProductsNCategories.imageAdapter imageAdapter;
 
     private Button AddImages, AddService;
-    private EditText ServicePrice, ServiceDiscount, ServiceDetails, ServiceMeasure, NumberofHours;
+    private EditText ServiceName, ServiceCategory, ServicePrice, ServiceDiscount, ServiceDetails, ServiceMeasure, NumberofHours;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
+
+    private DatabaseReference databaseReference;
 
     private ArrayList<String> Images = new ArrayList<>();
     private ActivityResultLauncher<Intent> getResult;
     private List<String> imageUrlList = new ArrayList<>();
     private BottomSheetDialog serviceAddedSuccessBM ;
 
+    private ServiceNameModelClass serviceNameModelClass;
+
 //    AnstronCoreHelper coreHelper;
 
     int counter;
+
+
+
 //    SharedPreferences sharedPreferences = getSharedPreferences("noOfServices", MODE_PRIVATE);
 //    String tempCounter = sharedPreferences.getString("counter","");
 
@@ -76,14 +90,20 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         setContentView(R.layout.home_activity_profile_setup_service_page);
 
 
+        SharedPreferences sharedPreferences = getSharedPreferences("servicecount", MODE_PRIVATE);
+        count = sharedPreferences.getInt("countvalue", 3);
+
         recyclerView = findViewById(R.id.service_images_recyclerView);
         AddImages = findViewById(R.id.add_service_images);
         AddService = findViewById(R.id.add_service_button);
+        ServiceCategory = findViewById(R.id.service_category);
+        ServiceName = findViewById(R.id.service_name);
         ServicePrice = findViewById(R.id.service_price);
         ServiceDiscount = findViewById(R.id.service_discount);
         ServiceDetails = findViewById(R.id.service_details);
         ServiceMeasure = findViewById(R.id.service_measure);
         NumberofHours = findViewById(R.id.number_of_hours);
+
 
 
         imageAdapter = new imageAdapter(Images);
@@ -94,13 +114,89 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         serviceAddedSuccessBM = new BottomSheetDialog(this, R.style.CustomAlertDialog);
         serviceAddedSuccessBM.setContentView(R.layout.home_fragment_added_success);
 
+//        Bundle intent = getIntent().getExtras();
+//        servicename = intent.get("name").toString();
+//        ServiceName.setText(servicename);
 
-        Bundle intent = getIntent().getExtras();
-        ServiceName = intent.get("name").toString();
-        ServiceCategory = intent.get("category").toString();
+        Intent intent = getIntent();
+        String Key = intent.getStringExtra("key");
+
+
+        databaseReference = FirebaseDatabase.getInstance().getReference("Services").child(Key);
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                if(snapshot.exists())
+                {
+
+                    //String Number_of_product = String.valueOf(aboutModelClass.getNumber_of_Units());
+                    serviceNameModelClass = snapshot.getValue(ServiceNameModelClass.class);
+
+                    Log.i("checknamelist", serviceNameModelClass.getName());
+                    ServiceName.setText(serviceNameModelClass.getName());
+                    ServiceCategory.setText(serviceNameModelClass.getCategory());
+                    ServicePrice.setText(String.valueOf(serviceNameModelClass.getPrice()));
+                    ServiceMeasure.setText(serviceNameModelClass.getMeasure());
+                    ServiceDetails.setText(serviceNameModelClass.getDetails());
+                    ServiceDiscount.setText(String.valueOf(serviceNameModelClass.getDiscount_price()));
+                    NumberofHours.setText(String.valueOf(serviceNameModelClass.getNumber_of_hours()));
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error)
+            {
+
+            }
+        });
+
+        //Query query = databaseReference.orderByKey().equalTo(Key);
+       /* query.addListenerForSingleValueEvent(new ValueEventListener()
+        {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot)
+            {
+                if(snapshot.exists())
+                {
+                    for(DataSnapshot dataSnapshot : snapshot.getChildren())
+                    {
+                        ServiceName.setText(dataSnapshot.child("name").getValue(String.class));
+                        ServiceCategory.setText(dataSnapshot.child("category").getValue(String.class));
+                        ServicePrice.setText(dataSnapshot.child("price").getValue(String.class));
+                        ServiceMeasure.setText(dataSnapshot.child("measure").getValue(String.class));
+                        ServiceDetails.setText(dataSnapshot.child("details").getValue(String.class));
+                        ServiceDiscount.setText(dataSnapshot.child("discount_price").getValue(String.class));
+                        NumberofHours.setText(dataSnapshot.child("number_of_hours").getValue(String.class));
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        }); */
+
+
+
 
 //        loadData(1);
 //        serviceAddedSuccessBM.dismiss();
+
+        ServiceCategory.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                View view1=getLayoutInflater().inflate(R.layout.home_fragment_new_product_category,null);
+                BottomSheetDialog bottomSheetDialog= new BottomSheetDialog(getApplicationContext());
+                bottomSheetDialog.setContentView(view1);
+                bottomSheetDialog.show();
+            }
+        });
 
 
 
@@ -178,6 +274,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
                 }*/
 
+                String Name = ServiceName.getText().toString();
+                String Category = ServiceCategory.getText().toString();
                 String Measure = ServiceMeasure.getText().toString();
                 String Number_of_Hours = NumberofHours.getText().toString();
                 String Price = ServicePrice.getText().toString();
@@ -185,7 +283,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                 String Details = ServiceDetails.getText().toString();
 
 
-                ServiceModelClass serviceModelClass = new ServiceModelClass(null,ServiceName, ServiceCategory, Measure, Details, Integer.parseInt(Discount_Price)
+                ServiceModelClass serviceModelClass = new ServiceModelClass(null,Name, Category, Measure, Details, Integer.parseInt(Discount_Price)
                         , Integer.parseInt(Number_of_Hours), Integer.parseInt(Price),null);
 
                 uploadImageList(Images, serviceModelClass);
@@ -245,7 +343,6 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                             {
                                 counter++;
 
-
                                 progressDialog.setMessage("Uploading "+ counter + "/" + newImages.size());
                                // Toast.makeText(getApplicationContext(), "Uploading....", Toast.LENGTH_SHORT).show();
                                 imageUrlList.add(uri.toString());
@@ -261,7 +358,10 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                         {
                                             progressDialog.dismiss();
 
-                                            count--;
+                                            if(count != 0)
+                                            {
+                                                count--;
+                                            }
 
                                             SharedPreferences sharedPreferences = getSharedPreferences("servicecount", MODE_PRIVATE);
                                             SharedPreferences.Editor editor = sharedPreferences.edit();
@@ -285,7 +385,6 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                 }
 
                                 Log.i("showcount", imageUrlList.toString());
-
 
                             }
                         }).addOnFailureListener(new OnFailureListener()
@@ -318,7 +417,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         TextView remainingService = serviceAddedSuccessBM.findViewById(R.id.remainingService);
         Button addMore = serviceAddedSuccessBM.findViewById(R.id.addMore_button);
         String text;
-        int check = sharedPreferences.getInt("countvalue", count);
+        int check = sharedPreferences.getInt("countvalue", 4);
 //        remainingService.setText("Let's add "+ count+ " more products or services to complete your profile");
         if(check == 2)
         {
@@ -362,7 +461,6 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                 }
             });
         }
-
 
     }
 }
