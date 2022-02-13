@@ -60,6 +60,7 @@ public class firstThreeAddServiceFragment extends Fragment
         private AutoCompleteTextView ServiceName;
         private Button Continue;
         private String keys;
+        private Snack snack;
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -69,24 +70,35 @@ public class firstThreeAddServiceFragment extends Fragment
             View v = inflater.inflate(R.layout.home_fragment_first_three_add_service, container, false);
             ServiceName = v.findViewById(R.id.service_name);
             Continue = v.findViewById(R.id.service_continue_button);
+            snack = new Snack(getContext());
 
             databaseReference = FirebaseDatabase.getInstance().getReference("Services");
 
             populateSearch();
 
 
-           /* Continue.setOnClickListener(new View.OnClickListener()
+            if(ServiceName != null)
             {
-                @Override
-                public void onClick(View view)
+                Continue.setOnClickListener(new View.OnClickListener()
                 {
-                    String name = ServiceName.getText().toString();
+                    @Override
+                    public void onClick(View view)
+                    {
+                        String name = ServiceName.getText().toString();
 
-                    Intent intent = new Intent(getContext(), profileSetupAddServicePageActivity.class);
-                    intent.putExtra("name", name);
-                    startActivity(intent);
-                }
-            }); */
+                        Intent intent = new Intent(getContext(), profileSetupAddServicePageActivity.class);
+                        intent.putExtra("name", name);
+                        startActivity(intent);
+                    }
+                });
+            }
+            else
+            {
+                snack.snackBar(ServiceName, "Please enter a service name");
+            }
+
+
+
             return v;
         }
 
@@ -108,6 +120,7 @@ public class firstThreeAddServiceFragment extends Fragment
                             servicename.add(names);
                         }
                         ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,servicename);
+                        ServiceName.setThreshold(1);
                         ServiceName.setAdapter(adapter);
 
                         //String key = snapshot.child("id").toString();
@@ -134,21 +147,4 @@ public class firstThreeAddServiceFragment extends Fragment
                 }
             });
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }

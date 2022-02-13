@@ -40,6 +40,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 //import com.iceteck.silicompressorr.SiliCompressor;
+import com.marquedo.marquedo.ProductsNCategories.imageAdapter2;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.ProductsNCategories.imageAdapter;
 import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
@@ -73,11 +74,11 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
     private ServiceNameModelClass serviceNameModelClass;
 
+    private imageAdapter2 imageAdapter2;
+
 //    AnstronCoreHelper coreHelper;
 
     int counter;
-
-
 
 //    SharedPreferences sharedPreferences = getSharedPreferences("noOfServices", MODE_PRIVATE);
 //    String tempCounter = sharedPreferences.getString("counter","");
@@ -105,23 +106,24 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         NumberofHours = findViewById(R.id.number_of_hours);
 
 
-
         imageAdapter = new imageAdapter(Images);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(imageAdapter);
 
+
         serviceAddedSuccessBM = new BottomSheetDialog(this, R.style.CustomAlertDialog);
         serviceAddedSuccessBM.setContentView(R.layout.home_fragment_added_success);
 
-//        Bundle intent = getIntent().getExtras();
-//        servicename = intent.get("name").toString();
-//        ServiceName.setText(servicename);
+        Intent nameIntent = getIntent();
+        servicename = nameIntent.getStringExtra("name");
+        ServiceName.setText(servicename);
 
         Intent intent = getIntent();
         String Key = intent.getStringExtra("key");
 
 
+        //Auto complete data fills the complete form
         databaseReference = FirebaseDatabase.getInstance().getReference("Services").child(Key);
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
@@ -131,7 +133,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
             {
                 if(snapshot.exists())
                 {
-
+                   // List<String> Urls = (List<String>) snapshot.;
                     //String Number_of_product = String.valueOf(aboutModelClass.getNumber_of_Units());
                     serviceNameModelClass = snapshot.getValue(ServiceNameModelClass.class);
 
@@ -143,6 +145,13 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                     ServiceDetails.setText(serviceNameModelClass.getDetails());
                     ServiceDiscount.setText(String.valueOf(serviceNameModelClass.getDiscount_price()));
                     NumberofHours.setText(String.valueOf(serviceNameModelClass.getNumber_of_hours()));
+
+                    List<String> Urls = serviceNameModelClass.getImages();
+
+                    Log.i("listofimage", Urls.toString());
+
+                    imageAdapter2 = new imageAdapter2(Urls);
+                    recyclerView.setAdapter(imageAdapter2);
                 }
             }
 
@@ -180,11 +189,9 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
             }
         }); */
 
-
-
-
 //        loadData(1);
 //        serviceAddedSuccessBM.dismiss();
+
 
         ServiceCategory.setOnClickListener(new View.OnClickListener()
         {
