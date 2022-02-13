@@ -94,6 +94,7 @@ public class firstThreeAddServiceFragment extends Fragment
             }
             else
             {
+
                 snack.snackBar(ServiceName, "Please enter a service name");
             }
 
