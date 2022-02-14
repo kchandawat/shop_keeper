@@ -88,6 +88,7 @@ public class firstThreeAddServiceFragment extends Fragment
 
                         Intent intent = new Intent(getContext(), profileSetupAddServicePageActivity.class);
                         intent.putExtra("name", name);
+                        intent.putExtra("mode", "1");
                         startActivity(intent);
                     }
                 });
@@ -136,6 +137,7 @@ public class firstThreeAddServiceFragment extends Fragment
                                 Intent intent = new Intent(getContext(), profileSetupAddServicePageActivity.class);
                                 Log.i("checkkeyresult", keys);
                                 intent.putExtra("key",keys);
+                                intent.putExtra("mode", "0");
                                 startActivity(intent);
                             }
                         });

@@ -52,7 +52,7 @@ import java.util.UUID;
 
 public class profileSetupAddServicePageActivity extends AppCompatActivity
 {
-    private String servicename;
+    private String servicename, mode;
 
     private int count = 0;
 
@@ -118,15 +118,59 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         Intent nameIntent = getIntent();
         servicename = nameIntent.getStringExtra("name");
         ServiceName.setText(servicename);
+        mode = nameIntent.getStringExtra("mode");
+
 
         Intent intent = getIntent();
         String Key = intent.getStringExtra("key");
 
 
-        //Auto complete data fills the complete form
-        databaseReference = FirebaseDatabase.getInstance().getReference("Services").child(Key);
 
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
+
+        if(mode.equals("0"))
+        {
+            //Auto complete data fills the complete form
+            databaseReference = FirebaseDatabase.getInstance().getReference("Services").child(Key);
+
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
+            {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot)
+                {
+                    if(snapshot.exists())
+                    {
+                        // List<String> Urls = (List<String>) snapshot.;
+                        //String Number_of_product = String.valueOf(aboutModelClass.getNumber_of_Units());
+                        serviceNameModelClass = snapshot.getValue(ServiceNameModelClass.class);
+
+                        Log.i("checknamelist", serviceNameModelClass.getName());
+                        ServiceName.setText(serviceNameModelClass.getName());
+                        ServiceCategory.setText(serviceNameModelClass.getCategory());
+                        ServicePrice.setText(String.valueOf(serviceNameModelClass.getPrice()));
+                        ServiceMeasure.setText(serviceNameModelClass.getMeasure());
+                        ServiceDetails.setText(serviceNameModelClass.getDetails());
+                        ServiceDiscount.setText(String.valueOf(serviceNameModelClass.getDiscount_price()));
+                        NumberofHours.setText(String.valueOf(serviceNameModelClass.getNumber_of_hours()));
+
+                        List<String> Urls = serviceNameModelClass.getImages();
+
+                        Log.i("listofimage", Urls.toString());
+
+                        imageAdapter2 = new imageAdapter2(Urls);
+                        recyclerView.setAdapter(imageAdapter2);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error)
+                {
+
+                }
+            });
+        }
+
+
+       /* databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
         {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)
@@ -160,7 +204,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
             {
 
             }
-        });
+        }); */
 
         //Query query = databaseReference.orderByKey().equalTo(Key);
        /* query.addListenerForSingleValueEvent(new ValueEventListener()
