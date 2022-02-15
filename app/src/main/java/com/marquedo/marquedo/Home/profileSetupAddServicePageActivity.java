@@ -43,6 +43,7 @@ import com.google.firebase.storage.UploadTask;
 import com.marquedo.marquedo.ProductsNCategories.imageAdapter2;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.ProductsNCategories.imageAdapter;
+import com.marquedo.marquedo.Snack;
 import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
 
 import java.util.ArrayList;
@@ -66,6 +67,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
 
     private DatabaseReference databaseReference;
+    private FirebaseDatabase firebaseDatabase =FirebaseDatabase.getInstance();
+
 
     private ArrayList<String> Images = new ArrayList<>();
     private ActivityResultLauncher<Intent> getResult;
@@ -75,6 +78,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     private ServiceNameModelClass serviceNameModelClass;
 
     private imageAdapter2 imageAdapter2;
+
+    private Snack snack;
 
 //    AnstronCoreHelper coreHelper;
 
@@ -105,6 +110,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         ServiceMeasure = findViewById(R.id.service_measure);
         NumberofHours = findViewById(R.id.number_of_hours);
 
+        snack = new Snack(getApplicationContext());
+
 
         imageAdapter = new imageAdapter(Images);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -130,7 +137,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         if(mode.equals("0"))
         {
             //Auto complete data fills the complete form
-            databaseReference = FirebaseDatabase.getInstance().getReference("Services").child(Key);
+            databaseReference = firebaseDatabase.getReference("Services").child(Key);
 
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
             {
@@ -284,6 +291,26 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
+                String Name = ServiceName.getText().toString();
+                String Category = ServiceCategory.getText().toString();
+                String Measure = ServiceMeasure.getText().toString();
+                String Number_of_Hours = NumberofHours.getText().toString();
+                String Price = ServicePrice.getText().toString();
+                String Discount_Price = ServiceDiscount.getText().toString();
+                String Details = ServiceDetails.getText().toString();
+
+
+                if(!(Category.equals("")) && !(Measure.equals("")) && !(Number_of_Hours.equals("")) && !(Price.equals("")))
+                {
+                    ServiceModelClass serviceModelClass = new ServiceModelClass(null,Name, Category, Measure, Details, Integer.parseInt(Discount_Price)
+                            , Integer.parseInt(Number_of_Hours), Integer.parseInt(Price),null);
+
+                    uploadImageList(Images, serviceModelClass);
+                }
+                else
+                {
+                    snack.snackBar(ServicePrice, "Please enter all the details");
+                }
                /* if (Images.size() != 0)
                 {
                     StorageReference reference = firebaseStorage.getReference();
@@ -325,19 +352,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
                 }*/
 
-                String Name = ServiceName.getText().toString();
-                String Category = ServiceCategory.getText().toString();
-                String Measure = ServiceMeasure.getText().toString();
-                String Number_of_Hours = NumberofHours.getText().toString();
-                String Price = ServicePrice.getText().toString();
-                String Discount_Price = ServiceDiscount.getText().toString();
-                String Details = ServiceDetails.getText().toString();
 
-
-                ServiceModelClass serviceModelClass = new ServiceModelClass(null,Name, Category, Measure, Details, Integer.parseInt(Discount_Price)
-                        , Integer.parseInt(Number_of_Hours), Integer.parseInt(Price),null);
-
-                uploadImageList(Images, serviceModelClass);
 
                 /*db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("services").add(serviceModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>()
                 {
@@ -407,6 +422,10 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                         @Override
                                         public void onSuccess(@NonNull DocumentReference documentReference)
                                         {
+
+                                            databaseReference = firebaseDatabase.getReference("Services");
+                                            databaseReference.push().setValue(serviceModelClass);
+
                                             progressDialog.dismiss();
 
                                             if(count != 0)

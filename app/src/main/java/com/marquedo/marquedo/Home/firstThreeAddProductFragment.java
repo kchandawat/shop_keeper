@@ -131,12 +131,13 @@ public class firstThreeAddProductFragment extends Fragment
                     for(DataSnapshot dataSnapshot : snapshot.getChildren())
                     {
                         String prodname = dataSnapshot.child("name").getValue(String.class);
-                        keys = dataSnapshot.getKey().toString();
+                        keys = dataSnapshot.getKey();
                         names.add(prodname);
-                        Log.i("letsdo", names.toString());
+                        Log.i("letsdo", keys);
                     }
 
                     ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,names);
+                    ProdName.setThreshold(1);
                     ProdName.setAdapter(adapter);
 
 

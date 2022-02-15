@@ -77,27 +77,28 @@ public class firstThreeAddServiceFragment extends Fragment
             populateSearch();
 
 
-            if(ServiceName != null)
+            Continue.setOnClickListener(new View.OnClickListener()
             {
-                Continue.setOnClickListener(new View.OnClickListener()
+                @Override
+                public void onClick(View view)
                 {
-                    @Override
-                    public void onClick(View view)
-                    {
-                        String name = ServiceName.getText().toString();
+                    String name = ServiceName.getText().toString();
 
+                    if (!(name.equals("")))
+                    {
                         Intent intent = new Intent(getContext(), profileSetupAddServicePageActivity.class);
                         intent.putExtra("name", name);
                         intent.putExtra("mode", "1");
                         startActivity(intent);
                     }
-                });
-            }
-            else
-            {
+                    else
+                    {
+                        snack.snackBar(ServiceName, "Please enter a service name");
+                    }
+                }
+            });
 
-                snack.snackBar(ServiceName, "Please enter a service name");
-            }
+
 
 
 
