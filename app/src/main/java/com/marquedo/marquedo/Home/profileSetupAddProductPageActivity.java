@@ -1,5 +1,6 @@
 package com.marquedo.marquedo.Home;
 
+import static android.content.ContentValues.TAG;
 import static com.marquedo.marquedo.OurConstants.SHOW_TIME;
 
 
@@ -15,13 +16,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,18 +36,27 @@ import android.widget.Toast;
 import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
 import com.darsh.multipleimageselect.helpers.Constants;
 import com.darsh.multipleimageselect.models.Image;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.annotations.Nullable;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -55,18 +69,22 @@ import com.marquedo.marquedo.AddProductVariant.RemoveClickListner;
 import com.marquedo.marquedo.AddProductVariant.RemoveColourClickListner;
 import com.marquedo.marquedo.AddProductVariant.TheData;
 import com.marquedo.marquedo.AddProductVariant.VariantData;
+import com.marquedo.marquedo.OrdersNEnquiries.Orders.Order_details_overview;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.datab.Variant;
 import com.marquedo.marquedo.databinding.Progress6ProductVariantRecyclerviewBinding;
 import com.marquedo.marquedo.ProductsNCategories.Product.AboutModelClass;
 import com.marquedo.marquedo.ProductsNCategories.Product.ProductModelClass;
 import com.marquedo.marquedo.ProductsNCategories.imageAdapter;
+import com.marquedo.marquedo.models.Orders_details_overview_model;
 
 import net.cachapa.expandablelayout.ExpandableLayout;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
 public class profileSetupAddProductPageActivity extends AppCompatActivity implements RemoveClickListner, RemoveColourClickListner, GetVariants {
@@ -85,6 +103,9 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
     private ArrayList<String> Images = new ArrayList<>();
     private ActivityResultLauncher<Intent> getResult;
     private List<String> imageUrlList = new ArrayList<>();
+    private Set<String> categories = new HashSet<String>();
+
+    private BottomSheetDialog addCategoryDialog;
 
     private DatabaseReference databaseReference;
 
@@ -112,6 +133,11 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
     private Progress6ProductVariantRecyclerviewBinding binding;
     //MAAZ END
 
+    //collection reference to products under store.
+    CollectionReference productRef = db.collection("Store").
+            document("uniquename.TFTVHvZaHOIxjYLnHvwc")
+            .collection("products");
+
 
 
     @Override
@@ -123,6 +149,24 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
         binding = DataBindingUtil.setContentView(this, R.layout.home_activity_profile_setup_product_page);
         MaterialButton addProductVariant = findViewById(R.id.add_new_product_variant_button);
         Button add_product_button = findViewById(R.id.add_product_button);
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        Set<String> newt = sharedPreferences.getStringSet("ProdCatSet", new HashSet<String>());
+        if(newt.size() == 0){
+            getCategories();
+            myEdit.putStringSet("ProdCatSet", categories);
+            myEdit.commit();
+        }
+        else{
+            categories = newt;
+        }
+        System.out.println("@@@@@@@@@@@" + newt + " " + "@@@@@@@@@@");
+
+
+
+
         myList = new ArrayList<>();
         colourList = new ArrayList<>();
         /*getVariants = new GetVariants() {
@@ -528,10 +572,26 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
             @Override
             public void onClick(View v)
             {
-                View view1=getLayoutInflater().inflate(R.layout.home_fragment_new_product_category,null);
-                BottomSheetDialog bottomSheetDialog= new BottomSheetDialog(getApplicationContext());
-                bottomSheetDialog.setContentView(view1);
-                bottomSheetDialog.show();
+//                new_product_category addcatsheet = new new_product_category();
+
+                addCategoryDialog = new BottomSheetDialog(v.getContext(), R.style.CustomAlertDialog);
+                addCategoryDialog.setContentView(R.layout.home_fragment_new_product_category);
+                addCategoryDialog.show();
+                RecyclerView categoriesRecyclerView = addCategoryDialog.findViewById(R.id.rvCategories);
+                 MaterialButton addNewCategory = addCategoryDialog.findViewById(R.id.add_new_product_category_button);
+                RecyclerAdapter adapter = new RecyclerAdapter(categories);
+                categoriesRecyclerView.setAdapter(adapter);
+                categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
+
+                addNewCategory.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        BottomSheetDialog addNewCatSheet = new BottomSheetDialog(view.getContext(),
+                                R.style.CustomAlertDialog);
+                        addNewCatSheet.setContentView(R.layout.productsncategories_fragment_add_category);
+                        addNewCatSheet.show();
+                    }
+                });
             }
         });
 
@@ -769,6 +829,121 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
             }
         }
     }
+
+    public class RecyclerAdapter extends
+            RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
+
+        // Provide a direct reference to each of the views within a data item
+        // Used to cache the views within the item layout for fast access
+        public  class ViewHolder extends RecyclerView.ViewHolder {
+            // Your holder should contain a member variable
+            // for any view that will be set as you render a row
+            public MaterialCheckBox checkBox;
+            // We also create a constructor that accepts the entire item row
+            // and does the view lookups to find each subview
+            public ViewHolder(View itemView) {
+                // Stores the itemView in a public final member variable that can be used
+                // to access the context from any ViewHolder instance.
+                super(itemView);
+                checkBox = (MaterialCheckBox) itemView.findViewById(R.id.material_check_box) ;
+
+            }
+        }
+
+        @Override
+        public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            Context context = parent.getContext();
+            LayoutInflater inflater = LayoutInflater.from(context);
+
+            // Inflate the custom layout
+            View ordersView = inflater.inflate(R.layout.home_new_category_tile, parent, false);
+
+            // Return a new holder instance
+            RecyclerAdapter.ViewHolder viewHolder = new RecyclerAdapter.ViewHolder(ordersView);
+            return viewHolder;
+        }
+        private List<String> categoriesList;
+
+        public RecyclerAdapter(Set<String> category) {
+            categoriesList = new ArrayList<>(category);
+        }
+
+        // Involves populating data into the item through holder
+        @Override
+        public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, int position) {
+            // Get the data model based on position
+            String category = categoriesList.get(position);
+
+            // Set item views based on your views and data model
+            MaterialCheckBox checkBoxText = holder.checkBox;
+            checkBoxText.setText(category);
+
+
+        }
+
+        // Returns the total count of items in the list
+        @Override
+        public int getItemCount() {
+            return categoriesList.size();
+        }
+    }
+
+    public void getCategories(){
+
+        productRef.get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task1) {
+                        if (task1.isSuccessful()) {
+                            for (QueryDocumentSnapshot documentSnap : task1.getResult()) {
+                                productRef.document(documentSnap.getId()).collection("about")
+                                        .get()
+                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<QuerySnapshot> task2) {
+                                                if(task2.isSuccessful()){
+                                                    for(QueryDocumentSnapshot document : task2.getResult()){
+//                                                        Log.d(TAG, "Error getting documents: "+ document.getData().get("Category"));
+                                                        categories.add(document.getData().get("Category").toString());
+                                                    }
+                                                }
+                                            }
+                                        });
+                                Log.d(TAG, documentSnap.getId() + " => " + documentSnap.getData());
+                            }
+                        } else {
+                            Log.d(TAG, "Error getting documents: ", task1.getException());
+                        }
+                    }
+                });
+
+
+
+    }
+
+//    public void setListener(){
+//        db.collection("cities")
+//                .whereEqualTo("state", "CA")
+//                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onEvent(@Nullable QuerySnapshot value,
+//                                        @Nullable FirebaseFirestoreException e) {
+//                        if (e != null) {
+//                            Log.w(TAG, "Listen failed.", e);
+//                            return;
+//                        }
+//
+//                        List<String> cities = new ArrayList<>();
+//                        for (QueryDocumentSnapshot doc : value) {
+//                            if (doc.get("name") != null) {
+//                                cities.add(doc.getString("name"));
+//                            }
+//                        }
+//                        Log.d(TAG, "Current cites in CA: " + cities);
+//                    }
+//                });
+//    }
+
 
 
 }

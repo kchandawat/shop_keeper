@@ -30,6 +30,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.firestore.SetOptions;
 import com.marquedo.marquedo.CategoriesRecyclerViewAdapter;
 import com.marquedo.marquedo.CheckboxData;
 import com.marquedo.marquedo.InternetCheck;
@@ -172,12 +173,13 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
         store.put(SHOP_NAME_KEY, businessNameET.getText().toString());
         store.put(BUSINESS_CATEGORY_KEY, currentSelectedItems);
         if (!uid.isEmpty()) {
-            db.collection("Store").document(uid).get().addOnCompleteListener(task -> {
+            snack.snackBar(signup, uid);
+            db.collection("Store").document("abcdd").get().addOnCompleteListener(task -> {
                 if (task.getResult().get(SHOP_NAME_KEY) == businessNameET.getText().toString()){
                     snack.snackBar(signup, "Name exists! Please enter a different shop name");
                 } else {
-                    db.collection("Store").document(uid).update(store)
-                            .addOnCompleteListener(task1 -> {
+                    db.collection("Store").document("abcdd").set(store, SetOptions.merge())
+                                .addOnCompleteListener(task1 -> {
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString(SHOP_NAME_KEY, businessNameET.getText().toString());
                                 editor.putInt(BUSINESS_CATEGORY_SIZE_KEY, currentSelectedItems.size());

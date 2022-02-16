@@ -1,5 +1,7 @@
 package com.marquedo.marquedo.Home;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -14,6 +16,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -25,17 +28,28 @@ import android.widget.Toast;
 import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
 import com.darsh.multipleimageselect.helpers.Constants;
 import com.darsh.multipleimageselect.models.Image;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.Transaction;
+import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -47,8 +61,10 @@ import com.marquedo.marquedo.Snack;
 import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.UUID;
 
 public class profileSetupAddServicePageActivity extends AppCompatActivity
@@ -73,13 +89,20 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     private ArrayList<String> Images = new ArrayList<>();
     private ActivityResultLauncher<Intent> getResult;
     private List<String> imageUrlList = new ArrayList<>();
+    private Set<String> categories = new HashSet<String>();
+
     private BottomSheetDialog serviceAddedSuccessBM ;
+    private BottomSheetDialog addCategoryDialog;
 
     private ServiceNameModelClass serviceNameModelClass;
 
     private imageAdapter2 imageAdapter2;
 
     private Snack snack;
+
+    CollectionReference serviceRef = db.collection("Store").
+            document("uniquename.TFTVHvZaHOIxjYLnHvwc")
+            .collection("services");
 
 //    AnstronCoreHelper coreHelper;
 
@@ -131,6 +154,31 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         Intent intent = getIntent();
         String Key = intent.getStringExtra("key");
 
+        SharedPreferences sharedPreferences2 = getSharedPreferences("Categories",MODE_PRIVATE);
+        Set<String> newt = sharedPreferences2.getStringSet("ServCatSet", new HashSet<String>());
+
+        if(newt.size() == 0){
+            ProgressDialog dialog = ProgressDialog.show(this, "",
+                    "Loading. Please wait...", true);
+            getCategories();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    {
+                       dialog.dismiss();//dismiss the dialog box once data is retreived
+
+                        SharedPreferences.Editor myEdit = sharedPreferences2.edit();
+                        myEdit.putStringSet("ServCatSet", categories);
+                        myEdit.apply();
+                    }
+                }
+            }, 2000);// 2000 milliseconds = 2seconds
+
+        }
+        else{
+            categories = newt;
+        }
 
 
 
@@ -249,12 +297,32 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                View view1=getLayoutInflater().inflate(R.layout.home_fragment_new_product_category,null);
-                BottomSheetDialog bottomSheetDialog= new BottomSheetDialog(getApplicationContext());
-                bottomSheetDialog.setContentView(view1);
-                bottomSheetDialog.show();
+                addCategoryDialog = new BottomSheetDialog(v.getContext(), R.style.CustomAlertDialog);
+                addCategoryDialog.setContentView(R.layout.home_fragment_new_services_category);
+                addCategoryDialog.show();
+                RecyclerView categoriesRecyclerView = addCategoryDialog.findViewById(R.id.rvServiceCategories);
+                MaterialButton addNewCategory = addCategoryDialog.findViewById(R.id.add_new_product_category_button);
+                RecyclerAdapter adapter = new RecyclerAdapter(categories);
+                categoriesRecyclerView.setAdapter(adapter);
+                categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
+
+                addNewCategory.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        BottomSheetDialog addNewCatSheet = new BottomSheetDialog(view.getContext(),
+                                R.style.CustomAlertDialog);
+                        addNewCatSheet.setContentView(R.layout.productsncategories_fragment_add_category);
+                        addNewCatSheet.show();
+                    }
+                });
             }
         });
+
+
+
+
+
+
 
 
 
@@ -374,6 +442,28 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     }
 
 
+
+    private void getCategories(){
+        System.out.println("%%%%%% inside getcat %%%%%%55");
+        serviceRef.get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task1) {
+                        if (task1.isSuccessful()) {
+                            for(QueryDocumentSnapshot document : task1.getResult()){
+//                               Log.d(TAG, "Error getting documents: "+ document.getData().get("Category"));
+                                 categories.add(document.getData().get("category").toString());
+                                                    }
+                                                }
+                        else {
+                            Log.d(TAG, "Error getting documents: ", task1.getException());
+                        }
+                    }
+                });
+    }
+
+
+
     private void uploadImageList(List<String> newImages, ServiceModelClass serviceModelClass)
     {
         if (newImages.size() != 0)
@@ -418,11 +508,13 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
                                 if(counter == newImages.size())
                                 {
-                                    db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("services").add(serviceModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    DocumentReference storeRef = db.collection("Store")
+                                            .document("uniquename.TFTVHvZaHOIxjYLnHvwc");
+                                    storeRef.collection("services").add(serviceModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
                                         public void onSuccess(@NonNull DocumentReference documentReference)
                                         {
-
+                                            storeRef.update("categories.product", FieldValue.arrayUnion(serviceModelClass.getCategory()));
                                             databaseReference = firebaseDatabase.getReference("Services");
                                             databaseReference.push().setValue(serviceModelClass);
 
@@ -448,6 +540,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                         @Override
                                         public void onFailure(@NonNull Exception e)
                                         {
+
+                                            storeRef.update("categories.product", FieldValue.arrayUnion(serviceModelClass.getCategory()));
                                             progressDialog.dismiss();
                                             Toast.makeText(getApplicationContext(), "Error Adding Service", Toast.LENGTH_SHORT).show();
                                         }

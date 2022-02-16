@@ -27,6 +27,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
@@ -36,12 +38,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.marquedo.marquedo.CategoriesRecyclerViewAdapter;
 import com.marquedo.marquedo.CheckboxData;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.Snack;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 
@@ -68,6 +75,8 @@ public class firstThreeAddProductFragment extends Fragment
     DatabaseReference databaseReference;
     private String keys;
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState)
@@ -77,7 +86,7 @@ public class firstThreeAddProductFragment extends Fragment
         ProdName = v.findViewById(R.id.prod_name);
         //ProdCategory = v.findViewById(R.id.prod_category);
         Continue = v.findViewById(R.id.prod_continue_button);
-
+//        getCategories();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Products");
 
@@ -117,6 +126,8 @@ public class firstThreeAddProductFragment extends Fragment
 
         return v;
     }
+
+
 
     private void populateSearch()
     {
@@ -163,6 +174,15 @@ public class firstThreeAddProductFragment extends Fragment
         };
 
         databaseReference.addListenerForSingleValueEvent(eventListener);
+
+        Continue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(ProdName.getText().equals("")){
+
+                }
+            }
+        });
     }
 
 }

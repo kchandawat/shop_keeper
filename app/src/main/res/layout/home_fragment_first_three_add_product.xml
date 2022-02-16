@@ -6,6 +6,9 @@
     tools:context=".Home.firstThreeAddProductFragment">
 
     <!-- TODO: Update blank fragment layout -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -121,6 +124,7 @@
 
 
     </LinearLayout>
+    </ScrollView>
 
 
 </FrameLayout>

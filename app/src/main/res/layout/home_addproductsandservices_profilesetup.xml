@@ -40,6 +40,7 @@
         app:tabTextColor="@color/grey"
         app:layout_constraintBottom_toTopOf="@id/view_pager_add_product_service_page"/>
 
+
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/view_pager_add_product_service_page"
         android:layout_width="match_parent"

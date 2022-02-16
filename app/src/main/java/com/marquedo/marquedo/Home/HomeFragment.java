@@ -11,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.marquedo.marquedo.BusinessDetails.Business_Detail;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.databinding.HomeFragmentHomeBinding;
 
@@ -27,7 +28,7 @@ public class HomeFragment extends Fragment {
         binding = HomeFragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
         Button add = (Button) root.findViewById(R.id.continue_button);
-        Intent add_product = new Intent(getContext(), addProductAndServicesProfilesetupActivity.class);
+        Intent add_product = new Intent(getContext(), Business_Detail.class);
 
 
         add.setOnClickListener(new View.OnClickListener() {
