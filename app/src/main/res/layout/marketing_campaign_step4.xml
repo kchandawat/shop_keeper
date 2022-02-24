@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".marketingCampaignStep">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="20"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="18"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="48dp"
+                android:layout_height="41dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:background="@null"
+                android:contentDescription="Return"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                app:srcCompat="?attr/actionModeCloseDrawable"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/subscriptionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="40dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="Marketing Campaign"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="-28dp"
+                android:layout_weight="2"
+                android:backgroundTint="@color/light_grey"
+                app:cardCornerRadius="28dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/design_default_color_background"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        >
+
+                        <!--<com.anton46.stepsview.StepsView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/steps"
+
+                            />-->
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="15dp"
+                            android:text="Campaign Preview and Pay"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"/>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@drawable/outline_card"
+                            app:cardCornerRadius="5dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="5dp">
+                                <TextView
+                                    android:layout_width="250dp"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="5dp"
+                                    android:text="Broadcast Charges"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="5dp"
+                                    android:text="₹"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="right"
+                                    android:paddingLeft="5dp"
+                                    android:text="2"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"/>
+
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="5dp"
+                                android:layout_marginTop="40dp">
+                                <TextView
+                                    android:layout_width="250dp"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="5dp"
+                                    android:text="Broadcast Charges"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="5dp"
+                                    android:text="₹"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="right"
+                                    android:paddingLeft="5dp"
+                                    android:text="0.58"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"/>
+                            </LinearLayout>
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.5dp"
+                                android:layout_marginTop="85dp"
+                                android:background="#c0c0c0"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:padding="5dp"
+                                android:layout_marginTop="95dp">
+                                <TextView
+                                    android:layout_width="250dp"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="5dp"
+                                    android:text="Total Charges"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="5dp"
+                                    android:text="₹"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"/>
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_gravity="right"
+                                    android:paddingLeft="5dp"
+                                    android:text="1.42"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"/>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="15dp"
+                            android:text="Campaign Preview"
+                            android:textColor="@color/black"
+                            android:textSize="20sp"/>
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:background="@drawable/outline_card"
+                            app:cardCornerRadius="5dp">
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="5dp">
+                                <TextView
+                                    android:layout_width="250dp"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="5dp"
+                                    android:text="Campaign Message"
+                                    android:textSize="13sp"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="5dp"
+                                    android:paddingTop="8dp"
+                                    android:text="Here’s a steal deal. Buy for Rs. 2,999 and get a gift hamper free. Hurry, Offer ends in 4 days. Shop on https://marquedo.io/business1834 - Business(GP)"
+                                    android:textColor="@color/black"
+                                    android:textSize="15sp"
+                                    app:lineHeight="25dp" />
+
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1.5dp"
+                                android:layout_marginTop="140dp"
+                                android:background="#c0c0c0"/>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical"
+                                android:padding="5dp"
+                                android:layout_marginTop="150dp">
+                                <TextView
+                                    android:layout_width="250dp"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="5dp"
+                                    android:text="Customers"
+                                    android:textSize="13sp"/>
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:paddingLeft="5dp"
+                                    android:paddingTop="5dp"
+                                    android:paddingBottom="10dp"
+                                    android:text="All Customers"
+                                    android:textColor="@color/black"
+                                    android:textSize="18sp"/>
+                            </LinearLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/next"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="110dp"
+                            android:layout_marginRight="5dp"
+                            android:padding="10dp"
+                            android:stateListAnimator="@null"
+                            android:text="Pay and Launch Campaign"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="20dp"
+                            app:cornerRadius="10dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="175dp" />
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -23,9 +23,23 @@
         <item name="android:button">@drawable/custom_radio</item>
     </style>
 
+    <style name="CheckBox" parent="">
+        <item name="android:button">@drawable/custom_checkbox2</item>
+    </style>
+
     <style name="SwitchStyle" parent="">
         <item name="android:thumb">@drawable/thumb_switch</item>
         <item name="track">@drawable/track_switch</item>
+    </style>
+
+    <style name="CheckStyle" parent="">
+        <item name="android:checked">@drawable/thumb_switch</item>
+
+    </style>
+
+    <style name="SpinnerTheme" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/bg_spinner</item>
+
     </style>
 
 

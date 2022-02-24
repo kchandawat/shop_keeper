@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".marketingCampaignStep3">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="20"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="18"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="48dp"
+                android:layout_height="41dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:background="@null"
+                android:contentDescription="Return"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                app:srcCompat="?attr/actionModeCloseDrawable"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/subscriptionHeader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="40dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:text="Marketing Campaign"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
+        </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="-28dp"
+                android:layout_weight="2"
+                android:backgroundTint="@color/design_default_color_background"
+                app:cardCornerRadius="28dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/design_default_color_background"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="20dp">
+
+                        <!--<com.anton46.stepsview.StepsView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/steps"
+
+                            />-->
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:background="@color/white"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:text="Select Customers"
+                            android:textSize="15sp" />
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/product_category_til"
+                            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="32dp"
+                            >
+
+                            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                                android:id="@+id/contact_category"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
+                                android:drawableTint="@color/orange"
+                                android:focusableInTouchMode="false"
+                                android:hint="Subscribed"
+                                android:inputType="none" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/add_new_product_variant_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:backgroundTint="@color/white"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:stateListAnimator="@null"
+                            android:text="Import from Contact"
+                            android:textAlignment="center"
+                            android:textAllCaps="false"
+                            android:textColor="#c95400"
+                            android:textSize="22sp"
+                            app:cornerRadius="10dp"
+                            app:strokeColor="@color/grey"
+                            app:strokeWidth="1dp" />
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/next"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginTop="200dp"
+                            android:layout_marginRight="5dp"
+                            android:padding="10dp"
+                            android:stateListAnimator="@null"
+                            android:text="Next"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="22dp"
+                            app:cornerRadius="10dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="175dp" />
+
+                    </LinearLayout>
+
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,15 +1,17 @@
 package com.marquedo.marquedo.DesignElements.Manage;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.marquedo.marquedo.R;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.marquedo.marquedo.DesignElements.Manage.MyCustomers.MyCustomerActivity;
 import com.marquedo.marquedo.DesignElements.Manage.discounts.DiscountNCouponsActivity;
+import com.marquedo.marquedo.DesignElements.ShopQRPage;
+import com.marquedo.marquedo.MarketingCampaignLanding;
+import com.marquedo.marquedo.R;
 
 public class ManageActivity extends AppCompatActivity {
 
@@ -20,6 +22,11 @@ public class ManageActivity extends AppCompatActivity {
 
         CardView myCustomers = findViewById(R.id.manageMyCustomers);
         CardView discounts = findViewById(R.id.discountCoupon);
+        CardView marketingCampaign = findViewById(R.id.marketingcampaign);
+        CardView deliveryCharges = findViewById(R.id.deliveryCharges);
+        CardView extraCharges = findViewById(R.id.extraCharges);
+        CardView shopQR = findViewById(R.id.shopQR);
+
 
         myCustomers.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +41,36 @@ public class ManageActivity extends AppCompatActivity {
                 startActivity(new Intent(view.getContext(), DiscountNCouponsActivity.class));
             }
         });
+
+        marketingCampaign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), MarketingCampaignLanding.class));
+            }
+        });
+
+        deliveryCharges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), DeliveryCharges.class));
+            }
+        });
+
+        extraCharges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), ExtraCharges.class));
+            }
+        });
+
+        shopQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), ShopQRPage.class));
+            }
+        });
+
+
 
 
 

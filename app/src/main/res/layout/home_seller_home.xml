@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Home.sellerSalesStats"
     android:background="@color/design_default_color_background"
-    >
+    tools:context=".Home.sellerSalesStats">
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         android:layout_width="0dp"
@@ -25,49 +25,49 @@
         android:scrollbarStyle="insideInset">
 
 
-    <!--<ScrollView
+        <!--<ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintVertical_weight="1"
         tools:ignore="SpeakableTextPresentCheck"
         >-->
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="7dp"
-        android:orientation="vertical"
-        android:weightSum="20"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="95dp"
-        android:background="@color/light_grey">
-
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:layout_marginTop="7dp"
+            android:background="@color/light_grey"
+            android:orientation="vertical"
+            android:weightSum="20"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="95dp">
 
-            <ImageButton
-                android:id="@+id/searchbutton"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="325dp"
-                android:layout_marginTop="17dp"
-                android:layout_marginEnd="14dp"
-                android:layout_marginBottom="80dp"
-                android:background="@null"
-                android:contentDescription="Return"
-                android:scaleX="1.5"
-                android:scaleY="1.5"
-                app:tint="@color/red"
-                app:srcCompat="@drawable/ic_baseline_search_24"
-                tools:ignore="TouchTargetSizeCheck" />
-            <!--<Switch
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/searchbutton"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="325dp"
+                    android:layout_marginTop="17dp"
+                    android:layout_marginEnd="14dp"
+                    android:layout_marginBottom="90dp"
+                    android:background="@null"
+                    android:contentDescription="Return"
+                    android:scaleX="1.5"
+                    android:scaleY="1.5"
+                    app:srcCompat="@drawable/ic_baseline_search_24"
+                    app:tint="@color/red"
+                    tools:ignore="TouchTargetSizeCheck" />
+                <!--<Switch
                 android:layout_width="100dp"
                 android:layout_height="30dp"
                 android:layout_alignParentStart="true"
@@ -79,82 +79,82 @@
                 android:layout_marginEnd="78dp"
                 android:layout_marginBottom="98dp"
                 />-->
-            <ToggleButton
-                android:layout_width="120dp"
-                android:layout_height="30dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="200dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="78dp"
-                android:layout_marginBottom="80dp"
-                android:background="@drawable/yellow_background"
-                android:drawableEnd="@drawable/online_toggle_thumb"
-                android:gravity="center"
-                android:paddingRight="10dp"
-                android:textColor="@color/black"
-                android:textOff="Offline"
-                android:textOn="Online"
-                android:textSize="12dp"
-                tools:ignore="TouchTargetSizeCheck" />
+                <ToggleButton
+                    android:layout_width="120dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="200dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="78dp"
+                    android:layout_marginBottom="90dp"
+                    android:background="@drawable/yellow_background"
+                    android:drawableEnd="@drawable/online_toggle_thumb"
+                    android:gravity="center"
+                    android:paddingRight="10dp"
+                    android:textColor="@color/black"
+                    android:textOff="Offline"
+                    android:textOn="Online"
+                    android:textSize="12dp"
+                    tools:ignore="TouchTargetSizeCheck" />
 
-            <TextView
-                android:id="@+id/sellerName"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
+                <TextView
+                    android:id="@+id/sellerName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
 
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="65dp"
-                android:layout_marginEnd="0dp"
-                android:layout_marginBottom="27dp"
-                android:layout_toEndOf="@+id/sellerImage"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="105dp"
+                    android:layout_marginEnd="0dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_toEndOf="@+id/sellerImage"
 
-                android:text="Priyanka Bhosale"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
+                    android:text="Priyanka Bhosale"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/greeting"
-                android:layout_width="105dp"
-                android:layout_height="19dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="40dp"
-                android:layout_marginEnd="188dp"
-                android:layout_marginBottom="58dp"
-                android:layout_toEndOf="@+id/sellerImage"
-                android:gravity="left"
-                android:text="Hello here,"
-                android:textColor="@color/black"
-                android:textSize="15dp" />
+                <TextView
+                    android:id="@+id/greeting"
+                    android:layout_width="105dp"
+                    android:layout_height="19dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="80dp"
+                    android:layout_marginEnd="188dp"
+                    android:layout_marginBottom="38dp"
+                    android:layout_toEndOf="@+id/sellerImage"
+                    android:gravity="left"
+                    android:text="Hello here,"
+                    android:textColor="@color/black"
+                    android:textSize="15dp" />
 
-            <ImageView
-                android:id="@+id/sellerImage"
-                android:layout_width="85dp"
-                android:layout_height="85dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="14dp"
-                android:src="@drawable/seller_profile_image" />
-        </RelativeLayout>
+                <ImageView
+                    android:id="@+id/sellerImage"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginBottom="4dp"
+                    android:src="@drawable/seller_profile_image" />
+            </RelativeLayout>
 
-        <LinearLayout
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="7dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginRight="15dp"
                 android:background="@drawable/black_background"
                 android:orientation="vertical">
@@ -165,23 +165,28 @@
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="191dp"
+                        android:layout_height="70dp"
                         android:layout_marginLeft="15dp"
                         android:layout_marginTop="15dp"
-                        android:text="Add Shop Address"
+                        android:text="Share your Business on WhatsApp"
                         android:textColor="@color/white"
                         android:textSize="18dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:id="@+id/heading"/>
 
                     <com.google.android.material.button.MaterialButton
+
                         android:id="@+id/button"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="45dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="35dp"
+                        android:layout_marginTop="15dp"
                         android:layout_marginRight="10dp"
-                        android:text="Add Products"
+                        android:text="Share"
+
+                        app:iconSize="18dp"
+                        app:iconTint="@color/black"
                         android:textAllCaps="false"
                         android:textColor="@color/black"
                         android:textSize="12dp"
@@ -194,9 +199,10 @@
                     android:layout_marginLeft="12dp"
                     android:layout_marginRight="12dp"
                     android:layout_marginBottom="12dp"
-                    android:text="Add your shop address to complete your shop setup and you will be available for your Customers."
+                    android:text="Your customers can check your online shop and will be able to place orders."
                     android:textColor="@color/white"
-                    android:textSize="13dp" />
+                    android:textSize="13dp"
+                    android:id="@+id/body"/>
             </LinearLayout>
 
             <LinearLayout
@@ -210,24 +216,25 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
+                    android:layout_marginTop="15dp"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="250dp"
+                        android:layout_width="285dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="4dp"
                         android:text="Statistics Overview"
                         android:textColor="@color/black"
                         android:textSize="20dp"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:layout_gravity="end"
+                        android:layout_gravity="end|center_horizontal"
                         android:drawableEnd="@drawable/ic_baseline_arrow_down_24"
-                        android:gravity="center"
+                        android:gravity="end|center"
                         android:text="Todays"
                         android:textColor="@color/red"
                         android:textSize="15dp" />
@@ -240,16 +247,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="15dp"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="5dp"
                 android:layout_marginRight="15dp"
-                android:gravity="center"
                 android:orientation="horizontal">
 
                 <RelativeLayout
-                    android:layout_width="155dp"
+                    android:layout_width="165dp"
                     android:layout_height="70dp"
-                    android:layout_marginLeft="15dp"
+
                     android:background="@drawable/subscriptionbox">
 
                     <TextView
@@ -287,7 +293,7 @@
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="17dp"
                         android:layout_marginTop="18dp"
-                        android:layout_marginEnd="105dp"
+                        android:layout_marginEnd="115dp"
                         android:layout_marginBottom="18dp"
                         android:background="@drawable/yellow_background_icon">
 
@@ -304,9 +310,9 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="155dp"
+                    android:layout_width="165dp"
                     android:layout_height="70dp"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/subscriptionbox">
 
@@ -345,7 +351,7 @@
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="17dp"
                         android:layout_marginTop="18dp"
-                        android:layout_marginEnd="105dp"
+                        android:layout_marginEnd="115dp"
                         android:layout_marginBottom="18dp"
                         android:background="@drawable/yellow_background_icon">
 
@@ -366,15 +372,13 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="7dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
-                android:gravity="center"
                 android:orientation="horizontal">
 
                 <RelativeLayout
-                    android:layout_width="155dp"
+                    android:layout_width="165dp"
                     android:layout_height="70dp"
-                    android:layout_marginLeft="10dp"
                     android:background="@drawable/subscriptionbox">
 
                     <TextView
@@ -412,7 +416,7 @@
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="17dp"
                         android:layout_marginTop="18dp"
-                        android:layout_marginEnd="105dp"
+                        android:layout_marginEnd="115dp"
                         android:layout_marginBottom="18dp"
                         android:background="@drawable/yellow_background_icon">
 
@@ -427,9 +431,9 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:layout_width="155dp"
+                    android:layout_width="165dp"
                     android:layout_height="70dp"
-                    android:layout_marginLeft="15dp"
+                    android:layout_marginLeft="20dp"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/subscriptionbox">
 
@@ -468,7 +472,7 @@
                         android:layout_alignParentBottom="true"
                         android:layout_marginStart="17dp"
                         android:layout_marginTop="18dp"
-                        android:layout_marginEnd="105dp"
+                        android:layout_marginEnd="115dp"
                         android:layout_marginBottom="18dp"
                         android:background="@drawable/yellow_background_icon">
 
@@ -490,12 +494,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="250dp"
+                    android:layout_width="287dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="4dp"
                     android:text="New Order Request"
@@ -518,7 +522,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
                 android:scrollbars="horizontal">
 
@@ -620,7 +624,7 @@
                     <LinearLayout
                         android:layout_width="200dp"
                         android:layout_height="100dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="15dp"
                         android:background="@drawable/subscriptionbox"
                         android:orientation="vertical">
 
@@ -731,7 +735,7 @@
                     <LinearLayout
                         android:layout_width="200dp"
                         android:layout_height="100dp"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="15dp"
                         android:background="@drawable/subscriptionbox"
                         android:orientation="vertical">
 
@@ -836,7 +840,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
                 android:orientation="vertical">
 
@@ -844,11 +848,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="220dp"
+                        android:layout_width="260dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
                         android:layout_marginLeft="4dp"
@@ -873,23 +876,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="100dp"
                     android:layout_marginLeft="4dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="15dp"
                     android:background="@color/design_default_color_background"
                     app:seriesColor="@color/yellow"
                     app:seriesData="0=1;0=2;0=1;1=2;1=3;1=0;2=1;2=3;2=2;2=1"
-                    app:seriesType="line"
-                    />
+                    app:seriesType="line" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="80dp"
-                    android:layout_marginLeft="20dp"/>
+                    android:layout_marginLeft="20dp" />
             </LinearLayout>
 
         </LinearLayout>
         <!--</ScrollView>-->
     </androidx.core.widget.NestedScrollView>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

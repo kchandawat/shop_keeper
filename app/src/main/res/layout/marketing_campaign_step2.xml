@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".marketingCampaignStep"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="20"
+        app:layout_constraintTop_toTopOf="parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="18"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="48dp"
+                android:layout_height="41dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="20dp"
+                android:background="@null"
+                android:contentDescription="Return"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                app:tint="@color/white"
+                app:srcCompat="?attr/actionModeCloseDrawable" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Marketing Campaign"
+                android:id="@+id/subscriptionHeader"
+                android:textSize="16dp"
+                android:textColor="@color/white"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:layout_marginStart="40dp"
+                android:layout_gravity="center_vertical"
+                />
+        </LinearLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="-28dp"
+                android:layout_weight="2"
+                app:cardCornerRadius="28dp"
+                android:backgroundTint="@color/design_default_color_background">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="5dp"
+                    android:backgroundTint="@color/design_default_color_background">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="75dp"
+                        android:layout_marginRight="20dp"
+                        >
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingLeft="2dp"
+                            android:text="Choose Campaign Message"
+                            android:textSize="20sp"
+                            android:textColor="@color/black"/>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/outline_card">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingRight="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Here's a steal deal. Buy for Rs. 2,9999 and get a gift hamper free. Hurry, offer ends in 4 days. Shop on https://marquedo.io/business1834 - Business(GP)"
+                                android:textSize="14sp"
+                                app:lineHeight="22dp"
+                                android:textColor="@color/black"/>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/campaignmessage1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="305dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:backgroundTint="@color/black"
+                                    android:buttonTint="@color/yellow"
+                                    android:checked="true" />
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/outline_card">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingRight="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Here's a steal deal. Buy for Rs. 2,9999 and get a gift hamper free. Hurry, offer ends in 4 days. Shop on https://marquedo.io/business1834 - Business(GP)"
+                                android:textSize="14sp"
+                                app:lineHeight="22dp"
+                                android:textColor="@color/black"/>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/campaignmessage2"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="305dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:backgroundTint="@color/black"
+                                    android:buttonTint="@color/yellow"
+                                    android:checked="false" />
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/outline_card">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingRight="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Here's a steal deal. Buy for Rs. 2,9999 and get a gift hamper free. Hurry, offer ends in 4 days. Shop on https://marquedo.io/business1834 - Business(GP)"
+                                android:textSize="14sp"
+                                app:lineHeight="22dp"
+                                android:textColor="@color/black"/>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/campaignmessage3"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="305dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:backgroundTint="@color/black"
+                                    android:buttonTint="@color/yellow"
+                                    android:checked="false" />
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/outline_card">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:paddingRight="10dp"
+                                android:paddingLeft="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Here's a steal deal. Buy for Rs. 2,9999 and get a gift hamper free. Hurry, offer ends in 4 days. Shop on https://marquedo.io/business1834 - Business(GP)"
+                                android:textSize="14sp"
+                                app:lineHeight="22dp"
+                                android:textColor="@color/black"/>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <CheckBox
+                                    android:id="@+id/campaignmessage4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentStart="true"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_marginStart="305dp"
+                                    android:layout_marginTop="15dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:backgroundTint="@color/black"
+                                    android:buttonTint="@color/yellow"
+                                    android:checked="false" />
+                            </RelativeLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/step1next"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:padding="10dp"
+                            android:layout_marginTop="50dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:stateListAnimator="@null"
+                            android:text="Next"
+                            android:textAllCaps="false"
+                            android:textColor="@color/black"
+                            android:textSize="22dp"
+                            app:cornerRadius="10dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="175dp"/>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
