@@ -1,4 +1,4 @@
-package com.marquedo.marquedo;
+package com.marquedo.marquedo.DesignElements.Manage.MarketingCampaign;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,8 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+
+import com.marquedo.marquedo.R;
 
 import java.util.List;
 import java.util.Locale;
@@ -43,7 +45,7 @@ public class MyCustomAdapter extends ArrayAdapter {
 
         if (convertView == null) {
             LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = vi.inflate(R.layout.contact_info, null);
+            convertView = vi.inflate(R.layout.designelements_manage_marketing_campaign_contact_info, null);
 
             holder = new ViewHolder();
             holder.displayName = (TextView) convertView.findViewById(R.id.displayName);

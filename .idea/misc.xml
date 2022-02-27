@@ -46,6 +46,7 @@
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/track_switch.xml" value="0.2189873417721519" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/white_background_subscription.xml" value="0.22179487179487178" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/yellow_background.xml" value="0.2189873417721519" />
+        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/drawable/yellow_background_icon.xml" value="0.2074074074074074" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_add_product.xml" value="0.13020833333333334" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_add_product_n_service.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/activity_business_category.xml" value="0.20854700854700856" />
@@ -73,11 +74,16 @@
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_activity_manage.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_fragment_dashboard.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_delivery_charges.xml" value="0.20854700854700856" />
-        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_discounts_activity_create_coupon.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_discounts_activity_create_coupon.xml" value="0.264" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_discounts_activity_discount_ncoupons.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_discounts_coupons_item.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_extra_charges.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_mycustomer_activity_my_customer.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_onlinepayment.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_promotionaldesign_business_card_preview.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_promotionaldesign_business_card_templates.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_promotionaldesign_options.xml" value="0.20854700854700856" />
+        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_promotionaldesigns.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_review.xml" value="0.1752136752136752" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_reviewsandratings.xml" value="0.2076923076923077" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/designelements_manage_reviewsandratings_reply.xml" value="0.2076923076923077" />
@@ -107,7 +113,7 @@
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/home_fragment_home.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/home_fragment_new_product_category.xml" value="0.2076923076923077" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/home_seller_graph.xml" value="0.20854700854700856" />
-        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/home_seller_home.xml" value="0.4" />
+        <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/home_seller_home.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/logout_action.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/markeeting_campaign_step2_fragement.xml" value="0.20854700854700856" />
         <entry key="..\:/Users/sanja/AndroidStudioProjects/shop_keeper/app/src/main/res/layout/marketing_campaign_contact_tile.xml" value="0.4" />

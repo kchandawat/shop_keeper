@@ -3,7 +3,9 @@ package com.marquedo.marquedo.DesignElements;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,7 @@ public class ShopQRPage extends AppCompatActivity {
 
     private ImageView storeqr;
     private String storename = "Super Shopping Centre";
+    private ImageButton back;
     /*Bitmap bitmap;
     QRGEncoder*/
 
@@ -27,6 +30,14 @@ public class ShopQRPage extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.designelements_manage_shop_qr_page);
+
+        back = findViewById(R.id.imageButton);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         storeqr = findViewById(R.id.storeqrid);
 

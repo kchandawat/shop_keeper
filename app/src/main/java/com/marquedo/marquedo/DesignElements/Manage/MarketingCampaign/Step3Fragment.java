@@ -1,4 +1,4 @@
-package com.marquedo.marquedo;
+package com.marquedo.marquedo.DesignElements.Manage.MarketingCampaign;
 
 import android.app.Fragment;
 import android.content.Intent;
@@ -11,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.google.android.material.button.MaterialButton;
+import com.marquedo.marquedo.R;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class Step3Fragment extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 // Inflate the layout for this fragment
-        view = inflater.inflate(R.layout.marketing_campaign_step3_fragment, container, false);
+        view = inflater.inflate(R.layout.designelements_manage_marketing_campaign_step3_fragment, container, false);
         //view2 = inflater.inflate(R.id.contact_category, container, false);
         //final AutoCompleteTextView customerContact = (AutoCompleteTextView) view.findViewById(R.id.contact_category);
 

@@ -1,4 +1,4 @@
-package com.marquedo.marquedo;
+package com.marquedo.marquedo.DesignElements.Manage.MarketingCampaign;
 
 public class ContactsInfo {
     private String contactId;

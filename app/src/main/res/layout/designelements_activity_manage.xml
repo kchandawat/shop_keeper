@@ -79,6 +79,7 @@
                         app:cardBackgroundColor="@color/white"
                         app:cardElevation="3dp"
                         android:translationZ="3dp"
+                        android:id="@+id/reviewsRatings"
                         >
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -153,6 +154,7 @@
                         app:cardBackgroundColor="@color/white"
                         app:cardElevation="3dp"
                         android:translationZ="3dp"
+                        android:id="@+id/promotionalDesign"
                         >
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -189,6 +191,7 @@
                         app:cardBackgroundColor="@color/white"
                         app:cardElevation="3dp"
                         android:translationZ="3dp"
+                        android:id="@+id/onlinePayment"
                         >
                         <LinearLayout
                             android:layout_width="match_parent"

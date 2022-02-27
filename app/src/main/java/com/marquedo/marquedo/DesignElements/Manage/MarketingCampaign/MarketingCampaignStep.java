@@ -1,4 +1,4 @@
-package com.marquedo.marquedo;
+package com.marquedo.marquedo.DesignElements.Manage.MarketingCampaign;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
@@ -12,25 +12,26 @@ import android.widget.ImageButton;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.button.MaterialButton;
-import com.marquedo.marquedo.databinding.MarketingCampaignStepBinding;
+import com.marquedo.marquedo.R;
+import com.marquedo.marquedo.databinding.DesignelementsManageMarketingCampaignStepBinding;
 
 //import androidx.fragment.app.Fragment;
 //import android.app.Fragment;
 
-public class marketingCampaignStep extends AppCompatActivity {
+public class MarketingCampaignStep extends AppCompatActivity {
 
     private EditText campaignName;
     MaterialButton next;
     ImageButton back;
     MaterialButton prev;
-    MarketingCampaignStepBinding binding;
+    DesignelementsManageMarketingCampaignStepBinding binding;
     String[] descriptionData = {"Step 1","Step 2","Step 3","Step 4"};
     int currentState = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = MarketingCampaignStepBinding.inflate(getLayoutInflater());
+        binding = DesignelementsManageMarketingCampaignStepBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         binding.steps.setLabels(descriptionData)

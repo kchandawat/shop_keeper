@@ -16,26 +16,32 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Marquedo">
         <activity
+            android:name=".DesignElements.Manage.ReviewsAndRatingsLanding"
+            android:exported="true" />
+        <activity
+            android:name=".DesignElements.OnlinePayment"
+            android:exported="true" />
+        <activity
+            android:name=".DesignElements.Manage.PromotionalDesignOptions"
+            android:exported="true" />
+        <activity
             android:name=".profile"
             android:exported="true" />
         <activity
-            android:name=".MarketingCampaignContacts"
+            android:name=".DesignElements.Manage.MarketingCampaign.MarketingCampaignContacts"
             android:exported="true" />
         <activity
-            android:name=".marketingCampaignStep3"
+            android:name=".DesignElements.Manage.MarketingCampaign.MarketingCampaignStep"
             android:exported="true" />
         <activity
-            android:name=".marketingCampaignStep"
-            android:exported="true" />
-        <activity
-            android:name=".MarketingCampaignLanding"
+            android:name=".DesignElements.Manage.MarketingCampaign.MarketingCampaignLanding"
             android:exported="true" />
         <activity
             android:name=".DesignElements.Manage.discounts.CreateCouponActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".DesignElements.Manage.discounts.DiscountNCouponsActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".DesignElements.Manage.MyCustomers.MyCustomerActivity"
             android:exported="false" />

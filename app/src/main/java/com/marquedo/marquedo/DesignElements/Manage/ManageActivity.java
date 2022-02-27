@@ -9,8 +9,9 @@ import androidx.cardview.widget.CardView;
 
 import com.marquedo.marquedo.DesignElements.Manage.MyCustomers.MyCustomerActivity;
 import com.marquedo.marquedo.DesignElements.Manage.discounts.DiscountNCouponsActivity;
+import com.marquedo.marquedo.DesignElements.OnlinePayment;
 import com.marquedo.marquedo.DesignElements.ShopQRPage;
-import com.marquedo.marquedo.MarketingCampaignLanding;
+import com.marquedo.marquedo.DesignElements.Manage.MarketingCampaign.MarketingCampaignLanding;
 import com.marquedo.marquedo.R;
 
 public class ManageActivity extends AppCompatActivity {
@@ -26,7 +27,31 @@ public class ManageActivity extends AppCompatActivity {
         CardView deliveryCharges = findViewById(R.id.deliveryCharges);
         CardView extraCharges = findViewById(R.id.extraCharges);
         CardView shopQR = findViewById(R.id.shopQR);
+        CardView promotionalDesign = findViewById(R.id.promotionalDesign);
+        CardView onlinePayments = findViewById(R.id.onlinePayment);
+        CardView reviewsRatings = findViewById(R.id.reviewsRatings);
 
+
+        reviewsRatings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), ReviewsAndRatingsLanding.class));
+            }
+        });
+
+        promotionalDesign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), PromotionalDesignOptions.class));
+            }
+        });
+
+        onlinePayments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), OnlinePayment.class));
+            }
+        });
 
         myCustomers.setOnClickListener(new View.OnClickListener() {
             @Override

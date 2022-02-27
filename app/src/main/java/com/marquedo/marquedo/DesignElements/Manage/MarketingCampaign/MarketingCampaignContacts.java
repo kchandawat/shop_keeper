@@ -1,4 +1,4 @@
-package com.marquedo.marquedo;
+package com.marquedo.marquedo.DesignElements.Manage.MarketingCampaign;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
@@ -21,7 +21,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.github.paolorotolo.expandableheightlistview.ExpandableHeightListView;
+import com.google.android.material.button.MaterialButton;
 import com.marquedo.marquedo.DesignElements.DashboardViewModel;
+import com.marquedo.marquedo.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,30 +33,27 @@ public class MarketingCampaignContacts extends AppCompatActivity {
     MyCustomAdapter dataAdapter = null;
     ExpandableHeightListView listView;
     Button btnGetContacts;
+    MaterialButton addContacts;
     List<ContactsInfo> contactsInfoList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.marketing_campaign_contacts);
+        setContentView(R.layout.designelements_manage_marketing_campaign_contacts);
         Intent dashboard = new Intent(this, DashboardViewModel.class);
-        /*back.setOnClickListener(new View.OnClickListener() {
+        addContacts = findViewById(R.id.addContacts);
+        addContacts.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });*/
+        });
         listView = (ExpandableHeightListView) findViewById(R.id.lstContacts);
         CheckBox contactAll = (CheckBox) findViewById(R.id.contactsAll);
         listView.setAdapter(dataAdapter);
         listView.setExpanded(true);
         requestContactPermission();
-        /*if(contactAll.isChecked()){
-            contactsInfoList = getContacts(true);
-            listView.setAdapter(dataAdapter);
-            Toast.makeText(MarketingCampaignContacts.this,
-                    "Checked all contacts", Toast.LENGTH_LONG).show();
-        }*/
+
         contactAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,15 +65,7 @@ public class MarketingCampaignContacts extends AppCompatActivity {
                 }
             }
         });
-        /*contactAll.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                contactsInfoList = getContacts(true);
-                listView.setAdapter(dataAdapter);
 
-            }
-        });
-*/
     }
     @SuppressLint("Range")
     private List<ContactsInfo> getContacts(boolean isSelect){
@@ -117,7 +108,7 @@ public class MarketingCampaignContacts extends AppCompatActivity {
         }
         cursor.close();
 
-        dataAdapter = new MyCustomAdapter(MarketingCampaignContacts.this, R.layout.contact_info, contactsInfoList);
+        dataAdapter = new MyCustomAdapter(MarketingCampaignContacts.this, R.layout.designelements_manage_marketing_campaign_contact_info, contactsInfoList);
         listView.setAdapter(dataAdapter);
         return contactsInfoList;
     }
