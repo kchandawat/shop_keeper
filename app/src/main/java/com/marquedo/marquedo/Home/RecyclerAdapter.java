@@ -64,6 +64,11 @@ public class RecyclerAdapter extends
 
 
         }
+    public void updateData(Set<String> categories) {
+        categoriesList.clear();
+        categoriesList = new ArrayList<>(categories);
+        notifyDataSetChanged();
+    }
 
         // Returns the total count of items in the list
         @Override

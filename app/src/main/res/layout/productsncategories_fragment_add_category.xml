@@ -97,7 +97,7 @@
                                 android:textSize="15sp" />
 
                             <EditText
-                                android:id="@+id/edittext1"
+                                android:id="@+id/etnewCategory"
                                 android:layout_width="250dp"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/label1"
@@ -134,21 +134,7 @@
                     </LinearLayout>
                 </androidx.core.widget.NestedScrollView>
 
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/submit_button"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_below="@+id/nested_view"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginHorizontal="20dp"
-                    android:layout_marginBottom="20dp"
-                    android:enabled="false"
-                    android:text="Submit"
-                    android:textAllCaps="false"
-                    android:textColor="#000000"
-                    android:textSize="20sp"
-                    app:cornerRadius="15dp" />
+
 
             </RelativeLayout>
 

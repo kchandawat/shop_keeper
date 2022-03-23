@@ -9,12 +9,16 @@ import android.widget.CheckBox;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.checkbox.MaterialCheckBox;
+
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class CategoriesRecyclerViewAdapter extends
         RecyclerView.Adapter<CategoriesRecyclerViewAdapter.ViewHolder> {
 
-    private final List<String> blogListItemsG;
+    private List<String> blogListItemsG;
     private final Context contextG;
     private CheckboxData checkboxData;
 
@@ -28,7 +32,7 @@ public class CategoriesRecyclerViewAdapter extends
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.checkbox_item, parent, false);
+                .inflate(R.layout.home_new_category_tile, parent, false);
 
         return new ViewHolder(view);
     }
@@ -36,6 +40,7 @@ public class CategoriesRecyclerViewAdapter extends
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         String blogListItem = blogListItemsG.get(position);
+
         holder.checkbox.setText(blogListItem);
 
         holder.checkbox.setOnCheckedChangeListener((compoundButton, b) ->{
@@ -49,6 +54,12 @@ public class CategoriesRecyclerViewAdapter extends
         });
     }
 
+    public void updateData(Set<String> categories) {
+        blogListItemsG.clear();
+        blogListItemsG = new ArrayList<>(categories);
+        notifyDataSetChanged();
+    }
+
     @Override
     public int getItemCount() {
         return blogListItemsG.size();
@@ -60,7 +71,7 @@ public class CategoriesRecyclerViewAdapter extends
 
         ViewHolder(View itemView) {
             super(itemView);
-            checkbox = itemView.findViewById(R.id.checkBox);
+            checkbox = itemView.findViewById(R.id.material_check_box);
         }
     }
 }

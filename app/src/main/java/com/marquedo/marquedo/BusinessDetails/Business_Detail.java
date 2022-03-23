@@ -4,6 +4,8 @@ import static com.marquedo.marquedo.InternetCheck.getConnectionType;
 import static com.marquedo.marquedo.InternetCheck.getConnectivityStatusString;
 import static com.marquedo.marquedo.OurConstants.BUSINESS_CATEGORY_KEY;
 import static com.marquedo.marquedo.OurConstants.BUSINESS_CATEGORY_SIZE_KEY;
+import static com.marquedo.marquedo.OurConstants.BUSINESS_UNIQUE_NAME;
+import static com.marquedo.marquedo.OurConstants.BUSINESS_URL;
 import static com.marquedo.marquedo.OurConstants.OTP_PREFERENCES;
 import static com.marquedo.marquedo.OurConstants.SHOP_NAME_KEY;
 import static com.marquedo.marquedo.OurConstants.TYPE_NOT_CONNECTED;
@@ -19,11 +21,17 @@ import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
@@ -37,6 +45,7 @@ import com.marquedo.marquedo.InternetCheck;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.Snack;
 import com.marquedo.marquedo.SplashScreens.MainActivity;
+import com.marquedo.marquedo.SplashScreens.congrats;
 
 
 import java.util.ArrayList;
@@ -53,6 +62,7 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
     private TextInputEditText businessNameET;
     private TextInputLayout businessCategoryTIL;
     private TextInputEditText businessCategoryET;
+    private TextInputEditText businessUniqueNameET;
     private final List<String> currentSelectedItems = new ArrayList<>();
     private FirebaseFirestore db;
     private SharedPreferences sharedPreferences;
@@ -103,6 +113,7 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
         businessNameET = findViewById(R.id.business_name_et);
         businessCategoryTIL = findViewById(R.id.business_category_til);
         businessCategoryET = findViewById(R.id.business_category_et);
+        businessUniqueNameET = findViewById(R.id.business_uniquename_et);
         db = FirebaseFirestore.getInstance();
         sharedPreferences = getSharedPreferences(OTP_PREFERENCES, Context.MODE_PRIVATE);
         businessBackButton = findViewById(R.id.business_back_button);
@@ -153,6 +164,7 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
     private void buttononclicksthis() {
         businessCategoryTIL.setOnClickListener(allClickListenerHandlingCL);
         businessCategoryET.setOnClickListener(allClickListenerHandlingCL);
+        businessUniqueNameET.setOnClickListener(allClickListenerHandlingCL);
         signup.setOnClickListener(allClickListenerHandlingCL);
         businessBackButton.setOnClickListener(allClickListenerHandlingCL);
     }
@@ -167,35 +179,77 @@ public class Business_Detail extends AppCompatActivity implements CheckboxData {
             internetCheck.snackBar(signup, "Please select categories");
             return;
         }
+        if (Objects.requireNonNull(businessUniqueNameET.getText()).length() == 0) {
+            internetCheck.snackBar(signup, "Please enter a unique Name for your Shop");
+            return;
+        }
 
-        String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
         Map<String, Object> store = new HashMap<>();
         store.put(SHOP_NAME_KEY, businessNameET.getText().toString());
         store.put(BUSINESS_CATEGORY_KEY, currentSelectedItems);
-        if (!uid.isEmpty()) {
-            snack.snackBar(signup, uid);
-            db.collection("Store").document("abcdd").get().addOnCompleteListener(task -> {
-                if (task.getResult().get(SHOP_NAME_KEY) == businessNameET.getText().toString()){
-                    snack.snackBar(signup, "Name exists! Please enter a different shop name");
-                } else {
-                    db.collection("Store").document("abcdd").set(store, SetOptions.merge())
+        store.put(BUSINESS_URL, businessUniqueNameET.getText().toString()+"/marquedo.com");
+
+
+        DocumentReference docIdRef = db.collection("Store").document(businessUniqueNameET.getText().toString());
+        docIdRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        snack.snackBar(businessUniqueNameET, "Unique Name Already Taken. Please Enter a Unique Name");
+                    } else {
+                        db.collection("Store").document(businessUniqueNameET.getText().toString()).set(store, SetOptions.merge())
                                 .addOnCompleteListener(task1 -> {
-                                SharedPreferences.Editor editor = sharedPreferences.edit();
-                                editor.putString(SHOP_NAME_KEY, businessNameET.getText().toString());
-                                editor.putInt(BUSINESS_CATEGORY_SIZE_KEY, currentSelectedItems.size());
-                                for (int i = 0; i < currentSelectedItems.size(); i++) {
-                                    editor.putString(BUSINESS_CATEGORY_KEY + i, currentSelectedItems.get(i));
-                                }
-                                editor.apply();
-                                Intent congrats=new Intent(this, com.marquedo.marquedo.SplashScreens.congrats.class);
-                                congrats.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                startActivity(congrats);
-                            })
-                            .addOnFailureListener(e -> Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show());
+                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                    editor.putString(SHOP_NAME_KEY, businessNameET.getText().toString());
+                                    editor.putString(BUSINESS_UNIQUE_NAME, businessUniqueNameET.getText().toString());
+                                    editor.putInt(BUSINESS_CATEGORY_SIZE_KEY, currentSelectedItems.size());
+                                    for (int i = 0; i < currentSelectedItems.size(); i++) {
+                                        editor.putString(BUSINESS_CATEGORY_KEY + i, currentSelectedItems.get(i));
+                                    }
+                                    editor.apply();
+                                    Intent congrats = new Intent(getApplicationContext(), com.marquedo.marquedo.SplashScreens.congrats.class);
+                                    congrats.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    startActivity(congrats);
+                                })
+                                .addOnFailureListener(e -> Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show());
+
+                    }
+                } else {
+                    Log.d(TAG, "Failed with: ", task.getException());
                 }
-            })
-                    .addOnFailureListener(e -> snack.snackBar(signup, e.getMessage()));
-        }
+            }
+        });
+
+//        String uid = Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid();
+//        Map<String, Object> store = new HashMap<>();
+//        store.put(SHOP_NAME_KEY, businessNameET.getText().toString());
+//        store.put(BUSINESS_CATEGORY_KEY, currentSelectedItems);
+//        if (!uid.isEmpty()) {
+//            snack.snackBar(signup, uid);
+//            db.collection("Store").document("abcdd").get().addOnCompleteListener(task -> {
+//                if (task.getResult().get(SHOP_NAME_KEY) == businessNameET.getText().toString()){
+//                    snack.snackBar(signup, "Name exists! Please enter a different shop name");
+//                } else {
+//                    db.collection("Store").document("abcdd").set(store, SetOptions.merge())
+//                                .addOnCompleteListener(task1 -> {
+//                                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                                editor.putString(SHOP_NAME_KEY, businessNameET.getText().toString());
+//                                editor.putInt(BUSINESS_CATEGORY_SIZE_KEY, currentSelectedItems.size());
+//                                for (int i = 0; i < currentSelectedItems.size(); i++) {
+//                                    editor.putString(BUSINESS_CATEGORY_KEY + i, currentSelectedItems.get(i));
+//                                }
+//                                editor.apply();
+//                                Intent congrats=new Intent(this, com.marquedo.marquedo.SplashScreens.congrats.class);
+//                                congrats.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+//                                startActivity(congrats);
+//                            })
+//                            .addOnFailureListener(e -> Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show());
+//                }
+//            })
+//                    .addOnFailureListener(e -> snack.snackBar(signup, e.getMessage()));
+//        }
     }
 
 

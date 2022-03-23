@@ -8,9 +8,11 @@ public class OurConstants {
     public static final String OTP_FCMID_KEY = "FCMId";
     public static final String OTP_SHOPNAME_KEY = "ShopName";
     public static final String OTP_SHOPCATEGORY_KEY = "BusinessCategory";
+    public static final String BUSINESS_URL = "BusinessURL";
     public static final String OTP_PREFERENCES = "OTPActivity";
     public static final String SHOP_NAME_KEY = "ShopName";
     public static final String BUSINESS_CATEGORY_KEY = "BusinessCategory";
+    public static final String BUSINESS_UNIQUE_NAME = "BusniessUniqueName";
     public static final String BUSINESS_CATEGORY_SIZE_KEY = "BusinessCategorySize";
     public static final String PRODUCT_NAME_KEY = "ProductName";
     public static final String PRODUCT_CATEGORY_KEY = "ProductCategory";

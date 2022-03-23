@@ -1,5 +1,7 @@
 package com.marquedo.marquedo.Home;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -12,10 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -27,32 +28,47 @@ import android.widget.Toast;
 import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
 import com.darsh.multipleimageselect.helpers.Constants;
 import com.darsh.multipleimageselect.models.Image;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.firestore.Transaction;
+import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 //import com.iceteck.silicompressorr.SiliCompressor;
-import com.marquedo.marquedo.ProductsNCategories.imageAdapterDownload;
+import com.marquedo.marquedo.CategoriesRecyclerViewAdapter;
+import com.marquedo.marquedo.CheckboxData;
+import com.marquedo.marquedo.ProductsNCategories.imageAdapter2;
 import com.marquedo.marquedo.R;
-import com.marquedo.marquedo.ProductsNCategories.imageAdapterUpload;
+import com.marquedo.marquedo.ProductsNCategories.imageAdapter;
 import com.marquedo.marquedo.Snack;
 import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
@@ -63,7 +79,11 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     private int count = 0;
 
     private RecyclerView recyclerView;
-    private imageAdapterUpload imageAdapterUpload;
+    private CategoriesRecyclerViewAdapter adapter;
+    private com.marquedo.marquedo.ProductsNCategories.imageAdapter imageAdapter;
+    private TextInputLayout categoriesTIL;
+    private String CategoriesString;
+
 
     private Button AddImages, AddService;
     private EditText ServiceName, ServiceCategory, ServicePrice, ServiceDiscount, ServiceDetails, ServiceMeasure, NumberofHours;
@@ -79,16 +99,25 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     private ActivityResultLauncher<Intent> getResult;
     private List<String> imageUrlList = new ArrayList<>();
     private Set<String> categories = new HashSet<String>();
+    private Set<String> check;
+    private final List<String> currentSelectedItems = new ArrayList<>();
+
+
+    private SharedPreferences.Editor myEdit;
+    private SharedPreferences sharedPreferences2;
+
 
     private BottomSheetDialog serviceAddedSuccessBM ;
     private BottomSheetDialog addCategoryDialog;
 
     private ServiceNameModelClass serviceNameModelClass;
 
-    private imageAdapterDownload imageAdapterDownload;
+    private imageAdapter2 imageAdapter2;
 
     private Snack snack;
-    private byte[] imageInByte;
+
+    DocumentReference serviceRef = db.collection("Store").
+            document("uniquename.TFTVHvZaHOIxjYLnHvwc");
 
 
 //    AnstronCoreHelper coreHelper;
@@ -105,7 +134,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_activity_profile_setup_service_page);
 
-
+        sharedPreferences2 = getSharedPreferences("Categories",MODE_PRIVATE);
         SharedPreferences sharedPreferences = getSharedPreferences("servicecount", MODE_PRIVATE);
         count = sharedPreferences.getInt("countvalue", 3);
 
@@ -119,14 +148,16 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         ServiceDetails = findViewById(R.id.service_details);
         ServiceMeasure = findViewById(R.id.service_measure);
         NumberofHours = findViewById(R.id.number_of_hours);
+        categoriesTIL = findViewById(R.id.TILCategory);
+        myEdit = sharedPreferences2.edit();
 
         snack = new Snack(getApplicationContext());
 
 
-        imageAdapterUpload = new imageAdapterUpload(Images);
+        imageAdapter = new imageAdapter(Images);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(imageAdapterUpload);
+        recyclerView.setAdapter(imageAdapter);
 
 
         serviceAddedSuccessBM = new BottomSheetDialog(this, R.style.CustomAlertDialog);
@@ -142,11 +173,27 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         String Key = intent.getStringExtra("key");
 
 
+
+        Set<String> newt = sharedPreferences2.getStringSet("ServCatSet", new HashSet<>());
+        System.out.println("@@@@@@@@@@@ newt"+newt+"@@@@@@@@@@@@@");
+        Log.i("newtCheck", newt.toString());
+
+        if(newt.size() == 0)
+        {
+            getCategories();
+        }
+
+        else{
+            System.out.println("$$$$$ newt" + newt + "%%%%%%%%%");
+            categories = newt;
+        }
+
+
+
         if(mode.equals("0"))
         {
             //Auto complete data fills the complete form
             databaseReference = firebaseDatabase.getReference("Services").child(Key);
-            databaseReference.keepSynced(true);
 
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
             {
@@ -172,8 +219,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
                         Log.i("listofimage", Urls.toString());
 
-                        imageAdapterDownload = new imageAdapterDownload(Urls);
-                        recyclerView.setAdapter(imageAdapterDownload);
+                        imageAdapter2 = new imageAdapter2(Urls);
+                        recyclerView.setAdapter(imageAdapter2);
                     }
                 }
 
@@ -258,12 +305,110 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                View view1=getLayoutInflater().inflate(R.layout.home_fragment_new_product_category,null);
-                BottomSheetDialog bottomSheetDialog= new BottomSheetDialog(getApplicationContext());
-                bottomSheetDialog.setContentView(view1);
-                bottomSheetDialog.show();
+                addCategoryDialog = new BottomSheetDialog(v.getContext(), R.style.CustomAlertDialog);
+                addCategoryDialog.setContentView(R.layout.home_fragment_new_services_category);
+                addCategoryDialog.show();
+                RecyclerView categoriesRecyclerView = addCategoryDialog.findViewById(R.id.rvServiceCategories);
+                MaterialButton addNewCategory = addCategoryDialog.findViewById(R.id.add_new_product_category_button);
+                MaterialButton submitBtn = addCategoryDialog.findViewById(R.id.submit_button);
+                CheckboxData checkboxData = new CheckboxData() {
+                    @Override
+                    public void onCheckboxCheck(String checkboxData) {
+                        currentSelectedItems.add(checkboxData);
+                        Log.d(TAG, currentSelectedItems.toString());
+                    }
+
+                    @Override
+                    public void onCheckboxUnCheck(String checkboxData) {
+                        currentSelectedItems.remove(checkboxData);
+                        Log.d(TAG, currentSelectedItems.toString());
+                    }
+                };
+                adapter = new CategoriesRecyclerViewAdapter(new ArrayList<>(categories), v.getContext(), checkboxData);
+                categoriesRecyclerView.setAdapter(adapter);
+                categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
+
+                submitBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        if (!currentSelectedItems.isEmpty()) {
+                            for (int i = 0; i < currentSelectedItems.size(); i++) {
+                                if (i == 0)
+                                    Objects.requireNonNull(categoriesTIL.getEditText()).setText(currentSelectedItems.get(i));
+                                else{
+                                    CategoriesString = categoriesTIL.getEditText().getText().toString();
+                                    String catString = CategoriesString + ", " + currentSelectedItems.get(i);
+                                    categoriesTIL.getEditText().setText(catString);
+                                }
+                            }
+                            addCategoryDialog.dismiss();
+                        } else {
+                            Toast.makeText(view.getContext(), "Please select a category...", Toast.LENGTH_LONG).show();
+                        }
+                    }
+                });
+
+                addNewCategory.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view1) {
+                        BottomSheetDialog addNewCatSheet = new BottomSheetDialog(view1.getContext(),
+                                R.style.CustomAlertDialog);
+                        addNewCatSheet.setContentView(R.layout.productsncategories_fragment_add_category);
+                        addNewCatSheet.show();
+                        EditText newcat = addNewCatSheet.findViewById(R.id.etnewCategory);
+                        Button addbtn = addNewCatSheet.findViewById(R.id.add_button);
+
+                        addbtn.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view2) {
+                                String newCat = newcat.getText().toString();
+                                System.out.println(newCat);
+                                if(newCat.equals("")){
+                                    System.out.println("abifejjknlad");
+                                    snack = new Snack(view2.getContext());
+                                    snack.snackBar(newcat, "Please enter a Category name");
+                                }
+                                else{
+                                    db.collection("Store")
+                                            .document("uniquename.TFTVHvZaHOIxjYLnHvwc")
+                                            .update("categories.service",
+                                                    FieldValue.arrayUnion(newCat)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            getCategories();
+                                            ProgressDialog dialog = ProgressDialog.show(view2.getContext(), "",
+                                                "Adding New Category. Please wait...", true);
+                                            Handler handler = new Handler();
+                                            handler.postDelayed(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    {
+                                                        dialog.dismiss();
+                                                        System.out.println("YYYYYY" + sharedPreferences2.getStringSet("ServCatSet", new HashSet<>()) + "YYYYYYy");
+                                                        adapter.updateData(sharedPreferences2.getStringSet("ServCatSet", new HashSet<>()));
+                                                        addNewCatSheet.dismiss();
+                                                        Toast.makeText(view1.getContext(), "New Category Added Successfully", Toast.LENGTH_LONG).show();
+                                                    }
+                                                }
+                                            }, 2000);// 2000 milliseconds = 2seconds
+
+                                            }
+                                    });
+
+                                }
+
+                            }
+                        });
+
+                    }
+                });
             }
         });
+
+
+
+
+
 
 
 
@@ -290,7 +435,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                 {
                     Images.add(images.get(i).path);
                 }
-                imageAdapterUpload.notifyDataSetChanged();
+                imageAdapter.notifyDataSetChanged();
             }
 
         });
@@ -384,6 +529,41 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     }
 
 
+
+    private void getCategories(){
+        System.out.println("%%%%%% inside getcat %%%%%%55");
+        serviceRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                categories.clear();
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        Log.d(TAG, "DocumentSnapshot data: " + document.getData());
+                        List<String> list = (List<String>) ((Map)document.getData().get("categories")).get("service");
+                        for(String i : list){
+                            categories.add(i);
+                        }
+                        Log.i("testingCat", categories.toString());
+
+                        myEdit = sharedPreferences2.edit();
+                        myEdit.putStringSet("ServCatSet", categories);
+                        myEdit.apply();
+                        check = sharedPreferences2.getStringSet("ServCatSet", new HashSet<>());
+                        System.out.println(categories);
+
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+    }
+
+
+
     private void uploadImageList(List<String> newImages, ServiceModelClass serviceModelClass)
     {
         if (newImages.size() != 0)
@@ -396,35 +576,18 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
 
             StorageReference reference = firebaseStorage.getReference();
+//            coreHelper = new AnstronCoreHelper(this);
             List<String> imageUrlList = new ArrayList<>();
-
-
 
             for (int i = 0; i < newImages.size(); i++)
             {
                 StorageReference storageReference = reference.child("Services").child(UUID.randomUUID().toString());
                 Uri image = Uri.parse(newImages.toString());
-
-                //Compress images
-                Uri uri = Uri.parse("file://" + newImages.get(i));
-                try
-                {
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 45, stream);
-                    imageInByte = stream.toByteArray();
-                } catch (IOException e)
-                {
-                    e.printStackTrace();
-                }
                 Log.i("check", newImages.get(i));
-                Log.i("uricheck", imageInByte.toString());
                 //storageReference.putFile(Uri.parse(Images.get(i))).
                 //storageReference.putFile(Uri.fromFile(new File(String.valueOf(Images)))).
 
-                //storageReference.putFile(Uri.parse("file://" + newImages.get(i))).addOnSuccessListener
-
-                storageReference.putBytes(imageInByte).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
+                storageReference.putFile(Uri.parse("file://" + newImages.get(i))).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
                 {
                     @Override
                     public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot)
@@ -441,25 +604,19 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                 imageUrlList.add(uri.toString());
 
                                 serviceModelClass.setImages(imageUrlList);
-
                                 serviceModelClass.setImage_Primary(imageUrlList.get(0));
 
                                 if(counter == newImages.size())
                                 {
-                                    DocumentReference storeRef = db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc");
-
-                                    storeRef.collection("services").add(serviceModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>()
-                                    {
+                                    DocumentReference storeRef = db.collection("Store")
+                                            .document("uniquename.TFTVHvZaHOIxjYLnHvwc");
+                                    storeRef.collection("services").add(serviceModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                         @Override
                                         public void onSuccess(@NonNull DocumentReference documentReference)
                                         {
-                                            String name = serviceModelClass.getName();
+                                            storeRef.update("categories.product", FieldValue.arrayUnion(serviceModelClass.getCategory()));
                                             databaseReference = firebaseDatabase.getReference("Services");
-                                            databaseReference.keepSynced(true);
-                                            databaseReference.child(name).setValue(serviceModelClass);
-                                            //databaseReference.child(name).push().setValue(serviceModelClass);
-                                            //databaseReference.push().setValue(serviceModelClass);
-
+                                            databaseReference.push().setValue(serviceModelClass);
 
                                             progressDialog.dismiss();
 
@@ -472,8 +629,6 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                             SharedPreferences.Editor editor = sharedPreferences.edit();
                                             editor.putInt("countvalue", count);
                                             editor.apply();
-
-
                                             loadData();
 
 
@@ -483,8 +638,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                         @Override
                                         public void onFailure(@NonNull Exception e)
                                         {
+
                                             progressDialog.dismiss();
-                                            //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                                             Toast.makeText(getApplicationContext(), "Error Adding Service", Toast.LENGTH_SHORT).show();
                                         }
                                     });
@@ -498,7 +653,6 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                             @Override
                             public void onFailure(@NonNull Exception e)
                             {
-                                //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                                 storageReference.delete();
                                 Toast.makeText(getApplicationContext(), "Couldn't save images", Toast.LENGTH_SHORT).show();
                             }
@@ -509,10 +663,9 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                     @Override
                     public void onFailure(@NonNull Exception e)
                     {
-                        //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                         progressDialog.setMessage("Uploading " + counter + "/" + newImages.size());
                         counter++;
-                        Toast.makeText(getApplicationContext(), "Couldn't upload images", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Couldn't upload", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -571,4 +724,6 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         }
 
     }
+
+
 }

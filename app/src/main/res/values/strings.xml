@@ -20,6 +20,7 @@
     <string name="business_categories">Business Categories</string>
     <string name="sign_up">Sign Up</string>
     <string name="business_name">Business Name</string>
+    <string name="business_uniquename">Business Unique Name</string>
     <string name="enter_below_details_for_successful_on_boarding">Enter below details for successful on-boarding</string>
     <string name="business_back_button">BusinessBackButton</string>
     <string name="logo">LOGO</string>

@@ -37,16 +37,18 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/tvProgress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="40%"
+                android:text="30%"
                 android:textColor="@color/yellow"
                 android:textSize="30dp"
                 android:textStyle="bold" />
         </LinearLayout>
 
         <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/linearProgressBar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="30dp"
@@ -90,7 +92,7 @@
             android:orientation="vertical">
 
             <moe.feng.common.stepperview.VerticalStepperItemView
-                android:id="@+id/stepper_0"
+                android:id="@+id/homestepper_0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -148,7 +150,7 @@
             </moe.feng.common.stepperview.VerticalStepperItemView>
 
             <moe.feng.common.stepperview.VerticalStepperItemView
-                android:id="@+id/stepper_1"
+                android:id="@+id/homestepper_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -216,17 +218,14 @@
             </moe.feng.common.stepperview.VerticalStepperItemView>
 
             <moe.feng.common.stepperview.VerticalStepperItemView
-                android:id="@+id/stepper_2"
+                android:id="@+id/homestepper_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
                 app:step_activated_color="@color/grey"
-
                 app:step_enable_animation="false"
                 app:step_index="3"
                 app:step_line_color="@color/grey"
                 app:step_state="selected"
-
                 >
 
                 <com.google.android.material.card.MaterialCardView
@@ -246,14 +245,15 @@
                         android:padding="14dp">
 
                         <TextView
+                            android:id="@+id/step3text1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="Share On Whatsapp"
                             android:textColor="@color/grey"
-
                             android:textSize="16dp" />
 
                         <TextView
+                            android:id="@+id/step3text2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:lineSpacingExtra="3dp"
