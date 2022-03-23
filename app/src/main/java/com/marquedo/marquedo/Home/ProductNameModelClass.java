@@ -1,16 +1,19 @@
 package com.marquedo.marquedo.Home;
 
+import java.util.List;
+
 public class ProductNameModelClass
 {
     String image_primary, name,category, unit_measure, details;
     Integer discount_price, number_of_units ,price;
+    List<String> images;
 
     public ProductNameModelClass()
     {
 
     }
 
-    public ProductNameModelClass(String image_primary, String name, String category, String unit_measure, String details, Integer discount_price, Integer number_of_units, Integer price) {
+    public ProductNameModelClass(String image_primary, String name, String category, String unit_measure, String details, Integer discount_price, Integer number_of_units, Integer price, List<String> images) {
         this.image_primary = image_primary;
         this.name = name;
         this.category = category;
@@ -19,6 +22,7 @@ public class ProductNameModelClass
         this.discount_price = discount_price;
         this.number_of_units = number_of_units;
         this.price = price;
+        this.images = images;
     }
 
     public String getImage_primary() {
@@ -83,5 +87,13 @@ public class ProductNameModelClass
 
     public void setPrice(Integer price) {
         this.price = price;
+    }
+
+    public List<String> getImages() {
+        return images;
+    }
+
+    public void setImages(List<String> images) {
+        this.images = images;
     }
 }

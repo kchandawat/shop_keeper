@@ -1,7 +1,5 @@
 package com.marquedo.marquedo.Home;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -14,9 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -28,42 +27,32 @@ import android.widget.Toast;
 import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
 import com.darsh.multipleimageselect.helpers.Constants;
 import com.darsh.multipleimageselect.models.Image;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
-import com.google.android.material.button.MaterialButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.Transaction;
-import com.google.firebase.firestore.WriteBatch;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 //import com.iceteck.silicompressorr.SiliCompressor;
-import com.marquedo.marquedo.ProductsNCategories.imageAdapter2;
+import com.marquedo.marquedo.ProductsNCategories.imageAdapterDownload;
 import com.marquedo.marquedo.R;
-import com.marquedo.marquedo.ProductsNCategories.imageAdapter;
+import com.marquedo.marquedo.ProductsNCategories.imageAdapterUpload;
 import com.marquedo.marquedo.Snack;
 import com.marquedo.marquedo.secondary.PnS.ServiceModelClass;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 import java.util.UUID;
 
@@ -74,7 +63,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     private int count = 0;
 
     private RecyclerView recyclerView;
-    private com.marquedo.marquedo.ProductsNCategories.imageAdapter imageAdapter;
+    private imageAdapterUpload imageAdapterUpload;
 
     private Button AddImages, AddService;
     private EditText ServiceName, ServiceCategory, ServicePrice, ServiceDiscount, ServiceDetails, ServiceMeasure, NumberofHours;
@@ -96,13 +85,11 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
     private ServiceNameModelClass serviceNameModelClass;
 
-    private imageAdapter2 imageAdapter2;
+    private imageAdapterDownload imageAdapterDownload;
 
     private Snack snack;
+    private byte[] imageInByte;
 
-    CollectionReference serviceRef = db.collection("Store").
-            document("uniquename.TFTVHvZaHOIxjYLnHvwc")
-            .collection("services");
 
 //    AnstronCoreHelper coreHelper;
 
@@ -136,10 +123,10 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         snack = new Snack(getApplicationContext());
 
 
-        imageAdapter = new imageAdapter(Images);
+        imageAdapterUpload = new imageAdapterUpload(Images);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(imageAdapter);
+        recyclerView.setAdapter(imageAdapterUpload);
 
 
         serviceAddedSuccessBM = new BottomSheetDialog(this, R.style.CustomAlertDialog);
@@ -154,38 +141,12 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
         Intent intent = getIntent();
         String Key = intent.getStringExtra("key");
 
-        SharedPreferences sharedPreferences2 = getSharedPreferences("Categories",MODE_PRIVATE);
-        Set<String> newt = sharedPreferences2.getStringSet("ServCatSet", new HashSet<String>());
-
-        if(newt.size() == 0){
-            ProgressDialog dialog = ProgressDialog.show(this, "",
-                    "Loading. Please wait...", true);
-            getCategories();
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    {
-                       dialog.dismiss();//dismiss the dialog box once data is retreived
-
-                        SharedPreferences.Editor myEdit = sharedPreferences2.edit();
-                        myEdit.putStringSet("ServCatSet", categories);
-                        myEdit.apply();
-                    }
-                }
-            }, 2000);// 2000 milliseconds = 2seconds
-
-        }
-        else{
-            categories = newt;
-        }
-
-
 
         if(mode.equals("0"))
         {
             //Auto complete data fills the complete form
             databaseReference = firebaseDatabase.getReference("Services").child(Key);
+            databaseReference.keepSynced(true);
 
             databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
             {
@@ -211,8 +172,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
                         Log.i("listofimage", Urls.toString());
 
-                        imageAdapter2 = new imageAdapter2(Urls);
-                        recyclerView.setAdapter(imageAdapter2);
+                        imageAdapterDownload = new imageAdapterDownload(Urls);
+                        recyclerView.setAdapter(imageAdapterDownload);
                     }
                 }
 
@@ -297,31 +258,12 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                addCategoryDialog = new BottomSheetDialog(v.getContext(), R.style.CustomAlertDialog);
-                addCategoryDialog.setContentView(R.layout.home_fragment_new_services_category);
-                addCategoryDialog.show();
-                RecyclerView categoriesRecyclerView = addCategoryDialog.findViewById(R.id.rvServiceCategories);
-                MaterialButton addNewCategory = addCategoryDialog.findViewById(R.id.add_new_product_category_button);
-                RecyclerAdapter adapter = new RecyclerAdapter(categories);
-                categoriesRecyclerView.setAdapter(adapter);
-                categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
-
-                addNewCategory.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        BottomSheetDialog addNewCatSheet = new BottomSheetDialog(view.getContext(),
-                                R.style.CustomAlertDialog);
-                        addNewCatSheet.setContentView(R.layout.productsncategories_fragment_add_category);
-                        addNewCatSheet.show();
-                    }
-                });
+                View view1=getLayoutInflater().inflate(R.layout.home_fragment_new_product_category,null);
+                BottomSheetDialog bottomSheetDialog= new BottomSheetDialog(getApplicationContext());
+                bottomSheetDialog.setContentView(view1);
+                bottomSheetDialog.show();
             }
         });
-
-
-
-
-
 
 
 
@@ -348,7 +290,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                 {
                     Images.add(images.get(i).path);
                 }
-                imageAdapter.notifyDataSetChanged();
+                imageAdapterUpload.notifyDataSetChanged();
             }
 
         });
@@ -442,28 +384,6 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
     }
 
 
-
-    private void getCategories(){
-        System.out.println("%%%%%% inside getcat %%%%%%55");
-        serviceRef.get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task1) {
-                        if (task1.isSuccessful()) {
-                            for(QueryDocumentSnapshot document : task1.getResult()){
-//                               Log.d(TAG, "Error getting documents: "+ document.getData().get("Category"));
-                                 categories.add(document.getData().get("category").toString());
-                                                    }
-                                                }
-                        else {
-                            Log.d(TAG, "Error getting documents: ", task1.getException());
-                        }
-                    }
-                });
-    }
-
-
-
     private void uploadImageList(List<String> newImages, ServiceModelClass serviceModelClass)
     {
         if (newImages.size() != 0)
@@ -476,18 +396,35 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
 
 
             StorageReference reference = firebaseStorage.getReference();
-//            coreHelper = new AnstronCoreHelper(this);
             List<String> imageUrlList = new ArrayList<>();
+
+
 
             for (int i = 0; i < newImages.size(); i++)
             {
                 StorageReference storageReference = reference.child("Services").child(UUID.randomUUID().toString());
                 Uri image = Uri.parse(newImages.toString());
+
+                //Compress images
+                Uri uri = Uri.parse("file://" + newImages.get(i));
+                try
+                {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), uri);
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 45, stream);
+                    imageInByte = stream.toByteArray();
+                } catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
                 Log.i("check", newImages.get(i));
+                Log.i("uricheck", imageInByte.toString());
                 //storageReference.putFile(Uri.parse(Images.get(i))).
                 //storageReference.putFile(Uri.fromFile(new File(String.valueOf(Images)))).
 
-                storageReference.putFile(Uri.parse("file://" + newImages.get(i))).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
+                //storageReference.putFile(Uri.parse("file://" + newImages.get(i))).addOnSuccessListener
+
+                storageReference.putBytes(imageInByte).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>()
                 {
                     @Override
                     public void onSuccess(@NonNull UploadTask.TaskSnapshot taskSnapshot)
@@ -504,19 +441,25 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                 imageUrlList.add(uri.toString());
 
                                 serviceModelClass.setImages(imageUrlList);
+
                                 serviceModelClass.setImage_Primary(imageUrlList.get(0));
 
                                 if(counter == newImages.size())
                                 {
-                                    DocumentReference storeRef = db.collection("Store")
-                                            .document("uniquename.TFTVHvZaHOIxjYLnHvwc");
-                                    storeRef.collection("services").add(serviceModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                    DocumentReference storeRef = db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc");
+
+                                    storeRef.collection("services").add(serviceModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>()
+                                    {
                                         @Override
                                         public void onSuccess(@NonNull DocumentReference documentReference)
                                         {
-                                            storeRef.update("categories.product", FieldValue.arrayUnion(serviceModelClass.getCategory()));
+                                            String name = serviceModelClass.getName();
                                             databaseReference = firebaseDatabase.getReference("Services");
-                                            databaseReference.push().setValue(serviceModelClass);
+                                            databaseReference.keepSynced(true);
+                                            databaseReference.child(name).setValue(serviceModelClass);
+                                            //databaseReference.child(name).push().setValue(serviceModelClass);
+                                            //databaseReference.push().setValue(serviceModelClass);
+
 
                                             progressDialog.dismiss();
 
@@ -540,9 +483,8 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                                         @Override
                                         public void onFailure(@NonNull Exception e)
                                         {
-
-                                            storeRef.update("categories.product", FieldValue.arrayUnion(serviceModelClass.getCategory()));
                                             progressDialog.dismiss();
+                                            //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                                             Toast.makeText(getApplicationContext(), "Error Adding Service", Toast.LENGTH_SHORT).show();
                                         }
                                     });
@@ -556,6 +498,7 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                             @Override
                             public void onFailure(@NonNull Exception e)
                             {
+                                //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                                 storageReference.delete();
                                 Toast.makeText(getApplicationContext(), "Couldn't save images", Toast.LENGTH_SHORT).show();
                             }
@@ -566,9 +509,10 @@ public class profileSetupAddServicePageActivity extends AppCompatActivity
                     @Override
                     public void onFailure(@NonNull Exception e)
                     {
+                        //Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                         progressDialog.setMessage("Uploading " + counter + "/" + newImages.size());
                         counter++;
-                        Toast.makeText(getApplicationContext(), "Couldn't upload", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Couldn't upload images", Toast.LENGTH_SHORT).show();
                     }
                 });
             }

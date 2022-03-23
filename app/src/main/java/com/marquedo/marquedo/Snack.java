@@ -9,7 +9,8 @@ public class Snack {
 
     public Context context;
 
-    public Snack(Context context) {
+    public Snack(Context context)
+    {
         this.context = context;
     }
 
@@ -20,4 +21,27 @@ public class Snack {
                 .setTextColor(context.getResources().getColor(R.color.sienna_brown))
                 .show();
     }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

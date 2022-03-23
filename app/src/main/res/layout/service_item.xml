@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/item_cv"
         android:layout_width="match_parent"
         android:layout_height="160dp"
         android:layout_marginHorizontal="5dp"
@@ -19,18 +20,19 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginVertical="20dp"
+                android:layout_height="match_parent"
+                android:layout_marginVertical="10dp"
                 android:layout_marginStart="10dp"
                 android:elevation="2dp"
                 app:cardCornerRadius="10dp">
 
                 <ImageView
+                    android:id="@+id/service_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@drawable/outline_card"
                     android:padding="5dp"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitXY"
                     android:src="@mipmap/mock" />
             </androidx.cardview.widget.CardView>
 
@@ -50,14 +52,57 @@
                     android:textColor="@color/material_grey_900"
                     android:textSize="18sp" />
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="24dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:padding="5dp"
+                        android:text="Price: "
+                        android:textColor="@color/grey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/service_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="5dp"
+                        android:text="30,000"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:padding="5dp"
+                        android:text="Offer Price: "
+                        android:textColor="@color/grey"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/service_offer_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="5dp"
+                        android:text="26,000"
+                        android:textColor="@color/grey"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="5dp"
                     android:orientation="horizontal">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/availability_ind"
+                        android:id="@+id/service_availability"
                         android:layout_width="wrap_content"
                         android:layout_height="36dp"
                         android:layout_alignParentStart="true"

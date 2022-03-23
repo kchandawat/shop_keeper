@@ -74,6 +74,7 @@ public class firstThreeAddProductFragment extends Fragment
     private Button Continue;
     DatabaseReference databaseReference;
     private String keys;
+    private Snack snack;
 
 
 
@@ -86,14 +87,38 @@ public class firstThreeAddProductFragment extends Fragment
         ProdName = v.findViewById(R.id.prod_name);
         //ProdCategory = v.findViewById(R.id.prod_category);
         Continue = v.findViewById(R.id.prod_continue_button);
+        snack = new Snack(getContext());
 //        getCategories();
 
         databaseReference = FirebaseDatabase.getInstance().getReference("Products");
+        databaseReference.keepSynced(true);
 
        //listView = v.findViewById(R.id.list_data);
         //recyclerView = v.findViewById(R.id.list_data);
 
         populateSearch();
+
+
+        Continue.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                String name = ProdName.getText().toString();
+
+                if (!(name.equals("")))
+                {
+                    Intent intent = new Intent(getContext(), profileSetupAddProductPageActivity.class);
+                    intent.putExtra("name", name);
+                    intent.putExtra("mode", "1");
+                    startActivity(intent);
+                }
+                else
+                {
+                    snack.snackBar(ProdName, "Please enter a product name");
+                }
+            }
+        });
 
 
         /*ProdCategory.setOnClickListener(new View.OnClickListener()
@@ -131,7 +156,7 @@ public class firstThreeAddProductFragment extends Fragment
 
     private void populateSearch()
     {
-        ValueEventListener eventListener = new ValueEventListener()
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
         {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)
@@ -142,9 +167,9 @@ public class firstThreeAddProductFragment extends Fragment
                     for(DataSnapshot dataSnapshot : snapshot.getChildren())
                     {
                         String prodname = dataSnapshot.child("name").getValue(String.class);
-                        keys = dataSnapshot.getKey();
+                        //keys = dataSnapshot.getKey();
                         names.add(prodname);
-                        Log.i("letsdo", keys);
+                        //Log.i("letsdo", keys);
                     }
 
                     ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,names);
@@ -152,14 +177,17 @@ public class firstThreeAddProductFragment extends Fragment
                     ProdName.setAdapter(adapter);
 
 
-                    ProdName.setOnItemClickListener(new AdapterView.OnItemClickListener() 
+                    ProdName.setOnItemClickListener(new AdapterView.OnItemClickListener()
                     {
                         @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) 
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id)
                         {
+                            keys = parent.getItemAtPosition(position).toString();
                             Intent intent = new Intent(getContext(), profileSetupAddProductPageActivity.class);
+                            Log.i("checkkeyofprod", parent.getItemAtPosition(position).toString());
                             Log.i("checkkeyresult", keys);
                             intent.putExtra("key",keys);
+                            intent.putExtra("mode", "0");
                             startActivity(intent);
                         }
                     });
@@ -171,18 +199,8 @@ public class firstThreeAddProductFragment extends Fragment
             {
 
             }
-        };
-
-        databaseReference.addListenerForSingleValueEvent(eventListener);
-
-        Continue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(ProdName.getText().equals("")){
-
-                }
-            }
         });
+
     }
 
 }

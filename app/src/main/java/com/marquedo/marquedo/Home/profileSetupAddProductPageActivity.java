@@ -49,12 +49,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.database.annotations.Nullable;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
@@ -69,16 +67,14 @@ import com.marquedo.marquedo.AddProductVariant.RemoveClickListner;
 import com.marquedo.marquedo.AddProductVariant.RemoveColourClickListner;
 import com.marquedo.marquedo.AddProductVariant.TheData;
 import com.marquedo.marquedo.AddProductVariant.VariantData;
-import com.marquedo.marquedo.OrdersNEnquiries.Orders.Order_details_overview;
+import com.marquedo.marquedo.ProductsNCategories.imageAdapterDownload;
 import com.marquedo.marquedo.R;
+import com.marquedo.marquedo.Snack;
 import com.marquedo.marquedo.datab.Variant;
 import com.marquedo.marquedo.databinding.Progress6ProductVariantRecyclerviewBinding;
 import com.marquedo.marquedo.ProductsNCategories.Product.AboutModelClass;
 import com.marquedo.marquedo.ProductsNCategories.Product.ProductModelClass;
-import com.marquedo.marquedo.ProductsNCategories.imageAdapter;
-import com.marquedo.marquedo.models.Orders_details_overview_model;
-
-import net.cachapa.expandablelayout.ExpandableLayout;
+import com.marquedo.marquedo.ProductsNCategories.imageAdapterUpload;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -90,9 +86,12 @@ import java.util.UUID;
 public class profileSetupAddProductPageActivity extends AppCompatActivity implements RemoveClickListner, RemoveColourClickListner, GetVariants {
 
     //private String ProductName, ProductCategory;
+    private String productname, mode;
+
+    private int count = 0;
 
     private RecyclerView recyclerView;
-    private com.marquedo.marquedo.ProductsNCategories.imageAdapter imageAdapter;
+    private imageAdapterUpload imageAdapterUpload;
 
     private Button AddImages, AddVarient, AddProduct;
     private EditText ProdName, ProdCategory, ProdPrice, ProdDiscount, ProdDetails, ProdMeasure, NumberofProd;
@@ -100,20 +99,32 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
 
+    private DatabaseReference databaseReference;
+    private FirebaseDatabase firebaseDatabase =FirebaseDatabase.getInstance();
+
+
     private ArrayList<String> Images = new ArrayList<>();
     private ActivityResultLauncher<Intent> getResult;
     private List<String> imageUrlList = new ArrayList<>();
     private Set<String> categories = new HashSet<String>();
 
+    private BottomSheetDialog productAddedSuccessBM ;
     private BottomSheetDialog addCategoryDialog;
-
-    private DatabaseReference databaseReference;
-
-    int counter;
 
     private ProductNameModelClass productNameModelClass;
 
-    public profileSetupAddProductPageActivity() {
+    private imageAdapterDownload imageAdapterDownload;
+
+    private Snack snack;
+
+    //private DatabaseReference databaseReference;
+
+    int counter;
+
+
+    public profileSetupAddProductPageActivity()
+    {
+
     }
 
 
@@ -133,11 +144,6 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
     private Progress6ProductVariantRecyclerviewBinding binding;
     //MAAZ END
 
-    //collection reference to products under store.
-    CollectionReference productRef = db.collection("Store").
-            document("uniquename.TFTVHvZaHOIxjYLnHvwc")
-            .collection("products");
-
 
 
     @Override
@@ -149,22 +155,6 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
         binding = DataBindingUtil.setContentView(this, R.layout.home_activity_profile_setup_product_page);
         MaterialButton addProductVariant = findViewById(R.id.add_new_product_variant_button);
         Button add_product_button = findViewById(R.id.add_product_button);
-
-
-        SharedPreferences sharedPreferences = getSharedPreferences("MySharedPref",MODE_PRIVATE);
-        SharedPreferences.Editor myEdit = sharedPreferences.edit();
-        Set<String> newt = sharedPreferences.getStringSet("ProdCatSet", new HashSet<String>());
-        if(newt.size() == 0){
-            getCategories();
-            myEdit.putStringSet("ProdCatSet", categories);
-            myEdit.commit();
-        }
-        else{
-            categories = newt;
-        }
-        System.out.println("@@@@@@@@@@@" + newt + " " + "@@@@@@@@@@");
-
-
 
 
         myList = new ArrayList<>();
@@ -479,65 +469,97 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
 
 
 
-
-    recyclerView = findViewById(R.id.prod_images_recyclerView);
+        recyclerView = findViewById(R.id.prod_images_recyclerView);
         AddImages = findViewById(R.id.add_product_images);
         AddVarient = findViewById(R.id.add_new_product_variant_button);
         AddProduct = findViewById(R.id.add_product_button);
         ProdPrice = findViewById(R.id.prod_price);
         ProdName = findViewById(R.id.prod_name);
         ProdCategory = findViewById(R.id.prod_category);
-        ProdPrice = findViewById(R.id.prod_price);
-        ProdPrice = findViewById(R.id.prod_price);
         ProdDiscount = findViewById(R.id.prod_discount);
         ProdDetails = findViewById(R.id.prod_details);
         ProdMeasure = findViewById(R.id.prod_measure);
         NumberofProd = findViewById(R.id.number_of_prod);
 
+        snack = new Snack(getApplicationContext());
 
 
-        imageAdapter = new imageAdapter(Images);
+        imageAdapterUpload = new imageAdapterUpload(Images);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(imageAdapter);
+        recyclerView.setAdapter(imageAdapterUpload);
+
+
+        productAddedSuccessBM = new BottomSheetDialog(this, R.style.CustomAlertDialog);
+        productAddedSuccessBM.setContentView(R.layout.home_fragment_added_success);
+
+
+        Intent nameIntent = getIntent();
+        productname = nameIntent.getStringExtra("name");
+        ProdName.setText(productname);
+        mode = nameIntent.getStringExtra("mode");
+
 
         Intent intent = getIntent();
         String Key = intent.getStringExtra("key");
 
 
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Products").child(Key);
+        if(mode.equals("0"))
+        {
+            //Auto complete data fills the complete form
+            databaseReference = firebaseDatabase.getReference("Products").child(Key);
+            databaseReference.keepSynced(true);
 
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot)
-            {
-                if(snapshot.exists())
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot)
                 {
+                    if (snapshot.exists())
+                    {
+                        //String Number_of_product = String.valueOf(aboutModelClass.getNumber_of_Units());
+                        productNameModelClass = snapshot.getValue(ProductNameModelClass.class);
 
-                    //String Number_of_product = String.valueOf(aboutModelClass.getNumber_of_Units());
-                    productNameModelClass = snapshot.getValue(ProductNameModelClass.class);
+                        Log.i("checknamelist", productNameModelClass.getName());
+                        ProdName.setText(productNameModelClass.getName());
+                        ProdPrice.setText(String.valueOf(productNameModelClass.getPrice()));
+                        ProdMeasure.setText(productNameModelClass.getUnit_measure());
+                        ProdDetails.setText(productNameModelClass.getDetails());
+                        ProdDiscount.setText(String.valueOf(productNameModelClass.getDiscount_price()));
+                        NumberofProd.setText(String.valueOf(productNameModelClass.getNumber_of_units()));
 
-                    Log.i("checknamelist", productNameModelClass.getName());
-                    ProdName.setText(productNameModelClass.getName());
-                    ProdCategory.setText(productNameModelClass.getCategory());
-                    ProdPrice.setText(String.valueOf(productNameModelClass.getPrice()));
-                    ProdMeasure.setText(productNameModelClass.getUnit_measure());
-                    ProdDetails.setText(productNameModelClass.getDetails());
-                    ProdDiscount.setText(String.valueOf(productNameModelClass.getDiscount_price()));
-                    NumberofProd.setText(String.valueOf(productNameModelClass.getNumber_of_units()));
+                        List<String> Urls = productNameModelClass.getImages();
+
+                        Log.i("listofimage", Urls.toString());
+
+                        imageAdapterDownload = new imageAdapterDownload(Urls);
+                        recyclerView.setAdapter(imageAdapterDownload);
+                    }
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
 
-            }
-        });
+                }
+            });
+        }
 
 //        Bundle intent = getIntent().getExtras();
 //        ProductName = intent.get("name").toString();
 //        ProductCategory = intent.get("category").toString();
+
+
+        ProdCategory.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick(View v) {
+                View view1 = getLayoutInflater().inflate(R.layout.home_fragment_new_product_category, null);
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getApplicationContext());
+                bottomSheetDialog.setContentView(view1);
+                bottomSheetDialog.show();
+            }
+        });
 
 
         AddImages.setOnClickListener(new View.OnClickListener()
@@ -562,38 +584,12 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
                 {
                     Images.add(images.get(i).path);
                 }
-                imageAdapter.notifyDataSetChanged();
+                imageAdapterUpload.notifyDataSetChanged();
             }
 
         });
 
-        ProdCategory.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v)
-            {
-//                new_product_category addcatsheet = new new_product_category();
 
-                addCategoryDialog = new BottomSheetDialog(v.getContext(), R.style.CustomAlertDialog);
-                addCategoryDialog.setContentView(R.layout.home_fragment_new_product_category);
-                addCategoryDialog.show();
-                RecyclerView categoriesRecyclerView = addCategoryDialog.findViewById(R.id.rvCategories);
-                 MaterialButton addNewCategory = addCategoryDialog.findViewById(R.id.add_new_product_category_button);
-                RecyclerAdapter adapter = new RecyclerAdapter(categories);
-                categoriesRecyclerView.setAdapter(adapter);
-                categoriesRecyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
-
-                addNewCategory.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        BottomSheetDialog addNewCatSheet = new BottomSheetDialog(view.getContext(),
-                                R.style.CustomAlertDialog);
-                        addNewCatSheet.setContentView(R.layout.productsncategories_fragment_add_category);
-                        addNewCatSheet.show();
-                    }
-                });
-            }
-        });
 
         AddProduct.setOnClickListener(new View.OnClickListener()
         {
@@ -608,23 +604,38 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
                 String Discount_Price = ProdDiscount.getText().toString();
                 String Details = ProdDetails.getText().toString();
 
-                ProductModelClass productModelClass = new ProductModelClass(null, Name, Measure, Integer.parseInt(Discount_Price)
-                        , Integer.parseInt(Number_of_Units), Integer.parseInt(Price));
+
+                if(!(Category.equals("")) && !(Measure.equals("")) && !(Number_of_Units.equals("")) && !(Price.equals("")))
+                {
+                    ProductModelClass productModelClass = new ProductModelClass(null, Name, Measure, Integer.parseInt(Discount_Price)
+                            , Integer.parseInt(Number_of_Units), Integer.parseInt(Price));
 
 
-                AboutModelClass aboutModelClass = new AboutModelClass(Category, Details, Name,Measure, Integer.parseInt(Discount_Price),
-                        Integer.parseInt(Number_of_Units), Integer.parseInt(Price), null);
+                    AboutModelClass aboutModelClass = new AboutModelClass(Category, Details, Name,Measure, Integer.parseInt(Discount_Price),
+                            Integer.parseInt(Number_of_Units), Integer.parseInt(Price), null);
 
-                uploadImage(Images, productModelClass, aboutModelClass);
+                    uploadImage(Images, productModelClass, aboutModelClass);
+                }
+                else
+                {
+                    snack.snackBar(ProdPrice, "Please enter all the details");
+                }
 
 
 
             }
         });
-
-
-
     }
+
+
+
+
+
+
+
+
+
+
 
 
     //MAAZ START
@@ -734,7 +745,6 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
 
 
 
-
     private void uploadImage(ArrayList<String> images, ProductModelClass productModelClass, AboutModelClass aboutModelClass)
     {
         if (images.size() != 0)
@@ -778,7 +788,9 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
 
                                 if(counter == images.size())
                                 {
-                                    db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("products").add(productModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>()
+                                    DocumentReference storeRef =  db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc");
+
+                                    storeRef.collection("products").add(productModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>()
                                     {
                                         @Override
                                         public void onSuccess(@NonNull DocumentReference documentReference)
@@ -788,8 +800,33 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
                                                 @Override
                                                 public void onSuccess(@NonNull Void unused)
                                                 {
+
+                                                    String name = productModelClass.getName();
+                                                    databaseReference = firebaseDatabase.getReference("Products");
+                                                    databaseReference.keepSynced(true);
+                                                    databaseReference.child(name).setValue(productModelClass);
+
+
                                                     progressDialog.dismiss();
-                                                    Toast.makeText(getApplicationContext(), "Product Added Successfully!", Toast.LENGTH_SHORT).show();
+
+
+                                                    if(count != 0)
+                                                    {
+                                                        count--;
+                                                    }
+
+
+                                                    SharedPreferences sharedPreferences = getSharedPreferences("productcount", MODE_PRIVATE);
+                                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                    editor.putInt("countvalue", count);
+                                                    editor.apply();
+
+
+                                                    loadData();
+
+
+
+                                                    //Toast.makeText(getApplicationContext(), "Product Added Successfully!", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
                                         }
@@ -830,96 +867,64 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
         }
     }
 
-    public class RecyclerAdapter extends
-            RecyclerView.Adapter<RecyclerAdapter.ViewHolder> {
-
-        // Provide a direct reference to each of the views within a data item
-        // Used to cache the views within the item layout for fast access
-        public  class ViewHolder extends RecyclerView.ViewHolder {
-            // Your holder should contain a member variable
-            // for any view that will be set as you render a row
-            public MaterialCheckBox checkBox;
-            // We also create a constructor that accepts the entire item row
-            // and does the view lookups to find each subview
-            public ViewHolder(View itemView) {
-                // Stores the itemView in a public final member variable that can be used
-                // to access the context from any ViewHolder instance.
-                super(itemView);
-                checkBox = (MaterialCheckBox) itemView.findViewById(R.id.material_check_box) ;
-
-            }
+    private void loadData()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("servicecount", MODE_PRIVATE);
+        TextView remainingService = productAddedSuccessBM.findViewById(R.id.remainingService);
+        Button addMore = productAddedSuccessBM.findViewById(R.id.addMore_button);
+        String text;
+        int check = sharedPreferences.getInt("countvalue", 4);
+//        remainingService.setText("Let's add "+ count+ " more products or services to complete your profile");
+        if(check == 2)
+        {
+            remainingService.setText("Let's add 2 more products or services to complete your profile");
+            productAddedSuccessBM.show();
+            addMore.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getApplicationContext(), addProductAndServicesProfilesetupActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+        else if(check == 1)
+        {
+            remainingService.setText("Let's add 1 more products or services to complete your profile");
+            productAddedSuccessBM.show();
+            addMore.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getApplicationContext(), addProductAndServicesProfilesetupActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+        else if(check == 0)
+        {
+            remainingService.setText("Hurrah! Add more products and services to your shop.");
+            productAddedSuccessBM.show();
+            addMore.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getApplicationContext(), addProductAndServicesProfilesetupActivity.class);
+                    startActivity(intent);
+                }
+            });
         }
 
-        @Override
-        public RecyclerAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            Context context = parent.getContext();
-            LayoutInflater inflater = LayoutInflater.from(context);
-
-            // Inflate the custom layout
-            View ordersView = inflater.inflate(R.layout.home_new_category_tile, parent, false);
-
-            // Return a new holder instance
-            RecyclerAdapter.ViewHolder viewHolder = new RecyclerAdapter.ViewHolder(ordersView);
-            return viewHolder;
-        }
-        private List<String> categoriesList;
-
-        public RecyclerAdapter(Set<String> category) {
-            categoriesList = new ArrayList<>(category);
-        }
-
-        // Involves populating data into the item through holder
-        @Override
-        public void onBindViewHolder(RecyclerAdapter.ViewHolder holder, int position) {
-            // Get the data model based on position
-            String category = categoriesList.get(position);
-
-            // Set item views based on your views and data model
-            MaterialCheckBox checkBoxText = holder.checkBox;
-            checkBoxText.setText(category);
-
-
-        }
-
-        // Returns the total count of items in the list
-        @Override
-        public int getItemCount() {
-            return categoriesList.size();
-        }
     }
 
-    public void getCategories(){
-
-        productRef.get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task1) {
-                        if (task1.isSuccessful()) {
-                            for (QueryDocumentSnapshot documentSnap : task1.getResult()) {
-                                productRef.document(documentSnap.getId()).collection("about")
-                                        .get()
-                                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                                            @Override
-                                            public void onComplete(@NonNull Task<QuerySnapshot> task2) {
-                                                if(task2.isSuccessful()){
-                                                    for(QueryDocumentSnapshot document : task2.getResult()){
-//                                                        Log.d(TAG, "Error getting documents: "+ document.getData().get("Category"));
-                                                        categories.add(document.getData().get("Category").toString());
-                                                    }
-                                                }
-                                            }
-                                        });
-                                Log.d(TAG, documentSnap.getId() + " => " + documentSnap.getData());
-                            }
-                        } else {
-                            Log.d(TAG, "Error getting documents: ", task1.getException());
-                        }
-                    }
-                });
 
 
 
-    }
+
+
 
 //    public void setListener(){
 //        db.collection("cities")

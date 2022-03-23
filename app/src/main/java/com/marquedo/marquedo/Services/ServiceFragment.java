@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,54 +13,38 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.google.android.material.button.MaterialButton;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
+import com.google.firebase.firestore.Query;
 import com.marquedo.marquedo.Home.addProductAndServicesProfilesetupActivity;
+import com.marquedo.marquedo.ProductsNCategories.Product.ProductListAdapter1;
+import com.marquedo.marquedo.ProductsNCategories.Product.ProductModelClass;
 import com.marquedo.marquedo.R;
 
 import java.util.ArrayList;
 
-public class ServiceFragment extends Fragment {
+public class ServiceFragment extends Fragment
+{
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-    ArrayList<ServiceDataModel> data = new ArrayList<>();
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public ServiceFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment OrdersFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ServiceFragment newInstance(String param1, String param2) {
-        ServiceFragment fragment = new ServiceFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private RecyclerView recyclerView;
+    private FrameLayout frameLayout;
+    private FirebaseFirestoreSettings settings;
+    private FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private ServiceListAdapter1 adapter1;
+    private MaterialButton addService;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        {
+
         }
 
 
-        data.add(new ServiceDataModel("Mock Service Title (Filler, Filler, Filler)"));
+       /* data.add(new ServiceDataModel("Mock Service Title (Filler, Filler, Filler)"));
         data.add(new ServiceDataModel("Mock Service Title 2 (Filler, Filler)",
                 false));
         data.add(new ServiceDataModel("Gadgets, Mobiles, Tablets and Acccessories Repair",
@@ -79,7 +64,7 @@ public class ServiceFragment extends Fragment {
         data.add(new ServiceDataModel("Mock Service Title (Filler, Filler, Filler)",
                 true));
         data.add(new ServiceDataModel("Mock Service Title 2 (Filler, Filler)",
-                false));
+                false)); */
     }
 
     @Override
@@ -87,7 +72,31 @@ public class ServiceFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.services_fragment_services, container, false);
 
-        view.findViewById(R.id.add_service).setOnClickListener(new View.OnClickListener()
+        addService = view.findViewById(R.id.add_service);
+
+        recyclerView = view.findViewById(R.id.services_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
+        recyclerView.setItemAnimator(null);
+
+        settings = new FirebaseFirestoreSettings.Builder()
+                .setPersistenceEnabled(true)
+                .build();
+
+        db.setFirestoreSettings(settings);
+
+
+
+        Query query = db.collectionGroup("services");
+
+
+        FirestoreRecyclerOptions<ServiceModelClass> options = new FirestoreRecyclerOptions.Builder<ServiceModelClass>()
+                .setQuery(query, ServiceModelClass.class)
+                .build();
+
+        adapter1 = new ServiceListAdapter1(options); //, item -> startActivity(new Intent(getContext(), update_product.class)));
+        recyclerView.setAdapter(adapter1);
+
+        /*view.findViewById(R.id.add_service).setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
@@ -95,17 +104,41 @@ public class ServiceFragment extends Fragment {
                 Intent intent = new Intent(getContext(), addProductAndServicesProfilesetupActivity.class);
                 startActivity(intent);
             }
+        });*/
+
+        addService.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent = new Intent(getActivity(), addProductAndServicesProfilesetupActivity.class);
+                startActivity(intent);
+            }
         });
 
         return view;
     }
 
-    @Override
+    /*@Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.services_list);
-        recyclerView.setAdapter(new ServiceListAdapter(data));
+        //recyclerView.setAdapter(new ServiceListAdapter(data));
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext(), RecyclerView.VERTICAL, false));
+    }*/
+
+    @Override
+    public void onStart()
+    {
+        super.onStart();
+        adapter1.startListening();
+    }
+
+    @Override
+    public void onStop()
+    {
+        super.onStop();
+        adapter1.stopListening();
     }
 
 }

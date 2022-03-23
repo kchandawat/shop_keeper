@@ -17,6 +17,9 @@ import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.android.material.button.MaterialButton;
 import com.marquedo.marquedo.R;
 import com.marquedo.marquedo.ProductsNCategories.update_product;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.NetworkPolicy;
+import com.squareup.picasso.Picasso;
 
 public class ProductListAdapter1 extends FirestoreRecyclerAdapter<ProductModelClass, ProductListAdapter1.ViewHolder>
 {
@@ -36,6 +39,21 @@ public class ProductListAdapter1 extends FirestoreRecyclerAdapter<ProductModelCl
         holder.productPrice.setText(String.valueOf(model.getPrice()));
         holder.productOffer.setText(String.valueOf(model.getDiscount_Price()));
         Glide.with(holder.prodImage.getContext()).load(model.getImage_Primary()).into(holder.prodImage);
+       /* Picasso.get().load(model.getImage_Primary()).networkPolicy(NetworkPolicy.OFFLINE).into(holder.prodImage, new Callback()
+        {
+            @Override
+            public void onSuccess()
+            {
+                holder.progressBar.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onError(Exception e)
+            {
+                Glide.with(holder.imageView.getContext()).load(imageUrl.get(position)).into(holder.imageView);
+            }
+        }); */
+
         holder.cardView.setOnClickListener(new View.OnClickListener()
         {
             @Override

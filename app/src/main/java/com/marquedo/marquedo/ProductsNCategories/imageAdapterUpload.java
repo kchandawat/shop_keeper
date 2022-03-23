@@ -5,21 +5,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.marquedo.marquedo.R;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.ArrayList;
 
-public class imageAdapter extends RecyclerView.Adapter<imageAdapter.holder>
+public class imageAdapterUpload extends RecyclerView.Adapter<imageAdapterUpload.holder>
 {
     ArrayList<String> imagePath;
 
-    public imageAdapter(ArrayList<String> string)
+    public imageAdapterUpload(ArrayList<String> string)
     {
         this.imagePath = string;
     }
@@ -38,6 +41,9 @@ public class imageAdapter extends RecyclerView.Adapter<imageAdapter.holder>
 
         String path = imagePath.get(position);
         Glide.with(holder.imageView.getContext()).load(new File(path)).into(holder.imageView);
+        holder.progressBar.setVisibility(View.INVISIBLE);
+        //holder.progressBar.setVisibility(View.GONE);
+        //Picasso.get().load(new File(path)).into(holder.imageView);
     }
 
 
@@ -52,29 +58,31 @@ public class imageAdapter extends RecyclerView.Adapter<imageAdapter.holder>
 
     class holder extends RecyclerView.ViewHolder
     {
-        ImageButton imageButton;
-        ImageView imageView;
-        private imageAdapter imageAdapter;
+        private ImageButton imageButton;
+        private ImageView imageView;
+        private imageAdapterUpload imageAdapterUpload;
+        private ProgressBar progressBar;
 
         public holder(@NonNull View itemView)
         {
             super(itemView);
             imageButton=itemView.findViewById(R.id.imageBtn);
             imageView=itemView.findViewById(R.id.imageView);
+            progressBar=itemView.findViewById(R.id.image_progress);
             imageButton.setOnClickListener(new View.OnClickListener()
             {
                 @Override
                 public void onClick(View v)
                 {
-                    imageAdapter.imagePath.remove(getAdapterPosition());
-                    imageAdapter.notifyItemRemoved(getAdapterPosition());
+                    imageAdapterUpload.imagePath.remove(getAdapterPosition());
+                    imageAdapterUpload.notifyItemRemoved(getAdapterPosition());
                 }
             });
         }
 
-        public holder linkAdapter(imageAdapter imageAdapter)
+        public holder linkAdapter(imageAdapterUpload imageAdapterUpload)
         {
-            this.imageAdapter = imageAdapter;
+            this.imageAdapterUpload = imageAdapterUpload;
             return this;
         }
 

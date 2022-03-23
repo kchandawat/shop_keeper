@@ -62,6 +62,7 @@ public class firstThreeAddServiceFragment extends Fragment
         private String keys;
         private Snack snack;
 
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState)
@@ -73,9 +74,9 @@ public class firstThreeAddServiceFragment extends Fragment
             snack = new Snack(getContext());
 
             databaseReference = FirebaseDatabase.getInstance().getReference("Services");
+            databaseReference.keepSynced(true);
 
             populateSearch();
-
 
             Continue.setOnClickListener(new View.OnClickListener()
             {
@@ -114,15 +115,15 @@ public class firstThreeAddServiceFragment extends Fragment
                 {
                     if(snapshot.exists())
                     {
-                        ArrayList<String> servicename = new ArrayList<>();
+                        ArrayList<String> names = new ArrayList<>();
                         for(DataSnapshot dataSnapshot : snapshot.getChildren())
                         {
-                            String names = dataSnapshot.child("name").getValue(String.class);
-                            keys = dataSnapshot.getKey().toString();
-                            Log.i("checkKey", keys);
-                            servicename.add(names);
+                            String servicename = dataSnapshot.child("name").getValue(String.class);
+                            //keys = dataSnapshot.getKey().toString();
+                            //Log.i("checkKey", keys);
+                            names.add(servicename);
                         }
-                        ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,servicename);
+                        ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,names);
                         ServiceName.setThreshold(1);
                         ServiceName.setAdapter(adapter);
 
@@ -133,10 +134,12 @@ public class firstThreeAddServiceFragment extends Fragment
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id)
                             {
+                                keys = parent.getItemAtPosition(position).toString();
                                 //String selection = parent.getItemAtPosition(position).toString();
                                 //String selected = adapter.getItem(position).toString();
                                 Intent intent = new Intent(getContext(), profileSetupAddServicePageActivity.class);
                                 Log.i("checkkeyresult", keys);
+                                Log.i("checkkeyofprod", parent.getItemAtPosition(position).toString());
                                 intent.putExtra("key",keys);
                                 intent.putExtra("mode", "0");
                                 startActivity(intent);
