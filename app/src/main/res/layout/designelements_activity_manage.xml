@@ -82,6 +82,7 @@
                         app:cardBackgroundColor="@color/white"
                         app:cardElevation="3dp"
                         android:translationZ="3dp"
+                        android:id="@+id/reviewsRatings"
                         >
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -108,11 +109,6 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
-
-
-
-
-
                     <androidx.cardview.widget.CardView
                         android:id="@+id/manage_promotional_designs"
                         android:layout_width="match_parent"
@@ -125,6 +121,44 @@
                         app:cardBackgroundColor="@color/white"
                         app:cardElevation="3dp"
                         android:translationZ="3dp"
+                        android:id="@+id/marketingcampaign"
+                        >
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginLeft="40dp"
+                                android:layout_marginRight="20dp"
+                                android:src="@drawable/coupon"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:text="Marketing Campaign"
+                                android:textSize="22dp"
+                                android:layout_weight="2"
+                                />
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="70dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="20dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardElevation="3dp"
+                        android:translationZ="3dp"
+                        android:id="@+id/promotionalDesign"
                         >
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -163,6 +197,7 @@
                         app:cardBackgroundColor="@color/white"
                         app:cardElevation="3dp"
                         android:translationZ="3dp"
+                        android:id="@+id/onlinePayment"
                         >
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -239,6 +274,7 @@
                         app:cardBackgroundColor="@color/white"
                         app:cardElevation="3dp"
                         android:translationZ="3dp"
+                        android:id="@+id/deliveryCharges"
                         >
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -278,6 +314,7 @@
                         app:cardBackgroundColor="@color/white"
                         app:cardElevation="3dp"
                         android:translationZ="3dp"
+                        android:id="@+id/extraCharges"
                         >
 
                         <LinearLayout
@@ -388,6 +425,7 @@
                         app:cardBackgroundColor="@color/white"
                         app:cardElevation="3dp"
                         android:translationZ="3dp"
+                        android:id="@+id/shopQR"
                         >
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -413,6 +451,7 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
+
 
 
                 </LinearLayout>

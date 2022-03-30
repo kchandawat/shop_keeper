@@ -1,77 +1,55 @@
 package com.marquedo.marquedo.DesignElements.Manage;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.marquedo.marquedo.R;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+
 import com.marquedo.marquedo.DesignElements.Manage.MyCustomers.MyCustomerActivity;
 import com.marquedo.marquedo.DesignElements.Manage.discounts.DiscountNCouponsActivity;
+import com.marquedo.marquedo.DesignElements.OnlinePayment;
+import com.marquedo.marquedo.DesignElements.ShopQRPage;
+import com.marquedo.marquedo.DesignElements.Manage.MarketingCampaign.MarketingCampaignLanding;
+import com.marquedo.marquedo.R;
 
-public class ManageActivity extends AppCompatActivity
-{
-    CardView reviews, promotionalDesigns, payment, discountCoupons, deliveryCharge, extraCharge, myCustomers;
+public class ManageActivity extends AppCompatActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.designelements_activity_manage);
 
-        reviews = findViewById(R.id.manage_reviews_ratings);
-        promotionalDesigns = findViewById(R.id.manage_promotional_designs);
-        payment = findViewById(R.id.manage_online_payment);
-        discountCoupons = findViewById(R.id.manage_discount_coupon);
-        deliveryCharge = findViewById(R.id.manage_delivery_charges);;
-        extraCharge = findViewById(R.id.manage_extra_charges);
-        myCustomers = findViewById(R.id.manage_my_customers);;
+        CardView myCustomers = findViewById(R.id.manageMyCustomers);
+        CardView discounts = findViewById(R.id.discountCoupon);
+        CardView marketingCampaign = findViewById(R.id.marketingcampaign);
+        CardView deliveryCharges = findViewById(R.id.deliveryCharges);
+        CardView extraCharges = findViewById(R.id.extraCharges);
+        CardView shopQR = findViewById(R.id.shopQR);
+        CardView promotionalDesign = findViewById(R.id.promotionalDesign);
+        CardView onlinePayments = findViewById(R.id.onlinePayment);
+        CardView reviewsRatings = findViewById(R.id.reviewsRatings);
 
 
-        /*reviews.setOnClickListener(new View.OnClickListener() {
+        reviewsRatings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(view.getContext(), MyCustomerActivity.class));
-            }
-        }); */
-
-       /* promotionalDesigns.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(view.getContext(), .class));
-            }
-        });*/
-
-
-       /* payment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(view.getContext(), .class));
-            }
-        }); */
-
-
-        discountCoupons.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(view.getContext(), DiscountNCouponsActivity.class));
+                startActivity(new Intent(view.getContext(), ReviewsAndRatingsLanding.class));
             }
         });
 
-
-        deliveryCharge.setOnClickListener(new View.OnClickListener() {
+        promotionalDesign.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(view.getContext(), DeliveryCharges.class));
+                startActivity(new Intent(view.getContext(), PromotionalDesignOptions.class));
             }
         });
 
-        extraCharge.setOnClickListener(new View.OnClickListener() {
+        onlinePayments.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(view.getContext(), ExtraCharges.class));
+                startActivity(new Intent(view.getContext(), OnlinePayment.class));
             }
         });
 
@@ -82,9 +60,40 @@ public class ManageActivity extends AppCompatActivity
             }
         });
 
+        discounts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), DiscountNCouponsActivity.class));
+            }
+        });
 
+        marketingCampaign.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), MarketingCampaignLanding.class));
+            }
+        });
 
+        deliveryCharges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), DeliveryCharges.class));
+            }
+        });
 
+        extraCharges.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), ExtraCharges.class));
+            }
+        });
+
+        shopQR.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(view.getContext(), ShopQRPage.class));
+            }
+        });
 
 
 

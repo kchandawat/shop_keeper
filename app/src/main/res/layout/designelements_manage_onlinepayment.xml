@@ -73,12 +73,9 @@
                             android:id="@+id/payment_image"
                             android:layout_width="100dp"
                             android:layout_height="100dp"
-                            android:layout_marginVertical="5dp"
-                            android:layout_marginStart="0dp"
-                            android:background="@drawable/outline_card"
-                            android:padding="5dp"
-                            android:scaleType="fitCenter"
-                            android:src="@mipmap/mock"
+                            android:background="@drawable/yellow_background_icon"
+                            android:padding="20dp"
+                            android:src="@drawable/online_payment"
                             />
 
                     </LinearLayout>
@@ -87,23 +84,30 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="5dp"
-                        android:orientation="horizontal">
+                        android:layout_marginLeft="15dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
 
                         <TextView
                             android:id="@+id/payment_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
                             android:text="Add your payment details to start online payment option active"
                             android:textColor="@color/black"
                             android:layout_toRightOf="@id/payment_image"
-                            android:textSize="21sp" />
+                            android:textSize="20sp"
+                            android:layout_gravity="center|center_horizontal"
+                            />
                     </LinearLayout>
+
                 </RelativeLayout>
 
                 <RelativeLayout
                     android:layout_marginTop="0dp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:padding="10dp">
 
                     <LinearLayout
@@ -138,6 +142,8 @@
                                     android:layout_marginStart="15dp"
                                     android:id="@+id/UPI"
                                     android:button="@drawable/custom_radio"
+                                    android:checked="true"
+
                                     />
 
                                 <androidx.appcompat.widget.AppCompatRadioButton
@@ -161,7 +167,8 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="5dp"
                                 android:id="@+id/AccountholderLayout"
-                                android:layout_marginVertical="86dp">
+                                android:layout_marginVertical="86dp"
+                                android:visibility="gone">
 
                                 <TextView
                                     android:id="@+id/Accountnametext"
@@ -181,8 +188,7 @@
                                     android:background="@drawable/edit_text_layout"
                                     android:padding="9dp"
                                     android:text="Priyanka Bhosale"
-                                    android:textSize="16sp"
-                                    android:visibility="gone"/>
+                                    android:textSize="16sp"/>
                             </RelativeLayout>
 
                             <RelativeLayout
@@ -191,7 +197,8 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="5dp"
                                 android:id="@+id/UPILayout"
-                                android:layout_marginVertical="86dp">
+                                android:layout_marginVertical="86dp"
+                                android:visibility="visible">
 
                                 <TextView
                                     android:id="@+id/UPItext"
@@ -220,7 +227,8 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="5dp"
                                 android:id="@+id/AccountnoLayout"
-                                android:layout_marginVertical="160dp">
+                                android:layout_marginVertical="160dp"
+                                android:visibility="gone">
 
                                 <TextView
                                     android:id="@+id/accnotext"
@@ -249,7 +257,39 @@
                                 android:layout_gravity="center_horizontal"
                                 android:layout_marginTop="5dp"
                                 android:id="@+id/IFSCLayout"
-                                android:layout_marginVertical="230dp">
+                                android:layout_marginVertical="230dp"
+                                android:visibility="gone">
+
+                                <TextView
+                                    android:id="@+id/IFSCtext"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:text="Account Number"
+                                    android:textSize="15sp" />
+
+                                <EditText
+                                    android:id="@+id/IFSC"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/IFSCtext"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:background="@drawable/edit_text_layout"
+                                    android:padding="9dp"
+                                    android:text=""
+                                    android:textSize="16sp" />
+                            </RelativeLayout>
+
+                            <!--<RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:layout_marginTop="5dp"
+                                android:id="@+id/IFSCLayout"
+                                android:layout_marginVertical="230dp"
+                                android:layout_marginBottom="60dp"
+                                android:visibility="gone">
 
                                 <TextView
                                     android:id="@+id/IFSCtext"
@@ -269,9 +309,8 @@
                                     android:background="@drawable/edit_text_layout"
                                     android:padding="9dp"
                                     android:text=""
-
                                     android:textSize="16sp" />
-                            </RelativeLayout>
+                            </RelativeLayout>-->
 
 
 
@@ -291,8 +330,7 @@
                                 android:textColor="#808080"
                                 android:textSize="20dp"
                                 app:cornerRadius="10dp"
-                                tools:layout_editor_absoluteX="36dp"
-                                tools:layout_editor_absoluteY="143dp"
+
                                 android:stateListAnimator="@null"
                                 />
                         </androidx.cardview.widget.CardView>
