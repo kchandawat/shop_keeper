@@ -67,7 +67,7 @@
                     android:padding="30dp">
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/addImage_updateProd"
+                        android:id="@+id/add_service_images"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/white"
@@ -87,7 +87,7 @@
                         />
 
                     <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/update_prod_recyclerView"
+                        android:id="@+id/update_service_recyclerView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
@@ -398,11 +398,8 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_below="@+id/label5"
-
                                 android:layout_marginTop="5dp"
                                 android:background="@drawable/edit_text_layout"
-
-
                                 android:padding="10dp"
                                 android:textSize="16sp" />
                         </RelativeLayout>
@@ -464,7 +461,7 @@
 
 
                     <com.google.android.material.button.MaterialButton
-                        android:id="@+id/update_product_button"
+                        android:id="@+id/update_service_button"
                         android:layout_width="match_parent"
                         android:layout_height="57dp"
                         android:layout_marginTop="20dp"

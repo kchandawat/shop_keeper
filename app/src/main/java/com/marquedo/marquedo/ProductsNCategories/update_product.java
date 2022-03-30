@@ -55,7 +55,7 @@ public class update_product extends AppCompatActivity
     private RecyclerView recyclerView;
     private AboutModelClass aboutModelClass;
     private MaterialButton add_images_button;
-    private imageAdapter2 imageAdapter2;
+    private imageAdapterDownload imageAdapterDownload;
     //private imageAdapter imageAdapter;
     private ActivityResultLauncher<Intent> getResult;
 
@@ -94,7 +94,7 @@ public class update_product extends AppCompatActivity
         bottomSheetDialog.setContentView(R.layout.home_fragment_new_product_category);
         MaterialButton close = bottomSheetDialog.findViewById(R.id.close_sheet);
         MaterialButton addCategory = bottomSheetDialog.findViewById(R.id.add_new_product_category_button);
-//        RecyclerView recyclerView = bottomSheetDialog.findViewById(R.id.recyclerview);
+//      RecyclerView recyclerView = bottomSheetDialog.findViewById(R.id.recyclerview);
         addCatBottomSheet = new BottomSheetDialog(this, R.style.CustomAlertDialog);
         addCatBottomSheet.setContentView(R.layout.productsncategories_fragment_add_category);
         MaterialButton close2 = addCatBottomSheet.findViewById(R.id.close_sheet);
@@ -137,7 +137,6 @@ public class update_product extends AppCompatActivity
                     intent.putExtra(Constants.INTENT_EXTRA_LIMIT, 6);
                     getResult.launch(intent);
                 }
-
             }
         });
 
@@ -154,7 +153,7 @@ public class update_product extends AppCompatActivity
                     Images.add(images.get(i).path);
                     newImages.add(images.get(i).path);
                 }
-                imageAdapter2.notifyItemRangeInserted(count, images.size());
+                imageAdapterDownload.notifyItemRangeInserted(count, images.size());
                 //imageAdapter = new imageAdapter(Images);
                 //recyclerView.setAdapter(imageAdapter);
             }
@@ -176,8 +175,8 @@ public class update_product extends AppCompatActivity
 
                 prevImages = Urls;
 
-                imageAdapter2 = new imageAdapter2(Urls);
-                recyclerView.setAdapter(imageAdapter2);
+                imageAdapterDownload = new imageAdapterDownload(Urls);
+                recyclerView.setAdapter(imageAdapterDownload);
 
 
                 /*FirestoreRecyclerOptions<AboutModelClass> options = new FirestoreRecyclerOptions.Builder<AboutModelClass>()

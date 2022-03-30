@@ -1,4 +1,4 @@
-package com.marquedo.marquedo.ProductsNCategories;
+package com.marquedo.marquedo.Services;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -20,17 +20,13 @@ import com.marquedo.marquedo.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class preview_product extends AppCompatActivity
-{
-
+public class PreviewService extends AppCompatActivity {
     private String position;
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private AboutModelClass aboutModelClass;
+    private ServiceModelClass serviceModelClass;
     private TextView name, units, measure, price, offerPrice, details;
     private ImageSlider imageSlider;
 
-
-    @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
@@ -44,7 +40,6 @@ public class preview_product extends AppCompatActivity
         details = findViewById(R.id.product_description);
 
 
-
         imageSlider = findViewById(R.id.image_slider);
         final List<SlideModel> displayImages = new ArrayList<>();
 
@@ -56,18 +51,14 @@ public class preview_product extends AppCompatActivity
         position = intent.get("key").toString();
 
 
-
-
-
-
-        db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("products").document(position).collection("about").document("product_id").get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>()
+        db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("services").document(position).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>()
         {
             @Override
             public void onSuccess(@NonNull DocumentSnapshot documentSnapshot)
             {
-                aboutModelClass = documentSnapshot.toObject(AboutModelClass.class);
+                serviceModelClass = documentSnapshot.toObject(ServiceModelClass.class);
 
-                List<String> Urls = (List<String>) documentSnapshot.get("Images");
+                List<String> Urls = (List<String>) documentSnapshot.get("images");
 
                 int images = 0;
 
@@ -78,19 +69,19 @@ public class preview_product extends AppCompatActivity
 
 
                 //displayImages.add(new SlideModel(Urls.toString(), ScaleTypes.FIT));
-                Log.i("check", documentSnapshot.get("Images").toString());
+                Log.i("check", documentSnapshot.get("images").toString());
 
                 imageSlider.setImageList(displayImages,ScaleTypes.FIT);
                 imageSlider.startSliding(3000);
 
 
-                String Category = aboutModelClass.getCategory();
-                String Name = aboutModelClass.getName();
-                String Details = aboutModelClass.getDetails();
-                String Number_of_product = String.valueOf(aboutModelClass.getNumber_of_Units());
-                String Measure = aboutModelClass.getUnit_Measure();
-                String Price = String.valueOf(aboutModelClass.getPrice());
-                String Discount_price = String.valueOf(aboutModelClass.getDiscount_Price());
+                String Category = serviceModelClass.getCategory();
+                String Name = serviceModelClass.getName();
+                String Details = serviceModelClass.getDetails();
+                String Number_of_product = String.valueOf(serviceModelClass.getNumber_of_Hours());
+                String Measure = serviceModelClass.getMeasure();
+                String Price = String.valueOf(serviceModelClass.getPrice());
+                String Discount_price = String.valueOf(serviceModelClass.getDiscount_Price());
 
 
                 name.setText(Name);
@@ -101,8 +92,5 @@ public class preview_product extends AppCompatActivity
                 units.setText(Number_of_product);
             }
         });
-
     }
-
-
 }

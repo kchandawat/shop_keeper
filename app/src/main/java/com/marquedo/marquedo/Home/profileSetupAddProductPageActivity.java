@@ -1,5 +1,6 @@
 package com.marquedo.marquedo.Home;
 
+import static android.content.ContentValues.TAG;
 import static com.marquedo.marquedo.OurConstants.SHOW_TIME;
 
 
@@ -15,13 +16,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,13 +36,25 @@ import android.widget.Toast;
 import com.darsh.multipleimageselect.activities.AlbumSelectActivity;
 import com.darsh.multipleimageselect.helpers.Constants;
 import com.darsh.multipleimageselect.models.Image;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -50,40 +67,64 @@ import com.marquedo.marquedo.AddProductVariant.RemoveClickListner;
 import com.marquedo.marquedo.AddProductVariant.RemoveColourClickListner;
 import com.marquedo.marquedo.AddProductVariant.TheData;
 import com.marquedo.marquedo.AddProductVariant.VariantData;
+import com.marquedo.marquedo.ProductsNCategories.imageAdapterDownload;
 import com.marquedo.marquedo.R;
+import com.marquedo.marquedo.Snack;
 import com.marquedo.marquedo.datab.Variant;
 import com.marquedo.marquedo.databinding.Progress6ProductVariantRecyclerviewBinding;
 import com.marquedo.marquedo.ProductsNCategories.Product.AboutModelClass;
 import com.marquedo.marquedo.ProductsNCategories.Product.ProductModelClass;
-import com.marquedo.marquedo.ProductsNCategories.imageAdapter;
-
-import net.cachapa.expandablelayout.ExpandableLayout;
+import com.marquedo.marquedo.ProductsNCategories.imageAdapterUpload;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 
 public class profileSetupAddProductPageActivity extends AppCompatActivity implements RemoveClickListner, RemoveColourClickListner, GetVariants {
 
-    private String ProductName, ProductCategory;
+    //private String ProductName, ProductCategory;
+    private String productname, mode;
+
+    private int count = 0;
 
     private RecyclerView recyclerView;
-    private com.marquedo.marquedo.ProductsNCategories.imageAdapter imageAdapter;
+    private imageAdapterUpload imageAdapterUpload;
 
     private Button AddImages, AddVarient, AddProduct;
-    private EditText ProdPrice, ProdDiscount, ProdDetails, ProdMeasure, NumberofProd;
+    private EditText ProdName, ProdCategory, ProdPrice, ProdDiscount, ProdDetails, ProdMeasure, NumberofProd;
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseStorage firebaseStorage = FirebaseStorage.getInstance();
 
+    private DatabaseReference databaseReference;
+    private FirebaseDatabase firebaseDatabase =FirebaseDatabase.getInstance();
+
+
     private ArrayList<String> Images = new ArrayList<>();
     private ActivityResultLauncher<Intent> getResult;
     private List<String> imageUrlList = new ArrayList<>();
+    private Set<String> categories = new HashSet<String>();
+
+    private BottomSheetDialog productAddedSuccessBM ;
+    private BottomSheetDialog addCategoryDialog;
+
+    private ProductNameModelClass productNameModelClass;
+
+    private imageAdapterDownload imageAdapterDownload;
+
+    private Snack snack;
+
+    //private DatabaseReference databaseReference;
 
     int counter;
 
-    public profileSetupAddProductPageActivity() {
+
+    public profileSetupAddProductPageActivity()
+    {
+
     }
 
 
@@ -114,6 +155,8 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
         binding = DataBindingUtil.setContentView(this, R.layout.home_activity_profile_setup_product_page);
         MaterialButton addProductVariant = findViewById(R.id.add_new_product_variant_button);
         Button add_product_button = findViewById(R.id.add_product_button);
+
+
         myList = new ArrayList<>();
         colourList = new ArrayList<>();
         /*getVariants = new GetVariants() {
@@ -426,28 +469,97 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
 
 
 
-
-    recyclerView = findViewById(R.id.prod_images_recyclerView);
+        recyclerView = findViewById(R.id.prod_images_recyclerView);
         AddImages = findViewById(R.id.add_product_images);
         AddVarient = findViewById(R.id.add_new_product_variant_button);
         AddProduct = findViewById(R.id.add_product_button);
         ProdPrice = findViewById(R.id.prod_price);
+        ProdName = findViewById(R.id.prod_name);
+        ProdCategory = findViewById(R.id.prod_category);
         ProdDiscount = findViewById(R.id.prod_discount);
         ProdDetails = findViewById(R.id.prod_details);
         ProdMeasure = findViewById(R.id.prod_measure);
         NumberofProd = findViewById(R.id.number_of_prod);
 
+        snack = new Snack(getApplicationContext());
 
 
-        imageAdapter = new imageAdapter(Images);
+        imageAdapterUpload = new imageAdapterUpload(Images);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setAdapter(imageAdapter);
+        recyclerView.setAdapter(imageAdapterUpload);
 
 
-        Bundle intent = getIntent().getExtras();
-        ProductName = intent.get("name").toString();
-        ProductCategory = intent.get("category").toString();
+        productAddedSuccessBM = new BottomSheetDialog(this, R.style.CustomAlertDialog);
+        productAddedSuccessBM.setContentView(R.layout.home_fragment_added_success);
+
+
+        Intent nameIntent = getIntent();
+        productname = nameIntent.getStringExtra("name");
+        ProdName.setText(productname);
+        mode = nameIntent.getStringExtra("mode");
+
+
+        Intent intent = getIntent();
+        String Key = intent.getStringExtra("key");
+
+
+
+        if(mode.equals("0"))
+        {
+            //Auto complete data fills the complete form
+            databaseReference = firebaseDatabase.getReference("Products").child(Key);
+            databaseReference.keepSynced(true);
+
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot)
+                {
+                    if (snapshot.exists())
+                    {
+                        //String Number_of_product = String.valueOf(aboutModelClass.getNumber_of_Units());
+                        productNameModelClass = snapshot.getValue(ProductNameModelClass.class);
+
+                        Log.i("checknamelist", productNameModelClass.getName());
+                        ProdName.setText(productNameModelClass.getName());
+                        ProdPrice.setText(String.valueOf(productNameModelClass.getPrice()));
+                        ProdMeasure.setText(productNameModelClass.getUnit_measure());
+                        ProdDetails.setText(productNameModelClass.getDetails());
+                        ProdDiscount.setText(String.valueOf(productNameModelClass.getDiscount_price()));
+                        NumberofProd.setText(String.valueOf(productNameModelClass.getNumber_of_units()));
+
+                        List<String> Urls = productNameModelClass.getImages();
+
+                        Log.i("listofimage", Urls.toString());
+
+                        imageAdapterDownload = new imageAdapterDownload(Urls);
+                        recyclerView.setAdapter(imageAdapterDownload);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+
+//        Bundle intent = getIntent().getExtras();
+//        ProductName = intent.get("name").toString();
+//        ProductCategory = intent.get("category").toString();
+
+
+        ProdCategory.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick(View v) {
+                View view1 = getLayoutInflater().inflate(R.layout.home_fragment_new_product_category, null);
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(getApplicationContext());
+                bottomSheetDialog.setContentView(view1);
+                bottomSheetDialog.show();
+            }
+        });
 
 
         AddImages.setOnClickListener(new View.OnClickListener()
@@ -472,10 +584,11 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
                 {
                     Images.add(images.get(i).path);
                 }
-                imageAdapter.notifyDataSetChanged();
+                imageAdapterUpload.notifyDataSetChanged();
             }
 
         });
+
 
 
         AddProduct.setOnClickListener(new View.OnClickListener()
@@ -483,29 +596,46 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
             @Override
             public void onClick(View v)
             {
+                String Name = ProdName.getText().toString();
+                String Category = ProdCategory.getText().toString();
                 String Measure = ProdMeasure.getText().toString();
                 String Number_of_Units = NumberofProd.getText().toString();
                 String Price = ProdPrice.getText().toString();
                 String Discount_Price = ProdDiscount.getText().toString();
                 String Details = ProdDetails.getText().toString();
 
-                ProductModelClass productModelClass = new ProductModelClass(null, ProductName, Measure, Integer.parseInt(Discount_Price)
-                        , Integer.parseInt(Number_of_Units), Integer.parseInt(Price));
+
+                if(!(Category.equals("")) && !(Measure.equals("")) && !(Number_of_Units.equals("")) && !(Price.equals("")))
+                {
+                    ProductModelClass productModelClass = new ProductModelClass(null, Name, Measure, Integer.parseInt(Discount_Price)
+                            , Integer.parseInt(Number_of_Units), Integer.parseInt(Price));
 
 
-                AboutModelClass aboutModelClass = new AboutModelClass(ProductCategory, Details, ProductName,Measure, Integer.parseInt(Discount_Price),
-                        Integer.parseInt(Number_of_Units), Integer.parseInt(Price), null);
+                    AboutModelClass aboutModelClass = new AboutModelClass(Category, Details, Name,Measure, Integer.parseInt(Discount_Price),
+                            Integer.parseInt(Number_of_Units), Integer.parseInt(Price), null);
 
-                uploadImage(Images, productModelClass, aboutModelClass);
+                    uploadImage(Images, productModelClass, aboutModelClass);
+                }
+                else
+                {
+                    snack.snackBar(ProdPrice, "Please enter all the details");
+                }
 
 
 
             }
         });
-
-
-
     }
+
+
+
+
+
+
+
+
+
+
 
 
     //MAAZ START
@@ -615,7 +745,6 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
 
 
 
-
     private void uploadImage(ArrayList<String> images, ProductModelClass productModelClass, AboutModelClass aboutModelClass)
     {
         if (images.size() != 0)
@@ -659,7 +788,9 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
 
                                 if(counter == images.size())
                                 {
-                                    db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc").collection("products").add(productModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>()
+                                    DocumentReference storeRef =  db.collection("Store").document("uniquename.TFTVHvZaHOIxjYLnHvwc");
+
+                                    storeRef.collection("products").add(productModelClass).addOnSuccessListener(new OnSuccessListener<DocumentReference>()
                                     {
                                         @Override
                                         public void onSuccess(@NonNull DocumentReference documentReference)
@@ -669,8 +800,33 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
                                                 @Override
                                                 public void onSuccess(@NonNull Void unused)
                                                 {
+
+                                                    String name = productModelClass.getName();
+                                                    databaseReference = firebaseDatabase.getReference("Products");
+                                                    databaseReference.keepSynced(true);
+                                                    databaseReference.child(name).setValue(productModelClass);
+
+
                                                     progressDialog.dismiss();
-                                                    Toast.makeText(getApplicationContext(), "Product Added Successfully!", Toast.LENGTH_SHORT).show();
+
+
+                                                    if(count != 0)
+                                                    {
+                                                        count--;
+                                                    }
+
+
+                                                    SharedPreferences sharedPreferences = getSharedPreferences("productcount", MODE_PRIVATE);
+                                                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                                                    editor.putInt("countvalue", count);
+                                                    editor.apply();
+
+
+                                                    loadData();
+
+
+
+                                                    //Toast.makeText(getApplicationContext(), "Product Added Successfully!", Toast.LENGTH_SHORT).show();
                                                 }
                                             });
                                         }
@@ -710,6 +866,89 @@ public class profileSetupAddProductPageActivity extends AppCompatActivity implem
             }
         }
     }
+
+    private void loadData()
+    {
+        SharedPreferences sharedPreferences = getSharedPreferences("servicecount", MODE_PRIVATE);
+        TextView remainingService = productAddedSuccessBM.findViewById(R.id.remainingService);
+        Button addMore = productAddedSuccessBM.findViewById(R.id.addMore_button);
+        String text;
+        int check = sharedPreferences.getInt("countvalue", 4);
+//        remainingService.setText("Let's add "+ count+ " more products or services to complete your profile");
+        if(check == 2)
+        {
+            remainingService.setText("Let's add 2 more products or services to complete your profile");
+            productAddedSuccessBM.show();
+            addMore.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getApplicationContext(), addProductAndServicesProfilesetupActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+        else if(check == 1)
+        {
+            remainingService.setText("Let's add 1 more products or services to complete your profile");
+            productAddedSuccessBM.show();
+            addMore.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getApplicationContext(), addProductAndServicesProfilesetupActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+        else if(check == 0)
+        {
+            remainingService.setText("Hurrah! Add more products and services to your shop.");
+            productAddedSuccessBM.show();
+            addMore.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    Intent intent = new Intent(getApplicationContext(), addProductAndServicesProfilesetupActivity.class);
+                    startActivity(intent);
+                }
+            });
+        }
+
+    }
+
+
+
+
+
+
+
+//    public void setListener(){
+//        db.collection("cities")
+//                .whereEqualTo("state", "CA")
+//                .addSnapshotListener(new EventListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onEvent(@Nullable QuerySnapshot value,
+//                                        @Nullable FirebaseFirestoreException e) {
+//                        if (e != null) {
+//                            Log.w(TAG, "Listen failed.", e);
+//                            return;
+//                        }
+//
+//                        List<String> cities = new ArrayList<>();
+//                        for (QueryDocumentSnapshot doc : value) {
+//                            if (doc.get("name") != null) {
+//                                cities.add(doc.getString("name"));
+//                            }
+//                        }
+//                        Log.d(TAG, "Current cites in CA: " + cities);
+//                    }
+//                });
+//    }
+
 
 
 }

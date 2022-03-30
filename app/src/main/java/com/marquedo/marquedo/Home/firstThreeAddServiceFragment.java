@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
 
@@ -18,6 +19,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -25,6 +29,11 @@ import android.widget.TextView;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.marquedo.marquedo.CategoriesRecyclerViewAdapter;
 import com.marquedo.marquedo.CheckboxData;
 import com.marquedo.marquedo.R;
@@ -47,8 +56,12 @@ public class firstThreeAddServiceFragment extends Fragment
             return fragment;
         }
 
-        private EditText ServiceName, ServiceCategory;
+        DatabaseReference databaseReference;
+        private AutoCompleteTextView ServiceName;
         private Button Continue;
+        private String keys;
+        private Snack snack;
+
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -57,8 +70,13 @@ public class firstThreeAddServiceFragment extends Fragment
             // Inflate the layout for this fragment
             View v = inflater.inflate(R.layout.home_fragment_first_three_add_service, container, false);
             ServiceName = v.findViewById(R.id.service_name);
-            ServiceCategory = v.findViewById(R.id.service_category);
             Continue = v.findViewById(R.id.service_continue_button);
+            snack = new Snack(getContext());
+
+            databaseReference = FirebaseDatabase.getInstance().getReference("Services");
+            databaseReference.keepSynced(true);
+
+            populateSearch();
 
             Continue.setOnClickListener(new View.OnClickListener()
             {
@@ -66,15 +84,74 @@ public class firstThreeAddServiceFragment extends Fragment
                 public void onClick(View view)
                 {
                     String name = ServiceName.getText().toString();
-                    String category = ServiceCategory.getText().toString();
 
-                    Intent intent = new Intent(getContext(), profileSetupAddServicePageActivity.class);
-                    intent.putExtra("name", name);
-                    intent.putExtra("category", category);
-                    startActivity(intent);
+                    if (!(name.equals("")))
+                    {
+                        Intent intent = new Intent(getContext(), profileSetupAddServicePageActivity.class);
+                        intent.putExtra("name", name);
+                        intent.putExtra("mode", "1");
+                        startActivity(intent);
+                    }
+                    else
+                    {
+                        snack.snackBar(ServiceName, "Please enter a service name");
+                    }
                 }
             });
-            return v;
 
+
+
+
+
+            return v;
         }
-}
+
+        private void populateSearch()
+        {
+            databaseReference.addListenerForSingleValueEvent(new ValueEventListener()
+            {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot)
+                {
+                    if(snapshot.exists())
+                    {
+                        ArrayList<String> names = new ArrayList<>();
+                        for(DataSnapshot dataSnapshot : snapshot.getChildren())
+                        {
+                            String servicename = dataSnapshot.child("name").getValue(String.class);
+                            //keys = dataSnapshot.getKey().toString();
+                            //Log.i("checkKey", keys);
+                            names.add(servicename);
+                        }
+                        ArrayAdapter adapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_1,names);
+                        ServiceName.setThreshold(1);
+                        ServiceName.setAdapter(adapter);
+
+                        //String key = snapshot.child("id").toString();
+
+                        ServiceName.setOnItemClickListener(new AdapterView.OnItemClickListener()
+                        {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id)
+                            {
+                                keys = parent.getItemAtPosition(position).toString();
+                                //String selection = parent.getItemAtPosition(position).toString();
+                                //String selected = adapter.getItem(position).toString();
+                                Intent intent = new Intent(getContext(), profileSetupAddServicePageActivity.class);
+                                Log.i("checkkeyresult", keys);
+                                Log.i("checkkeyofprod", parent.getItemAtPosition(position).toString());
+                                intent.putExtra("key",keys);
+                                intent.putExtra("mode", "0");
+                                startActivity(intent);
+                            }
+                        });
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+        }
+    }

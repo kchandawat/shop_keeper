@@ -5,19 +5,21 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".DesignElements.Manage.ManageActivity">
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/black"
-        >
+        android:background="@color/black">
+
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            >
+            android:padding="10dp">
+
 
             <ImageButton
                 android:id="@+id/btnBackArrowManage"
@@ -69,6 +71,7 @@
                     >
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/manage_reviews_ratings"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginTop="10dp"
@@ -111,6 +114,7 @@
 
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/manage_promotional_designs"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginTop="5dp"
@@ -146,7 +150,9 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
+
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/manage_online_payment"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginTop="5dp"
@@ -182,8 +188,9 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
+
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/discountCoupon"
+                        android:id="@+id/manage_discount_coupon"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginTop="5dp"
@@ -219,7 +226,9 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
+
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/manage_delivery_charges"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginTop="5dp"
@@ -255,7 +264,10 @@
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
+
+
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/manage_extra_charges"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginTop="5dp"
@@ -267,6 +279,7 @@
                         app:cardElevation="3dp"
                         android:translationZ="3dp"
                         >
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
@@ -278,21 +291,21 @@
                                 android:layout_gravity="center_vertical"
                                 android:layout_marginLeft="40dp"
                                 android:layout_marginRight="20dp"
-                                android:src="@drawable/extra_charges"/>
+                                android:src="@drawable/extra_charges" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_vertical"
-                                android:text="Extra Charges"
-                                android:textSize="22dp"
                                 android:layout_weight="2"
-                                />
+                                android:text="Extra Charges"
+                                android:textSize="22dp" />
 
                         </LinearLayout>
 
                     </androidx.cardview.widget.CardView>
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/manageMyCustomers"
+                        android:id="@+id/manage_my_customers"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
                         android:layout_marginTop="5dp"

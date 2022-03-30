@@ -5,6 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".Home.firstThreeAddServiceFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,21 +41,30 @@
             android:id="@+id/service_name_til"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp">
+            android:layout_height="65dp"
+            android:layout_marginVertical="32dp">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <AutoCompleteTextView
+                android:id="@+id/service_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="@string/service_name"
+                android:imeOptions="actionNext"
+                android:inputType="textAutoComplete"
+                android:paddingLeft="15dp"/>
+
+          <!--  <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/service_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/service_name"
                 android:imeOptions="actionNext"
-                android:inputType="text" />
+                android:inputType="text" /> -->
 
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
+      <!--  <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/service_category_til"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
@@ -59,8 +72,7 @@
             android:clickable="true"
             android:focusable="true"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="32dp"
-            >
+            android:layout_marginBottom="32dp">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/service_category"
@@ -71,7 +83,13 @@
                 android:hint="@string/select_service_category"
                 android:inputType="none" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+        </com.google.android.material.textfield.TextInputLayout> -->
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_data"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
 
 
         <com.google.android.material.button.MaterialButton
@@ -90,6 +108,7 @@
 
 
     </LinearLayout>
+    </ScrollView>
 
 
 </FrameLayout>

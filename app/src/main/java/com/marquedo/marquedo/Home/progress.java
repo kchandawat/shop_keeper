@@ -25,7 +25,6 @@ public class progress extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         binding = HomeProgressBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
