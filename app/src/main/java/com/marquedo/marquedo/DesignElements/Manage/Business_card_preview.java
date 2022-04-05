@@ -8,6 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,7 +21,7 @@ public class Business_card_preview extends AppCompatActivity {
     private TextView shopName;
     private TextView shopWebsite;
     private TextView shopPhone;
-
+    private ImageButton back;
     private Button backtotemplates;
     private LinearLayout bizCard;
 
@@ -31,6 +32,14 @@ public class Business_card_preview extends AppCompatActivity {
         String shopname = "Super Shopping Centre";
         String shopwebsite = "marquedo.io/supershoppingcentre";
         String shopphone = "+91 1234567890";
+
+        back = findViewById(R.id.imageButton);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         Intent templates = new Intent(this, Business_card_templates.class);
         backtotemplates = (Button) findViewById(R.id.backToTemplates);

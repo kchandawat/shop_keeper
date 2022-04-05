@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    app:cardCornerRadius="7dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="15dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+
+            android:elevation="3dp"
+            app:strokeColor="@color/black"
+            app:strokeWidth="0.75dp"
+            app:cardCornerRadius="50dp"
+            android:translationZ="0dp">
+            <TextView
+                android:id="@+id/displayName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="PB"
+                android:textSize="20dp"
+                android:gravity="center"
+                />
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="21dp"
+
+            android:layout_marginLeft="20dp"
+            >
+
+            <TextView
+                android:id="@+id/phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="+91 984257892111"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:layout_weight="2"
+                android:gravity="center|left"/>
+            <CheckBox
+                android:id="@+id/contactChecked"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/black"
+                android:buttonTint="@color/black"
+                android:checked="false" />
+
+
+
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
+<!--
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    >
+
+    <TextView
+        android:id="@+id/displayName"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/phoneNumber"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:gravity="right"
+        android:padding="5dp"
+        android:textColor="@color/black"/>
+
+    <CheckBox
+        android:id="@+id/contactChecked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/black"
+        android:buttonTint="@color/black"
+        android:checked="true" />
+
+
+</LinearLayout>-->
+
+
+

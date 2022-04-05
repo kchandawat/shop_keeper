@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import java.io.ByteArrayOutputStream;
 public class Business_card_templates extends AppCompatActivity {
 
     private Button preview;
+    private ImageButton back;
     private LinearLayout card1;
     private LinearLayout card2;
     private LinearLayout card3;
@@ -28,6 +30,13 @@ public class Business_card_templates extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.designelements_manage_promotionaldesign_business_card_templates);
+        back = findViewById(R.id.imageButton);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         card1 = (LinearLayout) findViewById(R.id.biz_card1);
         card2 = (LinearLayout) findViewById(R.id.biz_card2);

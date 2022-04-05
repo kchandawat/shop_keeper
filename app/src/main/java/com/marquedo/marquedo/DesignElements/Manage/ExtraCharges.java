@@ -5,6 +5,7 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +26,7 @@ public class ExtraCharges extends AppCompatActivity {
     private SwitchCompat gst;
     private EditText delcharges;
     private EditText freedelcharges;
+    private ImageButton back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,14 @@ public class ExtraCharges extends AppCompatActivity {
         freedelcharges.setInputType(InputType.TYPE_CLASS_NUMBER);
         gstnum.setInputType(InputType.TYPE_CLASS_NUMBER);
         gstpercentage.setInputType(InputType.TYPE_CLASS_NUMBER);
+
+        back = findViewById(R.id.imageButton);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         deliveryCheckbox.setOnClickListener(new View.OnClickListener() {
             @Override
